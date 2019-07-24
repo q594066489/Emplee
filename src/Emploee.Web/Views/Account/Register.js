@@ -29,7 +29,7 @@
         });
 
         var $element = $('#RegisterPassword');
-        _passwordComplexityHelper.setPasswordComplexityRules($element, window.passwordComplexitySetting);
+        //_passwordComplexityHelper.setPasswordComplexityRules($element, window.passwordComplexitySetting);
     }
 
     return {

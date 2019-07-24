@@ -215,6 +215,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFramework\EmploeeDbContext.cs" />
+    <Compile Include="EntityFramework\EntityMapper\Companies\CompanyCfg.cs" />
+    <Compile Include="EntityFramework\EntityMapper\JobPersons\JobPersonCfg.cs" />
+    <Compile Include="EntityFramework\EntityMapper\JobPosts\JobPostCfg.cs" />
+    <Compile Include="EntityFramework\EntityMapper\JobUrgents\JobUrgentCfg.cs" />
+    <Compile Include="EntityFramework\EntityMapper\PersonInfos\PersonInfoCfg.cs" />
     <Compile Include="EntityFramework\Repositories\AbpZeroTemplateRepositoryBase.cs" />
     <Compile Include="EntityFramework\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\201501041229232_InitialCreate.cs" />
@@ -477,6 +482,26 @@
     <Compile Include="Migrations\201803200742444_Modified_User.Designer.cs">
       <DependentUpon>201803200742444_Modified_User.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907240909409_add-company.cs" />
+    <Compile Include="Migrations\201907240909409_add-company.Designer.cs">
+      <DependentUpon>201907240909409_add-company.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907241305498_add-JobPost.cs" />
+    <Compile Include="Migrations\201907241305498_add-JobPost.Designer.cs">
+      <DependentUpon>201907241305498_add-JobPost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907241339384_add-joburgent.cs" />
+    <Compile Include="Migrations\201907241339384_add-joburgent.Designer.cs">
+      <DependentUpon>201907241339384_add-joburgent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907241423378_add-personinfo.cs" />
+    <Compile Include="Migrations\201907241423378_add-personinfo.Designer.cs">
+      <DependentUpon>201907241423378_add-personinfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907241443548_add-jobperson.cs" />
+    <Compile Include="Migrations\201907241443548_add-jobperson.Designer.cs">
+      <DependentUpon>201907241443548_add-jobperson.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="EmploeeDataModule.cs" />
     <Compile Include="Migrations\Seed\Host\DefaultEditionCreator.cs" />
@@ -687,6 +712,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803200742444_Modified_User.resx">
       <DependentUpon>201803200742444_Modified_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907240909409_add-company.resx">
+      <DependentUpon>201907240909409_add-company.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907241305498_add-JobPost.resx">
+      <DependentUpon>201907241305498_add-JobPost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907241339384_add-joburgent.resx">
+      <DependentUpon>201907241339384_add-joburgent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907241423378_add-personinfo.resx">
+      <DependentUpon>201907241423378_add-personinfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907241443548_add-jobperson.resx">
+      <DependentUpon>201907241443548_add-jobperson.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

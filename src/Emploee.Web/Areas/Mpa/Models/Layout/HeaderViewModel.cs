@@ -18,7 +18,7 @@ namespace Emploee.Web.Areas.Mpa.Models.Layout
 
         public string GetShownLoginName()
         {
-            var userName = "<span id=\"HeaderCurrentUserName\">" + LoginInformations.User.UserName + "</span>";
+            var userName = "<span id=\"HeaderCurrentUserName\">" + LoginInformations.User.Name + "</span>";
 
             if (!IsMultiTenancyEnabled)
             {
@@ -26,7 +26,7 @@ namespace Emploee.Web.Areas.Mpa.Models.Layout
             }
 
             return LoginInformations.Tenant == null
-                ? ".\\" + userName
+                ? userName
                 : LoginInformations.Tenant.TenancyName + "\\" + userName;
         }
 

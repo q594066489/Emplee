@@ -182,7 +182,7 @@ namespace Emploee.Web.Controllers
                 Debug.Assert(signInResult == SignInStatus.Success);
 
                 await UnitOfWorkManager.Current.SaveChangesAsync();
-                returnUrl = "/";
+                //returnUrl = "/";
                 return Json(new AjaxResponse { TargetUrl = returnUrl });
             }
         }

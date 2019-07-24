@@ -4,6 +4,16 @@ using Abp.Zero.EntityFramework;
 using Emploee.Authorization.Roles;
 using Emploee.Authorization.Users;
 using Emploee.Chat;
+using Emploee.Emploee.JobPersons;
+using Emploee.Emploee.JobPersons.EntityMapper.JobPersons;
+using Emploee.Emploee.JobPosts;
+using Emploee.Emploee.JobPosts.EntityMapper.JobPosts;
+using Emploee.Emploee.JobUrgents;
+using Emploee.Emploee.JobUrgents.EntityMapper.JobUrgents;
+using Emploee.Emploee.PersonInfos;
+using Emploee.Emploee.PersonInfos.EntityMapper.PersonInfos;
+using Emploee.Emploees.Companies;
+using Emploee.Emploees.Companies.EntityMapper.Companies;
 using Emploee.Friendships;
 using Emploee.MultiTenancy;
 using Emploee.Storage;
@@ -27,8 +37,14 @@ namespace Emploee.EntityFramework
         public virtual IDbSet<Friendship> Friendships { get; set; }
 
         public virtual IDbSet<ChatMessage> ChatMessages { get; set; }
+        
+        public IDbSet<Company> Companys { get; set; }
+        public IDbSet<JobPost> JobPosts { get; set; }
+        public IDbSet<JobUrgent> JobUrgents { get; set; }
+        public IDbSet<PersonInfo> PersonInfos { get; set; }
+        public IDbSet<JobPerson> JobPersons { get; set; }
+        
 
-         
         public EmploeeDbContext()
             : base("Default")
         {
@@ -51,6 +67,18 @@ namespace Emploee.EntityFramework
             : base(existingConnection, contextOwnsConnection)
         {
 
+        }
+        //代码生成器生成
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<User>().Ignore(a => a.Surname);
+            modelBuilder.Entity<User>().Property(a => a.EmailAddress).IsOptional();
+            modelBuilder.Configurations.Add(new CompanyCfg());
+            modelBuilder.Configurations.Add(new JobPostCfg());
+            modelBuilder.Configurations.Add(new JobUrgentCfg());
+            modelBuilder.Configurations.Add(new PersonInfoCfg());
+            modelBuilder.Configurations.Add(new JobPersonCfg());
         }
     }
 }

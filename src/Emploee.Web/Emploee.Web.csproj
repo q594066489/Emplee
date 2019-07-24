@@ -3056,6 +3056,14 @@
     <Content Include="Scripts\i18n\angular-locale_zh.js" />
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
+    <Content Include="Areas\Mpa\Views\CompanyManage\Index.js" />
+    <Content Include="Areas\Mpa\Views\CompanyManage\_CreateOrEditCompanyModal.js" />
+    <Content Include="Areas\Mpa\Views\JobPostManage\Index.js" />
+    <Content Include="Areas\Mpa\Views\JobPostManage\_CreateOrEditJobPostModal.js" />
+    <Content Include="Areas\Mpa\Views\JobUrgentManage\Index.js" />
+    <Content Include="Areas\Mpa\Views\JobUrgentManage\_CreateOrEditJobUrgentModal.js" />
+    <Content Include="Areas\Mpa\Views\PersonInfoManage\Index.js" />
+    <Content Include="Areas\Mpa\Views\PersonInfoManage\_CreateOrEditPersonInfoModal.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -3123,6 +3131,14 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Mpa\Views\CompanyManage\Index.cshtml" />
+    <Content Include="Areas\Mpa\Views\CompanyManage\_CreateOrEditCompanyModal.cshtml" />
+    <Content Include="Areas\Mpa\Views\JobPostManage\Index.cshtml" />
+    <Content Include="Areas\Mpa\Views\JobPostManage\_CreateOrEditJobPostModal.cshtml" />
+    <Content Include="Areas\Mpa\Views\JobUrgentManage\Index.cshtml" />
+    <Content Include="Areas\Mpa\Views\JobUrgentManage\_CreateOrEditJobUrgentModal.cshtml" />
+    <Content Include="Areas\Mpa\Views\PersonInfoManage\Index.cshtml" />
+    <Content Include="Areas\Mpa\Views\PersonInfoManage\_CreateOrEditPersonInfoModal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Layout\TenantCustomCssViewModel.cs" />
@@ -3236,6 +3252,14 @@
     <Compile Include="Session\PerRequestSessionCache.cs" />
     <Compile Include="Views\AbpZeroTemplateWebViewPageBase.cs" />
     <Compile Include="Views\UrlChecker.cs" />
+    <Compile Include="Areas\Mpa\Controllers\CompanyManageController.cs" />
+    <Compile Include="Areas\Mpa\Models\CompanyManage\CreateOrEditCompanyModalViewModel.cs" />
+    <Compile Include="Areas\Mpa\Controllers\JobPostManageController.cs" />
+    <Compile Include="Areas\Mpa\Models\JobPostManage\CreateOrEditJobPostModalViewModel.cs" />
+    <Compile Include="Areas\Mpa\Controllers\JobUrgentManageController.cs" />
+    <Compile Include="Areas\Mpa\Models\JobUrgentManage\CreateOrEditJobUrgentModalViewModel.cs" />
+    <Compile Include="Areas\Mpa\Controllers\PersonInfoManageController.cs" />
+    <Compile Include="Areas\Mpa\Models\PersonInfoManage\CreateOrEditPersonInfoModalViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

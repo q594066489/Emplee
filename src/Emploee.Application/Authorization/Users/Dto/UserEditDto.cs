@@ -17,7 +17,7 @@ namespace Emploee.Authorization.Users.Dto
         [StringLength(User.MaxNameLength)]
         public string Name { get; set; }
 
-        [Required]
+        //[Required]
         [StringLength(User.MaxSurnameLength)]
         public string Surname { get; set; }
 
@@ -29,7 +29,7 @@ namespace Emploee.Authorization.Users.Dto
         [EmailAddress]
         [StringLength(AbpUserBase.MaxEmailAddressLength)]
         public string EmailAddress { get; set; }
-
+         
         [StringLength(User.MaxPhoneNumberLength)]
         public string PhoneNumber { get; set; }
 

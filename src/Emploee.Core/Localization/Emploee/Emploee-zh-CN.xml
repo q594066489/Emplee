@@ -280,5 +280,109 @@
     <text name="LookingForMpaVersion" value="查找多页面应用版本号" />
     <text name="LookingForSpaVersion" value="查找单页面应用版本号" />
     <text name="ThisLanguageAlreadyExists" value="这种语言已经存在!" />
+
+    /*
+    <!-- 企业信息管理 -->
+    <text name="Company" value="企业信息" />
+    <text name="CompanyHeaderInfo" value="企业信息管理列表" />
+    <text name="CreateCompany" value="新增企业信息" />
+    <text name="EditCompany" value="编辑企业信息" />
+    <text name="DeleteCompany" value="删除企业信息" />
+
+
+
+
+    <text name="CompanyDeleteWarningMessage" value="企业信息名称: {0} 将被删除,是否确定删除它。" />
+    <!--//用于表格展示的数据信息的标题-->
+    <text name="CompanyName" value="企业名称" />
+    <text name="CompanyEmail" value="邮箱" />
+    <text name="CompanyPhone" value="联系电话" />
+    <text name="CompanyAddress" value="公司地址" />
+    <text name="CompanyScale" value="公司规模" />
+    <text name="CompanyIntroduce" value="公司介绍" />
+    <text name="Classify" value="行业类型" />
+    <text name="Finanicing" value="融资阶段" />
+    <text name="BussinessLicense" value="营业执照" />
+    <text name="RegisterDate" value="注册时间" />
+    <text name="isDelete" value="是否有效" />
+    
+    
+    */
+    /*
+    <!-- 职位发布管理 -->
+    <text name="JobPost" value="职位发布" />
+    <text name="JobPostHeaderInfo" value="职位发布管理列表" />
+    <text name="CreateJobPost" value="新增职位发布" />
+    <text name="EditJobPost" value="编辑职位发布" />
+    <text name="DeleteJobPost" value="删除职位发布" />
+
+
+
+
+    <text name="JobPostDeleteWarningMessage" value="职位发布名称: {0} 将被删除,是否确定删除它。" />
+    <!--//用于表格展示的数据信息的标题-->
+    
+    <text name="JobName" value="职位名称" />
+    <text name="SalaryMin" value="薪资min" />
+    <text name="SalaryMax" value="薪资max" />
+    <text name="Education" value="学历" />
+    <text name="Experience" value="工作经验" />
+    <text name="JobAddress" value="工作地点" />
+    <text name="SkillRequire" value="技能要求" />
+    <text name="JobDetail" value="职位详情" />
+    <text name="JobSelect" value="行业选择" />
+    <text name="JobType" value="职位类型" />
+    <text name="PublishDate" value="发布时间" />
+
+    */
+
+    /*
+    <!-- 职位加急管理 -->
+    <text name="JobUrgent" value="职位加急" />
+    <text name="JobUrgentHeaderInfo" value="职位加急管理列表" />
+    <text name="CreateJobUrgent" value="新增职位加急" />
+    <text name="EditJobUrgent" value="编辑职位加急" />
+    <text name="DeleteJobUrgent" value="删除职位加急" />
+
+
+
+
+    <text name="JobUrgentDeleteWarningMessage" value="职位加急名称: {0} 将被删除,是否确定删除它。" />
+    <!--//用于表格展示的数据信息的标题-->
+    <text name="JobId" value="职位编号" />
+    <text name="Weight" value="权重" />
+    <text name="UrgentType" value="加急类型" />
+    <text name="UrgentDate" value="起始时间" />
+    <text name="UrgentLength" value="持续时长" />
+
+    */
+    /*
+    <!-- 个人中心管理 -->
+    <text name="PersonInfo" value="个人中心" />
+    <text name="PersonInfoHeaderInfo" value="个人中心管理列表" />
+    <text name="CreatePersonInfo" value="新增个人中心" />
+    <text name="EditPersonInfo" value="编辑个人中心" />
+    <text name="DeletePersonInfo" value="删除个人中心" />
+
+
+
+
+    <text name="PersonInfoDeleteWarningMessage" value="个人中心名称: {0} 将被删除,是否确定删除它。" />
+    <!--//用于表格展示的数据信息的标题-->
+     
+    <text name="Age" value="年龄" />
+    <text name="Sex" value="性别" />
+     
+    <text name="Phone" value="联系电话" />
+    <text name="Email" value="邮箱" />
+    <text name="ExpectPosition" value="期望职位" />
+    <text name="ExpectTrade" value="期望行业" />
+    <text name="Resume" value="简历" />
+    <text name="isOnJob" value="是否找到工作" />
+    <text name="State" value="状态" />
+    <text name="JobYear" value="工作年限" />
+     
+
+    */
   </texts>
 </localizationDictionary>

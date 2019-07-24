@@ -3,7 +3,11 @@ using Abp.AutoMapper;
 using Abp.Modules;
 using Emploee.Authorization;
 using Emploee;
-using Emploee.Authorization;
+ 
+using Emploee.Emploees.Companies.Authorization;
+using Emploee.Emploee.JobPosts.Authorization;
+using Emploee.Emploee.JobUrgents.Authorization;
+using Emploee.Emploee.PersonInfos.Authorization;
 
 namespace Emploee
 {
@@ -17,7 +21,10 @@ namespace Emploee
         {
             //Adding authorization providers
             Configuration.Authorization.Providers.Add<AppAuthorizationProvider>();
-
+            Configuration.Authorization.Providers.Add<CompanyAppAuthorizationProvider>();
+            Configuration.Authorization.Providers.Add<JobPostAppAuthorizationProvider>();
+            Configuration.Authorization.Providers.Add<JobUrgentAppAuthorizationProvider>();
+            Configuration.Authorization.Providers.Add<PersonInfoAppAuthorizationProvider>();
             //Adding custom AutoMapper mappings
             Configuration.Modules.AbpAutoMapper().Configurators.Add(mapper =>
             {

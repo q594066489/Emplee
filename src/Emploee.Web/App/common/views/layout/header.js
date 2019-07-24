@@ -19,12 +19,12 @@
 
             vm.getShownUserName = function () {
                 if (!abp.multiTenancy.isEnabled) {
-                    return appSession.user.userName;
+                    return appSession.user.name;
                 } else {
                     if (appSession.tenant) {
-                        return appSession.tenant.tenancyName + '\\' + appSession.user.userName;
+                        return appSession.tenant.tenancyName + '\\' + appSession.user.name;
                     } else {
-                        return '.\\' + appSession.user.userName;
+                        return appSession.user.name;
                     }
                 }
             };
