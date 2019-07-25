@@ -343,6 +343,14 @@
     <Compile Include="Emploee\Companies\Exporting\ICompanyListExcelExporter.cs" />
     <Compile Include="Emploee\Companies\ICompanyAppService.cs" />
     <Compile Include="Emploee\Companies\Mappers\CompanyDtoMapper.cs" />
+    <Compile Include="Emploee\Dictionaries\DictionaryAppService.cs" />
+    <Compile Include="Emploee\Dictionaries\Dtos\CreateOrUpdateDictionaryInput.cs" />
+    <Compile Include="Emploee\Dictionaries\Dtos\DictionaryEditDto.cs" />
+    <Compile Include="Emploee\Dictionaries\Dtos\DictionaryListDto.cs" />
+    <Compile Include="Emploee\Dictionaries\Dtos\GetDictionaryForEditOutput.cs" />
+    <Compile Include="Emploee\Dictionaries\Dtos\GetDictionaryInput.cs" />
+    <Compile Include="Emploee\Dictionaries\IDictionaryAppService.cs" />
+    <Compile Include="Emploee\Dictionaries\Mappers\DictionaryDtoMapper.cs" />
     <Compile Include="Emploee\JobPersons\Dtos\CreateOrUpdateJobPersonInput.cs" />
     <Compile Include="Emploee\JobPersons\Dtos\GetJobPersonForEditOutput.cs" />
     <Compile Include="Emploee\JobPersons\Dtos\GetJobPersonInput.cs" />

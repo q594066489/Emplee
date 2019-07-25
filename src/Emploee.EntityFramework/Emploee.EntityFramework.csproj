@@ -218,6 +218,7 @@
     <Compile Include="EntityFramework\EntityMapper\Advertisements\AdvertisementCfg.cs" />
     <Compile Include="EntityFramework\EntityMapper\Approvals\ApprovalCfg.cs" />
     <Compile Include="EntityFramework\EntityMapper\Companies\CompanyCfg.cs" />
+    <Compile Include="EntityFramework\EntityMapper\Dictionaries\DictionaryCfg.cs" />
     <Compile Include="EntityFramework\EntityMapper\JobPersons\JobPersonCfg.cs" />
     <Compile Include="EntityFramework\EntityMapper\JobPosts\JobPostCfg.cs" />
     <Compile Include="EntityFramework\EntityMapper\JobUrgents\JobUrgentCfg.cs" />

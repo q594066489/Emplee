@@ -401,9 +401,9 @@
     <text name="CompanyID" value="企业编号" />
      
     <text name="IsPay" value="是否交款" />
-    <text name="PayAmount" value="交款金额" />
-    <text name="PayTime" value="交款时间" />
-    <text name="CoopTime" value="缴费时长" />
+   
+    
+  
 
     */
 
@@ -427,7 +427,7 @@
     <text name="PayTime" value="缴费时间" />
     <text name="CoopTime" value="缴费时长" />
     <text name="IsShow" value="是否显示" />
-    <text name="CreationTime" value="创建时间" />
+ 
 
     */
   </texts>

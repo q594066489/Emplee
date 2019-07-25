@@ -262,6 +262,11 @@
     <Compile Include="Emploee\Companies\Company.cs" />
     <Compile Include="Emploee\Companies\CompanyManage.cs" />
     <Compile Include="Emploee\Companies\____CompanyReadme.cs" />
+    <Compile Include="Emploee\Dictionaries\Authorization\DictionaryAppAuthorizationProvider.cs" />
+    <Compile Include="Emploee\Dictionaries\Authorization\DictionaryAppPermissions.cs" />
+    <Compile Include="Emploee\Dictionaries\Dictionary.cs" />
+    <Compile Include="Emploee\Dictionaries\DictionaryManage.cs" />
+    <Compile Include="Emploee\Dictionaries\____DictionaryReadme.cs" />
     <Compile Include="Emploee\JobPersons\JobPerson.cs" />
     <Compile Include="Emploee\JobPersons\JobPersonManage.cs" />
     <Compile Include="Emploee\JobPersons\____JobPersonReadme.cs" />

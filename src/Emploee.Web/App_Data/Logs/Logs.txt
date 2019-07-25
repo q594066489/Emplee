@@ -4188,3 +4188,62 @@ DEBUG 2019-07-17 15:02:46,101 [1    ] Abp.Logging.LogHelper                    -
 DEBUG 2019-07-17 15:02:46,102 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Authorization.Permissions.IPermissionAppService' with service name 'app/permission'.
 DEBUG 2019-07-17 15:02:46,103 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Auditing.IAuditLogAppService' with service name 'app/auditLog'.
 WARN  2019-07-17 15:02:58,217 [10   ] naries.DictionaryBasedLocalizationSource - Can not find 'NewTenant' in localization source 'Emploee'!
+DEBUG 2019-07-25 13:24:32,027 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-07-25 13:24:32,156 [1    ] Abp.Modules.AbpModuleManager             - Found 21 ABP modules in total.
+DEBUG 2019-07-25 13:24:32,167 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Emploee.Web.EmploeeWebModule, Emploee.Web, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:24:32,171 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:24:32,171 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:24:32,171 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:24:32,171 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:24:32,171 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpZeroOwinModule, Abp.Zero.Owin, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:24:32,172 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:24:32,172 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:24:32,173 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Emploee.EmploeeDataModule, Emploee.EntityFramework, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:24:32,173 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:24:32,173 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:24:32,174 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:24:32,174 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Emploee.EmploeeCoreModule, Emploee.Core, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:24:32,174 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.Ldap.AbpZeroLdapModule, Abp.Zero.Ldap, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:24:32,174 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:24:32,175 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Emploee.EmploeeApplicationModule, .Application, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:24:32,175 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Emploee.WebApi.EmploeeWebApiModule, Emploee.WebApi, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:24:32,175 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:24:32,175 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:24:32,175 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Runtime.Caching.Redis.AbpRedisCacheModule, Abp.RedisCache, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:24:32,176 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Hangfire.AbpHangfireModule, Abp.HangFire, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:24:32,180 [1    ] Abp.Modules.AbpModuleManager             - 21 modules loaded.
+DEBUG 2019-07-25 13:24:32,602 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-07-25 13:24:32,603 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-07-25 13:24:32,603 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-07-25 13:24:32,603 [1    ] o.Configuration.LanguageManagementConfig - Converted Emploee (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-07-25 13:24:33,216 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: Emploee.EntityFramework.EmploeeDbContext, Emploee.EntityFramework, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:24:38,380 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-07-25 13:24:38,537 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-07-25 13:24:38,582 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-07-25 13:24:38,666 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+FATAL 2019-07-25 13:24:38,746 [1    ] Abp.AbpBootstrapper                      - Abp.AbpException: A dictionary can not contain same key twice. There are some duplicated names: PayAmount, PayTime, CoopTime, CreationTime
+   在 Abp.Localization.Dictionaries.Xml.XmlLocalizationDictionary.BuildFomXmlString(String xmlString)
+   在 Abp.Localization.Dictionaries.Xml.XmlEmbeddedFileLocalizationDictionaryProvider.CreateXmlLocalizationDictionary(String xmlString)
+   在 Abp.Localization.Dictionaries.Xml.XmlEmbeddedFileLocalizationDictionaryProvider.Initialize(String sourceName)
+   在 Abp.Localization.MultiTenantLocalizationDictionaryProvider.Initialize(String sourceName)
+   在 Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource.Initialize(ILocalizationConfiguration configuration, IIocResolver iocResolver)
+   在 Abp.Localization.MultiTenantLocalizationSource.Initialize(ILocalizationConfiguration configuration, IIocResolver iocResolver)
+   在 Abp.Localization.LocalizationManager.InitializeSources()
+   在 Abp.AbpKernelModule.PostInitialize()
+   在 Abp.Modules.AbpModuleManager.<>c.<StartModules>b__15_2(AbpModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Abp.Modules.AbpModuleManager.StartModules()
+   在 Abp.AbpBootstrapper.Initialize()
+Abp.AbpException: A dictionary can not contain same key twice. There are some duplicated names: PayAmount, PayTime, CoopTime, CreationTime
+   在 Abp.Localization.Dictionaries.Xml.XmlLocalizationDictionary.BuildFomXmlString(String xmlString)
+   在 Abp.Localization.Dictionaries.Xml.XmlEmbeddedFileLocalizationDictionaryProvider.CreateXmlLocalizationDictionary(String xmlString)
+   在 Abp.Localization.Dictionaries.Xml.XmlEmbeddedFileLocalizationDictionaryProvider.Initialize(String sourceName)
+   在 Abp.Localization.MultiTenantLocalizationDictionaryProvider.Initialize(String sourceName)
+   在 Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource.Initialize(ILocalizationConfiguration configuration, IIocResolver iocResolver)
+   在 Abp.Localization.MultiTenantLocalizationSource.Initialize(ILocalizationConfiguration configuration, IIocResolver iocResolver)
+   在 Abp.Localization.LocalizationManager.InitializeSources()
+   在 Abp.AbpKernelModule.PostInitialize()
+   在 Abp.Modules.AbpModuleManager.<>c.<StartModules>b__15_2(AbpModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Abp.Modules.AbpModuleManager.StartModules()
+   在 Abp.AbpBootstrapper.Initialize()
