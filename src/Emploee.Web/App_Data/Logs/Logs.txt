@@ -4247,3 +4247,127 @@ Abp.AbpException: A dictionary can not contain same key twice. There are some du
    在 System.Collections.Generic.List`1.ForEach(Action`1 action)
    在 Abp.Modules.AbpModuleManager.StartModules()
    在 Abp.AbpBootstrapper.Initialize()
+DEBUG 2019-07-25 13:41:50,238 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-07-25 13:41:50,258 [1    ] Abp.Modules.AbpModuleManager             - Found 21 ABP modules in total.
+DEBUG 2019-07-25 13:41:50,265 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Emploee.Web.EmploeeWebModule, Emploee.Web, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:41:50,270 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:41:50,271 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:41:50,271 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:41:50,271 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:41:50,271 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpZeroOwinModule, Abp.Zero.Owin, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:41:50,271 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:41:50,271 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:41:50,271 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Emploee.EmploeeDataModule, Emploee.EntityFramework, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:41:50,272 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:41:50,272 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:41:50,272 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:41:50,272 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Emploee.EmploeeCoreModule, Emploee.Core, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:41:50,272 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.Ldap.AbpZeroLdapModule, Abp.Zero.Ldap, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:41:50,272 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:41:50,273 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Emploee.EmploeeApplicationModule, .Application, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:41:50,273 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Emploee.WebApi.EmploeeWebApiModule, Emploee.WebApi, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:41:50,273 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:41:50,273 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:41:50,273 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Runtime.Caching.Redis.AbpRedisCacheModule, Abp.RedisCache, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:41:50,273 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Hangfire.AbpHangfireModule, Abp.HangFire, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:41:50,277 [1    ] Abp.Modules.AbpModuleManager             - 21 modules loaded.
+DEBUG 2019-07-25 13:41:50,719 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-07-25 13:41:50,719 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-07-25 13:41:50,719 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-07-25 13:41:50,719 [1    ] o.Configuration.LanguageManagementConfig - Converted Emploee (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-07-25 13:41:51,440 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: Emploee.EntityFramework.EmploeeDbContext, Emploee.EntityFramework, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-07-25 13:41:57,082 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-07-25 13:41:57,303 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-07-25 13:41:57,359 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-07-25 13:41:57,474 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-07-25 13:41:57,526 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Emploee
+DEBUG 2019-07-25 13:41:57,756 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-07-25 13:42:00,917 [1    ] Abp.Owin.OwinUserTokenProviderAccessor   - DataProtectionProvider has not been set yet.
+DEBUG 2019-07-25 13:42:01,269 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 55 classes define auto mapping attributes
+DEBUG 2019-07-25 13:42:01,269 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Friendships.Cache.FriendCacheItem
+DEBUG 2019-07-25 13:42:01,282 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-07-25 13:42:01,282 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-07-25 13:42:01,282 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Organizations.Dto.OrganizationUnitDto
+DEBUG 2019-07-25 13:42:01,282 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Organizations.Dto.OrganizationUnitUserListDto
+DEBUG 2019-07-25 13:42:01,282 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Notifications.Dto.NotificationSubscriptionWithDisplayNameDto
+DEBUG 2019-07-25 13:42:01,282 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.MultiTenancy.Dto.TenantListDto
+DEBUG 2019-07-25 13:42:01,282 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.MultiTenancy.Dto.TenantEditDto
+DEBUG 2019-07-25 13:42:01,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Localization.Dto.ApplicationLanguageEditDto
+DEBUG 2019-07-25 13:42:01,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Localization.Dto.ApplicationLanguageListDto
+DEBUG 2019-07-25 13:42:01,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Friendships.Dto.FriendDto
+DEBUG 2019-07-25 13:42:01,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Emploees.Companies.Dtos.CompanyEditDto
+DEBUG 2019-07-25 13:42:01,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Emploees.Companies.Dtos.CompanyListDto
+DEBUG 2019-07-25 13:42:01,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Approvals.Dtos.ApprovalEditDto
+DEBUG 2019-07-25 13:42:01,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Approvals.Dtos.ApprovalListDto
+DEBUG 2019-07-25 13:42:01,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Emploee.PersonInfos.Dtos.PersonInfoEditDto
+DEBUG 2019-07-25 13:42:01,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Emploee.PersonInfos.Dtos.PersonInfoListDto
+DEBUG 2019-07-25 13:42:01,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Emploee.JobUrgents.Dtos.JobUrgentEditDto
+DEBUG 2019-07-25 13:42:01,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Emploee.JobUrgents.Dtos.JobUrgentListDto
+DEBUG 2019-07-25 13:42:01,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Emploee.JobPosts.Dtos.JobPostEditDto
+DEBUG 2019-07-25 13:42:01,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Emploee.JobPosts.Dtos.JobPostListDto
+DEBUG 2019-07-25 13:42:01,283 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Emploee.JobPersons.Dtos.JobPersonEditDto
+DEBUG 2019-07-25 13:42:01,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Emploee.JobPersons.Dtos.JobPersonListDto
+DEBUG 2019-07-25 13:42:01,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Emploee.Dictionaries.Dtos.DictionaryEditDto
+DEBUG 2019-07-25 13:42:01,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Emploee.Dictionaries.Dtos.DictionaryListDto
+DEBUG 2019-07-25 13:42:01,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Emploee.Advertisements.Dtos.AdvertisementEditDto
+DEBUG 2019-07-25 13:42:01,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Emploee.Advertisements.Dtos.AdvertisementListDto
+DEBUG 2019-07-25 13:42:01,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Editions.Dto.EditionEditDto
+DEBUG 2019-07-25 13:42:01,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Editions.Dto.FlatFeatureDto
+DEBUG 2019-07-25 13:42:01,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Editions.Dto.EditionListDto
+DEBUG 2019-07-25 13:42:01,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Chat.Dto.ChatMessageDto
+DEBUG 2019-07-25 13:42:01,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Chat.Dto.ChatUserDto
+DEBUG 2019-07-25 13:42:01,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Chat.Dto.ChatUserWithMessagesDto
+DEBUG 2019-07-25 13:42:01,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Authorization.Users.Profile.Dto.CurrentUserProfileEditDto
+DEBUG 2019-07-25 13:42:01,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Authorization.Users.Dto.UserLoginAttemptDto
+DEBUG 2019-07-25 13:42:01,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Authorization.Users.Dto.UserListDto
+DEBUG 2019-07-25 13:42:01,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Authorization.Roles.Dto.RoleListDto
+DEBUG 2019-07-25 13:42:01,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Authorization.Roles.Dto.RoleEditDto
+DEBUG 2019-07-25 13:42:01,284 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Authorization.Permissions.Dto.FlatPermissionDto
+DEBUG 2019-07-25 13:42:01,285 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Authorization.Permissions.Dto.FlatPermissionWithLevelDto
+DEBUG 2019-07-25 13:42:01,285 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Auditing.Dto.AuditLogListDto
+DEBUG 2019-07-25 13:42:01,285 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Authorization.Users.Dto.UserListDto+UserListRoleDto
+DEBUG 2019-07-25 13:42:01,285 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Web.Areas.Mpa.Models.PersonInfoManage.CreateOrEditPersonInfoModalViewModel
+DEBUG 2019-07-25 13:42:01,285 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Web.Areas.Mpa.Models.JobUrgentManage.CreateOrEditJobUrgentModalViewModel
+DEBUG 2019-07-25 13:42:01,285 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Web.Areas.Mpa.Models.JobPostManage.CreateOrEditJobPostModalViewModel
+DEBUG 2019-07-25 13:42:01,285 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Web.Areas.Mpa.Models.CompanyManage.CreateOrEditCompanyModalViewModel
+DEBUG 2019-07-25 13:42:01,285 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Web.Areas.Mpa.Models.Users.UserPermissionsEditViewModel
+DEBUG 2019-07-25 13:42:01,285 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Web.Areas.Mpa.Models.Users.CreateOrEditUserModalViewModel
+DEBUG 2019-07-25 13:42:01,285 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Web.Areas.Mpa.Models.Profile.MySettingsViewModel
+DEBUG 2019-07-25 13:42:01,285 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Web.Areas.Mpa.Models.Editions.CreateOrEditEditionModalViewModel
+DEBUG 2019-07-25 13:42:01,286 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Web.Areas.Mpa.Models.Tenants.TenantFeaturesEditViewModel
+DEBUG 2019-07-25 13:42:01,286 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Web.Areas.Mpa.Models.Roles.CreateOrEditRoleModalViewModel
+DEBUG 2019-07-25 13:42:01,286 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Web.Areas.Mpa.Models.OrganizationUnits.EditOrganizationUnitModalViewModel
+DEBUG 2019-07-25 13:42:01,286 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Web.Areas.Mpa.Models.Languages.CreateOrEditLanguageModalViewModel
+DEBUG 2019-07-25 13:42:01,286 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Emploee.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2019-07-25 13:42:02,335 [1    ] Abp.Owin.OwinUserTokenProviderAccessor   - DataProtectionProvider has not been set yet.
+DEBUG 2019-07-25 13:42:02,389 [1    ] Abp.Owin.OwinUserTokenProviderAccessor   - DataProtectionProvider has not been set yet.
+DEBUG 2019-07-25 13:42:02,442 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Timing.ITimingAppService' with service name 'app/timing'.
+DEBUG 2019-07-25 13:42:02,447 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Tenants.Dashboard.ITenantDashboardAppService' with service name 'app/tenantDashboard'.
+DEBUG 2019-07-25 13:42:02,451 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2019-07-25 13:42:02,453 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Organizations.IOrganizationUnitAppService' with service name 'app/organizationUnit'.
+DEBUG 2019-07-25 13:42:02,455 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Notifications.INotificationAppService' with service name 'app/notification'.
+DEBUG 2019-07-25 13:42:02,459 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2019-07-25 13:42:02,461 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Logging.IWebLogAppService' with service name 'app/webLog'.
+DEBUG 2019-07-25 13:42:02,464 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Localization.ILanguageAppService' with service name 'app/language'.
+DEBUG 2019-07-25 13:42:02,466 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Friendships.IFriendshipAppService' with service name 'app/friendship'.
+DEBUG 2019-07-25 13:42:02,467 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Emploees.Companies.ICompanyAppService' with service name 'app/company'.
+DEBUG 2019-07-25 13:42:02,469 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Approvals.IApprovalAppService' with service name 'app/approval'.
+DEBUG 2019-07-25 13:42:02,471 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Emploee.PersonInfos.IPersonInfoAppService' with service name 'app/personInfo'.
+DEBUG 2019-07-25 13:42:02,473 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Emploee.JobUrgents.IJobUrgentAppService' with service name 'app/jobUrgent'.
+DEBUG 2019-07-25 13:42:02,478 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Emploee.JobPosts.IJobPostAppService' with service name 'app/jobPost'.
+DEBUG 2019-07-25 13:42:02,484 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Emploee.JobPersons.IJobPersonAppService' with service name 'app/jobPerson'.
+DEBUG 2019-07-25 13:42:02,486 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Emploee.Dictionaries.IDictionaryAppService' with service name 'app/dictionary'.
+DEBUG 2019-07-25 13:42:02,488 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Emploee.Advertisements.IAdvertisementAppService' with service name 'app/advertisement'.
+DEBUG 2019-07-25 13:42:02,491 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Editions.IEditionAppService' with service name 'app/edition'.
+DEBUG 2019-07-25 13:42:02,495 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Configuration.Tenants.ITenantSettingsAppService' with service name 'app/tenantSettings'.
+DEBUG 2019-07-25 13:42:02,499 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Configuration.Host.IHostSettingsAppService' with service name 'app/hostSettings'.
+DEBUG 2019-07-25 13:42:02,503 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Common.ICommonLookupAppService' with service name 'app/commonLookup'.
+DEBUG 2019-07-25 13:42:02,505 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Chat.IChatAppService' with service name 'app/chat'.
+DEBUG 2019-07-25 13:42:02,507 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Caching.ICachingAppService' with service name 'app/caching'.
+DEBUG 2019-07-25 13:42:02,512 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Authorization.Users.IUserLinkAppService' with service name 'app/userLink'.
+DEBUG 2019-07-25 13:42:02,517 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Authorization.Users.IUserLoginAppService' with service name 'app/userLogin'.
+DEBUG 2019-07-25 13:42:02,519 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Authorization.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2019-07-25 13:42:02,522 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Authorization.Users.Profile.IProfileAppService' with service name 'app/profile'.
+DEBUG 2019-07-25 13:42:02,525 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Authorization.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2019-07-25 13:42:02,528 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Authorization.Permissions.IPermissionAppService' with service name 'app/permission'.
+DEBUG 2019-07-25 13:42:02,529 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Emploee.Auditing.IAuditLogAppService' with service name 'app/auditLog'.
