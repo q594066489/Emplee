@@ -215,6 +215,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFramework\EmploeeDbContext.cs" />
+    <Compile Include="EntityFramework\EntityMapper\Advertisements\AdvertisementCfg.cs" />
+    <Compile Include="EntityFramework\EntityMapper\Approvals\ApprovalCfg.cs" />
     <Compile Include="EntityFramework\EntityMapper\Companies\CompanyCfg.cs" />
     <Compile Include="EntityFramework\EntityMapper\JobPersons\JobPersonCfg.cs" />
     <Compile Include="EntityFramework\EntityMapper\JobPosts\JobPostCfg.cs" />
@@ -502,6 +504,14 @@
     <Compile Include="Migrations\201907241443548_add-jobperson.Designer.cs">
       <DependentUpon>201907241443548_add-jobperson.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907250245259_add-approval.cs" />
+    <Compile Include="Migrations\201907250245259_add-approval.Designer.cs">
+      <DependentUpon>201907250245259_add-approval.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907250316067_add-advertise.cs" />
+    <Compile Include="Migrations\201907250316067_add-advertise.Designer.cs">
+      <DependentUpon>201907250316067_add-advertise.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="EmploeeDataModule.cs" />
     <Compile Include="Migrations\Seed\Host\DefaultEditionCreator.cs" />
@@ -727,6 +737,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907241443548_add-jobperson.resx">
       <DependentUpon>201907241443548_add-jobperson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907250245259_add-approval.resx">
+      <DependentUpon>201907250245259_add-approval.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907250316067_add-advertise.resx">
+      <DependentUpon>201907250316067_add-advertise.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

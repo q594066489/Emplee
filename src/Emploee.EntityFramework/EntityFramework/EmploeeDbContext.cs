@@ -1,9 +1,13 @@
 ﻿using System.Data.Common;
 using System.Data.Entity;
 using Abp.Zero.EntityFramework;
+using Emploee.Approvals;
+using Emploee.Approvals.EntityMapper.Approvals;
 using Emploee.Authorization.Roles;
 using Emploee.Authorization.Users;
 using Emploee.Chat;
+using Emploee.Emploee.Advertisements;
+using Emploee.Emploee.Advertisements.EntityMapper.Advertisements;
 using Emploee.Emploee.JobPersons;
 using Emploee.Emploee.JobPersons.EntityMapper.JobPersons;
 using Emploee.Emploee.JobPosts;
@@ -43,6 +47,9 @@ namespace Emploee.EntityFramework
         public IDbSet<JobUrgent> JobUrgents { get; set; }
         public IDbSet<PersonInfo> PersonInfos { get; set; }
         public IDbSet<JobPerson> JobPersons { get; set; }
+
+        public IDbSet<Approval> Approvals { get; set; }
+        public IDbSet<Advertisement> Advertisements { get; set; }
         
 
         public EmploeeDbContext()
@@ -79,6 +86,8 @@ namespace Emploee.EntityFramework
             modelBuilder.Configurations.Add(new JobUrgentCfg());
             modelBuilder.Configurations.Add(new PersonInfoCfg());
             modelBuilder.Configurations.Add(new JobPersonCfg());
+            modelBuilder.Configurations.Add(new ApprovalCfg());
+            modelBuilder.Configurations.Add(new AdvertisementCfg());
         }
     }
 }

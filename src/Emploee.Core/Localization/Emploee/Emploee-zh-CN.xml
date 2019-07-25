@@ -381,7 +381,53 @@
     <text name="isOnJob" value="是否找到工作" />
     <text name="State" value="状态" />
     <text name="JobYear" value="工作年限" />
+
+
+    */
+
+    /*
+    <!-- 企业注册审批管理 -->
+    <text name="Approval" value="企业注册审批" />
+    <text name="ApprovalHeaderInfo" value="企业注册审批管理列表" />
+    <text name="CreateApproval" value="新增企业注册审批" />
+    <text name="EditApproval" value="编辑企业注册审批" />
+    <text name="DeleteApproval" value="删除企业注册审批" />
+
+
+
+
+    <text name="ApprovalDeleteWarningMessage" value="企业注册审批名称: {0} 将被删除,是否确定删除它。" />
+    <!--//用于表格展示的数据信息的标题-->
+    <text name="CompanyID" value="企业编号" />
      
+    <text name="IsPay" value="是否交款" />
+    <text name="PayAmount" value="交款金额" />
+    <text name="PayTime" value="交款时间" />
+    <text name="CoopTime" value="缴费时长" />
+
+    */
+
+    /*
+    <!-- 广告管理 -->
+    <text name="Advertisement" value="广告" />
+    <text name="AdvertisementHeaderInfo" value="广告管理列表" />
+    <text name="CreateAdvertisement" value="新增广告" />
+    <text name="EditAdvertisement" value="编辑广告" />
+    <text name="DeleteAdvertisement" value="删除广告" />
+
+
+
+
+    <text name="AdvertisementDeleteWarningMessage" value="广告名称: {0} 将被删除,是否确定删除它。" />
+    <!--//用于表格展示的数据信息的标题-->
+    <text name="Advertiser" value="厂家" />
+    <text name="AdverPicture" value="图片" />
+    <text name="AdverAddress" value="广告链接" />
+    <text name="PayAmount" value="缴费金额" />
+    <text name="PayTime" value="缴费时间" />
+    <text name="CoopTime" value="缴费时长" />
+    <text name="IsShow" value="是否显示" />
+    <text name="CreationTime" value="创建时间" />
 
     */
   </texts>

@@ -247,6 +247,16 @@
     <Compile Include="Emailing\AbpZeroTemplateSmtpEmailSenderConfiguration.cs" />
     <Compile Include="Emailing\EmailTemplateProvider.cs" />
     <Compile Include="Emailing\IEmailTemplateProvider.cs" />
+    <Compile Include="Emploee\Advertisements\Advertisement.cs" />
+    <Compile Include="Emploee\Advertisements\AdvertisementManage.cs" />
+    <Compile Include="Emploee\Advertisements\Authorization\AdvertisementAppAuthorizationProvider.cs" />
+    <Compile Include="Emploee\Advertisements\Authorization\AdvertisementAppPermissions.cs" />
+    <Compile Include="Emploee\Advertisements\____AdvertisementReadme.cs" />
+    <Compile Include="Emploee\Approvals\Approval.cs" />
+    <Compile Include="Emploee\Approvals\ApprovalManage.cs" />
+    <Compile Include="Emploee\Approvals\Authorization\ApprovalAppAuthorizationProvider.cs" />
+    <Compile Include="Emploee\Approvals\Authorization\ApprovalAppPermissions.cs" />
+    <Compile Include="Emploee\Approvals\____ApprovalReadme.cs" />
     <Compile Include="Emploee\Companies\Authorization\CompanyAppAuthorizationProvider.cs" />
     <Compile Include="Emploee\Companies\Authorization\CompanyAppPermissions.cs" />
     <Compile Include="Emploee\Companies\Company.cs" />
