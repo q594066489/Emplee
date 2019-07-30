@@ -11,6 +11,8 @@ namespace Emploee.Emploee.PersonInfos
 {
     public class PersonInfo : Entity, IHasCreationTime
     {
+        [Required]
+        public long PersonID { get; set; }
         /// <summary>
         /// 姓名
         /// </summary>

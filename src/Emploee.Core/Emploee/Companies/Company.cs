@@ -11,6 +11,8 @@ namespace Emploee.Emploees.Companies
 {
     public class Company:Entity, IHasCreationTime
     {
+        [Required]
+        public long CompanyID { get; set; }
         /// <summary>
         /// 企业名称
         /// </summary>

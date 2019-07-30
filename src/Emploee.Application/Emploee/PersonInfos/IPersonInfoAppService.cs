@@ -32,7 +32,7 @@ namespace Emploee.Emploee.PersonInfos
         /// <summary>
         /// 根据查询条件获取个人中心分页列表
         /// </summary>
-        Task<PagedResultDto<PersonInfoListDto>> GetPagedPersonInfosAsync(GetPersonInfoInput input);
+        Task<PagedResultDto<PersonInfoListDto>> GetPagedPersonInfos(GetPersonInfoInput input);
 
         /// <summary>
         /// 通过Id获取个人中心信息进行编辑或修改 

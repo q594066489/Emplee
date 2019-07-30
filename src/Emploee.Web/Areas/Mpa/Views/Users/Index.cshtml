@@ -1,5 +1,5 @@
 ﻿@using Abp.Web.Mvc.Extensions
-@using Abp.Application.Services.Dto
+@using Abp.Application.Services.Dto 
 @using Emploee.Authorization
 @using Emploee.Web.Navigation
 @model Emploee.Web.Areas.Mpa.Models.Users.UsersViewModel
@@ -8,7 +8,8 @@
 }
 @section Styles
 {
-    @Html.IncludeStyle("~/Areas/Mpa/Views/Users/index.min.css")
+    @Html.IncludeStyle("~/libs/icheck-bootstrap/css/icheck-bootstrap.css")
+
 }
 @section Scripts
 {
@@ -16,6 +17,9 @@
     @Html.IncludeScript("~/Areas/Mpa/Views/Users/_CreateOrEditModal.js")
     @Html.IncludeScript("~/Areas/Mpa/Views/Users/_PermissionsModal.js")
     @Html.IncludeScript("~/Areas/Mpa/Views/Users/Index.js")
+    <script src="~/libs/bootstrap-table/bootstrap-table.js"></script>
+    <script src="~/libs/bootstrap-table/bootstrap-table-locale-all.js"></script>
+    <script src="~/libs/bootstrap-table/abp-bootstrap-table.js"></script>
 }
 <div class="row margin-bottom-5">
     <div class="col-xs-6">
@@ -35,7 +39,6 @@
         }
     </div>
 </div>
-
 <div class="portlet light margin-bottom-0">
     <div class="portlet-body">
         <div class="form">
@@ -105,5 +108,17 @@
             </form>
         </div>
         <div id="UsersTable"></div>
+
+        <div class="box">
+
+            <div class="box-body">
+                <div id="Vocs_SampleUnitInfosTableContainer">
+                    <table id="UsersTable2"></table>
+                </div>
+                <div id="Vocs_SampleUnitInfosEmptyInfo" class="text-muted">
+                    @L("SelectFSourceClassToSee")
+                </div>
+            </div>
+        </div>
     </div>
 </div>

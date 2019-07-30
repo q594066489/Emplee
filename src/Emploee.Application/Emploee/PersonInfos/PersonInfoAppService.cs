@@ -49,7 +49,7 @@ using Emploee.Emploee.PersonInfos.Authorization;
     public class PersonInfoAppService : EmploeeAppServiceBase, IPersonInfoAppService
     {
         private readonly IRepository<PersonInfo,int> _personInfoRepository;
-		           private readonly IPersonInfoListExcelExporter _personInfoListExcelExporter;
+		private readonly IPersonInfoListExcelExporter _personInfoListExcelExporter;
            
 
 		private readonly PersonInfoManage _personInfoManage;
@@ -79,7 +79,7 @@ PersonInfoManage personInfoManage
     /// <summary>
     /// 根据查询条件获取个人中心分页列表
     /// </summary>
-    public async Task<PagedResultDto<PersonInfoListDto>> GetPagedPersonInfosAsync(GetPersonInfoInput input)
+    public async Task<PagedResultDto<PersonInfoListDto>> GetPagedPersonInfos(GetPersonInfoInput input)
 {
 			
     var query = _personInfoRepositoryAsNoTrack;

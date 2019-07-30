@@ -6,12 +6,6 @@
 
         var _personInfoService = abp.services.app.personInfo;
 
-		$(".maxlength-handler").maxlength({
-            limitReachedClass: "label label-danger",
-            alwaysShow: true,
-            threshold: 5,
-            placement: 'bottom'
-        });
 
         var _$personInfoInformationForm = null;
 
@@ -21,75 +15,6 @@
 			            _$personInfoInformationForm = _modalManager.getModal().find("form[name=personInfoInformationsForm]");
 
 						
-			 
-			   	 
-
-
-						
-			 
-			   	 
-
-
-						
-			 
-			   	 
-
-
-						
-			 
-			   	 
-
-
-						
-			 
-			   	 
-
-
-						
-			 
-			   	 
-
-
-						
-			 
-			   	 
-
-
-						
-			 
-			   	 
-
-
-						
-			 
-			   	 
-
-
-						
-			 
-			   	 
-
-
-						
-			 
-			   	 
-
-
-						
-			 
-			   	 
-
-
-						
-			 
-			   	 
-
-
-			
-			
-      
-
-
         }
         
         this.save = function () {

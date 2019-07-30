@@ -25,6 +25,7 @@ namespace Emploee.Emploee.PersonInfos.Dtos
     [AutoMapFrom(typeof(PersonInfo))]
     public class PersonInfoListDto : EntityDto<int>
     {
+        public long PersonID { get; set; }
         /// <summary>
         /// 姓名
         /// </summary>

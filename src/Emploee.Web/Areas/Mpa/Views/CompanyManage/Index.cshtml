@@ -9,23 +9,19 @@
 }
 
 @section Styles{
-    <link href="~/libs/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>     	  	      
-    <link href="~/libs/ueditor1_4_3_3_utf8/third-party/webuploader/webuploader.css" rel="stylesheet"/>
-    <link href="~/libs/ueditor1_4_3_3_utf8/third-party/webuploader/Css/multiImg.css" rel="stylesheet"/>
-    <link href="~/libs/ueditor1_4_3_3_utf8/third-party/webuploader/Css/singleImg.css" rel="stylesheet"/>	        
+		
+	  	  	     <link href="~/libs/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>     	  	    
 }
 
 
 @* 注入所需JS *@
 @section Scripts
-{ 
-    @*<script src="~/libs/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>*@
+{  
 
        <script src="~/libs/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 <script src="~/libs/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 
-  <script src="~/libs/ueditor1_4_3_3_utf8/third-party/webuploader/webuploader.js"></script> 
-    <script src="~/libs/ueditor1_4_3_3_utf8/third-party/webuploader/Scripts/ltmuploader.js"></script>    
+  
     @Html.IncludeScript("~/Areas/Mpa/Views/CompanyManage/_CreateOrEditCompanyModal.js")
     @Html.IncludeScript("~/Areas/Mpa/Views/CompanyManage/Index.js")
 }
@@ -71,6 +67,9 @@
 
     <div class="portlet-body">
         <div id="CompanysTable"></div>
+    </div>
+    <div class="portlet-body">
+        <table id="CompanysTable"></table>
     </div>
 </div>
 

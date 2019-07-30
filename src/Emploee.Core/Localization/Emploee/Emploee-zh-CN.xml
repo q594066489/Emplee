@@ -427,7 +427,8 @@
     <text name="PayTime" value="缴费时间" />
     <text name="CoopTime" value="缴费时长" />
     <text name="IsShow" value="是否显示" />
- 
+    <text name="CompanyInfo" value="企业信息完善" />
+    
 
     */
   </texts>

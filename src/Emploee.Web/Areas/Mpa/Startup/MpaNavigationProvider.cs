@@ -1,6 +1,9 @@
 ﻿using Abp.Application.Navigation;
 using Abp.Localization;
 using Emploee.Authorization;
+using Emploee.Emploee.JobPosts.Authorization;
+using Emploee.Emploee.PersonInfos.Authorization;
+using Emploee.Emploees.Companies.Authorization;
 using Emploee.Web.Navigation;
 
 namespace Emploee.Web.Areas.Mpa.Startup
@@ -12,6 +15,33 @@ namespace Emploee.Web.Areas.Mpa.Startup
         public override void SetNavigation(INavigationProviderContext context)
         {
             var menu = context.Manager.Menus[MenuName] = new MenuDefinition(MenuName, new FixedLocalizableString("Main Menu"));
+            var company = new MenuItemDefinition(
+                CompanyAppPermissions.Company,
+                L("Company"),
+                url: "Mpa/CompanyManage",
+                icon: "icon-grid",
+                                  requiredPermissionName: CompanyAppPermissions.Company
+                                     );
+              
+            var jobPost = new MenuItemDefinition(
+                JobPostAppPermissions.JobPost,
+                L("JobPost"),
+                url: "Mpa/JobPostManage",
+                icon: "icon-grid",
+                                  requiredPermissionName: JobPostAppPermissions.JobPost
+                                     );
+
+            var personInfo = new MenuItemDefinition(
+                PersonInfoAppPermissions.PersonInfo,
+                L("PersonInfo"),
+                url: "Mpa/PersonInfoManage",
+                icon: "icon-grid",
+                                  requiredPermissionName: PersonInfoAppPermissions.PersonInfo
+                                     );
+
+            //……………………………………………………………………………………………………………………
+
+
 
             menu
                 .AddItem(new MenuItemDefinition(
@@ -21,7 +51,8 @@ namespace Emploee.Web.Areas.Mpa.Startup
                     icon: "icon-globe",
                     requiredPermissionName: AppPermissions.Pages_Tenants
                     )
-                ).AddItem(new MenuItemDefinition(
+                ) 
+                .AddItem(new MenuItemDefinition(
                     PageNames.App.Host.Editions,
                     L("Editions"),
                     url: "Mpa/Editions",
@@ -33,9 +64,19 @@ namespace Emploee.Web.Areas.Mpa.Startup
                     L("Dashboard"),
                     url: "Mpa/Dashboard",
                     icon: "icon-home",
-                    requiredPermissionName: AppPermissions.Pages_Tenant_Dashboard
+                    requiredPermissionName: CompanyAppPermissions.Company
                     )
-                ).AddItem(new MenuItemDefinition(
+                ).AddItem(company)
+                .AddItem(new MenuItemDefinition(
+                PersonInfoAppPermissions.PersonInfo,
+                L("CompanyInfo"),
+                url: "Mpa/CompanyManage/CompanyInfo",
+                icon: "icon-grid",
+                                  requiredPermissionName: CompanyAppPermissions.Company_EditCompany
+                                     ))
+                .AddItem(jobPost)
+                .AddItem(personInfo)
+                .AddItem(new MenuItemDefinition(
                     PageNames.App.Common.Administration,
                     L("Administration"),
                     icon: "icon-wrench"

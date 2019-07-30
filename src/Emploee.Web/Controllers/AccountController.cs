@@ -47,6 +47,10 @@ using Newtonsoft.Json;
 using Emploee.Security;
 using Emploee.Web.Auth;
 using Emploee.Web.Models.Layout;
+using System.Collections.ObjectModel;
+using Abp.Domain.Repositories;
+using Emploee.Emploees.Companies;
+using Emploee.Emploee.PersonInfos;
 
 namespace Emploee.Web.Controllers
 {
@@ -70,7 +74,10 @@ namespace Emploee.Web.Controllers
         private readonly IAuthenticationManager _authenticationManager;
         private readonly ILanguageManager _languageManager;
         private readonly IUserPolicy _userPolicy;
+        private readonly IRepository<Company, int> _companyRepository;
+        private readonly IRepository<PersonInfo, int> _PersonInfoRepository;
 
+        private readonly IRepository<UserRole, long> _userRoleRepository;
 
         public AccountController(
             LogInManager logInManager,
@@ -90,7 +97,11 @@ namespace Emploee.Web.Controllers
             SignInManager signInManager,
             IAuthenticationManager authenticationManager,
             ILanguageManager languageManager,
-            IUserPolicy userPolicy)
+            IUserPolicy userPolicy,
+            IRepository<UserRole, long> userRoleRepository,
+            IRepository<Company, int> companyRepository,
+            IRepository<PersonInfo, int> PersonInfoRepository
+            )
         {
             _userManager = userManager;
             _multiTenancyConfig = multiTenancyConfig;
@@ -110,6 +121,9 @@ namespace Emploee.Web.Controllers
             _languageManager = languageManager;
             _userPolicy = userPolicy;
             _logInManager = logInManager;
+            _userRoleRepository = userRoleRepository;
+            _companyRepository = companyRepository;
+            _PersonInfoRepository = PersonInfoRepository;
         }
 
         #region Login / Logout
@@ -183,6 +197,20 @@ namespace Emploee.Web.Controllers
 
                 await UnitOfWorkManager.Current.SaveChangesAsync();
                 //returnUrl = "/";
+                long _userid = loginResult.User.Id;
+                var _roleid = _userRoleRepository.FirstOrDefault(t => t.UserId == _userid);
+                switch (_roleid.RoleId)
+                {
+                    case 4:
+                        returnUrl = "/Mpa/Dashboard";//雇主
+                        break;
+                    case 5:
+                        returnUrl = "/"; //求职者
+                        break; 
+                    default:
+                        returnUrl = "/Mpa/Dashboard";//管理员
+                        break;
+                }
                 return Json(new AjaxResponse { TargetUrl = returnUrl });
             }
         }
@@ -350,152 +378,274 @@ namespace Emploee.Web.Controllers
             return View("Register", model);
         }
 
+        //[HttpPost]
+        //[UnitOfWork]
+        //public virtual async Task<ActionResult> Register(RegisterViewModel model)
+        //{
+        //    try
+        //    {
+        //        CheckSelfRegistrationIsEnabled();
+
+        //        if (!model.IsExternalLogin && UseCaptchaOnRegistration())
+        //        {
+        //            var recaptchaHelper = this.GetRecaptchaVerificationHelper();
+        //            if (recaptchaHelper.Response.IsNullOrEmpty())
+        //            {
+        //                throw new UserFriendlyException(L("CaptchaCanNotBeEmpty"));
+        //            }
+
+        //            if (recaptchaHelper.VerifyRecaptchaResponse() != RecaptchaVerificationResult.Success)
+        //            {
+        //                throw new UserFriendlyException(L("IncorrectCaptchaAnswer"));
+        //            }
+        //        }
+
+        //        if (!_multiTenancyConfig.IsEnabled)
+        //        {
+        //            model.TenancyName = Tenant.DefaultTenantName;
+        //        }
+        //        else if (model.TenancyName.IsNullOrEmpty())
+        //        {
+        //            throw new UserFriendlyException(L("TenantNameCanNotBeEmpty"));
+        //        }
+
+        //        CurrentUnitOfWork.SetTenantId(null);
+
+        //        var tenant = await GetActiveTenantAsync(model.TenancyName);
+
+        //        CurrentUnitOfWork.SetTenantId(tenant.Id);
+
+        //        if (!await SettingManager.GetSettingValueForTenantAsync<bool>(AppSettings.UserManagement.AllowSelfRegistration, tenant.Id))
+        //        {
+        //            throw new UserFriendlyException(L("SelfUserRegistrationIsDisabledMessage_Detail"));
+        //        }
+
+        //        await _userPolicy.CheckMaxUserCountAsync(tenant.Id);
+
+        //        //Getting tenant-specific settings
+        //        var isNewRegisteredUserActiveByDefault = await SettingManager.GetSettingValueForTenantAsync<bool>(AppSettings.UserManagement.IsNewRegisteredUserActiveByDefault, tenant.Id);
+        //        var isEmailConfirmationRequiredForLogin = await SettingManager.GetSettingValueForTenantAsync<bool>(AbpZeroSettingNames.UserManagement.IsEmailConfirmationRequiredForLogin, tenant.Id);
+
+        //        var user = new User
+        //        {
+        //            TenantId = tenant.Id,
+        //            Name = model.Name,
+        //            Surname = model.Surname,
+        //            EmailAddress = model.EmailAddress,
+        //            IsActive = isNewRegisteredUserActiveByDefault
+        //        };
+
+        //        ExternalLoginInfo externalLoginInfo = null;
+        //        if (model.IsExternalLogin)
+        //        {
+        //            externalLoginInfo = await _authenticationManager.GetExternalLoginInfoAsync();
+        //            if (externalLoginInfo == null)
+        //            {
+        //                throw new ApplicationException("Can not external login!");
+        //            }
+
+        //            user.Logins = new List<UserLogin>
+        //            {
+        //                new UserLogin
+        //                {
+        //                    LoginProvider = externalLoginInfo.Login.LoginProvider,
+        //                    ProviderKey = externalLoginInfo.Login.ProviderKey,
+        //                    TenantId = tenant.Id
+        //                }
+        //            };
+
+        //            model.UserName = model.EmailAddress;
+        //            model.Password = Authorization.Users.User.CreateRandomPassword();
+
+        //            if (string.Equals(externalLoginInfo.Email, model.EmailAddress, StringComparison.InvariantCultureIgnoreCase))
+        //            {
+        //                user.IsEmailConfirmed = true;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            if (model.UserName.IsNullOrEmpty() || model.Password.IsNullOrEmpty())
+        //            {
+        //                throw new UserFriendlyException(L("FormIsNotValidMessage"));
+        //            }
+        //        }
+
+        //        user.UserName = model.UserName;
+        //        user.Password = new PasswordHasher().HashPassword(model.Password);
+
+        //        user.Roles = new List<UserRole>();
+        //        foreach (var defaultRole in await _roleManager.Roles.Where(r => r.IsDefault).ToListAsync())
+        //        {
+        //            user.Roles.Add(new UserRole(tenant.Id, user.Id, defaultRole.Id));
+        //        }
+
+        //        CheckErrors(await _userManager.CreateAsync(user));
+        //        await _unitOfWorkManager.Current.SaveChangesAsync();
+
+        //        if (!user.IsEmailConfirmed)
+        //        {
+        //            user.SetNewEmailConfirmationCode();
+        //            await _userEmailer.SendEmailActivationLinkAsync(user);
+        //        }
+
+        //        //Notifications
+        //        await _notificationSubscriptionManager.SubscribeToAllAvailableNotificationsAsync(user.ToUserIdentifier());
+        //        await _appNotifier.WelcomeToTheApplicationAsync(user);
+        //        await _appNotifier.NewUserRegisteredAsync(user);
+
+        //        //Directly login if possible
+        //        if (user.IsActive && (user.IsEmailConfirmed || !isEmailConfirmationRequiredForLogin))
+        //        {
+        //            AbpLoginResult<Tenant, User> loginResult;
+        //            if (externalLoginInfo != null)
+        //            {
+        //                loginResult = await _logInManager.LoginAsync(externalLoginInfo.Login, tenant.TenancyName);
+        //            }
+        //            else
+        //            {
+        //                loginResult = await GetLoginResultAsync(user.UserName, model.Password, tenant.TenancyName);
+        //            }
+
+        //            if (loginResult.Result == AbpLoginResultType.Success)
+        //            {
+        //                await SignInAsync(loginResult.User, loginResult.Identity);
+        //                return Redirect(Url.Action("Index", "Application"));
+        //            }
+
+        //            Logger.Warn("New registered user could not be login. This should not be normally. login result: " + loginResult.Result);
+        //        }
+
+        //        return View("RegisterResult", new RegisterResultViewModel
+        //        {
+        //            TenancyName = tenant.TenancyName,
+        //            NameAndSurname = user.Name + " " + user.Surname,
+        //            UserName = user.UserName,
+        //            EmailAddress = user.EmailAddress,
+        //            IsActive = user.IsActive,
+        //            IsEmailConfirmationRequired = isEmailConfirmationRequiredForLogin
+        //        });
+        //    }
+        //    catch (UserFriendlyException ex)
+        //    {
+        //        ViewBag.IsMultiTenancyEnabled = _multiTenancyConfig.IsEnabled;
+        //        ViewBag.UseCaptcha = !model.IsExternalLogin && UseCaptchaOnRegistration();
+        //        ViewBag.ErrorMessage = ex.Message;
+        //        ViewBag.ErrorDetails = ex.Details;
+
+        //        return View("Register", model);
+        //    }
+        //}
         [HttpPost]
         [UnitOfWork]
         public virtual async Task<ActionResult> Register(RegisterViewModel model)
         {
             try
             {
-                CheckSelfRegistrationIsEnabled();
-
-                if (!model.IsExternalLogin && UseCaptchaOnRegistration())
+                if (AbpSession.TenantId.HasValue)
                 {
-                    var recaptchaHelper = this.GetRecaptchaVerificationHelper();
-                    if (recaptchaHelper.Response.IsNullOrEmpty())
-                    {
-                        throw new UserFriendlyException(L("CaptchaCanNotBeEmpty"));
-                    }
-
-                    if (recaptchaHelper.VerifyRecaptchaResponse() != RecaptchaVerificationResult.Success)
-                    {
-                        throw new UserFriendlyException(L("IncorrectCaptchaAnswer"));
-                    }
+                    await _userPolicy.CheckMaxUserCountAsync(AbpSession.GetTenantId());
                 }
-
-                if (!_multiTenancyConfig.IsEnabled)
-                {
-                    model.TenancyName = Tenant.DefaultTenantName;
-                }
-                else if (model.TenancyName.IsNullOrEmpty())
-                {
-                    throw new UserFriendlyException(L("TenantNameCanNotBeEmpty"));
-                }
-
-                CurrentUnitOfWork.SetTenantId(null);
-
-                var tenant = await GetActiveTenantAsync(model.TenancyName);
-
-                CurrentUnitOfWork.SetTenantId(tenant.Id);
-
-                if (!await SettingManager.GetSettingValueForTenantAsync<bool>(AppSettings.UserManagement.AllowSelfRegistration, tenant.Id))
-                {
-                    throw new UserFriendlyException(L("SelfUserRegistrationIsDisabledMessage_Detail"));
-                }
-
-                await _userPolicy.CheckMaxUserCountAsync(tenant.Id);
-
-                //Getting tenant-specific settings
-                var isNewRegisteredUserActiveByDefault = await SettingManager.GetSettingValueForTenantAsync<bool>(AppSettings.UserManagement.IsNewRegisteredUserActiveByDefault, tenant.Id);
-                var isEmailConfirmationRequiredForLogin = await SettingManager.GetSettingValueForTenantAsync<bool>(AbpZeroSettingNames.UserManagement.IsEmailConfirmationRequiredForLogin, tenant.Id);
-
                 var user = new User
                 {
-                    TenantId = tenant.Id,
+                    //TenantId = tenant.Id,
                     Name = model.Name,
+                    UserName=model.UserName,
                     Surname = model.Surname,
                     EmailAddress = model.EmailAddress,
-                    IsActive = isNewRegisteredUserActiveByDefault
+                    //IsActive = isNewRegisteredUserActiveByDefault
                 };
+                //var user = model.MapTo<User>(); //Passwords is not mapped (see mapping configuration)
+                user.TenantId = AbpSession.TenantId;
 
-                ExternalLoginInfo externalLoginInfo = null;
-                if (model.IsExternalLogin)
+                //Set password
+                if (!model.Password.IsNullOrEmpty())
                 {
-                    externalLoginInfo = await _authenticationManager.GetExternalLoginInfoAsync();
-                    if (externalLoginInfo == null)
-                    {
-                        throw new ApplicationException("Can not external login!");
-                    }
+                    CheckErrors(await _userManager.PasswordValidator.ValidateAsync(model.Password));
+                }
+                  
+                user.Password = new PasswordHasher().HashPassword(model.Password);
+                user.ShouldChangePasswordOnNextLogin = false;
 
-                    user.Logins = new List<UserLogin>
-                    {
-                        new UserLogin
-                        {
-                            LoginProvider = externalLoginInfo.Login.LoginProvider,
-                            ProviderKey = externalLoginInfo.Login.ProviderKey,
-                            TenantId = tenant.Id
-                        }
-                    };
-
-                    model.UserName = model.EmailAddress;
-                    model.Password = Authorization.Users.User.CreateRandomPassword();
-
-                    if (string.Equals(externalLoginInfo.Email, model.EmailAddress, StringComparison.InvariantCultureIgnoreCase))
-                    {
-                        user.IsEmailConfirmed = true;
-                    }
+                //Assign roles
+                user.Roles = new Collection<UserRole>();
+                int roleid = 0;
+                if(model.RoleSelect== "企业用户")
+                {
+                    roleid = 4;
+                }
+                else if(model.RoleSelect == "求职用户")
+                {
+                    roleid = 5;
                 }
                 else
                 {
-                    if (model.UserName.IsNullOrEmpty() || model.Password.IsNullOrEmpty())
-                    {
-                        throw new UserFriendlyException(L("FormIsNotValidMessage"));
-                    }
+                    roleid = 1; //管理员
                 }
-
-                user.UserName = model.UserName;
-                user.Password = new PasswordHasher().HashPassword(model.Password);
-
-                user.Roles = new List<UserRole>();
-                foreach (var defaultRole in await _roleManager.Roles.Where(r => r.IsDefault).ToListAsync())
-                {
-                    user.Roles.Add(new UserRole(tenant.Id, user.Id, defaultRole.Id));
-                }
+                user.Roles.Add(new UserRole(AbpSession.TenantId, user.Id, roleid));
+                //foreach (var roleName in input.AssignedRoleNames)
+                //{
+                //    var role = await _roleManager.GetRoleByNameAsync(roleName);
+                //    user.Roles.Add(new UserRole(AbpSession.TenantId, user.Id, role.Id));
+                //}
 
                 CheckErrors(await _userManager.CreateAsync(user));
-                await _unitOfWorkManager.Current.SaveChangesAsync();
-
-                if (!user.IsEmailConfirmed)
-                {
-                    user.SetNewEmailConfirmationCode();
-                    await _userEmailer.SendEmailActivationLinkAsync(user);
-                }
+                await CurrentUnitOfWork.SaveChangesAsync(); //To get new user's Id.
 
                 //Notifications
                 await _notificationSubscriptionManager.SubscribeToAllAvailableNotificationsAsync(user.ToUserIdentifier());
                 await _appNotifier.WelcomeToTheApplicationAsync(user);
-                await _appNotifier.NewUserRegisteredAsync(user);
 
-                //Directly login if possible
-                if (user.IsActive && (user.IsEmailConfirmed || !isEmailConfirmationRequiredForLogin))
+                ////Send activation email
+                //if (input.SendActivationEmail)
+                //{
+                //    user.SetNewEmailConfirmationCode();
+                //    await _userEmailer.SendEmailActivationLinkAsync(user, input.User.Password);
+                //}
+
+
+
+                ///__________________________________________________________________
+                ///__________________________________________________________________
+                ///__________________________________________________________________
+
+                switch (model.RoleSelect)
                 {
-                    AbpLoginResult<Tenant, User> loginResult;
-                    if (externalLoginInfo != null)
-                    {
-                        loginResult = await _logInManager.LoginAsync(externalLoginInfo.Login, tenant.TenancyName);
-                    }
-                    else
-                    {
-                        loginResult = await GetLoginResultAsync(user.UserName, model.Password, tenant.TenancyName);
-                    }
-
-                    if (loginResult.Result == AbpLoginResultType.Success)
-                    {
-                        await SignInAsync(loginResult.User, loginResult.Identity);
-                        return Redirect(Url.Action("Index", "Application"));
-                    }
-
-                    Logger.Warn("New registered user could not be login. This should not be normally. login result: " + loginResult.Result);
+                    case "企业用户":
+                        Company _company = new Company
+                        {
+                            CompanyID = user.Id,
+                            CompanyName = user.UserName,
+                            CompanyEmail = user.EmailAddress,
+                            RegisterDate = user.CreationTime
+                        };
+                        await _companyRepository.InsertAsync(_company);
+                        break;
+                    case "求职用户":
+                        PersonInfo _personinfo = new PersonInfo
+                        {
+                            PersonID = user.Id,
+                            Name = user.UserName,
+                            Email = user.EmailAddress
+                        };
+                        await _PersonInfoRepository.InsertAsync(_personinfo);
+                        break;
+                             
+                    default:
+                        break;
                 }
+
+
 
                 return View("RegisterResult", new RegisterResultViewModel
                 {
-                    TenancyName = tenant.TenancyName,
+                    TenancyName ="" ,
                     NameAndSurname = user.Name + " " + user.Surname,
                     UserName = user.UserName,
                     EmailAddress = user.EmailAddress,
                     IsActive = user.IsActive,
-                    IsEmailConfirmationRequired = isEmailConfirmationRequiredForLogin
+                    IsEmailConfirmationRequired = false
                 });
+                
             }
             catch (UserFriendlyException ex)
             {
@@ -507,7 +657,6 @@ namespace Emploee.Web.Controllers
                 return View("Register", model);
             }
         }
-
         private bool UseCaptchaOnRegistration()
         {
             if (DebugHelper.IsDebug)

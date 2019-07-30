@@ -32,9 +32,14 @@ namespace Emploee.Emploees.Companies.Dtos
 	/// <summary>
     ///   主键Id
     /// </summary>
-    [DisplayName("企业编号")]
+    
 	public int? Id{get;set;}
 
+        /// <summary>
+        ///   企业编号
+        /// </summary>
+
+        public long CompanyID { get; set; }
         /// <summary>
         /// 企业名称
         /// </summary>

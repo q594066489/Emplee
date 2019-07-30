@@ -74,7 +74,7 @@ namespace Emploee.Authorization.Users
                     !input.Filter.IsNullOrWhiteSpace(),
                     u =>
                         u.Name.Contains(input.Filter) ||
-                        u.Surname.Contains(input.Filter) ||
+                        //u.Surname.Contains(input.Filter) ||
                         u.UserName.Contains(input.Filter) ||
                         u.EmailAddress.Contains(input.Filter)
                 );
@@ -264,7 +264,7 @@ namespace Emploee.Authorization.Users
             }
         }
 
-        [AbpAuthorize(AppPermissions.Pages_Administration_Users_Create)]
+        //[AbpAuthorize(AppPermissions.Pages_Administration_Users_Create)]
         protected virtual async Task CreateUserAsync(CreateOrUpdateUserInput input)
         {
             if (AbpSession.TenantId.HasValue)

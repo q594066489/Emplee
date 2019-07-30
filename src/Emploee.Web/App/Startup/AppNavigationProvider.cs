@@ -1,6 +1,7 @@
 ﻿using Abp.Application.Navigation;
 using Abp.Localization;
 using Emploee.Authorization;
+using Emploee.Emploees.Companies.Authorization;
 using Emploee.Web.Navigation;
 
 namespace Emploee.Web.App.Startup
@@ -15,6 +16,12 @@ namespace Emploee.Web.App.Startup
     {
         public override void SetNavigation(INavigationProviderContext context)
         {
+            var company = new MenuItemDefinition(
+                CompanyAppPermissions.Company,
+                L("Company"),
+                icon: "icon-grid"
+                );
+
             context.Manager.MainMenu
                 .AddItem(new MenuItemDefinition(
                     PageNames.App.Host.Tenants,
@@ -23,6 +30,14 @@ namespace Emploee.Web.App.Startup
                     icon: "icon-globe",
                     requiredPermissionName: AppPermissions.Pages_Tenants
                     )
+                )
+                .AddItem(
+                    new MenuItemDefinition(
+                    CompanyAppPermissions.Company,
+                    L("Company"),
+                    "icon-star",
+                    url: "/Mpa/CompanyManage",
+                                     requiredPermissionName: CompanyAppPermissions.Company)
                 ).AddItem(new MenuItemDefinition(
                     PageNames.App.Host.Editions,
                     L("Editions"),

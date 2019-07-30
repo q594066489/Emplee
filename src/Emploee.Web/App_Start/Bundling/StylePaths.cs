@@ -6,6 +6,7 @@ namespace Emploee.Web.Bundling
         public const string Simple_Line_Icons = "~/libs/simple-line-icons/simple-line-icons.min.css";
         public const string Bootstrap = "~/libs/bootstrap/css/bootstrap.min.css";
         public const string BootstrapRTL = "~/libs/bootstrap/css/bootstrap-rtl.min.css";
+         
         public const string Toastr = "~/libs/toastr/toastr.min.css";
         public const string FontAwesome = "~/Content/font-awesome.min.css";
         public const string FamFamFamFlags = "~/Content/flags/famfamfam-flags.css";
@@ -18,5 +19,7 @@ namespace Emploee.Web.Bundling
         public const string Bootstrap_Switch = "~/libs/bootstrap-switch/css/bootstrap-switch.min.css";
         public const string JQuery_jTable_Theme = "~/libs/jquery-jtable/themes/metro/blue/jtable.min.css";
         public const string JQuery_Jcrop = "~/libs/jcrop/css/jquery.Jcrop.min.css";
+        public const string Bootstrap_Table = "~/libs/bootstrap-table/bootstrap-table.css";
+        public const string Bootstrap_checkBox = "~/libs/radioCss/css/awesome-bootstrap-checkbox.css";
     }
 }

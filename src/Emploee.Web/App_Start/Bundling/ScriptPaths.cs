@@ -33,6 +33,9 @@ namespace Emploee.Web.Bundling
         public const string Bootstrap_DateRangePicker = "~/libs/bootstrap-daterangepicker/daterangepicker.js";
         public const string Bootstrap_Select = "~/libs/bootstrap-select/bootstrap-select.min.js";
         public const string Bootstrap_Switch = "~/libs/bootstrap-switch/js/bootstrap-switch.min.js";
+        public const string Bootstrap_Table = "~/libs/bootstrap-table/bootstrap-table.js";
+        public const string abp_bootstrap_table = "~/libs/bootstrap-table/abp-bootstrap-table.js";
+        public const string Bootstrap_Table_locale = "~/libs/bootstrap-table/locale/bootstrap-table-zh-CN.min.js";
 
         public const string SignalR = "~/Scripts/jquery.signalR-2.2.3.min.js";
         public const string LocalForage = "~/Scripts/localforage/localforage.min.js";
@@ -228,12 +231,35 @@ namespace Emploee.Web.Bundling
                        ?? "~/libs/jquery-timeago/locales/jquery.timeago.en.js";
             }
         }
-
+        
         private static string GetLocalizationFileForjQueryTimeagoOrNull(string cultureCode)
         {
             try
             {
                 var relativeFilePath = "~/libs/jquery-timeago/locales/jquery.timeago." + cultureCode + ".js";
+                var physicalFilePath = HttpContext.Current.Server.MapPath(relativeFilePath);
+                if (File.Exists(physicalFilePath))
+                {
+                    return relativeFilePath;
+                }
+            }
+            catch { }
+
+            return null;
+        }
+        public static string Bootstrap_Table_Localization
+        {
+            get
+            {
+                return GetLocalizationFileForBootstrapTableOrNull(Thread.CurrentThread.CurrentUICulture.Name)
+                       ?? "~/libs/bootstrap-table/locale/bootstrap-table-zh-CN.js";
+            }
+        }
+        private static string GetLocalizationFileForBootstrapTableOrNull(string cultureCode)
+        {
+            try
+            {
+                var relativeFilePath = "~/libs/bootstrap-table/locale/bootstrap-table-" + cultureCode + ".js";
                 var physicalFilePath = HttpContext.Current.Server.MapPath(relativeFilePath);
                 if (File.Exists(physicalFilePath))
                 {

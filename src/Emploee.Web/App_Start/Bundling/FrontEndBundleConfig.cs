@@ -34,7 +34,8 @@ namespace Emploee.Web.Bundling
                         ScriptPaths.Abp_BlockUi,
                         ScriptPaths.Abp_SpinJs,
                         ScriptPaths.Abp_SweetAlert,
-                        ScriptPaths.Abp_Moment
+                        ScriptPaths.Abp_Moment 
+                         
                     ).ForceOrdered()
                 );
 
@@ -60,6 +61,7 @@ namespace Emploee.Web.Bundling
                     .Include(StylePaths.FontAwesome, new CssRewriteUrlWithVirtualDirectoryTransform())
                     .Include(StylePaths.FamFamFamFlags, new CssRewriteUrlWithVirtualDirectoryTransform())
                     .Include(isRTL ? StylePaths.BootstrapRTL : StylePaths.Bootstrap, new CssRewriteUrlWithVirtualDirectoryTransform())
+                    
                     .Include(StylePaths.Toastr)
                     .ForceOrdered()
                 );

@@ -5,6 +5,12 @@
 @using Emploee.MultiTenancy
 @using Recaptcha.Web
 @using Recaptcha.Web.Mvc
+@section Styles
+{
+    
+    @Html.IncludeStyle("~/libs/icheck-bootstrap/css/icheck-bootstrap.css")
+
+}
 @section Scripts
 {
     <script>
@@ -13,32 +19,28 @@
     @Html.IncludeScript("~/Views/Account/Register.js")
 }
 <form class="register-form" action="@Url.Action("Register")" method="post">
-
     <h3>@L("SignUp")</h3>
-
     @if (@ViewBag.ErrorMessage != null)
     {
         <div class="alert alert-danger">
             <i class="fa fa-warning"></i> @ViewBag.ErrorMessage
             @if (@ViewBag.ErrorDetails != null)
             {
-                <br/>@ViewBag.ErrorDetails
+                <br />@ViewBag.ErrorDetails
             }
         </div>
     }
-
     @Html.AntiForgeryToken()
-
     @if (ViewBag.IsMultiTenancyEnabled)
     {
         if (Model.TenancyName.IsNullOrEmpty())
         {
-            <p class="hint">
+            <p class="hint hidden">
                 @L("TenantInformations")
             </p>
-            <div class="form-group">
+            <div class="form-group hidden">
                 <label class="control-label visible-ie8 visible-ie9">@L("TenancyName")</label>
-                <input class="form-control placeholder-no-fix input-ltr" type="text" placeholder="@L("TenancyName")" name="TenancyName" value="@(Model.TenancyName ?? "")" required maxlength="@Tenant.MaxTenancyNameLength" />
+                <input class="form-control placeholder-no-fix input-ltr" type="text" placeholder="@L("TenancyName")" name="TenancyName" value="@(Model.TenancyName ?? "Default")" required maxlength="@Tenant.MaxTenancyNameLength" />
             </div>
         }
         else
@@ -46,25 +48,38 @@
             <input type="hidden" name="TenancyName" value="@Model.TenancyName" />
         }
     }
-
     <input type="hidden" name="IsExternalLogin" value="@Model.IsExternalLogin.ToString()" />
+    <p class="hint" >
+        角色选择
+    </p>
+    <div class="form-group">
 
-    <p class="hint">
-        @L("PersonalInformations")
+         
+        <div class="icheck-amethyst icheck-inline">
+            <input type="radio" id="someRadioId1" name="RoleSelect" value="企业用户" checked/>
+            <label for="someRadioId1">企业用户</label>
+        </div>
+        <div class="icheck-amethyst icheck-inline pull-right">
+            <input type="radio" id="someRadioId2" name="RoleSelect" value="求职用户" />
+            <label for="someRadioId2">求职用户</label>
+        </div>
+
+    </div>
+    <p class="hint" id="personInfoTitle">
+        企业信息
     </p>
     <div class="form-group">
         <label class="control-label visible-ie8 visible-ie9">@L("Name")</label>
-        <input class="form-control placeholder-no-fix" type="text" placeholder="@L("Name")" name="Name" required value="@Model.Name" maxlength="@Emploee.Authorization.Users.User.MaxNameLength" />
+        <input class="form-control placeholder-no-fix" type="text" placeholder="企业名称" name="Name" required value="@Model.Name" maxlength="@Emploee.Authorization.Users.User.MaxNameLength" id="registerName" />
     </div>
-    <div class="form-group">
+    <div class="form-group hidden">
         <label class="control-label visible-ie8 visible-ie9">@L("Surname")</label>
-        <input class="form-control placeholder-no-fix" type="text" placeholder="@L("Surname")" name="Surname"   value="@Model.Surname" maxlength="@Emploee.Authorization.Users.User.MaxSurnameLength" />
+        <input class="form-control placeholder-no-fix" type="text" placeholder="@L("Surname")" name="Surname" value="@Model.Surname" maxlength="@Emploee.Authorization.Users.User.MaxSurnameLength" />
     </div>
     <div class="form-group">
         <label class="control-label visible-ie8 visible-ie9">@L("EmailAddress")</label>
         <input class="form-control placeholder-no-fix" type="email" placeholder="@L("EmailAddress")" name="EmailAddress" required value="@Model.EmailAddress" maxlength="@Emploee.Authorization.Users.User.MaxEmailAddressLength" />
     </div>
-
     @if (!Model.IsExternalLogin)
     {
         <p class="hint">
@@ -83,7 +98,6 @@
             <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="@L("PasswordRepeat")" name="PasswordRepeat" required />
         </div>
     }
-
     @if (ViewBag.UseCaptcha)
     {
         <p class="hint">
@@ -93,7 +107,6 @@
             @Html.Recaptcha(theme: RecaptchaTheme.Red)
         </div>
     }
-
     <div class="form-actions">
         <a href="@Url.Action("Login","Account")"><button type="button" id="register-back-btn" class="btn btn-default">@L("Back")</button></a>
         <button type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-right">@L("Submit")</button>

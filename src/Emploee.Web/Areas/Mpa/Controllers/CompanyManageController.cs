@@ -8,6 +8,7 @@
 // Copyright © YoYoCms@中国.2019-07-24T16:52:40. All Rights Reserved.
 //<生成时间>2019-07-24T16:52:40</生成时间>
 using Abp.Application.Services.Dto;
+using Abp.Runtime.Session;
 using Abp.Web.Mvc.Authorization;
 using Emploee.Emploees.Companies;
 using Emploee.Emploees.Companies.Authorization;
@@ -24,11 +25,12 @@ namespace Emploee.Web.Areas.Mpa.Controllers
     {
 
         private readonly ICompanyAppService _companyAppService;
-
-        public CompanyManageController(ICompanyAppService companyAppService)
+        private readonly IAbpSession _abpSession;
+        public CompanyManageController(ICompanyAppService companyAppService
+            , IAbpSession abpSession)
         {
             _companyAppService = companyAppService;
-           
+            _abpSession = abpSession;
         }
 
         public  ActionResult Index()
@@ -57,9 +59,26 @@ namespace Emploee.Web.Areas.Mpa.Controllers
 				 var viewModel=new CreateOrEditCompanyModalViewModel(output);
 
 
-            return PartialView("_CreateOrEditCompanyModal",viewModel);
+            return PartialView("_CreateOrEditCompanyModal", viewModel);
         }
-	 
-       
+        /// <summary>
+        /// 根据id获取进行编辑或者添加的用户信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [AbpMvcAuthorize(CompanyAppPermissions.Company_EditCompany)]
+        public async Task<ActionResult> CompanyInfo()
+        {
+            var sid=(long)_abpSession.UserId;
+             
+
+            var output = await _companyAppService.GetCompanyByCompanyID(sid);
+
+            var viewModel = new CreateOrEditCompanyModalViewModel(output);
+
+
+            return View("CompanyInfo", viewModel);
+        }
+
     }
 }

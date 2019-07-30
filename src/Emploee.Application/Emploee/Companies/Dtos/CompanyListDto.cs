@@ -25,6 +25,7 @@ namespace Emploee.Emploees.Companies.Dtos
     [AutoMapFrom(typeof(Company))]
     public class CompanyListDto : EntityDto<int>
     {
+        public long CompanyID { get; set; }
         /// <summary>
         /// 企业名称
         /// </summary>

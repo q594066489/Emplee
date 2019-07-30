@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using Abp.Authorization.Users;
 using Abp.Extensions;
 using Microsoft.AspNet.Identity;
@@ -18,6 +19,9 @@ namespace Emploee.Authorization.Users
 
         public virtual bool ShouldChangePasswordOnNextLogin { get; set; }
 
+        private new string Surname { get; set; }
+        [Required(AllowEmptyStrings = true)]
+        public override string EmailAddress { get; set; }
         //Can add application specific user properties here
 
         public User()

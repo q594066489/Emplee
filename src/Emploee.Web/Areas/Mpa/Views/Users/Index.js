@@ -3,7 +3,7 @@
 
         var _$usersTable = $('#UsersTable');
         var _userService = abp.services.app.user;
-
+        var _companyService = abp.services.app.company;
         var _permissions = {
             create: abp.auth.hasPermission('Pages.Administration.Users.Create'),
             edit: abp.auth.hasPermission('Pages.Administration.Users.Edit'),
@@ -32,7 +32,8 @@
             multiSorting: true,
             actions: {
                 listAction: {
-                    method: _userService.getUsers
+                    //method: _companyService.getPagedCompanysAsync
+                     method: _userService.getUsers
                 }
             },
 
@@ -105,10 +106,7 @@
                     title: app.localize('Name'),
                     width: '10%'
                 },
-                surname: {
-                    title: app.localize('Surname'),
-                    width: '10%'
-                },
+                 
                 roles: {
                     title: app.localize('Roles'),
                     width: '12%',
@@ -239,9 +237,166 @@
         abp.event.on('app.createOrEditUserModalSaved', function () {
             getUsers(true);
         });
+        var SampleUnitInfo = {
 
+            $table: $('#UsersTable2'),
+            $tableContainer: $('#Vocs_SampleUnitInfosTableContainer'),
+             $emptyInfo: $('#Vocs_SampleUnitInfosEmptyInfo'),
+            //$addUserToOuButton: $('#CreateNewVocs_SampleUnitInfoButton'),
+            //$selectedOuRightTitle: $('#SelectedOuRightTitle'),
+
+            showTable: function () {
+                 SampleUnitInfo.$emptyInfo.hide();
+                SampleUnitInfo.$table.show();
+                 SampleUnitInfo.$tableContainer.show();
+                //SampleUnitInfo.$addUserToOuButton.show();
+                //SampleUnitInfo.$selectedOuRightTitle.text(': ' + FSourceClass.selectedOu.classsName).show();
+            },
+
+            hideTable: function () {
+                //SampleUnitInfo.$selectedOuRightTitle.hide();
+                //SampleUnitInfo.$addUserToOuButton.hide();
+                SampleUnitInfo.$table.hide();
+                 SampleUnitInfo.$tableContainer.hide();
+                SampleUnitInfo.$emptyInfo.show();
+            },
+            load: function () {
+                //if (!FSourceClass.selectedOu.id) {
+                //    SampleUnitInfo.hideTable();
+                //    return;
+                //}
+                SampleUnitInfo.showTable();
+                //vocsInfo.$table.jtable('load', {
+                //    filtertext: classification.selectedOu.classsId
+                //});
+                SampleUnitInfo.$table.bootstrapTable('removeAll').bootstrapTable('refresh');
+
+            },
+
+            openAddModal: function () {
+                //var ouId = FSourceClass.selectedOu.classsId;
+                //if (!ouId) {
+                //    return;
+                //}
+
+                _createOrEditModal.open({
+                    classid: ouId, size: 1200
+                } );
+            },
+
+
+            //初始化bootstrapTable
+            init: function () {
+                SampleUnitInfo.$table.bootstrapTable({
+                    abpMethod: _userService.getUsers,
+                    toolbar: '#toolbar', //工具按钮用哪个容器
+                    queryParams: function (param) {
+                        var treeclassid = 0;
+                         
+                        var abpParam = {
+                            FilterText: treeclassid,
+                            Sorting: param.sort,
+                            skipCount: param.offset,
+                            maxResultCount: param.limit
+                        };
+
+                        return abpParam;
+                    },
+                    columns: [
+                         
+                        {
+                            field: 'userName',
+                            title: app.localize('userName'),
+                            align: 'center',
+                            width: '10%',
+                        },
+                        {
+                            field: 'name',
+                            title: app.localize('Name'),
+                            halign: 'center',
+                            width: '10%',
+                        },
+                        {
+                            field: 'roles',
+                            title: app.localize('Roles'),
+                            align: 'center',
+                            width: '10%',
+                            formatter: function (value, item, index) {
+                                var roleNames = '';
+
+                                for (var j = 0; j < value.length; j++) {
+                                    if (roleNames.length) {
+                                        roleNames = roleNames + ', ';
+                                    }
+
+                                    roleNames = roleNames + value[j].roleName;
+                                };
+
+                                return roleNames;
+                                if (value == 0) {
+                                    return '正常';
+                                }
+                                else if (value == 1) {
+                                    return '禁用';
+                                }
+                            }
+                         
+                        },
+                        {
+                            field: 'emailAddress',
+                            title: app.localize('EmailAddress'),
+                            align: 'center',
+                            width: '10%',
+                        },
+
+                        //{
+                        //    field: 'dischargeEFUnit',
+                        //    title: app.localize('DischargeEFUnit'),
+                        //    align: 'center',
+                        //    width: '10%',
+                        //},
+                        {
+                            field: 'actions',
+                            title: '操作',
+                            align: 'center',
+                            width: '10%',
+                            formatter: function (value, row, index) {
+                                var actions = '';
+                                actions += ' <a class="edit" href="javascript:void(0)" title="' + app.localize('Edit') + '" style="margin-left: 10px;"><i class="fa fa-edit"></i></a>';
+                                actions += ' <a class="remove" href="javascript:void(0)" title="' + app.localize('Delete') + '" style="margin-left: 10px;"><i class="fa fa-remove"></i></a>';
+                                return actions;
+                            },
+                            events: {
+                                'click .edit': function (e, value, row, index) {
+                                    _createOrEditModal.open({ id: row.id });
+                                },
+                                'click .remove': function (e, value, row, index) {
+                                    deleteVocs_FSourceClass(row);
+                                }
+                            }
+                        }
+
+                    ]
+                });
+
+                $('#CreateNewVocs_SampleUnitInfoButton').click(function (e) {
+                    e.preventDefault();
+                    SampleUnitInfo.openAddModal();
+                });
+                SampleUnitInfo.hideTable();
+            }
+
+
+
+
+
+        };
+
+
+         
         getUsers();
-
+        SampleUnitInfo.init();
+        SampleUnitInfo.showTable();
         $('#UsersTableFilter').focus();
     });
 })();

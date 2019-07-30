@@ -2,11 +2,12 @@
 using Abp;
 using Abp.Authorization;
 using Emploee.Authorization;
+using Emploee.Emploees.Companies.Authorization;
 using Emploee.Tenants.Dashboard.Dto;
 
 namespace Emploee.Tenants.Dashboard
 {
-    [AbpAuthorize(AppPermissions.Pages_Tenant_Dashboard)]
+    [AbpAuthorize(CompanyAppPermissions.Company)]
     public class TenantDashboardAppService : EmploeeAppServiceBase, ITenantDashboardAppService
     {
         public GetMemberActivityOutput GetMemberActivity()

@@ -22,7 +22,7 @@ namespace Emploee.Web.Models.Account
         [StringLength(User.MaxNameLength)]
         public string Name { get; set; }
 
-        [Required]
+        //[Required]
         [StringLength(User.MaxSurnameLength)]
         public string Surname { get; set; }
 
@@ -42,6 +42,7 @@ namespace Emploee.Web.Models.Account
 
         public PasswordComplexitySetting PasswordComplexitySetting { get; set; }
 
+        public string RoleSelect { get; set; }
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             if (!UserName.IsNullOrEmpty())

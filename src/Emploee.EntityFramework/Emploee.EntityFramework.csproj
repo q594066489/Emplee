@@ -517,6 +517,10 @@
     <Compile Include="Migrations\201907250542447_add-dicitonary.Designer.cs">
       <DependentUpon>201907250542447_add-dicitonary.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907300549285_add-companyidandpersonid.cs" />
+    <Compile Include="Migrations\201907300549285_add-companyidandpersonid.Designer.cs">
+      <DependentUpon>201907300549285_add-companyidandpersonid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="EmploeeDataModule.cs" />
     <Compile Include="Migrations\Seed\Host\DefaultEditionCreator.cs" />
@@ -751,6 +755,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907250542447_add-dicitonary.resx">
       <DependentUpon>201907250542447_add-dicitonary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907300549285_add-companyidandpersonid.resx">
+      <DependentUpon>201907300549285_add-companyidandpersonid.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

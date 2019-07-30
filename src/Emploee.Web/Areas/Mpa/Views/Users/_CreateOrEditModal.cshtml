@@ -49,10 +49,10 @@
                                 <label>@L("Name")</label>
                             </div>
 
-                            <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                                <input type="text" name="Surname" class="form-control@(Model.User.Surname.IsNullOrEmpty() ? "" : " edited")" value="@Model.User.Surname" required maxlength="@Emploee.Authorization.Users.User.MaxSurnameLength">
+                            @*<div class="form-group form-md-line-input form-md-floating-label no-hint hidden">
+                                <input type="text" name="Surname" class="form-control@(Model.User.Surname.IsNullOrEmpty() ? "" : " edited")" value="@Model.User.Surname"   maxlength="@Emploee.Authorization.Users.User.MaxSurnameLength">
                                 <label>@L("Surname")</label>
-                            </div>
+                            </div>*@
                         </div>
                     </div>
 

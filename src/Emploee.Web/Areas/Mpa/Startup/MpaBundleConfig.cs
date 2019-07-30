@@ -21,6 +21,9 @@ namespace Emploee.Web.Areas.Mpa.Startup
                         ScriptPaths.JQuery_UI,
                         ScriptPaths.JQuery_Validation,
                         ScriptPaths.Bootstrap,
+                        ScriptPaths.Bootstrap_Table,
+                        ScriptPaths.Bootstrap_Table_Localization,
+                        ScriptPaths.abp_bootstrap_table,
                         ScriptPaths.Bootstrap_Hover_Dropdown,
                         ScriptPaths.JQuery_Slimscroll,
                         ScriptPaths.JQuery_BlockUi,
@@ -57,6 +60,7 @@ namespace Emploee.Web.Areas.Mpa.Startup
                         ScriptPaths.Abp_SweetAlert,
                         ScriptPaths.Abp_Moment,
                         ScriptPaths.Abp_jTable,
+                        
                         ScriptPaths.MustacheJs,
                         ScriptPaths.Tether
                     ).ForceOrdered()
@@ -97,12 +101,14 @@ namespace Emploee.Web.Areas.Mpa.Startup
                     .Include(isRTL ? StylePaths.BootstrapRTL : StylePaths.Bootstrap, new CssRewriteUrlWithVirtualDirectoryTransform())
                     .Include(StylePaths.JQuery_Uniform, new CssRewriteUrlWithVirtualDirectoryTransform())
                     .Include(StylePaths.JsTree, new CssRewriteUrlWithVirtualDirectoryTransform())
-                    .Include(StylePaths.Morris)
+                     .Include(StylePaths.Morris)
                     .Include(StylePaths.Toastr)
+                    .Include(StylePaths.Bootstrap_Table)
                     .Include(StylePaths.Bootstrap_DateRangePicker)
                     .Include(StylePaths.Bootstrap_Switch)
                     .Include(StylePaths.Bootstrap_Select)
                     .Include(StylePaths.JQuery_Jcrop)
+                    //.Include(StylePaths.Bootstrap_checkBox)
                     .ForceOrdered()
                 );
         }

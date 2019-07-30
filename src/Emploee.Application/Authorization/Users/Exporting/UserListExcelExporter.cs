@@ -34,7 +34,7 @@ namespace Emploee.Authorization.Users.Exporting
                     AddHeader(
                         sheet,
                         L("Name"),
-                        L("Surname"),
+                        //L("Surname"),
                         L("UserName"),
                         L("PhoneNumber"),
                         L("EmailAddress"),
@@ -48,7 +48,7 @@ namespace Emploee.Authorization.Users.Exporting
                     AddObjects(
                         sheet, 2, userListDtos,
                         _ => _.Name,
-                        _ => _.Surname,
+                        //_ => _.Surname,
                         _ => _.UserName,
                         _ => _.PhoneNumber,
                         _ => _.EmailAddress,
@@ -61,13 +61,13 @@ namespace Emploee.Authorization.Users.Exporting
 
                     //Formatting cells
 
-                    var lastLoginTimeColumn = sheet.Column(8);
+                    var lastLoginTimeColumn = sheet.Column(7);
                     lastLoginTimeColumn.Style.Numberformat.Format = "yyyy-mm-dd";
 
-                    var creationTimeColumn = sheet.Column(10);
+                    var creationTimeColumn = sheet.Column(9);
                     creationTimeColumn.Style.Numberformat.Format = "yyyy-mm-dd";
 
-                    for (var i = 1; i <= 10; i++)
+                    for (var i = 1; i <= 9; i++)
                     {
                         sheet.Column(i).AutoFit();
                     }

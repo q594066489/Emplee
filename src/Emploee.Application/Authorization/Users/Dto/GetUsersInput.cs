@@ -15,7 +15,7 @@ namespace Emploee.Authorization.Users.Dto
         {
             if (string.IsNullOrEmpty(Sorting))
             {
-                Sorting = "Name,Surname";
+                Sorting = "Name";
             }
         }
     }

@@ -29,13 +29,26 @@
         });
 
         var $element = $('#RegisterPassword');
-        //_passwordComplexityHelper.setPasswordComplexityRules($element, window.passwordComplexitySetting);
+        _passwordComplexityHelper.setPasswordComplexityRules($element, window.passwordComplexitySetting);
     }
+    $('input[type=radio][name=RoleSelect]').change(function () {
+        if (this.value == '企业用户') {
+            //alert("Allot Thai Gayo Bhai");
+            $('#personInfoTitle').text("企业信息"); 
 
+            $('#registerName').attr('placeholder','企业名称'); 
+        }
+        else if (this.value == '求职用户') {
+            //alert("Transfer Thai Gayo");
+            $('#personInfoTitle').text("个人信息");
+            $('#registerName').attr('placeholder', '姓名'); 
+        }
+
+    });
     return {
         init: function () {
             handleRegister();
         }
     };
-
+    
 }();

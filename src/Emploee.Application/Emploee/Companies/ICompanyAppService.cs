@@ -75,13 +75,14 @@ namespace Emploee.Emploees.Companies
         /// </summary>
         Task BatchDeleteCompanyAsync(List<int> input);
 
+        Task<GetCompanyForEditOutput> GetCompanyByCompanyID(long CompanyID);
         #endregion
 
-#region Excel导出功能
+        #region Excel导出功能
 
 
 
-         /// <summary>
+        /// <summary>
         /// 获取企业信息信息转换为Excel
         /// </summary>
         /// <returns></returns>
