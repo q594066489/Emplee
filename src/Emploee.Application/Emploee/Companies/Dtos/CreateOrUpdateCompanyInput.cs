@@ -31,6 +31,8 @@ namespace Emploee.Emploees.Companies.Dtos
     /// 企业信息编辑Dto
     /// </summary>
 		public CompanyEditDto  CompanyEditDto {get;set;}
+
+        public string EditJsonstring { get; set; }
  
     }
 }

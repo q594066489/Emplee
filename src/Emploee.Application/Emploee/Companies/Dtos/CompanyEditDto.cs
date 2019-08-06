@@ -43,8 +43,7 @@ namespace Emploee.Emploees.Companies.Dtos
         /// <summary>
         /// 企业名称
         /// </summary>
-        [DisplayName("企业名称")]
-        [Required]
+        [DisplayName("企业名称")]         
         [MaxLength(200)]
         public   string  CompanyName { get; set; }
 
@@ -80,7 +79,7 @@ namespace Emploee.Emploees.Companies.Dtos
         /// 公司介绍
         /// </summary>
         [DisplayName("公司介绍")]
-        [MaxLength(200)]
+       
         public   string  CompanyIntroduce { get; set; }
 
         /// <summary>

@@ -88,11 +88,11 @@ namespace Emploee.Emploees.Companies
         /// <returns></returns>
         Task<FileDto> GetCompanyToExcel();
 
-#endregion
+        #endregion
+
+        Task<bool> ImportData(string fileName);
 
 
-
-
-
+        Task UpdateCompanyInfoAsync(CreateOrUpdateCompanyInput input);
     }
 }

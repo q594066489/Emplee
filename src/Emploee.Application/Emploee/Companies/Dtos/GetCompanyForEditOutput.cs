@@ -35,11 +35,18 @@ namespace Emploee.Emploees.Companies.Dtos
         public CompanyEditDto Company { get; set; }
 
         public List<ComboboxItemDto> CompanyScales { get; set; }
+
         public List<ComboboxItemDto> Finanicings { get; set; }
+
+        public List<ComboboxItemDto> classifys { get; set; }
+
         public GetCompanyForEditOutput()
         {
             CompanyScales = new List<ComboboxItemDto>();
+
             Finanicings = new List<ComboboxItemDto>();
+
+            classifys = new List<ComboboxItemDto>();
         }
     }
 }

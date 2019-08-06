@@ -47,7 +47,7 @@ namespace Emploee.Emploees.Companies
         /// 公司介绍
         /// </summary>
         /// 
-        [MaxLength(200)]
+         
         public string CompanyIntroduce { get; set; }
         /// <summary>
         /// 行业类型

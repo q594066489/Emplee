@@ -20,6 +20,11 @@
             scriptUrl: abp.appPath + 'Areas/Mpa/Views/CompanyManage/_CreateOrEditCompanyModal.js',
             modalClass: 'CreateOrEditCompanyModal'
         });
+        var _showpicModal = new app.ModalManager({
+            viewUrl: abp.appPath + 'Mpa/CompanyManage/ShowPicture',
+            //scriptUrl: abp.appPath + 'Areas/Mpa/Views/CompanyManage/_CreateOrEditCompanyModal.js',
+            modalClass: 'ShowPictureModal'
+        });
 
 
 
@@ -46,6 +51,7 @@
                         field: 'companyID',
                         title:  '企业编号' ,
                         halign: 'center',
+                        align:'center',
                         width: '3%',
                         visible: false
                     },
@@ -53,54 +59,80 @@
                         field: 'companyName',
                         title: app.localize('CompanyName'),
                         halign: 'center',
+                        align: 'center',
                         width: '10%',
                     },
                     {
                         field: 'companyEmail',
                         title: app.localize('CompanyEmail'),
                         halign: 'center',
+                        align: 'center',
                         width: '10%',
                     },
                     {
                         field: 'companyPhone',
                         title: app.localize('CompanyPhone'),
                         halign: 'center',
+                        align: 'center',
                         width: '10%',
                     },
                     {
                         field: 'companyAddress',
                         title: app.localize('CompanyAddress'),
                         halign: 'center',
+                        align: 'center',
                         width: '10%',
                     },
                     {
                         field: 'companyScale',
                         title: app.localize('CompanyScale'),
                         halign: 'center',
+                        align: 'center',
                         width: '10%',
                     },
                     {
                         field: 'classify',
                         title: app.localize('Classify'),
                         halign: 'center',
+                        align: 'center',
                         width: '10%',
                     },
                     {
                         field: 'finanicing',
                         title: app.localize('Finanicing'),
                         halign: 'center',
+                        align: 'center',
                         width: '10%',
                     },
                     {
                         field: 'bussinessLicense',
                         title: app.localize('BussinessLicense'),
                         halign: 'center',
+                        align: 'center',
                         width: '10%',
+                        formatter: function (value, row, index) {
+                            _url = value;
+                            if (value != null) {
+                                _url = ' <a class="showLis text-center" href="javascript:void(0)" title="查看营业执照" ><p>浏览</a>'
+                            }
+                            else {
+                                _url = ' <p class="bg-danger text-center">未上传</p>';
+                            }
+                            
+                            return _url;
+                        },
+                        events: {
+                            'click .showLis': function (e, value, row, index) {
+                                _showpicModal.open({ size:'1200',src: row.bussinessLicense });
+                                //alert(row.bussinessLicense);
+                            } 
+                        }
                     },
                     {
                         field: 'registerDate',
                         title: app.localize('RegisterDate'),
                         halign: 'center',
+                        align: 'center',
                         width: '10%',
                         formatter: function (value, row, index) {
                             return moment(value).format('L');

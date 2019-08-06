@@ -1,0 +1,17 @@
+﻿
+@using Emploee.Web.Areas.Mpa.Models.Common.Modals
+@using Emploee.Web.Areas.Mpa.Models.CompanyManage
+
+@model  ShowPictureModal
+
+@* 初始化头部 *@
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel("查看营业制造"))
+<!--html代码区域-->
+<div enctype="multipart/form-data">
+    <div>
+        <p><img src="@Model.picSrc" class="img-thumbnail" width="1000"></p>
+    </div>
+</div>
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+
+

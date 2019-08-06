@@ -52,7 +52,7 @@ namespace Emploee.Emploees.Companies.EntityMapper.Companies
 		    // 公司规模
 			Property(a => a.CompanyScale).HasMaxLength(200);
 		    // 公司介绍
-			Property(a => a.CompanyIntroduce).HasMaxLength(200);
+			Property(a => a.CompanyIntroduce);
 		    // 行业类型
 			Property(a => a.Classify).HasMaxLength(4000);
 		    // 融资阶段

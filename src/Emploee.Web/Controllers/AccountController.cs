@@ -614,7 +614,7 @@ namespace Emploee.Web.Controllers
                         Company _company = new Company
                         {
                             CompanyID = user.Id,
-                            CompanyName = user.UserName,
+                            CompanyName = user.Name,
                             CompanyEmail = user.EmailAddress,
                             RegisterDate = user.CreationTime
                         };
@@ -624,7 +624,7 @@ namespace Emploee.Web.Controllers
                         PersonInfo _personinfo = new PersonInfo
                         {
                             PersonID = user.Id,
-                            Name = user.UserName,
+                            Name = user.Name,
                             Email = user.EmailAddress
                         };
                         await _PersonInfoRepository.InsertAsync(_personinfo);

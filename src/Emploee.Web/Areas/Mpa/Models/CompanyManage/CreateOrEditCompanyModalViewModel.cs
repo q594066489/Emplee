@@ -28,7 +28,7 @@ namespace Emploee.Web.Areas.Mpa.Models.CompanyManage
 		 /// <summary>
         /// 是否处于编辑状态
         /// </summary>
-	  public bool IsEditMode { get { return Company.Id.HasValue; } }
+	    public bool IsEditMode { get { return Company.Id.HasValue; } }
 
 	    
 		

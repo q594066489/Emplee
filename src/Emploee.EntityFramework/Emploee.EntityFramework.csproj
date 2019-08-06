@@ -521,6 +521,10 @@
     <Compile Include="Migrations\201907300549285_add-companyidandpersonid.Designer.cs">
       <DependentUpon>201907300549285_add-companyidandpersonid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908060640106_changeintroduce2.cs" />
+    <Compile Include="Migrations\201908060640106_changeintroduce2.Designer.cs">
+      <DependentUpon>201908060640106_changeintroduce2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="EmploeeDataModule.cs" />
     <Compile Include="Migrations\Seed\Host\DefaultEditionCreator.cs" />
@@ -758,6 +762,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907300549285_add-companyidandpersonid.resx">
       <DependentUpon>201907300549285_add-companyidandpersonid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908060640106_changeintroduce2.resx">
+      <DependentUpon>201908060640106_changeintroduce2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

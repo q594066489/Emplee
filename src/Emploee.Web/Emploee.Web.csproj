@@ -625,6 +625,9 @@
     <Content Include="Areas\Mpa\Common\Scripts\readme.txt" />
     <Content Include="Areas\Mpa\Views\CompanyManage\CompanyInfo.js" />
     <Content Include="Areas\Mpa\Views\CompanyManage\Index.js" />
+    <Content Include="Areas\Mpa\Views\CompanyManage\_CreateOrEditCompanyModal.js" />
+    <Content Include="Areas\Mpa\Views\CompanyManage\_ImportCompanyManages.js" />
+    <Content Include="Areas\Mpa\Views\CompanyManage\_ShowPicture.js" />
     <Content Include="Common\Images\app-logo-small.png" />
     <Content Include="Common\Images\logo.png" />
     <Content Include="Common\Scripts\jquery-validation-custom.js" />
@@ -3401,7 +3404,6 @@
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
     <Content Include="Areas\Mpa\Views\CompanyManage\Index2.js" />
-    <Content Include="Areas\Mpa\Views\CompanyManage\_CreateOrEditCompanyModal.js" />
     <Content Include="Areas\Mpa\Views\JobPostManage\Index.js" />
     <Content Include="Areas\Mpa\Views\JobPostManage\_CreateOrEditJobPostModal.js" />
     <Content Include="Areas\Mpa\Views\JobUrgentManage\Index.js" />
@@ -3468,6 +3470,8 @@
     <Content Include="libs\icheck-bootstrap\jQuery之家.url" />
     <Content Include="Areas\Mpa\Views\CompanyManage\Index.cshtml" />
     <Content Include="Areas\Mpa\Views\CompanyManage\CompanyInfo.cshtml" />
+    <Content Include="Areas\Mpa\Views\CompanyManage\_ImportCompanyManages.cshtml" />
+    <Content Include="Areas\Mpa\Views\CompanyManage\_ShowPicture.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -3545,6 +3549,8 @@
     <Content Include="Areas\Mpa\Views\PersonInfoManage\_CreateOrEditPersonInfoModal.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Mpa\Models\CompanyManage\ImportCompanyManages.cs" />
+    <Compile Include="Areas\Mpa\Models\CompanyManage\ShowPictureModal.cs" />
     <Compile Include="Models\Layout\TenantCustomCssViewModel.cs" />
     <Compile Include="Areas\Mpa\Startup\UserMenuItemExtensions.cs" />
     <Compile Include="App_Start\Bundling\CssRewriteUrlWithVirtualDirectoryTransform.cs" />
@@ -3865,6 +3871,10 @@
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="UploadFiles\2eeec42e4a5244e48fc00c7ac9cde7f6.xlsx" />
+    <Content Include="UploadFiles\bc7673f350a04f0eb0bd24fa0bac8c4d.xlsx" />
+    <Content Include="UploadFiles\Template\Vocs计算导入.xlsx" />
+    <Content Include="UploadFiles\Template\年度排放源信息_模板.xlsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

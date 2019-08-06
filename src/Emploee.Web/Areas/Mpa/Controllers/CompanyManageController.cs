@@ -10,6 +10,7 @@
 using Abp.Application.Services.Dto;
 using Abp.Runtime.Session;
 using Abp.Web.Mvc.Authorization;
+using Abp.Web.Security.AntiForgery;
 using Emploee.Emploees.Companies;
 using Emploee.Emploees.Companies.Authorization;
 using Emploee.Emploees.Companies.Dtos;
@@ -17,7 +18,9 @@ using Emploee.Web.Areas.Mpa.Models.CompanyManage;
 using Emploee.Web.Controllers;
 using System;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
+using Vocs.Npoi;
 
 namespace Emploee.Web.Areas.Mpa.Controllers
 {
@@ -80,5 +83,35 @@ namespace Emploee.Web.Areas.Mpa.Controllers
             return View("CompanyInfo", viewModel);
         }
 
+        public ActionResult ImportCompanyManages(int? id)
+        {
+            return PartialView("_ImportCompanyManages");
+        }
+        /// <summary>
+        /// 上传附件到服务器上
+        /// </summary>
+        /// <param name="fileData">附件信息</param>
+        /// <param name="guid">附件组GUID</param>
+        /// <param name="folder">指定的上传目录</param>
+        /// <returns></returns>
+        [DisableAbpAntiForgeryTokenValidation]
+        public ActionResult UpLoadfileinput(string guid, string folder)
+        {
+
+            string strjson = string.Empty;
+            HttpFileCollectionBase files = HttpContext.Request.Files;
+            //获取返回文件信息
+            UpLoadFile file = new UpLoadFile();
+            var result = file.UpLoad(files);
+            return Json(result);
+
+
+        }
+        public ActionResult ShowPicture(string src)
+        {
+            var viewModel = new ShowPictureModal(src);
+            return PartialView("_ShowPicture", viewModel);
+             
+        }
     }
 }

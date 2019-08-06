@@ -19,9 +19,12 @@ using Abp.Configuration;
 using Abp.Domain.Repositories;
 using Abp.Extensions;
 using Abp.Linq.Extensions;
+using Abp.Runtime.Session;
+using Abp.UI;
 using Emploee.Dto;
 using Emploee.Emploees.Companies.Authorization;
 using Emploee.Emploees.Companies.Dtos;
+using Newtonsoft.Json;
 
 #region 代码生成器相关信息_ABP Code Generator Info
 //你好，我是ABP代码生成器的作者,欢迎您使用该工具，目前接受付费定制该工具，有需要的可以联系我
@@ -50,6 +53,7 @@ namespace Emploee.Emploees.Companies
     {
         private readonly IRepository<Company, int> _companyRepository;
         private readonly ICompanyListExcelExporter _companyListExcelExporter;
+        private readonly IAbpSession _IAbpSession;
 
 
         private readonly CompanyManage _companyManage;
@@ -60,11 +64,13 @@ namespace Emploee.Emploees.Companies
             IRepository<Company, int> companyRepository,
             CompanyManage companyManage
             , ICompanyListExcelExporter companyListExcelExporter
+            , IAbpSession IAbpSession
         )
         {
             _companyRepository = companyRepository;
             _companyManage = companyManage;
             _companyListExcelExporter = companyListExcelExporter;
+            _IAbpSession = IAbpSession;
         }
 
 
@@ -156,6 +162,38 @@ namespace Emploee.Emploees.Companies
                   "1000-9999人",
                   "10000人以上"
              };
+            List<string> ClassigysList = new List<string> {
+                "电子商务",
+                "游戏",
+                "媒体",
+                "广告营销",
+                "数据服务",
+                "医疗健康",
+                "生活服务",
+                "O2O",
+                "旅游",
+                "分类信息",
+                "音乐/视频/阅读",
+                "在线教育",
+                "社交网络",
+                "人力资源服务",
+                "企业服务",
+                "信息安全",
+                "智能硬件",
+                "移动互联网",
+                "互联网",
+                "计算机软件",
+                "通信/网络设备",
+                "广告/公关/会展",
+                "互联网金融",
+                "物流/仓储",
+                "贸易",
+                "咨询",
+                "工程",
+                "制造业",
+                "其他"
+            };
+
             output.Finanicings = Finanicinglist.Select(c => new ComboboxItemDto(c, c)
             {
                 IsSelected = output.Company.Finanicing == c
@@ -164,7 +202,11 @@ namespace Emploee.Emploees.Companies
             {
                 IsSelected = output.Company.CompanyScale == c
             }).ToList();
-
+            output.classifys = ClassigysList.Select(c => new ComboboxItemDto(c, c)
+            {
+                IsSelected = output.Company.Classify == c
+            }).ToList();
+            
             return output;
         }
 
@@ -189,6 +231,18 @@ namespace Emploee.Emploees.Companies
         /// </summary>
         public async Task CreateOrUpdateCompanyAsync(CreateOrUpdateCompanyInput input)
         {
+            int i = 0;
+            //var _company = JsonConvert.DeserializeObject<CompanyEditDto>(input.EditJsonstring);//反序列 
+            var _company = JsonConvert.DeserializeObject(input.EditJsonstring);
+            var sa = input.CompanyEditDto;
+            //if (_company.Id.HasValue)
+            //{
+            //    await UpdateCompanyAsync(_company);
+            //}
+            //else
+            //{
+            //    await CreateCompanyAsync(_company);
+            //}
             if (input.CompanyEditDto.Id.HasValue)
             {
                 await UpdateCompanyAsync(input.CompanyEditDto);
@@ -197,6 +251,43 @@ namespace Emploee.Emploees.Companies
             {
                 await CreateCompanyAsync(input.CompanyEditDto);
             }
+        }
+        public async Task UpdateCompanyInfoAsync(CreateOrUpdateCompanyInput input)
+        {
+            if(input.CompanyEditDto.CompanyID==null)
+            {
+                return;
+            }
+            else
+            {
+                //更新企业表
+                var _companyInfo = await _companyRepository.FirstOrDefaultAsync(t => t.CompanyID == input.CompanyEditDto.CompanyID);
+               //_companyInfo.CompanyID= input.CompanyEditDto.CompanyID;
+               _companyInfo.CompanyName= input.CompanyEditDto.CompanyName;
+               _companyInfo.CompanyEmail= input.CompanyEditDto.CompanyEmail;
+                _companyInfo.CompanyPhone = input.CompanyEditDto.CompanyPhone;
+               _companyInfo.isDelete= input.CompanyEditDto.isDelete;
+                _companyInfo.CompanyAddress= input.CompanyEditDto.CompanyAddress;
+               _companyInfo.CompanyScale= input.CompanyEditDto.CompanyScale;
+               _companyInfo.Classify= input.CompanyEditDto.Classify;
+               _companyInfo.Finanicing= input.CompanyEditDto.Finanicing;
+               _companyInfo.CompanyIntroduce = input.CompanyEditDto.CompanyIntroduce;
+               await _companyRepository.UpdateAsync(_companyInfo);
+                //更新user数据
+
+                //---------------------------------------------------------------------
+                var uid = (long)_IAbpSession.UserId;
+               var user = await UserManager.FindByIdAsync(uid);
+
+                //Update user properties
+                user.EmailAddress = input.CompanyEditDto.CompanyEmail;
+                user.PhoneNumber = input.CompanyEditDto.CompanyPhone;
+
+                await UserManager.UpdateAsync(user);
+
+                
+            }
+             
         }
 
         /// <summary>
@@ -266,6 +357,30 @@ namespace Emploee.Emploees.Companies
 
 
         #endregion
+
+        /// <summary>
+        /// 导入excel
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <returns></returns>
+        public async Task<bool> ImportData(string fileName)
+        {
+            if (!fileName.IsNullOrEmpty())
+            {
+                var CompmanyID = (long)_IAbpSession.UserId;
+
+                var company = await _companyRepository.FirstOrDefaultAsync(t => t.CompanyID == CompmanyID);
+                company.BussinessLicense = fileName;
+                await _companyRepository.UpdateAsync(company);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+
+        }
 
 
 

@@ -13,7 +13,11 @@
             'delete': abp.auth.hasPermission("Pages.Company.DeleteCompany")
 
         };
-
+        var _import = new app.ModalManager({
+            viewUrl: abp.appPath + 'Mpa/CompanyManage/ImportCompanyManages',
+            scriptUrl: abp.appPath + 'Areas/Mpa/Views/CompanyManage/_ImportCompanyManages.js',
+            modalClass: 'ImportOpeManages'
+        });
 
         var _createOrEditModal = new app.ModalManager({
             viewUrl: abp.appPath + 'Mpa/CompanyManage/CreateOrEditCompanyModal',
@@ -47,88 +51,65 @@
 
         $("#CompanyPhone").keyup(function () {
             amountKeyupFun(this);
-        })
+        });
 
         $("#CompanyPhone").keydown(function () {
             amountKeydownFun(this);
-        })
+        });
 
         $("#CompanyPhone").bind("paste", function () {
             amoutPasteFun(this);
-        })
-
-        
-         
-
-        //打开添加窗口SPA
-        $('#CreateNewCompanyButton').click(function () {
-            //可选生成的对话框大小{size:'lg'}or{size:'sm'}
-            //需要到_createContainer方法中添加,_args.size
-            _createOrEditModal.open();
         });
+    
+        $('#uploadBtn1').click(function () {
+            _import.open();
 
-
-
-
-        //刷新表格信息
-        $("#ButtonReload").click(function () {
-            getCompanys();
         });
+        $('#uploadBtn').click(function () {
+            _import.open();
 
+        });
+        $('#SaveCompanyBtn').click(function () {
+            //_$companyInformationForm = $("form[name=companyInformationsForm]");
 
+            var _option = {
+                CompanyID: $("#CompanyID").val(),
+                CompanyName: $("#CompanyName").val(),
+                CompanyEmail: $("#CompanyEmail").val(),
+                CompanyPhone: $("#CompanyPhone").val(),
+                isDelete: $("input[name=isDelete]").val(),
+                CompanyAddress: $("#CompanyAddress").val(),
+                CompanyScale: $("#CompanyScaleEdit").val(),
+                Classify: $("#ClassifyEdit").val(),
+                Finanicing: $("#FinanicingEdit").val(),
+                CompanyIntroduce: $("#CompanyIntroduce").val(),
 
-
-        //模糊查询功能
-        function getCompanys(reload) {
-            if (reload) {
-                //_$companysTable.jtable('reload');
-            } else {
-                //_$companysTable.jtable('load', {
-                //    filtertext: $('#CompanysTableFilter').val()
-                //});
-                _$companysTable.bootstrapTable('removeAll').bootstrapTable('refresh');
             }
-        }
-        //
-        //删除当前company实体
-        function deleteCompany(company) {
-            abp.message.confirm(
-                app.localize('CompanyDeleteWarningMessage', company.companyName),
-                function (isConfirmed) {
-                    if (isConfirmed) {
-                        _companyService.deleteCompanyAsync({
-                            id: company.id
-                        }).done(function () {
-                            getCompanys(true);
-                            abp.notify.success(app.localize('SuccessfullyDeleted'));
-                        });
-                    }
-                }
-            );
-        }
-
-
-
-        //导出为excel文档
-        $('#ExportCompanysToExcelButton').click(function () {
-            _companyService
-                .getCompanysToExcel({})
-                .done(function (result) {
-                    app.downloadTempFile(result);
-                });
+             
+            //校验通过
+            //$("form[name=companyInformationsForm]").formSerialize();
+             
+           // abp.ui.setBusy("form[name=companyInformationsForm]");
+            //var _companyjson = $("form[name=companyInformationsForm]").formSerialize(); //将JSON对象转化为JSON字符  
+            //var _companyobj = JSON.parse(_companyjson); //由JSON字符串转换为JSON对象  
+            //console.log(_$companyInformationForm);
+            //console.log(_$companyInformationForm.formSerialize())
+            console.log(_option);
+            //console.log(_companyobj);
+            _companyService.updateCompanyInfo({
+                companyEditDto: _option
+            }).done(function () {
+                //提示信息
+                abp.notify.info(app.localize('SavedSuccessfully'));
+                ////关闭窗体
+                //_modalManager.close();
+                ////信息保存成功后调用事件，刷新列表
+                //abp.event.trigger('app.createOrEditCompanyModalSaved');
+            }).always(function () {
+                abp.ui.clearBusy("form[name=companyInformationsForm]");;
+            });
         });
-        //搜索
-        $('#GetCompanysButton').click(function (e) {
-            e.preventDefault();
-            getCompanys();
-        });
-
-        //制作Company事件,用于请求变化后，刷新表格信息
-        abp.event.on('app.createOrEditCompanyModalSaved', function () {
-            getCompanys(true);
-        });
-
-        getCompanys();
+        //getCompanys();
 
 
     });
