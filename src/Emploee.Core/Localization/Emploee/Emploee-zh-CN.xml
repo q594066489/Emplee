@@ -311,10 +311,10 @@
     /*
     <!-- 职位发布管理 -->
     <text name="JobPost" value="职位发布" />
-    <text name="JobPostHeaderInfo" value="职位发布管理列表" />
-    <text name="CreateJobPost" value="新增职位发布" />
-    <text name="EditJobPost" value="编辑职位发布" />
-    <text name="DeleteJobPost" value="删除职位发布" />
+    <text name="JobPostHeaderInfo" value="职位管理列表" />
+    <text name="CreateJobPost" value="新增职位" />
+    <text name="EditJobPost" value="编辑职位" />
+    <text name="DeleteJobPost" value="删除职位" />
 
 
 

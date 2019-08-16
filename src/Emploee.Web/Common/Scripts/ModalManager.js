@@ -90,12 +90,12 @@
                     _saveModal();
                 });
 
-                _$modal.find('.modal-body').keydown(function (e) {
-                    if (e.which == 13) {
-                        e.preventDefault();
-                        _saveModal();
-                    }
-                });
+                //_$modal.find('.modal-body').keydown(function (e) {
+                //    if (e.which == 13) {
+                //        e.preventDefault();
+                //        _saveModal();
+                //    }
+                //});
 
                 _$modal.modal('show');
             };

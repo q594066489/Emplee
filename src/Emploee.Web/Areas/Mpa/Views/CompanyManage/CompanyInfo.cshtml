@@ -191,9 +191,9 @@
             <div class="col-sm-12" style=" margin-bottom: 15px">
                 <div class="form-group">
                     <label class="col-sm-1 colspan-xs-1 control-label">@L("CompanyIntroduce")</label>
-                    <div class="col-sm-8 colspan-xs-8 clearfix">
+                    <div class="col-sm-10 colspan-xs-10 clearfix">
 
-                        <textarea class="form-control input-xxlarge" rows="4" cols="10" id="CompanyIntroduce" name="CompanyIntroduce" maxlength="800">@Model.Company.CompanyIntroduce</textarea>
+                        <textarea class="form-control input-xxlarge" rows="8"   id="CompanyIntroduce" name="CompanyIntroduce" maxlength="800">@Model.Company.CompanyIntroduce</textarea>
                     </div>
                 </div>
             </div>
@@ -206,7 +206,7 @@
             <input class="form-control inline w300  maxlength-handler " type="text" id="BussinessLicense"  value="@Model.Company.BussinessLicense" />
             <span class="help-inline"></span>
         </div>
-        <div class="icheck-greensea col-sm-2">
+        <div class="icheck-greensea col-sm-2 disabeld">
             @if (@Model.Company.BussinessLicense.IsNullOrEmpty())
             {
                 <input type="checkbox" class="form-control inline disabeld" id="someCheckboxId" disabeld />

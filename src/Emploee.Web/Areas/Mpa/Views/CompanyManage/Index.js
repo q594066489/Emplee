@@ -22,7 +22,7 @@
         });
         var _showpicModal = new app.ModalManager({
             viewUrl: abp.appPath + 'Mpa/CompanyManage/ShowPicture',
-            //scriptUrl: abp.appPath + 'Areas/Mpa/Views/CompanyManage/_CreateOrEditCompanyModal.js',
+            scriptUrl: abp.appPath + 'Areas/Mpa/Views/CompanyManage/_ShowPicture.js',
             modalClass: 'ShowPictureModal'
         });
 
@@ -152,7 +152,7 @@
                         },
                         events: {
                             'click .edit': function (e, value, row, index) {
-                                _createOrEditModal.open({ id: row.id });
+                                _createOrEditModal.open({ size: '1800', id: row.id }); 
                             },
                             'click .remove': function (e, value, row, index) {
                                 deleteCompany(row);

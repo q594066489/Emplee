@@ -11,6 +11,7 @@ using Emploee.Emploee.PersonInfos.Authorization;
 using Emploee.Approvals.Authorization;
 using Emploee.Emploee.Advertisements.Authorization;
 using Emploee.Emploee.Dictionaries.Authorization;
+using Emploee.Emploee.Job_Positions.Authorization;
 
 namespace Emploee
 {
@@ -31,6 +32,7 @@ namespace Emploee
             Configuration.Authorization.Providers.Add<ApprovalAppAuthorizationProvider>();
             Configuration.Authorization.Providers.Add<AdvertisementAppAuthorizationProvider>();
             Configuration.Authorization.Providers.Add<DictionaryAppAuthorizationProvider>();
+            Configuration.Authorization.Providers.Add<JobPositionAppAuthorizationProvider>();
             //Adding custom AutoMapper mappings
             Configuration.Modules.AbpAutoMapper().Configurators.Add(mapper =>
             {

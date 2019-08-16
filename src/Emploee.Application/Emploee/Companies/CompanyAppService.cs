@@ -126,6 +126,70 @@ namespace Emploee.Emploees.Companies
             }
 
             output.Company = companyEditDto;
+            List<string> Finanicinglist = new List<string>
+             {
+                  "未融资",
+                  "天使轮",
+                  "A轮",
+                  "B轮",
+                  "C轮",
+                  "D轮及以上",
+                  "已上市",
+                  "不需要融资"
+             };
+            List<string> CompanyScaleslist = new List<string>
+             {
+                  "0-20人",
+                  "20-99人",
+                  "100-499人",
+                  "500-999人",
+                  "1000-9999人",
+                  "10000人以上"
+             };
+            List<string> ClassigysList = new List<string> {
+                "电子商务",
+                "游戏",
+                "媒体",
+                "广告营销",
+                "数据服务",
+                "医疗健康",
+                "生活服务",
+                "O2O",
+                "旅游",
+                "分类信息",
+                "音乐/视频/阅读",
+                "在线教育",
+                "社交网络",
+                "人力资源服务",
+                "企业服务",
+                "信息安全",
+                "智能硬件",
+                "移动互联网",
+                "互联网",
+                "计算机软件",
+                "通信/网络设备",
+                "广告/公关/会展",
+                "互联网金融",
+                "物流/仓储",
+                "贸易",
+                "咨询",
+                "工程",
+                "制造业",
+                "其他"
+            };
+
+            output.Finanicings = Finanicinglist.Select(c => new ComboboxItemDto(c, c)
+            {
+                IsSelected = output.Company.Finanicing == c
+            }).ToList();
+            output.CompanyScales = CompanyScaleslist.Select(c => new ComboboxItemDto(c, c)
+            {
+                IsSelected = output.Company.CompanyScale == c
+            }).ToList();
+            output.classifys = ClassigysList.Select(c => new ComboboxItemDto(c, c)
+            {
+                IsSelected = output.Company.Classify == c
+            }).ToList();
             return output;
         }
         /// <summary>

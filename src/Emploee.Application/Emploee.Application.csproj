@@ -371,6 +371,14 @@
     <Compile Include="Emploee\JobPersons\IJobPersonAppService.cs" />
     <Compile Include="Emploee\JobPersons\JobPersonAppService.cs" />
     <Compile Include="Emploee\JobPersons\Mappers\JobPersonDtoMapper.cs" />
+    <Compile Include="Emploee\JobPositions\Dtos\CreateOrUpdateJobPositionInput.cs" />
+    <Compile Include="Emploee\JobPositions\Dtos\GetJobPositionForEditOutput.cs" />
+    <Compile Include="Emploee\JobPositions\Dtos\GetJobPositionInput.cs" />
+    <Compile Include="Emploee\JobPositions\Dtos\JobPositionEditDto.cs" />
+    <Compile Include="Emploee\JobPositions\Dtos\JobPositionListDto.cs" />
+    <Compile Include="Emploee\JobPositions\IJobPositionAppService.cs" />
+    <Compile Include="Emploee\JobPositions\JobPositionAppService.cs" />
+    <Compile Include="Emploee\JobPositions\Mappers\JobPositionDtoMapper.cs" />
     <Compile Include="Emploee\JobPosts\Dtos\CreateOrUpdateJobPostInput.cs" />
     <Compile Include="Emploee\JobPosts\Dtos\GetJobPostForEditOutput.cs" />
     <Compile Include="Emploee\JobPosts\Dtos\GetJobPostInput.cs" />

@@ -79,7 +79,7 @@ JobPostManage jobPostManage
     /// <summary>
     /// 根据查询条件获取职位发布分页列表
     /// </summary>
-    public async Task<PagedResultDto<JobPostListDto>> GetPagedJobPostsAsync(GetJobPostInput input)
+    public async Task<PagedResultDto<JobPostListDto>> GetPagedJobPosts(GetJobPostInput input)
 {
 			
     var query = _jobPostRepositoryAsNoTrack;
@@ -102,7 +102,7 @@ JobPostManage jobPostManage
         /// <summary>
     /// 通过Id获取职位发布信息进行编辑或修改 
     /// </summary>
-    public async Task<GetJobPostForEditOutput> GetJobPostForEditAsync(NullableIdDto<int> input)
+    public async Task<GetJobPostForEditOutput> GetJobPostForEdit(NullableIdDto<int> input)
 {
     var output=new GetJobPostForEditOutput();
 
@@ -126,7 +126,7 @@ JobPostManage jobPostManage
     /// <summary>
     /// 通过指定id获取职位发布ListDto信息
     /// </summary>
-    public async Task<JobPostListDto> GetJobPostByIdAsync(EntityDto<int> input)
+    public async Task<JobPostListDto> GetJobPostById(EntityDto<int> input)
 {
     var entity = await _jobPostRepository.GetAsync(input.Id);
 
@@ -142,15 +142,17 @@ JobPostManage jobPostManage
     /// <summary>
     /// 新增或更改职位发布
     /// </summary>
-    public async Task CreateOrUpdateJobPostAsync(CreateOrUpdateJobPostInput input)
+    public async Task CreateOrUpdateJobPost(CreateOrUpdateJobPostInput input)
 {
-    if (input.JobPostEditDto.Id.HasValue)
+
+
+            if (input.JobPostEditDto.Id.HasValue)
 {
-    await UpdateJobPostAsync(input.JobPostEditDto);
+    await UpdateJobPost(input.JobPostEditDto);
     }
     else
 {
-    await CreateJobPostAsync(input.JobPostEditDto);
+    await CreateJobPost(input.JobPostEditDto);
     }
     }
 
@@ -158,7 +160,7 @@ JobPostManage jobPostManage
     /// 新增职位发布
     /// </summary>
 	        [AbpAuthorize(JobPostAppPermissions.JobPost_CreateJobPost)]	 
-         public virtual async Task<JobPostEditDto> CreateJobPostAsync(JobPostEditDto input)
+         public virtual async Task<JobPostEditDto> CreateJobPost(JobPostEditDto input)
 {
     //TODO:新增前的逻辑判断，是否允许新增
 
@@ -172,7 +174,7 @@ JobPostManage jobPostManage
     /// 编辑职位发布
     /// </summary>
 	      [AbpAuthorize(JobPostAppPermissions.JobPost_EditJobPost)]
-         public virtual async Task UpdateJobPostAsync(JobPostEditDto input)
+         public virtual async Task UpdateJobPost(JobPostEditDto input)
 {
     //TODO:更新前的逻辑判断，是否允许更新
 
@@ -186,7 +188,7 @@ JobPostManage jobPostManage
     /// 删除职位发布
     /// </summary>
 	    [AbpAuthorize(JobPostAppPermissions.JobPost_DeleteJobPost)]
-         public async Task DeleteJobPostAsync(EntityDto<int> input)
+         public async Task DeleteJobPost(EntityDto<int> input)
 {
     //TODO:删除前的逻辑判断，是否允许删除
     await _jobPostRepository.DeleteAsync(input.Id);
@@ -196,7 +198,7 @@ JobPostManage jobPostManage
     /// 批量删除职位发布
     /// </summary>
 	    [AbpAuthorize(JobPostAppPermissions.JobPost_DeleteJobPost)]
-         public async Task BatchDeleteJobPostAsync(List<int> input)
+         public async Task BatchDeleteJobPost(List<int> input)
 {
     //TODO:批量删除前的逻辑判断，是否允许删除
     await _jobPostRepository.DeleteAsync(s=>input.Contains(s.Id));

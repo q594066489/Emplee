@@ -11,6 +11,8 @@ using Emploee.Emploee.Advertisements;
 using Emploee.Emploee.Advertisements.EntityMapper.Advertisements;
 using Emploee.Emploee.Dictionaries;
 using Emploee.Emploee.Dictionaries.EntityMapper.Dictionaries;
+using Emploee.Emploee.Job_Positions;
+using Emploee.Emploee.Job_Positions.EntityMapper.Job_Positions;
 using Emploee.Emploee.JobPersons;
 using Emploee.Emploee.JobPersons.EntityMapper.JobPersons;
 using Emploee.Emploee.JobPosts;
@@ -54,7 +56,9 @@ namespace Emploee.EntityFramework
         public IDbSet<Approval> Approvals { get; set; }
         public IDbSet<Advertisement> Advertisements { get; set; }
         public IDbSet<Dictionary> Dictionarys { get; set; }
+        public IDbSet<JobPosition> JobPositions { get; set; }
         
+
 
         public EmploeeDbContext()
             : base("Default")
@@ -93,6 +97,7 @@ namespace Emploee.EntityFramework
             modelBuilder.Configurations.Add(new ApprovalCfg());
             modelBuilder.Configurations.Add(new AdvertisementCfg());
             modelBuilder.Configurations.Add(new DictionaryCfg());
+            modelBuilder.Configurations.Add(new JobPositionCfg());
         }
     }
 }

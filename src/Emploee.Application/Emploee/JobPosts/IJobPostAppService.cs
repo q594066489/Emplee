@@ -32,24 +32,24 @@ namespace Emploee.Emploee.JobPosts
         /// <summary>
         /// 根据查询条件获取职位发布分页列表
         /// </summary>
-        Task<PagedResultDto<JobPostListDto>> GetPagedJobPostsAsync(GetJobPostInput input);
+        Task<PagedResultDto<JobPostListDto>> GetPagedJobPosts(GetJobPostInput input);
 
         /// <summary>
         /// 通过Id获取职位发布信息进行编辑或修改 
         /// </summary>
-        Task<GetJobPostForEditOutput> GetJobPostForEditAsync(NullableIdDto<int> input);
+        Task<GetJobPostForEditOutput> GetJobPostForEdit(NullableIdDto<int> input);
 
 		  /// <summary>
         /// 通过指定id获取职位发布ListDto信息
         /// </summary>
-		Task<JobPostListDto> GetJobPostByIdAsync(EntityDto<int> input);
+		Task<JobPostListDto> GetJobPostById(EntityDto<int> input);
 
 
 
         /// <summary>
         /// 新增或更改职位发布
         /// </summary>
-        Task CreateOrUpdateJobPostAsync(CreateOrUpdateJobPostInput input);
+        Task CreateOrUpdateJobPost(CreateOrUpdateJobPostInput input);
 
 
 
@@ -58,22 +58,22 @@ namespace Emploee.Emploee.JobPosts
         /// <summary>
         /// 新增职位发布
         /// </summary>
-        Task<JobPostEditDto> CreateJobPostAsync(JobPostEditDto input);
+        Task<JobPostEditDto> CreateJobPost(JobPostEditDto input);
 
         /// <summary>
         /// 更新职位发布
         /// </summary>
-        Task UpdateJobPostAsync(JobPostEditDto input);
+        Task UpdateJobPost(JobPostEditDto input);
 
         /// <summary>
         /// 删除职位发布
         /// </summary>
-        Task DeleteJobPostAsync(EntityDto<int> input);
+        Task DeleteJobPost(EntityDto<int> input);
 
         /// <summary>
         /// 批量删除职位发布
         /// </summary>
-        Task BatchDeleteJobPostAsync(List<int> input);
+        Task BatchDeleteJobPost(List<int> input);
 
         #endregion
 

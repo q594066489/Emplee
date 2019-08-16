@@ -3,27 +3,33 @@
 @using Abp.Web.Mvc.Extensions
 @using Emploee.Emploee.JobPosts.Authorization
 @{
+    /**/
+
     ViewBag.CurrentPageName = JobPostAppPermissions.JobPost;
     ViewBag.Title = L("JobPost");
 
 }
 
 @section Styles{
-		
-	  	  	     <link href="~/libs/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>     	  	    
+
+    <link href="~/libs/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+
+    <link href="~/libs/layuiExtend-master/layui/css/layui.css" rel="stylesheet" />
+    <link href="~/libs/layuiExtend-master/cascader/cascader.css" rel="stylesheet" />
 }
 
 
 @* 注入所需JS *@
 @section Scripts
-{ <script src="~/libs/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+{
 
-       <script src="~/libs/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
-<script src="~/libs/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="~/libs/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/libs/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+     
+    <script src="~/libs/layuiExtend-master/layui/layui.js"></script>
 
-  
-    @Html.IncludeScript("~/Areas/Mpa/Views/JobPostManage/_CreateOrEditJobPostModal.es5.min.js")
-    @Html.IncludeScript("~/Areas/Mpa/Views/JobPostManage/Index.es5.min.js")
+    <script src="~/Areas/Mpa/Views/JobPostManage/_CreateOrEditJobPostModal.js"></script>
+    @Html.IncludeScript("~/Areas/Mpa/Views/JobPostManage/Index.js")
 }
 <div class="row margin-bottom-5">
     <div class="col-xs-6">
@@ -33,49 +39,45 @@
                     <span>@L("JobPost")</span> <small>@L("JobPostHeaderInfo")</small>
                 </h1>
             </div>
-        
+
         </div>
     </div>
     <div class="col-xs-6 text-right">
-        <button  id="ButtonReload" class="btn btn-primary blue"><i class="fa  fa-refresh"></i> @L("Refresh")</button>
+        <button id="ButtonReload" class="btn btn-primary blue"><i class="fa  fa-refresh"></i> @L("Refresh")</button>
 
 
         @if (IsGranted(JobPostAppPermissions.JobPost_CreateJobPost))
         {
             <button id="CreateNewJobPostButton" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreateJobPost")</button>
         }
+
+
     </div>
 </div>
 
 <div class="portlet light">
- @* 通用搜索功能 *@
-<div class="portlet-title portlet-title-filter">
+    @* 通用搜索功能 *@
+    <div class="portlet-title portlet-title-filter">
         <div class="inputs inputs-full-width">
-            <div class="portlet-input">
-                <form>
-                    <div class="input-group">
-                        <input id="JobPostsTableFilter" class="form-control" placeholder="@L("SearchWithThreeDot")" type="text" value="@Model.FilterText">
-                        <span class="input-group-btn">
-                            <button id="GetJobPostsButton" class="btn default" type="submit"><i class="icon-magnifier"></i></button>
-                        </span>
+            @*<div class="portlet-input">*@
+                 
+                  
+                    <div class="row">
+                        <div class="layui-col-xs6 layui-col-md2">
+                                <div class="layui-input-block"> 
+                                    <input type="text" id="a" class="maxlength-handler form-control" placeholder="职位" readonly="readonly">
+                                 </div> 
+                             
+                        </div>                        
                     </div>
-                </form>
-            </div>
+               
+            @*</div>*@
         </div>
     </div>
 
-
     <div class="portlet-body">
-        <div id="JobPostsTable"></div>
+        <table id="JobPostsTable"></table>
     </div>
+
 </div>
 
-
-
-
-
-
-
-
-
- 

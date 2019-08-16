@@ -270,6 +270,10 @@
     <Compile Include="Emploee\JobPersons\JobPerson.cs" />
     <Compile Include="Emploee\JobPersons\JobPersonManage.cs" />
     <Compile Include="Emploee\JobPersons\____JobPersonReadme.cs" />
+    <Compile Include="Emploee\JobPositions\Authorization\JobPositionAppAuthorizationProvider.cs" />
+    <Compile Include="Emploee\JobPositions\Authorization\JobPositionAppPermissions.cs" />
+    <Compile Include="Emploee\JobPositions\JobPositionManage.cs" />
+    <Compile Include="Emploee\JobPositions\____JobPositionReadme.cs" />
     <Compile Include="Emploee\JobPosts\Authorization\JobPostAppAuthorizationProvider.cs" />
     <Compile Include="Emploee\JobPosts\Authorization\JobPostAppPermissions.cs" />
     <Compile Include="Emploee\JobPosts\JobPost.cs" />
@@ -280,6 +284,7 @@
     <Compile Include="Emploee\JobUrgents\JobUrgent.cs" />
     <Compile Include="Emploee\JobUrgents\JobUrgentManage.cs" />
     <Compile Include="Emploee\JobUrgents\____JobUrgentReadme.cs" />
+    <Compile Include="Emploee\JobPositions\JobPosition.cs" />
     <Compile Include="Emploee\PersonInfos\Authorization\PersonInfoAppAuthorizationProvider.cs" />
     <Compile Include="Emploee\PersonInfos\Authorization\PersonInfoAppPermissions.cs" />
     <Compile Include="Emploee\PersonInfos\PersonInfo.cs" />
@@ -339,7 +344,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Localization\Emploee\Emploee-ar.xml" />
-    <EmbeddedResource Include="Localization\Emploee\Emploee-zh-CN.xml" />
+    <EmbeddedResource Include="Localization\Emploee\Emploee-zh-CN.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Localization\Emploee\Emploee-de.xml" />
     <EmbeddedResource Include="Localization\Emploee\Emploee-pt-BR.xml" />
     <EmbeddedResource Include="Localization\Emploee\Emploee-it.xml" />

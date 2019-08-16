@@ -8,7 +8,11 @@
 // Copyright © YoYoCms@中国.2019-07-24T21:00:27. All Rights Reserved.
 //<生成时间>2019-07-24T21:00:27</生成时间>
 using Abp.Application.Services.Dto;
+using Abp.Authorization;
+using Abp.Domain.Repositories;
+using Abp.Web.Models;
 using Abp.Web.Mvc.Authorization;
+using Emploee.Emploee.Job_Positions;
 using Emploee.Emploee.JobPosts;
 using Emploee.Emploee.JobPosts.Authorization;
 using Emploee.Emploee.JobPosts.Dtos;
@@ -17,6 +21,8 @@ using Emploee.Web.Controllers;
 using System;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.Linq;
+using Newtonsoft.Json;
 
 namespace Emploee.Web.Areas.Mpa.Controllers
 {
@@ -24,11 +30,15 @@ namespace Emploee.Web.Areas.Mpa.Controllers
     {
 
         private readonly IJobPostAppService _jobPostAppService;
-
-        public JobPostManageController(IJobPostAppService jobPostAppService)
+        private readonly IJobPositionAppService _IJobPositionAppService;
+        private readonly IRepository<JobPosition, int> _jobPositionRepository;
+        public JobPostManageController(IJobPostAppService jobPostAppService
+            , IJobPositionAppService IJobPositionAppService
+            , IRepository<JobPosition, int> jobPositionRepository)
         {
             _jobPostAppService = jobPostAppService;
-           
+            _IJobPositionAppService = IJobPositionAppService;
+            _jobPositionRepository = jobPositionRepository;
         }
 
         public  ActionResult Index()
@@ -50,17 +60,35 @@ namespace Emploee.Web.Areas.Mpa.Controllers
         /// <returns></returns>
 		[AbpMvcAuthorize(JobPostAppPermissions.JobPost_CreateJobPost,JobPostAppPermissions.JobPost_EditJobPost)]
         public async Task<PartialViewResult> CreateOrEditJobPostModal(int? id)
-        {
-		var input=new NullableIdDto<int>{Id=id};
-	 
-                 var output=    await _jobPostAppService.GetJobPostForEditAsync(input);
+        { 
+                var input = new NullableIdDto<int> { Id = id };
 
-				 var viewModel=new CreateOrEditJobPostModalViewModel(output);
+                var output = await _jobPostAppService.GetJobPostForEdit(input);
+
+                var viewModel = new CreateOrEditJobPostModalViewModel(output);
 
 
-            return PartialView("_CreateOrEditJobPostModal",viewModel);
+                return PartialView("_CreateOrEditJobPostModal", viewModel);
+                
+		        
         }
-	 
-       
+        [DontWrapResult]
+        [AbpAllowAnonymous]
+        public ActionResult GetPersonandIDcard()
+        {
+            //htmlOrderId = OrderId;
+
+            string str = string.Empty;
+            var output = (from jp in _jobPositionRepository.GetAll()
+                          select new
+                          {
+                              value = jp.Position_no,
+                              label = jp.Position_name,
+                              parentid = jp.Parent_id
+                          }).ToList();
+            return Json(output, JsonRequestBehavior.AllowGet);
+        }
+
+
     }
 }
