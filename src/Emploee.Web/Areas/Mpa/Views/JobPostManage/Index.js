@@ -113,6 +113,45 @@
             value: ['A', 'BB1']
         })
     });
+    ///数据递归生成
+    var getJsonTree = function (data, parentId) {
+        var itemArr = [];
+        for (var i = 0; i < data.length; i++) {
+            var node = data[i];
+            if (node.parentId == parentId) {
+                var newNode = {};
+                newNode.id = node.id;
+                newNode.name = node.name;
+                newNode.url = node.url;
+                newNode.icon = node.icon;
+                newNode.nodes = getJsonTree(data, node.id);
+                itemArr.push(newNode);
+            }
+        }
+        return itemArr;
+    };
+    var data = [
+        { "id": "4", "parentId": "1", "name": "大家电" },
+        { "id": "5", "parentId": "1", "name": "生活电器" },
+        { "id": "1", "parentId": "0", "name": "家用电器" },
+        { "id": "2", "parentId": "0", "name": "服饰" },
+        { "id": "3", "parentId": "0", "name": "化妆" },
+        { "id": "7", "parentId": "4", "name": "空调" },
+        { "id": "8", "parentId": "4", "name": "冰箱" },
+        { "id": "9", "parentId": "4", "name": "洗衣机" },
+        { "id": "10", "parentId": "4", "name": "热水器" },
+        { "id": "11", "parentId": "3", "name": "面部护理" },
+        { "id": "12", "parentId": "3", "name": "口腔护理" },
+        { "id": "13", "parentId": "2", "name": "男装" },
+        { "id": "14", "parentId": "2", "name": "女装" },
+        { "id": "15", "parentId": "7", "name": "海尔空调" },
+        { "id": "16", "parentId": "7", "name": "美的空调" },
+        { "id": "19", "parentId": "5", "name": "加湿器" },
+        { "id": "20", "parentId": "5", "name": "电熨斗" }
+    ];
+    var s = getJsonTree(data, 0);
+    console.log(s);
+
 
     var _$jobPostsTable = $('#JobPostsTable');
     var _jobPostService = abp.services.app.jobPost;
