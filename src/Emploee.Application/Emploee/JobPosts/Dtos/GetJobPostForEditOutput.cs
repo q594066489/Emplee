@@ -1,5 +1,6 @@
 ﻿                            
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
@@ -32,7 +33,20 @@ namespace Emploee.Emploee.JobPosts.Dtos
          /// JobPost编辑状态的DTO
         /// </summary>
     public JobPostEditDto JobPost{get;set;}
+        public List<ComboboxItemDto> Educations { get; set; }
 
+        public List<ComboboxItemDto> Experiences { get; set; }
+
+        //public List<ComboboxItemDto> classifys { get; set; }
+
+        public GetJobPostForEditOutput()
+        {
+            Educations = new List<ComboboxItemDto>();
+
+            Experiences = new List<ComboboxItemDto>();
+
+            //classifys = new List<ComboboxItemDto>();
+        }
 
     }
 }

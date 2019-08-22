@@ -530,6 +530,10 @@
     <Compile Include="Migrations\201908130213102_add-jobposition.Designer.cs">
       <DependentUpon>201908130213102_add-jobposition.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908220309526_update_salary.cs" />
+    <Compile Include="Migrations\201908220309526_update_salary.Designer.cs">
+      <DependentUpon>201908220309526_update_salary.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="EmploeeDataModule.cs" />
     <Compile Include="Migrations\Seed\Host\DefaultEditionCreator.cs" />
@@ -773,6 +777,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908130213102_add-jobposition.resx">
       <DependentUpon>201908130213102_add-jobposition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908220309526_update_salary.resx">
+      <DependentUpon>201908220309526_update_salary.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

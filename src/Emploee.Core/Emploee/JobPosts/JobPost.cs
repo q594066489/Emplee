@@ -38,13 +38,13 @@ namespace Emploee.Emploee.JobPosts
         /// </summary>
         /// 
         [DefaultValue(0)]
-        public int SalaryMin { get; set; }
+        public double SalaryMin { get; set; }
         /// <summary>
         /// 薪资max
         /// </summary>
         /// 
         [DefaultValue(0)]
-        public int SalaryMax { get; set; }
+        public double SalaryMax { get; set; }
         /// <summary>
         /// 学历
         /// </summary>

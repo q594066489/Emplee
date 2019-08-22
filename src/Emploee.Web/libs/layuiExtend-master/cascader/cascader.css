@@ -15,7 +15,7 @@
     position: absolute;
     left: 0px;
     top: 100%;
-    margin-top: 12px;
+    margin-top: 10px;
 }
 ul.urp-cascader-child {
     display: inline-block;
@@ -27,8 +27,10 @@ ul.urp-cascader-child {
     box-sizing: border-box;
     margin: 0;
     padding: 6px 0;
-    min-width: 50px;
-    max-width: 135px;
+    /*min-width: 50px;*/
+    max-width: 200px;
+    /*overflow-y: scroll;*/
+    overflow-x: scroll;
 }
 ul.urp-cascader-child>li>i{
     float: right;

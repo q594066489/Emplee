@@ -73,10 +73,15 @@ layui.define(["jquery","laytpl","layer"], function (exports) {
         // 初始化第一层
         initFirst: function () {
             var string =  laytpl(
-                '<ul class="urp-cascader-child">'+
-                    '{{# for(var i=0;i<d.length;i++){ }}'+
-                        '<li>{{ d[i].label }}<i class="layui-icon layui-icon-right" ></i></li>'+
-                    '{{# } }}'+
+                //'<ul class="urp-cascader-child">'+
+                //    '{{# for(var i=0;i<d.length;i++){ }}'+
+                //        '<li>{{ d[i].label }}<i class="layui-icon layui-icon-right" ></i></li>'+
+                //    '{{# } }}'+
+                //'</ul>'
+                '<ul class="urp-cascader-child">' +
+                '{{# for(var i=0;i<d.length;i++){ }}' +
+                '<li>{{ d[i].label }}</li>' +
+                '{{# } }}' +
                 '</ul>'
             ).render(this.d);
             $(this.elem).siblings(".urp-cascader-content").append(string);
@@ -139,9 +144,14 @@ layui.define(["jquery","laytpl","layer"], function (exports) {
             var string =  laytpl(
                 '<ul class="urp-cascader-child">'+
                     '{{# for(var i=0;i< d.length;i++){ }}'+
-                        '<li>{{ d[i].label }}<i class="layui-icon layui-icon-right"></i></li>'+
+                        '<li>{{ d[i].label }}</li>'+
                     '{{# } }}'+
                 '</ul>'
+                //'<ul class="urp-cascader-child">' +
+                //'{{# for(var i=0;i< d.length;i++){ }}' +
+                //'<li>{{ d[i].label }}<i class="layui-icon layui-icon-right"></i></li>' +
+                //'{{# } }}' +
+                //'</ul>'
             ).render(this.blockData["children"]);
             this.domContent.append(string);
 
@@ -298,6 +308,7 @@ layui.define(["jquery","laytpl","layer"], function (exports) {
                 }
                 $('.layui-icon').attr('hidden', true);
             })
+             
             // 点击外层文档隐藏
             $(document).on("click.cascader",function(event) {
                 var d=$(event.target).data("cascader");

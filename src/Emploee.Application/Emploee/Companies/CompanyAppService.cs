@@ -128,6 +128,7 @@ namespace Emploee.Emploees.Companies
             output.Company = companyEditDto;
             List<string> Finanicinglist = new List<string>
              {
+                "不限",
                   "未融资",
                   "天使轮",
                   "A轮",
@@ -139,6 +140,7 @@ namespace Emploee.Emploees.Companies
              };
             List<string> CompanyScaleslist = new List<string>
              {
+                "不限",
                   "0-20人",
                   "20-99人",
                   "100-499人",
@@ -147,6 +149,7 @@ namespace Emploee.Emploees.Companies
                   "10000人以上"
              };
             List<string> ClassigysList = new List<string> {
+                "不限",
                 "电子商务",
                 "游戏",
                 "媒体",
@@ -202,7 +205,7 @@ namespace Emploee.Emploees.Companies
             var output = new GetCompanyForEditOutput();
 
             CompanyEditDto companyEditDto;
-            var entity = await _companyRepository.FirstOrDefaultAsync(t=>t.CompanyID==CompanyID);
+            var entity = await _companyRepository.FirstOrDefaultAsync(t => t.CompanyID == CompanyID);
             companyEditDto = entity.MapTo<CompanyEditDto>();
             output.Company = companyEditDto;
 
@@ -270,7 +273,7 @@ namespace Emploee.Emploees.Companies
             {
                 IsSelected = output.Company.Classify == c
             }).ToList();
-            
+
             return output;
         }
 
@@ -318,7 +321,7 @@ namespace Emploee.Emploees.Companies
         }
         public async Task UpdateCompanyInfoAsync(CreateOrUpdateCompanyInput input)
         {
-            if(input.CompanyEditDto.CompanyID==null)
+            if (input.CompanyEditDto.CompanyID == null)
             {
                 return;
             }
@@ -326,22 +329,22 @@ namespace Emploee.Emploees.Companies
             {
                 //更新企业表
                 var _companyInfo = await _companyRepository.FirstOrDefaultAsync(t => t.CompanyID == input.CompanyEditDto.CompanyID);
-               //_companyInfo.CompanyID= input.CompanyEditDto.CompanyID;
-               _companyInfo.CompanyName= input.CompanyEditDto.CompanyName;
-               _companyInfo.CompanyEmail= input.CompanyEditDto.CompanyEmail;
+                //_companyInfo.CompanyID= input.CompanyEditDto.CompanyID;
+                _companyInfo.CompanyName = input.CompanyEditDto.CompanyName;
+                _companyInfo.CompanyEmail = input.CompanyEditDto.CompanyEmail;
                 _companyInfo.CompanyPhone = input.CompanyEditDto.CompanyPhone;
-               _companyInfo.isDelete= input.CompanyEditDto.isDelete;
-                _companyInfo.CompanyAddress= input.CompanyEditDto.CompanyAddress;
-               _companyInfo.CompanyScale= input.CompanyEditDto.CompanyScale;
-               _companyInfo.Classify= input.CompanyEditDto.Classify;
-               _companyInfo.Finanicing= input.CompanyEditDto.Finanicing;
-               _companyInfo.CompanyIntroduce = input.CompanyEditDto.CompanyIntroduce;
-               await _companyRepository.UpdateAsync(_companyInfo);
+                _companyInfo.isDelete = input.CompanyEditDto.isDelete;
+                _companyInfo.CompanyAddress = input.CompanyEditDto.CompanyAddress;
+                _companyInfo.CompanyScale = input.CompanyEditDto.CompanyScale;
+                _companyInfo.Classify = input.CompanyEditDto.Classify;
+                _companyInfo.Finanicing = input.CompanyEditDto.Finanicing;
+                _companyInfo.CompanyIntroduce = input.CompanyEditDto.CompanyIntroduce;
+                await _companyRepository.UpdateAsync(_companyInfo);
                 //更新user数据
 
                 //---------------------------------------------------------------------
                 var uid = (long)_IAbpSession.UserId;
-               var user = await UserManager.FindByIdAsync(uid);
+                var user = await UserManager.FindByIdAsync(uid);
 
                 //Update user properties
                 user.EmailAddress = input.CompanyEditDto.CompanyEmail;
@@ -349,9 +352,9 @@ namespace Emploee.Emploees.Companies
 
                 await UserManager.UpdateAsync(user);
 
-                
+
             }
-             
+
         }
 
         /// <summary>
@@ -442,7 +445,7 @@ namespace Emploee.Emploees.Companies
             {
                 return false;
             }
-            
+
 
         }
 

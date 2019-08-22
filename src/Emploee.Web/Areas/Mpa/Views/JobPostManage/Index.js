@@ -220,7 +220,7 @@
     $('#CreateNewJobPostButton').click(function () {
         //可选生成的对话框大小{size:'lg'}or{size:'sm'}
         //需要到_createContainer方法中添加,_args.size
-        _createOrEditModal.open();
+        _createOrEditModal.open({size:'1800'});
     });
     //刷新表格信息
     $("#ButtonReload").click(function () {

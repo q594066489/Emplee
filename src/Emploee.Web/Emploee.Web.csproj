@@ -628,6 +628,7 @@
     <Content Include="Areas\Mpa\Views\CompanyManage\_CreateOrEditCompanyModal.js" />
     <Content Include="Areas\Mpa\Views\CompanyManage\_ImportCompanyManages.js" />
     <Content Include="Areas\Mpa\Views\CompanyManage\_ShowPicture.js" />
+    <Content Include="Areas\Mpa\Views\JobPostManage\index.css" />
     <Content Include="Common\Images\app-logo-small.png" />
     <Content Include="Common\Images\logo.png" />
     <Content Include="Common\Scripts\jquery-validation-custom.js" />

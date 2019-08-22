@@ -54,13 +54,13 @@ namespace Emploee.Emploee.JobPosts.Dtos
         /// 薪资min
         /// </summary>
         [DisplayName("薪资min")]
-        public   int  SalaryMin { get; set; }
+        public double SalaryMin { get; set; }
 
         /// <summary>
         /// 薪资max
         /// </summary>
         [DisplayName("薪资max")]
-        public   int  SalaryMax { get; set; }
+        public double SalaryMax { get; set; }
 
         /// <summary>
         /// 学历
