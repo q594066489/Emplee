@@ -21,6 +21,7 @@ using Abp.Extensions;
 using Abp.Linq.Extensions;
 using Abp.Runtime.Session;
 using Emploee.Dto;
+using Emploee.Emploee.Job_Positions;
 using Emploee.Emploee.JobPosts.Authorization;
 using Emploee.Emploee.JobPosts.Dtos;
 
@@ -52,7 +53,7 @@ namespace Emploee.Emploee.JobPosts
         private readonly IRepository<JobPost, int> _jobPostRepository;
         private readonly IJobPostListExcelExporter _jobPostListExcelExporter;
         private readonly IAbpSession _IAbpSession;
-
+        private readonly IRepository<JobPosition, int> _jobPositionRepository;
         private readonly JobPostManage _jobPostManage;
         /// <summary>
         /// 构造方法
@@ -61,13 +62,15 @@ namespace Emploee.Emploee.JobPosts
             IRepository<JobPost, int> jobPostRepository,
             JobPostManage jobPostManage, 
             IJobPostListExcelExporter jobPostListExcelExporter,
-            IAbpSession IAbpSession
+            IAbpSession IAbpSession,
+            IRepository<JobPosition, int> jobPositionRepository
         )
         {
             _jobPostRepository = jobPostRepository;
             _jobPostManage = jobPostManage;
             _jobPostListExcelExporter = jobPostListExcelExporter;
             _IAbpSession = IAbpSession;
+            _jobPositionRepository = jobPositionRepository;
         }
 
 
@@ -116,6 +119,7 @@ namespace Emploee.Emploee.JobPosts
             {
                 var entity = await _jobPostRepository.GetAsync(input.Id.Value);
                 jobPostEditDto = entity.MapTo<JobPostEditDto>();
+                
             }
             else
             {
@@ -200,6 +204,7 @@ namespace Emploee.Emploee.JobPosts
         {
             //TODO:新增前的逻辑判断，是否允许新增
             var entity = input.MapTo<JobPost>();
+            entity.PublishDate = DateTime.Now;
             entity = await _jobPostRepository.InsertAsync(entity);
             return entity.MapTo<JobPostEditDto>();
         }

@@ -19,3 +19,6 @@
     box-shadow: none !important;
     z-index: 3009;
 }
+div.radio {
+     width:auto;
+}

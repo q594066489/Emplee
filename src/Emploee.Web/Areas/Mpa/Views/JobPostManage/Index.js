@@ -1,5 +1,5 @@
 ﻿layui.config({
-    base: "../libs/layuiExtend-master/layui/lay/mymodules/" 
+    base: "../libs/layuiExtend-master/layui/lay/mymodules/"
 }).use(['form', "jquery", "cascader", "form"], function () {
     var $ = layui.jquery;
     var cascader = layui.cascader;
@@ -39,8 +39,8 @@
         return itemArr;
     };
     getJson();
-     
-     
+
+
     var cas = cascader({
         elem: "#a",
         data: datas,
@@ -57,8 +57,8 @@
             console.log(valData, labelData);
         }
     });
-    
-      
+
+
 
 
     var _$jobPostsTable = $('#JobPostsTable');
@@ -128,14 +128,12 @@
                     halign: 'center',
                     align: 'center',
                     width: '8%',
+                    formatter: function (value, row, index) {
+
+                        return row.salaryMin + "-" + row.salaryMax + "K";
+                    }
                 },
-                {
-                    field: 'salaryMax',
-                    title: app.localize('SalaryMax'),
-                    halign: 'center',
-                    align: 'center',
-                    width: '8%',
-                },
+                 
                 {
                     field: 'education',
                     title: app.localize('Education'),
@@ -163,15 +161,16 @@
                     halign: 'center',
                     align: 'center',
                     width: '8%',
+                    visible: false
                 },
-
+                 
                 {
-                    field: 'jobSelect',
-                    title: app.localize('JobSelect'),
+                    field: 'jobType',
+                    title:  "职位类型",
                     halign: 'center',
                     align: 'center',
                     width: '8%',
-                },
+                }, 
                 {
                     field: 'publishDate',
                     title: app.localize('PublishDate'),
@@ -189,7 +188,6 @@
                     halign: 'center',
                     align: 'center',
                     width: '8%',
-
                 },
 
                 {
@@ -208,7 +206,7 @@
                             _createOrEditModal.open({ size: '1800', id: row.id });
                         },
                         'click .remove': function (e, value, row, index) {
-                            deleteCompany(row);
+                            deleteJobPost(row);
                         }
                     }
                 }
@@ -220,7 +218,7 @@
     $('#CreateNewJobPostButton').click(function () {
         //可选生成的对话框大小{size:'lg'}or{size:'sm'}
         //需要到_createContainer方法中添加,_args.size
-        _createOrEditModal.open({size:'1800'});
+        _createOrEditModal.open({ size: '1800' });
     });
     //刷新表格信息
     $("#ButtonReload").click(function () {
@@ -232,20 +230,15 @@
 
     //模糊查询功能
     function getJobPosts(reload) {
-        if (reload) {
-            //_$companysTable.jtable('reload');
-        } else {
-            //_$companysTable.jtable('load', {
-            //    filtertext: $('#CompanysTableFilter').val()
-            //});
-            _$jobPostsTable.bootstrapTable('removeAll').bootstrapTable('refresh');
-        }
+
+        _$jobPostsTable.bootstrapTable('removeAll').bootstrapTable('refresh');
+
     }
     //
     //删除当前jobPost实体
     function deleteJobPost(jobPost) {
         abp.message.confirm(
-            app.localize('JobPostDeleteWarningMessage', jobPost.companyId),
+            app.localize('JobPostDeleteWarningMessage', jobPost.jobName),
             function (isConfirmed) {
                 if (isConfirmed) {
                     _jobPostService.deleteJobPost({
@@ -277,13 +270,12 @@
 
     //制作JobPost事件,用于请求变化后，刷新表格信息
     abp.event.on('app.createOrEditJobPostModalSaved', function () {
-        getJobPosts(true);
+        getJobPosts();
     });
 
     getJobPosts();
 
 });
- 
 
 
- 
+
