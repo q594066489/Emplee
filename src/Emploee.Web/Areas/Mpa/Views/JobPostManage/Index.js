@@ -123,7 +123,7 @@
                     width: '8%',
                 },
                 {
-                    field: 'salaryMin',
+                    field: '薪资',
                     title: app.localize('SalaryMin'),
                     halign: 'center',
                     align: 'center',
@@ -184,10 +184,20 @@
 
                 {
                     field: 'isDelete',
-                    title: app.localize('isDelete'),
+                    title: '状态',
                     halign: 'center',
                     align: 'center',
                     width: '8%',
+                    formatter: function (value, row, index) {
+                        if (value == '1') {
+                            return "<span class=\"label label-danger\"> 停招</span>";
+                            
+                        }
+                        else {
+                            return "<span class=\"label label-success\"> 招聘</span>";
+                        }
+                       
+                    }
                 },
 
                 {

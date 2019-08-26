@@ -55,6 +55,7 @@ namespace Emploee.Emploee.JobPosts
         private readonly IAbpSession _IAbpSession;
         private readonly IRepository<JobPosition, int> _jobPositionRepository;
         private readonly JobPostManage _jobPostManage;
+        private publicListDto _pdto=new publicListDto();
         /// <summary>
         /// 构造方法
         /// </summary>
@@ -64,6 +65,7 @@ namespace Emploee.Emploee.JobPosts
             IJobPostListExcelExporter jobPostListExcelExporter,
             IAbpSession IAbpSession,
             IRepository<JobPosition, int> jobPositionRepository
+            
         )
         {
             _jobPostRepository = jobPostRepository;
@@ -71,6 +73,7 @@ namespace Emploee.Emploee.JobPosts
             _jobPostListExcelExporter = jobPostListExcelExporter;
             _IAbpSession = IAbpSession;
             _jobPositionRepository = jobPositionRepository;
+             
         }
 
 
@@ -88,8 +91,8 @@ namespace Emploee.Emploee.JobPosts
         /// </summary>
         public async Task<PagedResultDto<JobPostListDto>> GetPagedJobPosts(GetJobPostInput input)
         {
-
-            var query = _jobPostRepositoryAsNoTrack;
+            var _companyid = Convert.ToInt32(_IAbpSession.UserId);
+            var query = _jobPostRepositoryAsNoTrack.Where(t=>t.CompanyId==_companyid);
             //TODO:根据传入的参数添加过滤条件
 
             var jobPostCount = await query.CountAsync();
@@ -127,30 +130,13 @@ namespace Emploee.Emploee.JobPosts
                 jobPostEditDto.PublishDate = DateTime.Now;
                 var uid = Convert.ToInt32( _IAbpSession.UserId);
                 jobPostEditDto.CompanyId = uid;
+                jobPostEditDto.isDelete = false;
 
             }
 
             output.JobPost = jobPostEditDto;
-            List<string> Educationslist = new List<string>
-             {
-                  "不限",
-                  "初中及以下",
-                  "中专/中技",
-                  "高中",
-                  "大专",
-                  "本科",
-                  "硕士",
-                  "博士"
-             };
-            List<string> Experienceslist = new List<string>
-             {
-                  "不限",
-                  "1年以内",
-                  "1-3年",
-                  "3-5年",
-                  "5-10年",
-                  "10年以上"
-             };
+            List<string> Educationslist = _pdto.GetEducation();
+            List<string> Experienceslist =_pdto.GetExperiences();
             output.Educations = Educationslist.Select(c => new ComboboxItemDto(c, c)
             {
                 IsSelected = output.JobPost.Education == c

@@ -409,6 +409,7 @@
     <Compile Include="Emploee\PersonInfos\IPersonInfoAppService.cs" />
     <Compile Include="Emploee\PersonInfos\Mappers\PersonInfoDtoMapper.cs" />
     <Compile Include="Emploee\PersonInfos\PersonInfoAppService.cs" />
+    <Compile Include="Emploee\publicListDto.cs" />
     <Compile Include="Friendships\Dto\AcceptFriendshipRequestInput.cs" />
     <Compile Include="Friendships\Dto\BlockUserInput.cs" />
     <Compile Include="Friendships\Dto\CreateFriendshipRequestByUserNameInput.cs" />

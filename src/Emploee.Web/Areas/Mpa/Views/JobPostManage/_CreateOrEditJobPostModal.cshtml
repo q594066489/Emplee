@@ -7,7 +7,7 @@
 @model CreateOrEditJobPostModalViewModel
 
 @* 初始化头部 *@
-@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditJobPost") + ": " + Model.JobPost.CompanyId) : L("CreateJobPost")))
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditJobPost") + ": " + Model.JobPost.JobName) : L("CreateJobPost")))
 
 
 <!--html代码区域-->
@@ -20,6 +20,7 @@
             <!--<div class="alert alert-info fs16 bold mt10">分节标题</div>-->
 
             <div class="col-sm-6 hidden">
+
                 <div class="form-group">
                     <label class="col-sm-4 control-label">@L("Id")</label>
                     <div class="col-sm-8">
@@ -142,35 +143,35 @@
                             <label for="inlineRadio2"> 停止招聘 </label>
                         </div>*@
                         <div class="radio icheck-belizehole radio-inline">
-                            <input type="radio" id="belizehole1" value="true" name="isDelete" @(!Model.JobPost.isDelete ? "checked" : "")/>
+                            <input type="radio" id="belizehole1" value="false" name="isDelete" @(!Model.JobPost.isDelete ? "checked" : "")/>
                             <label for="belizehole1">招聘</label>
                         </div>
                         <div class="radio icheck-belizehole radio-inline">
-                            <input type="radio" checked id="belizehole2" value="false" name="isDelete" @(Model.JobPost.isDelete ? "checked" : "")/>
+                            <input type="radio" checked id="belizehole2" value="true" name="isDelete" @(Model.JobPost.isDelete ? "checked" : "")/>
                             <label for="belizehole2">停招</label>
                         </div>
                     </div>
                     
                 </div>
             </div>
-            @if (Model.JobPost.Id != null)
-            {
-                <div class="col-sm-6">
+            
+             
+                <div class="col-sm-6 hidden">
                     <div class="form-group">
                         <label class="col-sm-4 control-label">@L("PublishDate")</label>
                         <div class="col-sm-8">
-                            <input class="form-control date-picker inline w300 date-picker" type="text" id="PublishDate" name="PublishDate" value="@Model.JobPost.PublishDate.ToString("yyyy-MM-DD") " />
+                            <input class="form-control date-picker inline w300 date-picker" type="text" id="PublishDate" name="PublishDate" value="@Model.JobPost.PublishDate.ToString("yyyy-MM-dd") " />
                             <span class="help-inline"></span>
                         </div>
                     </div>
                 </div>
-            }
+             
             <div class="col-sm-12">
                 <div class="form-group">
                     <label class="col-sm-2 colspan-xs-2 control-label">@L("SkillRequire")</label>
                     <div class="col-sm-10 colspan-xs-10 clearfix"  style="padding-left: 10px;"> 
 
-                        <textarea class="form-control input-xxlarge" rows="4" id="SkillRequire" name="SkillRequire">@Model.JobPost.SkillRequire</textarea>
+                        <textarea class="form-control input-xxlarge " maxlength="500" rows="4" id="SkillRequire" name="SkillRequire">@Model.JobPost.SkillRequire</textarea>
                     </div>
                 </div>
             </div>
@@ -180,7 +181,7 @@
                     <label class="col-sm-2 colspan-xs-2 control-label">@L("JobDetail")</label>
                     <div class="col-sm-10 colspan-xs-10 clearfix"  style="padding-left: 10px;">
 
-                        <textarea class="form-control input-xxlarge" rows="4" id="JobDetail" name="JobDetail">@Model.JobPost.JobDetail</textarea>
+                        <textarea class="form-control input-xxlarge"  maxlength="500" rows="4" id="JobDetail" name="JobDetail">@Model.JobPost.JobDetail</textarea>
                     </div>
                 </div>
             </div>
