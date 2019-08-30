@@ -51,6 +51,7 @@ using System.Collections.ObjectModel;
 using Abp.Domain.Repositories;
 using Emploee.Emploees.Companies;
 using Emploee.Emploee.PersonInfos;
+using Emploee.Approvals;
 
 namespace Emploee.Web.Controllers
 {
@@ -78,6 +79,7 @@ namespace Emploee.Web.Controllers
         private readonly IRepository<PersonInfo, int> _PersonInfoRepository;
 
         private readonly IRepository<UserRole, long> _userRoleRepository;
+        private readonly IRepository<Approval, int> _approvalRepository;
 
         public AccountController(
             LogInManager logInManager,
@@ -100,7 +102,8 @@ namespace Emploee.Web.Controllers
             IUserPolicy userPolicy,
             IRepository<UserRole, long> userRoleRepository,
             IRepository<Company, int> companyRepository,
-            IRepository<PersonInfo, int> PersonInfoRepository
+            IRepository<PersonInfo, int> PersonInfoRepository,
+            IRepository<Approval, int> approvalRepository
             )
         {
             _userManager = userManager;
@@ -124,6 +127,7 @@ namespace Emploee.Web.Controllers
             _userRoleRepository = userRoleRepository;
             _companyRepository = companyRepository;
             _PersonInfoRepository = PersonInfoRepository;
+            _approvalRepository = approvalRepository;
         }
 
         #region Login / Logout
@@ -569,9 +573,10 @@ namespace Emploee.Web.Controllers
                 //Assign roles
                 user.Roles = new Collection<UserRole>();
                 int roleid = 0;
-                if(model.RoleSelect== "企业用户")
+                if(model.RoleSelect== "企业用户") //企业用户
                 {
                     roleid = 4;
+
                 }
                 else if(model.RoleSelect == "求职用户")
                 {
@@ -611,6 +616,7 @@ namespace Emploee.Web.Controllers
                 switch (model.RoleSelect)
                 {
                     case "企业用户":
+                        //创建企业信息
                         Company _company = new Company
                         {
                             CompanyID = user.Id,
@@ -619,6 +625,13 @@ namespace Emploee.Web.Controllers
                             RegisterDate = user.CreationTime
                         };
                         await _companyRepository.InsertAsync(_company);
+                        //企业资格
+                        Approval _approval = new Approval();
+                        _approval.CompanyID = Convert.ToInt32( user.Id);
+                        _approval.RegisterDate = DateTime.Now;
+                        _approval.IsPay = false;
+                        _approval.Weight = 0;
+                        await _approvalRepository.InsertAsync(_approval);
                         break;
                     case "求职用户":
                         PersonInfo _personinfo = new PersonInfo

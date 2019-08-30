@@ -202,6 +202,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authorization\AdminAuthorization\AdminAppAuthorizationProvider.cs" />
+    <Compile Include="Authorization\AdminAuthorization\AdminAppPermissions.cs" />
     <Compile Include="EmploeeConsts.cs" />
     <Compile Include="EmploeeCoreModule.cs" />
     <Compile Include="EmploeeDomainServiceBase.cs" />

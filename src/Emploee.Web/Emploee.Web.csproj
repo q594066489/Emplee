@@ -3734,6 +3734,8 @@
     <Content Include="libs\layuiExtend-master\scrollBar\README.md" />
     <Content Include="libs\layuiExtend-master\step\README.md" />
     <Content Include="libs\layuiExtend-master\_config.yml" />
+    <Content Include="Areas\Mpa\Views\ApprovalManage\Index.js" />
+    <Content Include="Areas\Mpa\Views\ApprovalManage\_CreateOrEditApprovalModal.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -3810,6 +3812,8 @@
     <Content Include="Areas\Mpa\Views\PersonInfoManage\Index.cshtml" />
     <Content Include="Areas\Mpa\Views\PersonInfoManage\_CreateOrEditPersonInfoModal.cshtml" />
     <Content Include="Areas\Mpa\Views\JobPostManage\_CreateOrEditJobPostModal.cshtml" />
+    <Content Include="Areas\Mpa\Views\ApprovalManage\Index.cshtml" />
+    <Content Include="Areas\Mpa\Views\ApprovalManage\_CreateOrEditApprovalModal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Mpa\Models\CompanyManage\ImportCompanyManages.cs" />
@@ -3933,6 +3937,8 @@
     <Compile Include="Areas\Mpa\Models\JobUrgentManage\CreateOrEditJobUrgentModalViewModel.cs" />
     <Compile Include="Areas\Mpa\Controllers\PersonInfoManageController.cs" />
     <Compile Include="Areas\Mpa\Models\PersonInfoManage\CreateOrEditPersonInfoModalViewModel.cs" />
+    <Compile Include="Areas\Mpa\Controllers\ApprovalManageController.cs" />
+    <Compile Include="Areas\Mpa\Models\ApprovalManage\CreateOrEditApprovalModalViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

@@ -123,8 +123,8 @@
                     width: '8%',
                 },
                 {
-                    field: '薪资',
-                    title: app.localize('SalaryMin'),
+                    field: 'SalaryMin',
+                    title: '薪资',
                     halign: 'center',
                     align: 'center',
                     width: '8%',

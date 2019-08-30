@@ -2,6 +2,7 @@
 using Abp.Domain.Entities.Auditing;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,8 +42,8 @@ namespace Emploee.Approvals
         /// 权重
         /// </summary>
         public int Weight { get; set; }
-
-
+        //[DefaultValue(false)]
+        //public bool IsShow { get; set; }
         public long? CreatorUserId { get; set; }
 
         public DateTime CreationTime { get; set; }
