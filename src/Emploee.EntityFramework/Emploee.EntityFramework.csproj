@@ -534,6 +534,10 @@
     <Compile Include="Migrations\201908220309526_update_salary.Designer.cs">
       <DependentUpon>201908220309526_update_salary.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908300835305_changeApproval.cs" />
+    <Compile Include="Migrations\201908300835305_changeApproval.Designer.cs">
+      <DependentUpon>201908300835305_changeApproval.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="EmploeeDataModule.cs" />
     <Compile Include="Migrations\Seed\Host\DefaultEditionCreator.cs" />
@@ -780,6 +784,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908220309526_update_salary.resx">
       <DependentUpon>201908220309526_update_salary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908300835305_changeApproval.resx">
+      <DependentUpon>201908300835305_changeApproval.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

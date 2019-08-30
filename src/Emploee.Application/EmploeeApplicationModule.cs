@@ -10,7 +10,7 @@ using Emploee.Approvals.Authorization;
 using Emploee.Emploee.Advertisements.Authorization;
 using Emploee.Emploee.Dictionaries.Authorization;
 using Emploee.Emploee.Job_Positions.Authorization;
-using Emploee.Authorization.AdminAuthorization;
+ 
 
 namespace Emploee
 {
@@ -23,7 +23,7 @@ namespace Emploee
         public override void PreInitialize()
         {
             //Adding authorization providers
-            Configuration.Authorization.Providers.Add<adminAppAuthorizationProvider>();
+            //Configuration.Authorization.Providers.Add<adminAppAuthorizationProvider>();
             Configuration.Authorization.Providers.Add<AppAuthorizationProvider>();
             Configuration.Authorization.Providers.Add<CompanyAppAuthorizationProvider>();
             Configuration.Authorization.Providers.Add<JobUrgentAppAuthorizationProvider>();
