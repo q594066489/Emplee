@@ -88,8 +88,9 @@ namespace Emploee.Emploees.Companies
         /// </summary>
         public async Task<PagedResultDto<CompanyListDto>> GetPagedCompanysAsync(GetCompanyInput input)
         {
-
-            var query = _companyRepositoryAsNoTrack;
+            
+             var query = _companyRepositoryAsNoTrack;
+            
             //TODO:根据传入的参数添加过滤条件
 
             var companyCount = await query.CountAsync();

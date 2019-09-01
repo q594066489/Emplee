@@ -260,3 +260,4 @@ paket-files/
 __pycache__/
 *.pyc
 /src/.vs
+/src/Emploee.Web/App_Data/Logs/Logs.txt

@@ -1,5 +1,6 @@
 ﻿using Abp.Application.Navigation;
 using Abp.Localization;
+using Emploee.Approvals.Authorization;
 using Emploee.Authorization;
 using Emploee.Emploee.JobPosts.Authorization;
 using Emploee.Emploee.PersonInfos.Authorization;
@@ -39,11 +40,11 @@ namespace Emploee.Web.Areas.Mpa.Startup
                                   requiredPermissionName: PersonInfoAppPermissions.PersonInfo
                                      );
             var approval = new MenuItemDefinition(
-        PageNames.App.Common.Users,
+         ApprovalAppPermissions.Approval,
         L("Approval"),
         "icon-star",
         url: "Mpa/ApprovalManage",
-                         requiredPermissionName: PageNames.App.Common.Users);
+                         requiredPermissionName: ApprovalAppPermissions.Approval);
 
              
             //……………………………………………………………………………………………………………………

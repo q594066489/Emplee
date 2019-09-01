@@ -22,7 +22,7 @@
         });
 
 
-        _$jobPostsTable.bootstrapTable({
+        _$approvalsTable.bootstrapTable({
             abpMethod: _approvalService.getPagedApprovals,
             toolbar: '#toolbar', //工具按钮用哪个容器，
             striped: true,                      //是否显示行间隔色
@@ -38,8 +38,9 @@
             },
             columns:
                 [{
-                    checkbox: true,
-                    visible: true                  //是否显示复选框  
+                    checkbox: true,//是否显示复选框
+                    visible: true,
+                    width: '1%'
                 },
                 {
                     field: 'id',
@@ -57,7 +58,16 @@
                     align: 'center',
                     width: '3%',
                     visible: false
-                },
+                    },
+                    {
+
+                        field: 'companyName',
+                        title: '企业',
+                        halign: 'center',
+                        align: 'center',
+                        width: '3%',
+                        visible: false
+                    },
                 {
                     field: 'registerDate',
                     title: app.localize('RegisterDate'),
@@ -65,7 +75,10 @@
                     align: 'center',
                     width: '8%',
                     formatter: function (value, row, index) {
-                        return moment(value).format('L');
+                        if (value != null) {
+                            return moment(value).format('L');
+                        }
+                       
                     }
                 },
                 {
@@ -95,7 +108,9 @@
                     align: 'center',
                     width: '8%',
                     formatter: function (value, row, index) {
-                        return moment(value).format('L');
+                        if (value != null) {
+                            return moment(value).format('L');
+                        }
                     }
                 },
                 {
@@ -105,7 +120,9 @@
                     align: 'center',
                     width: '8%',
                     formatter: function (value, row, index) {
-                        return moment(value).format('L');
+                        if (value != null) {
+                            return moment(value).format('L');
+                        }
                     }
                 },
                 {

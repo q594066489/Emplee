@@ -22,6 +22,7 @@ using Abp.Linq.Extensions;
 using Emploee.Approvals.Authorization;
 using Emploee.Approvals.Dtos;
 using Emploee.Dto;
+using Emploee.Emploees.Companies;
 
 #region 代码生成器相关信息_ABP Code Generator Info
 //你好，我是ABP代码生成器的作者,欢迎您使用该工具，目前接受付费定制该工具，有需要的可以联系我
@@ -50,20 +51,23 @@ namespace Emploee.Approvals
     {
         private readonly IRepository<Approval, int> _approvalRepository;
         private readonly IApprovalListExcelExporter _approvalListExcelExporter;
-
+        private readonly IRepository<Company, int> _companyRepository;
 
         private readonly ApprovalManage _approvalManage;
         /// <summary>
         /// 构造方法
         /// </summary>
-        public ApprovalAppService(IRepository<Approval, int> approvalRepository,
-ApprovalManage approvalManage
-      , IApprovalListExcelExporter approvalListExcelExporter
+        public ApprovalAppService(
+            IRepository<Approval, int> approvalRepository,
+            ApprovalManage approvalManage,
+            IApprovalListExcelExporter approvalListExcelExporter,
+            IRepository<Company, int> companyRepository
   )
         {
             _approvalRepository = approvalRepository;
             _approvalManage = approvalManage;
             _approvalListExcelExporter = approvalListExcelExporter;
+            _companyRepository = companyRepository;
         }
 
 
@@ -81,21 +85,82 @@ ApprovalManage approvalManage
         /// </summary>
         public async Task<PagedResultDto<ApprovalListDto>> GetPagedApprovalsAsync(GetApprovalInput input)
         {
+            
+            //var dormitory_DormChecks = await query.OrderByDescending(t => t.CheckTime).ThenBy(t => t.Building).ThenBy(t => t.DoorNum).ThenBy(t => t.BedNum).Skip(input.SkipCount).Take(input.MaxResultCount)
+            //.ToListAsync();
 
-            var query = _approvalRepositoryAsNoTrack;
+
+            //return new PagedResultDto<Dormitory_DormCheckListDto>(
+            //dormitory_DormCheckCount,
+            //dormitory_DormChecks.Select(
+            //    item =>
+            //    {
+            //        var dto = new Dormitory_DormCheckListDto();
+            //        dto.Id = item.Id;
+            //        dto.Building = item.Building;
+            //        dto.DoorNum = item.DoorNum;
+            //        dto.BedNum = item.BedNum;
+            //        dto.IDcard = item.IDcard;
+            //        dto.PersonName = item.PersonName;
+            //        dto.CheckTime = item.CheckTime;
+            //        dto.CheckType = item.CheckType;
+            //        dto.CheckReason = item.CheckReason;
+            //        dto.Company = item.Company.IsNullOrEmpty() ? "" : item.Company;
+            //        dto.Department = item.Department.IsNullOrEmpty() ? "" : item.Department;
+            //        dto.Gongduan = item.Gongduan.IsNullOrEmpty() ? "" : item.Gongduan;
+            //        dto.AgainstType = item.AgainstType;
+            //        dto.ShouldPay = item.ShouldPay;
+            //        dto.Phone = item.Phone.IsNullOrEmpty() ? "" : item.Phone;
+
+            //        return dto;
+
+            //    }).ToList()
+            //);
+            //var query = _approvalRepositoryAsNoTrack; _companyRepository
+
+            var query = from approval in _approvalRepositoryAsNoTrack
+                        join company in _companyRepository.GetAll().AsNoTracking()
+                        on approval.CompanyID  equals company.CompanyID
+                        
+                        select new
+                        {
+                            approval,
+                            company.CompanyName
+                        };
             //TODO:根据传入的参数添加过滤条件
 
             var approvalCount = await query.CountAsync();
 
+            //var approvals = await query
+            //.OrderBy(input.Sorting)
+            //.PageBy(input)
+            //.ToListAsync();
             var approvals = await query
-            .OrderBy(input.Sorting)
-            .PageBy(input)
-            .ToListAsync();
-
-            var approvalListDtos = approvals.MapTo<List<ApprovalListDto>>();
+            .OrderBy(t=>t.approval.Id).Skip(input.SkipCount).Take(input.MaxResultCount).ToListAsync();
+            //var dormitory_DormChecks = await query.OrderByDescending(t => t.CheckTime).ThenBy(t => t.Building).ThenBy(t => t.DoorNum).ThenBy(t => t.BedNum).Skip(input.SkipCount).Take(input.MaxResultCount)
+            //.ToListAsync();
+            // 
             return new PagedResultDto<ApprovalListDto>(
             approvalCount,
-            approvalListDtos
+            //approvalListDtos
+            approvals.Select(
+                item =>
+                {
+                    var dto = new ApprovalListDto();
+                    dto.Id = item.approval.Id;
+                    dto.CompanyID = item.approval.CompanyID;
+                    dto.CompanyName = item.CompanyName;
+                    dto.RegisterDate = item.approval.RegisterDate;
+                    dto.IsPay = item.approval.IsPay;
+                    dto.PayAmount = item.approval.PayAmount;
+                    dto.PayTime = item.approval.PayTime;
+                    dto.CoopTime = item.approval.CoopTime;
+                    dto.Weight = item.approval.Weight;
+                    dto.CreationTime = item.approval.CreationTime;
+
+                    return dto;
+
+                }).ToList()
             );
         }
 
