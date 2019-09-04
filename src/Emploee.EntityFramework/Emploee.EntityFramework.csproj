@@ -212,6 +212,9 @@
     <Reference Include="TimeZoneConverter, Version=2.3.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\TimeZoneConverter.2.3.1\lib\net45\TimeZoneConverter.dll</HintPath>
     </Reference>
+    <Reference Include="Z.EntityFramework.Plus.EF6, Version=1.10.1.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Z.EntityFramework.Plus.EF6.1.10.1\lib\net45\Z.EntityFramework.Plus.EF6.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFramework\EmploeeDbContext.cs" />

@@ -127,13 +127,13 @@
                 },
                 {
                     field: 'isShow',
-                    title: "是否显示",
+                    title: "审批通过",
                     halign: 'center',
                     align: 'center',
                     width: '5%',
                     formatter: function (value, row, index) {
                         if (value.isPay) {
-                            return "<span class=\"label label-success\"> 是</span>";
+                            return "<span class=\"label label-success\"> 通过</span>";
                         }
                         return "<span class=\"label label-danger\"> 否</span>";
                     }
@@ -178,9 +178,33 @@
         });
         $("#ButtonReload").click(function () {
 
-            var a = _$approvalsTable.bootstrapTable('getSelections');
-            console.log(a);
+            var checkData = _$approvalsTable.bootstrapTable('getSelections');
+            //console.log(getIdSelections());
+            var dd = getIdSelections();
+            console.log(dd);
+            var sd=JSON.stringify(dd);
+            console.log(sd);
+             
+            if (checkData.length > 0) {
+                
+                //_modalManager.setBusy(true);
+
+                _approvalService.batchChangeState(sd 
+                ).done(function () {
+                    //提示信息
+                    //abp.notify.info(app.localize('SavedSuccessfully'));
+                     
+                }).always(function () {
+                    //_modalManager.setBusy(false);
+                });
+            }
         })
+        function getIdSelections() {
+            return $.map(_$approvalsTable.bootstrapTable('getSelections'), function (row) {
+                return row.id
+            })
+        }
+         
         //制作Approval事件,用于请求变化后，刷新表格信息
         abp.event.on('app.createOrEditApprovalModalSaved', function () {
             getApprovals();

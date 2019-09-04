@@ -75,13 +75,19 @@ namespace Emploee.Approvals
         /// </summary>
         Task BatchDeleteApprovalAsync(List<int> input);
 
+        /// <summary>
+        /// 批量修改审批
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        Task BatchChangeState(string input);
         #endregion
 
-#region Excel导出功能
+        #region Excel导出功能
 
 
 
-         /// <summary>
+        /// <summary>
         /// 获取企业注册审批信息转换为Excel
         /// </summary>
         /// <returns></returns>

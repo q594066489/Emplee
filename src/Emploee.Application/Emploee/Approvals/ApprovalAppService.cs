@@ -24,6 +24,7 @@ using Emploee.Approvals.Dtos;
 using Emploee.Dto;
 using Emploee.Emploees.Companies;
 using Emploee.PayLogs;
+using Z.EntityFramework.Plus;
 
 #region 代码生成器相关信息_ABP Code Generator Info
 //你好，我是ABP代码生成器的作者,欢迎您使用该工具，目前接受付费定制该工具，有需要的可以联系我
@@ -125,7 +126,6 @@ namespace Emploee.Approvals
                     dto.Weight = item.approval.Weight;
                     dto.isShow = item.approval.IsShow;
                     dto.CreationTime = item.approval.CreationTime;
-
                     return dto;
 
                 }).ToList()
@@ -246,6 +246,22 @@ namespace Emploee.Approvals
             await _approvalRepository.DeleteAsync(s => input.Contains(s.Id));
         }
 
+        public async Task BatchChangeState(string input)
+        {
+            try
+            {
+                var sss = input;
+                string datas = input.Trim(new char[] { '[', ']' });
+                List<string> changids = datas.Split(',').ToList();
+                _approvalRepository.GetAll()
+                    .Where(t => changids.Contains(t.Id.ToString()))
+                    .Update(x => new Approval() { IsShow = true });
+            }
+            catch(Exception ex)
+            {
+               
+            }
+        }
         #endregion
         #region 企业注册审批的Excel导出功能
 
