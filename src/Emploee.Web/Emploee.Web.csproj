@@ -4175,6 +4175,9 @@
   <ItemGroup>
     <Folder Include="libs\jquery-jtable\dev\" />
     <Folder Include="libs\jquery-jtable\lib\" />
+    <Folder Include="_GeneratedCode\PayLogs\Application\" />
+    <Folder Include="_GeneratedCode\PayLogs\Core\" />
+    <Folder Include="_GeneratedCode\PayLogs\EntityFramework\EntityMapper\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Abp\Framework\scripts\abp.d.ts" />

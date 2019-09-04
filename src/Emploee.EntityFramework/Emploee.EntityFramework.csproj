@@ -223,6 +223,7 @@
     <Compile Include="EntityFramework\EntityMapper\JobPositions\JobPositionCfg.cs" />
     <Compile Include="EntityFramework\EntityMapper\JobPosts\JobPostCfg.cs" />
     <Compile Include="EntityFramework\EntityMapper\JobUrgents\JobUrgentCfg.cs" />
+    <Compile Include="EntityFramework\EntityMapper\PayLogs\PayLogCfg.cs" />
     <Compile Include="EntityFramework\EntityMapper\PersonInfos\PersonInfoCfg.cs" />
     <Compile Include="EntityFramework\Repositories\AbpZeroTemplateRepositoryBase.cs" />
     <Compile Include="EntityFramework\AbpZeroDbMigrator.cs" />
@@ -538,6 +539,10 @@
     <Compile Include="Migrations\201908300835305_changeApproval.Designer.cs">
       <DependentUpon>201908300835305_changeApproval.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909030849487_addpaylog.cs" />
+    <Compile Include="Migrations\201909030849487_addpaylog.Designer.cs">
+      <DependentUpon>201909030849487_addpaylog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="EmploeeDataModule.cs" />
     <Compile Include="Migrations\Seed\Host\DefaultEditionCreator.cs" />
@@ -787,6 +792,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908300835305_changeApproval.resx">
       <DependentUpon>201908300835305_changeApproval.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909030849487_addpaylog.resx">
+      <DependentUpon>201909030849487_addpaylog.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

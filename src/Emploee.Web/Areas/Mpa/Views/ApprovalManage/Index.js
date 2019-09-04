@@ -28,7 +28,6 @@
             striped: true,                      //是否显示行间隔色
             queryParams: function (param) {
                 var abpParam = {
-
                     FilterText: $('#txtFilterText').val(),
                     Sorting: param.sort,
                     skipCount: param.offset,
@@ -52,7 +51,7 @@
                 },
                 {
 
-                    field: 'companyId',
+                    field: 'companyID',
                     title: '企业编号',
                     halign: 'center',
                     align: 'center',
@@ -65,15 +64,15 @@
                         title: '企业',
                         halign: 'center',
                         align: 'center',
-                        width: '3%',
-                        visible: false
+                        width: '5%',
+                         
                     },
                 {
                     field: 'registerDate',
                     title: app.localize('RegisterDate'),
                     halign: 'center',
                     align: 'center',
-                    width: '8%',
+                    width: '5%',
                     formatter: function (value, row, index) {
                         if (value != null) {
                             return moment(value).format('L');
@@ -86,9 +85,10 @@
                     title: '已付款',
                     halign: 'center',
                     align: 'center',
-                    width: '8%',
+                    width: '3%',
                     formatter: function (value, row, index) {
-                        if (value.isPay) {
+                        if (value
+                        ) {
                             return "<span class=\"label label-success\"> 是</span>";
                         }
                         return "<span class=\"label label-danger\"> 否</span>";
@@ -96,17 +96,17 @@
                 },
                 {
                     field: 'payAmount',
-                    title: app.localize('Education'),
+                    title: app.localize('PayAmount'),
                     halign: 'center',
                     align: 'center',
-                    width: '8%',
+                    width: '3%',
                 },
                 {
                     field: 'payTime',
                     title: app.localize('PayTime'),
                     halign: 'center',
                     align: 'center',
-                    width: '8%',
+                    width: '5%',
                     formatter: function (value, row, index) {
                         if (value != null) {
                             return moment(value).format('L');
@@ -118,7 +118,7 @@
                     title: app.localize('CoopTime'),
                     halign: 'center',
                     align: 'center',
-                    width: '8%',
+                    width: '5%',
                     formatter: function (value, row, index) {
                         if (value != null) {
                             return moment(value).format('L');
@@ -126,21 +126,26 @@
                     }
                 },
                 {
-                    field: 'weight',
-                    title: app.localize('Weight'),
+                    field: 'isShow',
+                    title: "是否显示",
                     halign: 'center',
                     align: 'center',
-                    width: '8%',
-                    visible: false
+                    width: '5%',
+                    formatter: function (value, row, index) {
+                        if (value.isPay) {
+                            return "<span class=\"label label-success\"> 是</span>";
+                        }
+                        return "<span class=\"label label-danger\"> 否</span>";
+                    }
                 },
                 {
                     field: 'actions',
                     title: '操作',
                     align: 'center',
-                    width: '10%',
+                    width: '3%',
                     formatter: function (value, row, index) {
                         var actions = '';
-                        actions += ' <a class="edit" href="javascript:void(0)" title="' + app.localize('Edit') + '" style="margin-left: 10px;"><i class="fa fa-edit"></i></a>';
+                        actions += ' <a class="edit" href="javascript:void(0)" title="' + app.localize('Edit') + '" ><i class="glyphicon glyphicon-usd">交款</i></a>';
                         return actions;
                     },
                     events: {
@@ -169,7 +174,13 @@
         $('#GetApprovalsButton').click(function (e) {
             e.preventDefault();
             getApprovals();
+            
         });
+        $("#ButtonReload").click(function () {
+
+            var a = _$approvalsTable.bootstrapTable('getSelections');
+            console.log(a);
+        })
         //制作Approval事件,用于请求变化后，刷新表格信息
         abp.event.on('app.createOrEditApprovalModalSaved', function () {
             getApprovals();

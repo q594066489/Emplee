@@ -12,28 +12,28 @@
 
 <!--html代码区域-->
 <div class="modal-body">
-    <form name="approvalInformationsForm"   role="form" novalidate class="form-validation">
- <input type="hidden" name="Id" value="@Model.Approval.Id" />
- <div class="row">
-            
-               
-	     <div hidden="hidden">           
-            @if (Model.IsEditMode)
-            {
-                <input type="hidden" name="Id" value="@Model.Approval.Id"/>
-            }
-        </div>
-	                  
-               
-  	<div class="form-group form-md-line-input form-md-floating-label  ">
-            <input class="maxlength-handler form-control " type="text" name="CompanyID" value="@Model.Approval.CompanyID"	 required 	 />			
-            <label>@L("CompanyID")   <span class="required"> * </span>	 	</label>
-        </div>
-   
-	                  
-               
-	    <div class="form-group form-md-line-input form-md-floating-label no-hint">
-            <label>@L("RegisterDate"):   </label>            
+    <form name="approvalInformationsForm" role="form" novalidate class="form-validation">
+        <input type="hidden" name="Id" value="@Model.Approval.Id" />
+        <div class="row">
+
+            NBA
+            <div hidden="hidden">
+                @if (Model.IsEditMode)
+                {
+                    <input type="hidden" name="Id" value="@Model.Approval.Id" />
+                }
+            </div>
+
+
+            <div class="form-group form-md-line-input form-md-floating-label  ">
+                <input class="maxlength-handler form-control " type="text" name="CompanyID" value="@Model.Approval.CompanyID" required />
+                <label>@L("CompanyID")   <span class="required"> * </span>	 	</label>
+            </div>
+
+
+
+            <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                <label>@L("RegisterDate"):   </label>
                 <div class="input-group  date form_datetime">
                     <input type="text" name="RegisterDate" value="@Model.Approval.RegisterDate" readonly class="form-control">
                     <span class="input-group-btn">
@@ -42,32 +42,32 @@
                         </button>
                     </span>
                 </div>
-        
-        </div>
-	                  
-               
-	
-                        <div class="md-checkbox">
-												                            <input id="EditApproval_IsPay" class="md-check" type="checkbox" name="IsPay"  value="true"  @Html.Raw(Model.Approval.IsPay ? "checked=\"checked\"" : "")>
 
-						                            <label for="EditApproval_IsPay">
-                                <span class="inc"></span>
-                                <span class="check"></span>
-                                <span class="box"></span>
-                                @L("IsPay")
-                            </label>
-                        </div>		 
-	                  
-               
-  	<div class="form-group form-md-line-input form-md-floating-label  ">
-            <input class="maxlength-handler form-control " type="text" name="PayAmount" value="@Model.Approval.PayAmount"	 />			
-            <label>@L("PayAmount") </label>
-        </div>
-   
-	                  
-               
-	    <div class="form-group form-md-line-input form-md-floating-label no-hint">
-            <label>@L("PayTime"):   </label>            
+            </div>
+
+
+
+            <div class="md-checkbox">
+                <input id="EditApproval_IsPay" class="md-check" type="checkbox" name="IsPay" value="true" @Html.Raw(Model.Approval.IsPay ? "checked=\"checked\"" : "")>
+
+                <label for="EditApproval_IsPay">
+                    <span class="inc"></span>
+                    <span class="check"></span>
+                    <span class="box"></span>
+                    @L("IsPay")
+                </label>
+            </div>
+
+
+            <div class="form-group form-md-line-input form-md-floating-label  ">
+                <input class="maxlength-handler form-control " type="text" name="PayAmount" value="@Model.Approval.PayAmount" />
+                <label>@L("PayAmount") </label>
+            </div>
+
+
+
+            <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                <label>@L("PayTime"):   </label>
                 <div class="input-group  date form_datetime">
                     <input type="text" name="PayTime" value="@Model.Approval.PayTime" readonly class="form-control">
                     <span class="input-group-btn">
@@ -76,25 +76,25 @@
                         </button>
                     </span>
                 </div>
-        
-        </div>
-	                  
-               
-  	<div class="form-group form-md-line-input form-md-floating-label  ">
-            <input class="maxlength-handler form-control " type="text" name="CoopTime" value="@Model.Approval.CoopTime"	 />			
-            <label>@L("CoopTime") </label>
-        </div>
-   
-	                  
-               
-  	<div class="form-group form-md-line-input form-md-floating-label  ">
-            <input class="maxlength-handler form-control" type="text" name="Weight" value="@Model.Approval.Weight"	 />			
-            <label>@L("Weight") </label>
-        </div>
-   
-	                  
+
             </div>
+
+
+            <div class="form-group form-md-line-input form-md-floating-label  ">
+                <input class="maxlength-handler form-control " type="text" name="CoopTime" value="@Model.Approval.CoopTime" />
+                <label>@L("CoopTime") </label>
+            </div>
+
+
+
+            <div class="form-group form-md-line-input form-md-floating-label  ">
+                <input class="maxlength-handler form-control" type="text" name="Weight" value="@Model.Approval.Weight" />
+                <label>@L("Weight") </label>
+            </div>
+
+
+        </div>
     </form>
 </div>
 @Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")
- 
+

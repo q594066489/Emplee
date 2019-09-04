@@ -399,6 +399,14 @@
     <Compile Include="Emploee\JobUrgents\IJobUrgentAppService.cs" />
     <Compile Include="Emploee\JobUrgents\JobUrgentAppService.cs" />
     <Compile Include="Emploee\JobUrgents\Mappers\JobUrgentDtoMapper.cs" />
+    <Compile Include="Emploee\PayLogs\Dtos\CreateOrUpdatePayLogInput.cs" />
+    <Compile Include="Emploee\PayLogs\Dtos\GetPayLogForEditOutput.cs" />
+    <Compile Include="Emploee\PayLogs\Dtos\GetPayLogInput.cs" />
+    <Compile Include="Emploee\PayLogs\Dtos\PayLogEditDto.cs" />
+    <Compile Include="Emploee\PayLogs\Dtos\PayLogListDto.cs" />
+    <Compile Include="Emploee\PayLogs\IPayLogAppService.cs" />
+    <Compile Include="Emploee\PayLogs\Mappers\PayLogDtoMapper.cs" />
+    <Compile Include="Emploee\PayLogs\PayLogAppService.cs" />
     <Compile Include="Emploee\PersonInfos\Dtos\CreateOrUpdatePersonInfoInput.cs" />
     <Compile Include="Emploee\PersonInfos\Dtos\GetPersonInfoForEditOutput.cs" />
     <Compile Include="Emploee\PersonInfos\Dtos\GetPersonInfoInput.cs" />

@@ -25,6 +25,8 @@ using Emploee.Emploees.Companies;
 using Emploee.Emploees.Companies.EntityMapper.Companies;
 using Emploee.Friendships;
 using Emploee.MultiTenancy;
+using Emploee.PayLogs;
+using Emploee.PayLogs.EntityMapper.PayLogs;
 using Emploee.Storage;
 
 namespace Emploee.EntityFramework
@@ -57,6 +59,7 @@ namespace Emploee.EntityFramework
         public IDbSet<Advertisement> Advertisements { get; set; }
         public IDbSet<Dictionary> Dictionarys { get; set; }
         public IDbSet<JobPosition> JobPositions { get; set; }
+        public IDbSet<PayLog> PayLogs { get; set; }
         
 
 
@@ -98,6 +101,7 @@ namespace Emploee.EntityFramework
             modelBuilder.Configurations.Add(new AdvertisementCfg());
             modelBuilder.Configurations.Add(new DictionaryCfg());
             modelBuilder.Configurations.Add(new JobPositionCfg());
+            modelBuilder.Configurations.Add(new PayLogCfg());
         }
     }
 }

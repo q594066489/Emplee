@@ -2,7 +2,7 @@
 using Abp.Localization;
 using Abp.Notifications;
 using Emploee.Authorization;
-using Emploee.Authorization;
+ 
 
 namespace Emploee.Notifications
 {

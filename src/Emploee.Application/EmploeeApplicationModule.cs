@@ -10,7 +10,7 @@ using Emploee.Approvals.Authorization;
 using Emploee.Emploee.Advertisements.Authorization;
 using Emploee.Emploee.Dictionaries.Authorization;
 using Emploee.Emploee.Job_Positions.Authorization;
- 
+using Emploee.PayLogs.Authorization;
 
 namespace Emploee
 {
@@ -33,6 +33,7 @@ namespace Emploee
             Configuration.Authorization.Providers.Add<DictionaryAppAuthorizationProvider>();
             Configuration.Authorization.Providers.Add<JobPostAppAuthorizationProvider>();
             Configuration.Authorization.Providers.Add<JobPositionAppAuthorizationProvider>();
+            Configuration.Authorization.Providers.Add<PayLogAppAuthorizationProvider>();
             //Adding custom AutoMapper mappings
             Configuration.Modules.AbpAutoMapper().Configurators.Add(mapper =>
             {

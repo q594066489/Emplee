@@ -252,6 +252,9 @@
     <Compile Include="Emploee\Advertisements\Authorization\AdvertisementAppAuthorizationProvider.cs" />
     <Compile Include="Emploee\Advertisements\Authorization\AdvertisementAppPermissions.cs" />
     <Compile Include="Emploee\Advertisements\____AdvertisementReadme.cs" />
+    <Compile Include="Emploee\PayLogs\Authorization\PayLogAppAuthorizationProvider.cs" />
+    <Compile Include="Emploee\PayLogs\Authorization\PayLogAppPermissions.cs" />
+    <Compile Include="Emploee\PayLogs\PayLog.cs" />
     <Compile Include="Emploee\Approvals\Approval.cs" />
     <Compile Include="Emploee\Approvals\ApprovalManage.cs" />
     <Compile Include="Emploee\Approvals\Authorization\ApprovalAppAuthorizationProvider.cs" />
@@ -285,6 +288,8 @@
     <Compile Include="Emploee\JobUrgents\JobUrgentManage.cs" />
     <Compile Include="Emploee\JobUrgents\____JobUrgentReadme.cs" />
     <Compile Include="Emploee\JobPositions\JobPosition.cs" />
+    <Compile Include="Emploee\PayLogs\PayLogManage.cs" />
+    <Compile Include="Emploee\PayLogs\____PayLogReadme.cs" />
     <Compile Include="Emploee\PersonInfos\Authorization\PersonInfoAppAuthorizationProvider.cs" />
     <Compile Include="Emploee\PersonInfos\Authorization\PersonInfoAppPermissions.cs" />
     <Compile Include="Emploee\PersonInfos\PersonInfo.cs" />
