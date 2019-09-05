@@ -26,6 +26,10 @@
             abpMethod: _approvalService.getPagedApprovals,
             toolbar: '#toolbar', //工具按钮用哪个容器，
             striped: true,                      //是否显示行间隔色
+            sortable: true, 
+            method: 'GET',
+            pageSize: 10,//每页初始显示的条数
+            pageList: [10, 20, 50],
             queryParams: function (param) {
                 var abpParam = {
                     FilterText: $('#txtFilterText').val(),
