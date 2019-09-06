@@ -30,9 +30,15 @@
             method: 'GET',
             pageSize: 10,//每页初始显示的条数
             pageList: [10, 20, 50],
+            //search: true,
+            showRefresh: false,
+            showToggle: false,
+            showColumns: false,
             queryParams: function (param) {
                 var abpParam = {
-                    FilterText: $('#txtFilterText').val(),
+                    FilterText: $('#searchText').val(),
+                    isPay: $('#isPay').val(),
+                    isShow: $('#isShow').val(),
                     Sorting: param.sort,
                     skipCount: param.offset,
                     maxResultCount: param.limit
@@ -60,14 +66,16 @@
                     halign: 'center',
                     align: 'center',
                     width: '3%',
+                    sortable:true,
                     visible: false
                     },
                     {
 
                         field: 'companyName',
-                        title: '企业',
+                        title: '企业名称',
                         halign: 'center',
                         align: 'center',
+                        sortable: true,
                         width: '5%',
                          
                     },
@@ -77,6 +85,7 @@
                     halign: 'center',
                     align: 'center',
                     width: '5%',
+                    sortable: true,
                     formatter: function (value, row, index) {
                         if (value != null) {
                             return moment(value).format('L');
@@ -90,12 +99,14 @@
                     halign: 'center',
                     align: 'center',
                     width: '3%',
+                    sortable: true,
                     formatter: function (value, row, index) {
-                        if (value
-                        ) {
+                        if (value) {
                             return "<span class=\"label label-success\"> 是</span>";
                         }
-                        return "<span class=\"label label-danger\"> 否</span>";
+                        else {
+                            return "<span class=\"label label-danger\"> 否</span>";
+                        }
                     }
                 },
                 {
@@ -111,6 +122,7 @@
                     halign: 'center',
                     align: 'center',
                     width: '5%',
+                    sortable: true,
                     formatter: function (value, row, index) {
                         if (value != null) {
                             return moment(value).format('L');
@@ -123,6 +135,7 @@
                     halign: 'center',
                     align: 'center',
                     width: '5%',
+                    sortable: true,
                     formatter: function (value, row, index) {
                         if (value != null) {
                             return moment(value).format('L');
@@ -136,7 +149,7 @@
                     align: 'center',
                     width: '5%',
                     formatter: function (value, row, index) {
-                        if (value.isPay) {
+                        if (value ) {
                             return "<span class=\"label label-success\"> 通过</span>";
                         }
                         return "<span class=\"label label-danger\"> 否</span>";
@@ -175,29 +188,48 @@
         }
 
         //搜索
-        $('#GetApprovalsButton').click(function (e) {
+        $('.queryButton').click(function (e) {
             e.preventDefault();
-            getApprovals();
-            
+            //getApprovals();
+            _$approvalsTable.bootstrapTable('refresh');
         });
-        $("#ButtonReload").click(function () {
+        $("#allpass").click(function () {
 
-            var checkData = _$approvalsTable.bootstrapTable('getSelections');
-            //console.log(getIdSelections());
-            var dd = getIdSelections();
-            console.log(dd);
-            var sd=JSON.stringify(dd);
-            console.log(sd);
+             var dd = getIdSelections();
+            //console.log(dd);
+             var sd=JSON.stringify(dd);
+            //console.log(sd);
              
-            if (checkData.length > 0) {
+            if (dd.length > 0) {
                 
                 //_modalManager.setBusy(true);
 
-                _approvalService.batchChangeState(sd 
+                _approvalService.batchChangeState(sd, true
                 ).done(function () {
                     //提示信息
                     //abp.notify.info(app.localize('SavedSuccessfully'));
                      
+                }).always(function () {
+                    //_modalManager.setBusy(false);
+                });
+            }
+        })
+        $("#allfail").click(function () {
+
+            var dd = getIdSelections();
+            //console.log(dd);
+             var sd=JSON.stringify(dd);
+            //console.log(sd);
+             
+            if (dd.length > 0) {
+
+                //_modalManager.setBusy(true);
+
+                _approvalService.batchChangeState(sd, false
+                ).done(function () {
+                    //提示信息
+                    //abp.notify.info(app.localize('SavedSuccessfully'));
+
                 }).always(function () {
                     //_modalManager.setBusy(false);
                 });

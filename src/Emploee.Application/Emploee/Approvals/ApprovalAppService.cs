@@ -9,16 +9,19 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Dynamic;
+using System.Linq.Dynamic.Core;
 using System.Text;
 using System.Threading.Tasks;
 using Abp;
 using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.AutoMapper;
+using Abp.Collections.Extensions;
 using Abp.Configuration;
 using Abp.Domain.Repositories;
 using Abp.Extensions;
 using Abp.Linq.Extensions;
+using Castle.Core.Internal;
 using Emploee.Approvals.Authorization;
 using Emploee.Approvals.Dtos;
 using Emploee.Dto;
@@ -89,10 +92,8 @@ namespace Emploee.Approvals
         /// </summary>
         public async Task<PagedResultDto<ApprovalListDto>> GetPagedApprovalsAsync(GetApprovalInput input)
         {
-            
-             
-
-            var query = from approval in _approvalRepositoryAsNoTrack
+           
+            var query = (from approval in _approvalRepositoryAsNoTrack
                         join company in _companyRepository.GetAll().AsNoTracking()
                         on approval.CompanyID  equals company.CompanyID
                         
@@ -100,13 +101,15 @@ namespace Emploee.Approvals
                         {
                             approval,
                             company.CompanyName
-                        };
+                        }).WhereIf(!string.IsNullOrEmpty(input.FilterText), t => t.CompanyName.Contains(input.FilterText.Trim()))
+                        .WhereIf(input.isPay!=null,  t => t.approval.IsPay == input.isPay)
+                        .WhereIf(input.isShow!=null,t=>t.approval.IsShow==input.isShow);
             //TODO:根据传入的参数添加过滤条件
 
             var approvalCount = await query.CountAsync();
              
             var approvals = await query
-            .OrderBy(t=>t.approval.Id).Skip(input.SkipCount).Take(input.MaxResultCount).ToListAsync();
+            .OrderByDescending(t=>t.approval.RegisterDate).Skip(input.SkipCount).Take(input.MaxResultCount).ToListAsync();
              
             return new PagedResultDto<ApprovalListDto>(
             approvalCount,
@@ -246,7 +249,7 @@ namespace Emploee.Approvals
             await _approvalRepository.DeleteAsync(s => input.Contains(s.Id));
         }
 
-        public async Task BatchChangeState(string input)
+        public async Task BatchChangeState(string input,bool isShow)
         {
             try
             {
@@ -255,7 +258,7 @@ namespace Emploee.Approvals
                 List<string> changids = datas.Split(',').ToList();
                 _approvalRepository.GetAll()
                     .Where(t => changids.Contains(t.Id.ToString()))
-                    .Update(x => new Approval() { IsShow = true });
+                    .Update(x => new Approval() { IsShow = isShow });
             }
             catch(Exception ex)
             {

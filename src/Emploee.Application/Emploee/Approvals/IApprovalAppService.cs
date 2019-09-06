@@ -80,7 +80,7 @@ namespace Emploee.Approvals
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        Task BatchChangeState(string input);
+        Task BatchChangeState(string input, bool isShow);
         #endregion
 
         #region Excel导出功能

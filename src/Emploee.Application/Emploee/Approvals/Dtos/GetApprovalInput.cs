@@ -34,6 +34,9 @@ namespace Emploee.Approvals.Dtos
 		/// </summary>
 		public string FilterText { get; set; }
 
+        public bool? isPay { get; set; }
+
+        public bool? isShow { get; set; }
 		/// <summary>
 	    /// 用于排序的默认值
 		/// </summary>
