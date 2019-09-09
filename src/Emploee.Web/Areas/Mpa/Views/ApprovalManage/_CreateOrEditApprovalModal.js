@@ -20,33 +20,19 @@
             $("input[name=RegisterDate]").datetimepicker({
                 autoclose: true,
                 isRTL: false,
-                format: "yyyy-mm-dd hh:ii",
+                format: "yyyy-mm-dd  ",
                 pickerPosition: ("bottom-left"),
 				//默认为E文按钮要中文，自己去找语言包
 				   todayBtn: true,
 				     language: "zh-CN"
             });
-	 
-
-
-						
-			 
-			   	 
-
-
-						
-			 
-			   	 
-
-
-						
-			 
+	  
 			   	 	 	 // 初始化 交款时间 的包含时分秒的日期控件
 		   //包含时分秒的日期选择器             
             $("input[name=PayTime]").datetimepicker({
                 autoclose: true,
                 isRTL: false,
-                format: "yyyy-mm-dd hh:ii",
+                format: "yyyy-mm-dd  ",
                 pickerPosition: ("bottom-left"),
 				//默认为E文按钮要中文，自己去找语言包
 				   todayBtn: true,

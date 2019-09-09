@@ -6,13 +6,9 @@
 
         var _$approvalsTable = $('#ApprovalsTable');
         var _approvalService = abp.services.app.approval;
+        var _payLogService = abp.services.app.payLog;
 
-        var _permissions = {
-            create: abp.auth.hasPermission("Pages.Approval.CreateApproval"),
-            edit: abp.auth.hasPermission("Pages.Approval.EditApproval"),
-            'delete': abp.auth.hasPermission("Pages.Approval.DeleteApproval")
-
-        };
+         
 
 
         var _createOrEditModal = new app.ModalManager({
@@ -27,13 +23,14 @@
             toolbar: '#toolbar', //工具按钮用哪个容器，
             striped: true,                      //是否显示行间隔色
             sortable: true, 
-            method: 'GET',
+          
             pageSize: 10,//每页初始显示的条数
             pageList: [10, 20, 50],
             //search: true,
             showRefresh: false,
             showToggle: false,
             showColumns: false,
+            detailView: true,//父子表
             queryParams: function (param) {
                 var abpParam = {
                     FilterText: $('#searchText').val(),
@@ -172,9 +169,50 @@
                     }
                 }
                 ]
+            ,//注册加载子表的事件。注意下这里的三个参数！
+            onExpandRow: function (index, row, $detail) {
+                ShowPayLog(index, row, $detail);
+            }
+
+             
 
         });
-
+        function ShowPayLog(index, row, $detail) {
+            var _companyID = row.companyID;
+            var cur_table = $detail.html('<table></table>').find('table');
+            $(cur_table).bootstrapTable({
+                abpMethod: _payLogService.getPagedPayLogs,                 
+                striped: true,                      //是否显示行间隔色
+                sortable: true,
+                 
+                showRefresh: false,
+                showToggle: false,
+                showColumns: false,
+                queryParams: function (param) {
+                    var abpParam = { 
+                        FilterText: _companyID,
+                        Sorting: param.sort,
+                        skipCount: param.offset,
+                        maxResultCount: param.limit
+                    };
+                    return abpParam;
+                },
+                columns: [{
+                    checkbox: true
+                }, {
+                    field: 'id',
+                    title: '菜单名称'
+                }, {
+                    field: 'title',
+                    title: '菜单URL'
+                }, {
+                    field: 'time',
+                    title: '父级菜单'
+                }] 
+                 
+            });
+             
+        }
         //打开添加窗口SPA
         $('#CreateNewApprovalButton').click(function () {
             //可选生成的对话框大小{size:'lg'}or{size:'sm'}

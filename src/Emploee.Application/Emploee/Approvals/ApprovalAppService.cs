@@ -147,7 +147,10 @@ namespace Emploee.Approvals
             if (input.Id.HasValue)
             {
                 var entity = await _approvalRepository.GetAsync(input.Id.Value);
+                var companyname =  _companyRepository.FirstOrDefault(t=>t.CompanyID==entity.CompanyID).CompanyName;
+                
                 approvalEditDto = entity.MapTo<ApprovalEditDto>();
+                approvalEditDto.CompanyName = companyname;
             }
             else
             {

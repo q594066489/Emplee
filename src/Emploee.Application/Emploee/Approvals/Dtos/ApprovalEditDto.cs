@@ -40,7 +40,7 @@ namespace Emploee.Approvals.Dtos
         /// </summary>
         [DisplayName("企业编号")]
         public   int  CompanyID { get; set; }
-
+        public string CompanyName { get; set; }
         /// <summary>
         /// 注册时间
         /// </summary>

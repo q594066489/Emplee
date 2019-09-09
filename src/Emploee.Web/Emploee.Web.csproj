@@ -631,6 +631,7 @@
     <Content Include="Areas\Mpa\Views\CompanyManage\_CreateOrEditCompanyModal.js" />
     <Content Include="Areas\Mpa\Views\CompanyManage\_ImportCompanyManages.js" />
     <Content Include="Areas\Mpa\Views\CompanyManage\_ShowPicture.js" />
+    <Content Include="Areas\Mpa\Views\Dashboard\IndexBak.js" />
     <Content Include="Areas\Mpa\Views\JobPostManage\index.css" />
     <Content Include="Common\Images\app-logo-small.png" />
     <Content Include="Common\Images\logo.png" />
@@ -3739,6 +3740,7 @@
     <Content Include="libs\layuiExtend-master\_config.yml" />
     <Content Include="Areas\Mpa\Views\ApprovalManage\Index.js" />
     <Content Include="Areas\Mpa\Views\ApprovalManage\_CreateOrEditApprovalModal.js" />
+    <Content Include="Areas\Mpa\Views\Dashboard\IndexBak.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
