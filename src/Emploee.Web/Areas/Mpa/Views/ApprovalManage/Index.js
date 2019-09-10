@@ -46,7 +46,7 @@
                 [{
                     checkbox: true,//是否显示复选框
                     visible: true,
-                    width: '1%'
+                    width: '5%'
                 },
                 {
                     field: 'id',
@@ -73,7 +73,7 @@
                         halign: 'center',
                         align: 'center',
                         sortable: true,
-                        width: '5%',
+                        width: '20%',
                          
                     },
                 {
@@ -81,7 +81,7 @@
                     title: app.localize('RegisterDate'),
                     halign: 'center',
                     align: 'center',
-                    width: '5%',
+                    width: '10%',
                     sortable: true,
                     formatter: function (value, row, index) {
                         if (value != null) {
@@ -95,7 +95,7 @@
                     title: '已付款',
                     halign: 'center',
                     align: 'center',
-                    width: '3%',
+                    width: '10%',
                     sortable: true,
                     formatter: function (value, row, index) {
                         if (value) {
@@ -111,14 +111,14 @@
                     title: app.localize('PayAmount'),
                     halign: 'center',
                     align: 'center',
-                    width: '3%',
+                    width: '10%',
                 },
                 {
                     field: 'payTime',
                     title: app.localize('PayTime'),
                     halign: 'center',
                     align: 'center',
-                    width: '5%',
+                    width: '10%',
                     sortable: true,
                     formatter: function (value, row, index) {
                         if (value != null) {
@@ -131,7 +131,7 @@
                     title: app.localize('CoopTime'),
                     halign: 'center',
                     align: 'center',
-                    width: '5%',
+                    width: '10%',
                     sortable: true,
                     formatter: function (value, row, index) {
                         if (value != null) {
@@ -144,7 +144,7 @@
                     title: "审批通过",
                     halign: 'center',
                     align: 'center',
-                    width: '5%',
+                    width: '10%',
                     formatter: function (value, row, index) {
                         if (value ) {
                             return "<span class=\"label label-success\"> 通过</span>";
@@ -156,7 +156,7 @@
                     field: 'actions',
                     title: '操作',
                     align: 'center',
-                    width: '3%',
+                    width: '10%',
                     formatter: function (value, row, index) {
                         var actions = '';
                         actions += ' <a class="edit" href="javascript:void(0)" title="' + app.localize('Edit') + '" ><i class="glyphicon glyphicon-usd">交款</i></a>';

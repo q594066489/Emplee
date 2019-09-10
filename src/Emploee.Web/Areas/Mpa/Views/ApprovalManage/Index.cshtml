@@ -9,19 +9,20 @@
 }
 
 @section Styles{
-		
-	  	  	     <link href="~/libs/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>     	  	    
+
+    <link href="~/libs/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
 }
 
 
 @* 注入所需JS *@
 @section Scripts
-{  
+{
 
-        <script src="~/libs/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
-        <script src="~/libs/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="~/libs/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+     
+    <script src="~/libs/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 
-  
+
     @Html.IncludeScript("~/Areas/Mpa/Views/ApprovalManage/_CreateOrEditApprovalModal.js")
     @Html.IncludeScript("~/Areas/Mpa/Views/ApprovalManage/Index.js")
 }
@@ -33,81 +34,81 @@
                     <span>@L("Approval")</span> <small>@L("ApprovalHeaderInfo")</small>
                 </h1>
             </div>
-        
+
         </div>
     </div>
     @*<div class="col-xs-6 text-right">
-        <button  id="ButtonReload" class="btn btn-primary blue"><i class="fa  fa-refresh"></i> @L("Refresh")</button>
+            <button  id="ButtonReload" class="btn btn-primary blue"><i class="fa  fa-refresh"></i> @L("Refresh")</button>
 
 
-        @if (IsGranted(ApprovalAppPermissions.Approval_CreateApproval))
-        {
-            <button id="CreateNewApprovalButton" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreateApproval")</button>
-        }
-    </div>*@
+            @if (IsGranted(ApprovalAppPermissions.Approval_CreateApproval))
+            {
+                <button id="CreateNewApprovalButton" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreateApproval")</button>
+            }
+        </div>*@
 </div>
 
 <div class="portlet light">
- @* 通用搜索功能 *@
-<div class="portlet-title portlet-title-filter">
+    @* 通用搜索功能 *@
+    <div class="portlet-title portlet-title-filter">
         @*<div class="inputs inputs-full-width">
-            <div class="portlet-input">
-                <form>
+                <div class="portlet-input">
+                    <form>
+                        <div class="input-group">
+                            <input id="ApprovalsTableFilter" class="form-control" placeholder="@L("SearchWithThreeDot")" type="text" value="@Model.FilterText">
+                            <span class="input-group-btn">
+                                <button id="GetApprovalsButton" class="btn default" type="submit"><i class="glyphicon glyphicon-usd"></i></button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>*@
+    </div>
+
+
+
+    <div class="portlet-body table-responsive">
+        <div id="toolbar">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label class="sr-only" for="product_line">付款情况</label>
                     <div class="input-group">
-                        <input id="ApprovalsTableFilter" class="form-control" placeholder="@L("SearchWithThreeDot")" type="text" value="@Model.FilterText">
-                        <span class="input-group-btn">
-                            <button id="GetApprovalsButton" class="btn default" type="submit"><i class="glyphicon glyphicon-usd"></i></button>
-                        </span>
+                        <div class="input-group-addon">付款情况</div>
+                        <select class="form-control" name="isPay" id="isPay">
+                            <option value="">全部</option>
+                            <option value="false">未付款</option>
+                            <option value="true">已付款</option>
+                        </select>
                     </div>
-                </form>
-            </div>
-        </div>*@
-    </div>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="msg_type">审批状态</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">审批状态</div>
+                        <select class="form-control" name="isShow" id="isShow">
+                            <option value="">全部</option>
+                            <option value="false">未付款</option>
+                            <option value="true">已付款</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="msg_type">企业名称</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">企业名称</div>
+                        <input type="text" class="form-control" name="searchTexts" id="searchText" placeholder="请输入企业名称或关键字...">
+                    </div>
+                </div>
+                <div class="form-group  ">
+                    <button type="button" class="btn btn-primary queryButton">查询</button>
+                    <button type="button" class="btn btn-primary  " id="allpass"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>批量通过审批</button>
+                    <button type="button" class="btn btn-primary  " id="allfail"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>批量取消审批</button>
+                </div>
+            </form>
+        </div>
 
-
-     
-<div class="portlet-body table-responsive">
-    <div id="toolbar">
-        <form class="form-inline">
-            <div class="form-group">
-                <label class="sr-only" for="product_line">付款情况</label>
-                <div class="input-group">
-                    <div class="input-group-addon">付款情况</div>
-                    <select class="form-control" name="isPay" id="isPay">
-                        <option value="">全部</option>
-                        <option value="false">未付款</option>
-                        <option value="true">已付款</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="sr-only" for="msg_type">审批状态</label>
-                <div class="input-group">
-                    <div class="input-group-addon">审批状态</div>
-                    <select class="form-control" name="isShow" id="isShow">
-                        <option value="">全部</option>
-                        <option value="false">未付款</option>
-                        <option value="true">已付款</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="sr-only" for="msg_type">企业名称</label>
-                <div class="input-group">
-                    <div class="input-group-addon">企业名称</div>
-                    <input type="text" class="form-control" name="searchTexts" id="searchText" placeholder="请输入企业名称或关键字...">
-                </div>
-            </div>
-            <div class="form-group  ">
-                <button type="button" class="btn btn-primary queryButton">查询</button>
-                <button type="button" class="btn btn-primary  " id="allpass"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>批量通过审批</button>
-                <button type="button" class="btn btn-primary  " id="allfail"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>批量取消审批</button>
-            </div>
-        </form>
+        <table id="ApprovalsTable"></table>
     </div>
-     
-    <table id="ApprovalsTable"></table>
-</div>
 </div>
 
 
@@ -118,4 +119,3 @@
 
 
 
- 

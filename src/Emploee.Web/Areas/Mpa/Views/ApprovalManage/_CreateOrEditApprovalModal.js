@@ -17,27 +17,38 @@
              
 			   	 	 	 // 初始化 注册时间 的包含时分秒的日期控件
 		   //包含时分秒的日期选择器             
-            $("input[name=RegisterDate]").datetimepicker({
-                autoclose: true,
-                isRTL: false,
-                format: "yyyy-mm-dd  ",
-                pickerPosition: ("bottom-left"),
-				//默认为E文按钮要中文，自己去找语言包
-				   todayBtn: true,
-				     language: "zh-CN"
+    //        $("input[name=RegisterDate]").datetimepicker({
+    //            autoclose: true,
+    //            isRTL: false,
+    //            format: "yyyy-mm-dd  ",
+    //            pickerPosition: ("bottom-left"),
+				////默认为E文按钮要中文，自己去找语言包
+				//   todayBtn: true,
+				//     language: "zh-CN"
+    //        });
+            $('div[name=divRegisterDate]').datetimepicker({
+                language: 'zh-CN',
+                weekStart: 1,
+                todayBtn: 1,
+                autoclose: 1,
+                todayHighlight: 1,
+                startView: 2,
+                minView: 2,
+                forceParse: 0,
+                
             });
 	  
 			   	 	 	 // 初始化 交款时间 的包含时分秒的日期控件
 		   //包含时分秒的日期选择器             
-            $("input[name=PayTime]").datetimepicker({
-                autoclose: true,
-                isRTL: false,
-                format: "yyyy-mm-dd  ",
-                pickerPosition: ("bottom-left"),
-				//默认为E文按钮要中文，自己去找语言包
-				   todayBtn: true,
-				     language: "zh-CN"
-            });
+    //        $("input[name=PayTime]").datetimepicker({
+    //            autoclose: true,
+    //            isRTL: false,
+    //            format: "yyyy-mm-dd  ",
+    //            pickerPosition: ("bottom-left"),
+				////默认为E文按钮要中文，自己去找语言包
+				//   todayBtn: true,
+				//     language: "zh-CN"
+    //        });
 	 
 
 
