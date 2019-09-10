@@ -14,12 +14,13 @@
             showCaption: true,              //是否显示标题
             showUpload: true,               //是否显示上传按钮
             showRemove: true,               //是否显示移除按钮
-            showPreview: true,             //是否显示预览按钮
+            showPreview: false,             //是否显示预览按钮
             browseClass: "btn btn-primary", //按钮样式 
             dropZoneEnabled: false,         //是否显示拖拽区域
             allowedFileExtensions: ["jpg", "pdf"], //接收的文件后缀
             minFileCount: 1,                                        // 最小上传数量
             maxFileCount: 1,                        //最大上传文件数限制
+            maxFileSize: 1024,                         //最大文件大小10M
             previewFileIcon: '<i class="glyphicon glyphicon-file"></i>',
             allowedPreviewTypes: null,
             previewFileIconSettings: {
