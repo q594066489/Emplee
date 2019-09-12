@@ -27,11 +27,18 @@ namespace Emploee.Web.Navigation
                     )
 
                 //ABOUT
-                ).AddItem(new MenuItemDefinition(
+                )
+                .AddItem(new MenuItemDefinition(
+                    PageNames.Frontend.About,
+                    L("AboutUs"),
+                    url: "About"
+                    ))
+                .AddItem(new MenuItemDefinition(
                     PageNames.Frontend.About,
                     L("AboutUs"),
                     url: "About"
                     )
+                    
 
                 //MULTI-LEVEL MENU (JUST FOR EXAMPLE)
                 //).AddItem(new MenuItemDefinition(

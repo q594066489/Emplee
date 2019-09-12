@@ -80,7 +80,7 @@ PayLogManage payLogManage
         public async Task<PagedResultDto<PayLogListDto>> GetPagedPayLogsAsync(GetPayLogInput input)
         {
 
-            var query = _payLogRepositoryAsNoTrack.WhereIf(!string.IsNullOrEmpty(input.FilterText), t => t.CompanyID.Equals(input.FilterText.Trim()));
+            var query = _payLogRepository.GetAll().Where(t=>t.CompanyID==input.CompanyId);
             //TODO:根据传入的参数添加过滤条件
 
             var payLogCount = await query.CountAsync();

@@ -23,7 +23,7 @@
             toolbar: '#toolbar', //工具按钮用哪个容器，
             striped: true,                      //是否显示行间隔色
             sortable: true, 
-          
+            //method:'POST',
             pageSize: 10,//每页初始显示的条数
             pageList: [10, 20, 50],
             //search: true,
@@ -132,12 +132,8 @@
                     halign: 'center',
                     align: 'center',
                     width: '10%',
-                    sortable: true,
-                    formatter: function (value, row, index) {
-                        if (value != null) {
-                            return moment(value).format('L');
-                        }
-                    }
+                    sortable: true 
+                     
                 },
                 {
                     field: 'isShow',
@@ -184,31 +180,85 @@
                 abpMethod: _payLogService.getPagedPayLogs,                 
                 striped: true,                      //是否显示行间隔色
                 sortable: true,
-                 
+                //method: 'POST',
                 showRefresh: false,
                 showToggle: false,
                 showColumns: false,
                 queryParams: function (param) {
                     var abpParam = { 
-                        FilterText: _companyID,
+                        CompanyId: _companyID,
                         Sorting: param.sort,
                         skipCount: param.offset,
                         maxResultCount: param.limit
                     };
                     return abpParam;
                 },
-                columns: [{
-                    checkbox: true
-                }, {
+                columns: [ 
+                {
                     field: 'id',
-                    title: '菜单名称'
-                }, {
-                    field: 'title',
-                    title: '菜单URL'
-                }, {
-                    field: 'time',
-                    title: '父级菜单'
-                }] 
+                    title: 'ID',
+                    halign: 'center',
+                    align: 'center',
+                    width: '3%',
+                    visible: false
+                },
+                {
+
+                    field: 'companyID',
+                    title: '企业编号',
+                    halign: 'center',
+                    align: 'center',
+                    width: '3%',
+                    sortable: true,
+                    visible: false
+                },
+                 
+                {
+                    field: 'payAmount',
+                    title: app.localize('PayAmount'),
+                    halign: 'center',
+                    align: 'center',
+                    width: '10%',
+                },
+                {
+                    field: 'payTime',
+                    title: app.localize('PayTime'),
+                    halign: 'center',
+                    align: 'center',
+                    width: '10%',
+                    sortable: true,
+                    formatter: function (value, row, index) {
+                        if (value != null) {
+                            return moment(value).format('L');
+                        }
+                    }
+                },
+                {
+                    field: 'coopTime',
+                    title: app.localize('CoopTime'),
+                    halign: 'center',
+                    align: 'center',
+                    width: '10%' 
+
+                },
+                 
+                {
+                    field: 'actions',
+                    title: '操作',
+                    align: 'center',
+                    width: '10%',
+                    formatter: function (value, row, index) {
+                        var actions = '';
+                        actions += ' <a class="edit" href="javascript:void(0)" title="' + app.localize('Edit') + '" ><i class="fa fa-trash-o">删除</i></a>';
+                        return actions;
+                    },
+                    events: {
+                        'click .edit': function (e, value, row, index) {
+                            _createOrEditModal.open({ size: '1800', id: row.id });
+                        }
+                    }
+                }
+                ]
                  
             });
              

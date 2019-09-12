@@ -156,7 +156,7 @@ namespace Emploee.Approvals
             {
                 approvalEditDto = new ApprovalEditDto();
             }
-
+            approvalEditDto.PayTime = DateTime.Now;
             output.Approval = approvalEditDto;
             return output;
         }
@@ -229,7 +229,7 @@ namespace Emploee.Approvals
             _payLog.CoopTime =Convert.ToInt32( _approval.CoopTime);
             _payLog.PayAmount= Convert.ToInt32(_approval.PayAmount);
             _payLog.PayTime = Convert.ToDateTime(_approval.PayTime);
-
+            await _paylogRepository.InsertAsync(_payLog);
         }
 
         /// <summary>

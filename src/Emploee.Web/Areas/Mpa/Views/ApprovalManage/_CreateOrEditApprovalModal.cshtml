@@ -7,7 +7,7 @@
 @model CreateOrEditApprovalModalViewModel
 
 @* 初始化头部 *@
-@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditApproval") + ": " + Model.Approval.CompanyID) : L("CreateApproval")))
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? ("企业付款:"+Model.Approval.CompanyName) : L("CreateApproval")))
 
 
 <!--html代码区域-->
@@ -34,153 +34,104 @@
                 <div class="form-group">
                     <label class="col-sm-4 control-label">企业名称</label>
                     <div class="col-sm-8">
-                        <input class="form-control inline w300  maxlength-handler  required" type="text" value="@Model.Approval.CompanyName" />
+                        <input class="form-control inline w300  maxlength-handler   " type="text" value="@Model.Approval.CompanyName"  disabled/>
                         <span class="help-inline"></span>
                     </div>
                 </div>
             </div>
             @*<div class="col-sm-6 ">
 
-                <label class="col-sm-4 control-label">@L("RegisterDate"):   </label>
-                <div class="input-group datetimepicker    col-sm-8">
-                    <input type="text" name="RegisterDate" value="@Model.Approval.RegisterDate" readonly class="form-control">
-                    <span class="input-group-btn">
-                        <button class="btn default date-set" type="button">
-                            <i class="fa fa-calendar"></i>
-                        </button>
-                    </span>
-                </div>
-            </div>*@
-            <div class="col-sm-6" style="padding-bottom: 4px;">
+            <label class="col-sm-4 control-label">@L("RegisterDate"):   </label>
+            <div class="input-group datetimepicker    col-sm-8">
+                <input type="text" name="RegisterDate" value="@Model.Approval.RegisterDate" readonly class="form-control">
+                <span class="input-group-btn">
+                    <button class="btn default date-set" type="button">
+                        <i class="fa fa-calendar"></i>
+                    </button>
+                </span>
+            </div>
+        </div>*@
+            <div class="col-sm-6" style="padding-bottom: 3.8px;">
                 <div class="form-group ">
                     <label for="RegisterDate" class="control-label col-sm-4">@L("RegisterDate")</label>
-                    <div class="input-group date col-sm-8" name="divRegisterDate" data-date-format="yyyy-mm-dd" data-link-format="yyyy-mm-dd" style="width:61%;padding-left:15px">
-                        <input class="form-control" name="RegisterDate" type="text" value="@Model.Approval.RegisterDate" readonly>
+                    <div class="input-group date col-sm-8" name="divRegisterDate" data-date-format="yyyy-MM-dd" data-link-format="yyyy-MM-dd" style="width:61%;padding-left:15px">
+                        <input class="form-control" name="RegisterDate" type="text" value="@Model.Approval.RegisterDate.ToString("yyyy-MM-dd")" readonly>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-                         
+
                     </div>
 
                 </div>
             </div>
 
-                @*<div class='col-sm-6'>
+            @*<div class='col-sm-6'>
+            <div class="form-group">
+                <label>@L("RegisterDate")：</label>
+
+                <div class='input-group date' id='RegisterDate' name="RegisterDate">
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>*@
+
+            <div class="col-sm-6" style="padding-bottom: 3.8px;">
+                <div class="form-group ">
+                    <label for="PayTime" class="control-label col-sm-4">@L("PayTime")</label>
+                    <div class="input-group date col-sm-8" name="divPayTime" data-date-format="yyyy-MM-dd" data-link-format="yyyy-MM-dd" style="width:61%;padding-left:15px">
+                        <input class="form-control" name="PayTime" type="text" value="@Model.Approval.PayTime.Value.ToString("yyyy-MM-dd")" readonly>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            @*<div class="col-sm-6 ">
                 <div class="form-group">
-                    <label>@L("RegisterDate")：</label>
-
-                    <div class='input-group date' id='RegisterDate' name="RegisterDate">
-                        <input type='text' class="form-control" />
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
+                    <label class="col-sm-4 control-label">@L("PayTime")</label>
+                    <div class="col-sm-8">
+                        <input class="form-control inline    maxlength-handler  required" type="text" id="PayTime" name="PayTime" value="@Model.Approval.PayTime" />
+                        <span class="help-inline"></span>
                     </div>
                 </div>
             </div>*@
-
-
-
-
-                <div class="col-sm-6 ">
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">@L("PayTime")</label>
-                        <div class="col-sm-8">
-                            <input class="form-control inline    maxlength-handler  required" type="text" id="PayTime" name="PayTime" value="@Model.Approval.PayTime" />
-                            <span class="help-inline"></span>
-                        </div>
+            <div class="col-sm-6 ">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">@L("PayAmount")</label>
+                    <div class="col-sm-8">
+                        <input class="form-control inline    maxlength-handler  " type="text" id="PayAmount" name="PayAmount" value="@Model.Approval.PayAmount" />
+                        <span class="help-inline"></span>
                     </div>
                 </div>
-                <div class="col-sm-6 ">
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">@L("PayAmount")</label>
-                        <div class="col-sm-8">
-                            <input class="form-control inline    maxlength-handler  required" type="text" id="PayAmount" name="PayAmount" value="@Model.Approval.PayAmount" />
-                            <span class="help-inline"></span>
-                        </div>
+            </div>
+
+            <div class="col-sm-6 ">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">@L("CoopTime")</label>
+                    <div class="col-sm-4">
+                        <input class="form-control inline  pull-left  maxlength-handler  " type="text" id="CoopTime" name="CoopTime" value="@Model.Approval.CoopTime" />
+
+
+                    </div>
+                    <span class="">单位/月</span>
+                </div>
+
+            </div>
+            <div class="col-sm-6 ">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">@L("Weight")</label>
+                    <div class="col-sm-8">
+                        <input class="form-control inline    maxlength-handler  required" type="text" id="Weight" name="Weight" value="@Model.Approval.Weight" />
+                        <span class="help-inline"></span>
                     </div>
                 </div>
-
-                <div class="col-sm-6 ">
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">@L("CoopTime")</label>
-                        <div class="col-sm-4">
-                            <input class="form-control inline  pull-left  maxlength-handler  required" type="text" id="CoopTime" name="CoopTime" value="@Model.Approval.CoopTime" />
-
-
-                        </div>
-                        <span class="">单位/月</span>
-                    </div>
-
-                </div>
-                <div class="col-sm-6 ">
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">@L("Weight")</label>
-                        <div class="col-sm-8">
-                            <input class="form-control inline    maxlength-handler  required" type="text" id="Weight" name="Weight" value="@Model.Approval.Weight" />
-                            <span class="help-inline"></span>
-                        </div>
-                    </div>
-                </div>
-                @*<div class="form-group form-md-line-input form-md-floating-label no-hint">
-                <label>@L("RegisterDate"):   </label>
-                <div class="input-group  date form_datetime">
-                    <input type="text" name="RegisterDate" value="@Model.Approval.RegisterDate" readonly class="form-control">
-                    <span class="input-group-btn">
-                        <button class="btn default date-set" type="button">
-                            <i class="fa fa-calendar"></i>
-                        </button>
-                    </span>
-                </div>
-
-            </div>*@
-
-
-
-                @*<div class="md-checkbox">
-                <input id="EditApproval_IsPay" class="md-check" type="checkbox" name="IsPay" value="true" @Html.Raw(Model.Approval.IsPay ? "checked=\"checked\"" : "")>
-
-                <label for="EditApproval_IsPay">
-                    <span class="inc"></span>
-                    <span class="check"></span>
-                    <span class="box"></span>
-                    @L("IsPay")
-                </label>
             </div>
+              
 
-
-            <div class="form-group form-md-line-input form-md-floating-label  ">
-                <input class="maxlength-handler form-control " type="text" name="PayAmount" value="@Model.Approval.PayAmount" />
-                <label>@L("PayAmount") </label>
-            </div>
-
-
-
-            <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                <label>@L("PayTime"):   </label>
-                <div class="input-group  date form_datetime">
-                    <input type="text" name="PayTime" value="@Model.Approval.PayTime" readonly class="form-control">
-                    <span class="input-group-btn">
-                        <button class="btn default date-set" type="button">
-                            <i class="fa fa-calendar"></i>
-                        </button>
-                    </span>
-                </div>
-
-            </div>
-
-
-            <div class="form-group form-md-line-input form-md-floating-label  ">
-                <input class="maxlength-handler form-control " type="text" name="CoopTime" value="@Model.Approval.CoopTime" />
-                <label>@L("CoopTime") </label>
-            </div>
-
-
-
-            <div class="form-group form-md-line-input form-md-floating-label  ">
-                <input class="maxlength-handler form-control" type="text" name="Weight" value="@Model.Approval.Weight" />
-                <label>@L("Weight") </label>
-            </div>*@
-
-
-            </div>
+        </div>
 </form>
 </div>
 @Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")
