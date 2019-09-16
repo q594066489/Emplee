@@ -43,23 +43,23 @@ namespace Emploee.Web.Areas.Mpa.Controllers
 
 	 
 
-			  /// <summary>
-        /// 根据id获取进行编辑或者添加的用户信息
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-		[AbpMvcAuthorize(PersonInfoAppPermissions.PersonInfo_CreatePersonInfo,PersonInfoAppPermissions.PersonInfo_EditPersonInfo)]
-        public async Task<PartialViewResult> CreateOrEditPersonInfoModal(int? id)
-        {
-		var input=new NullableIdDto<int>{Id=id};
+		//	  /// <summary>
+  //      /// 根据id获取进行编辑或者添加的用户信息
+  //      /// </summary>
+  //      /// <param name="id"></param>
+  //      /// <returns></returns>
+		//[AbpMvcAuthorize(PersonInfoAppPermissions.PersonInfo_CreatePersonInfo,PersonInfoAppPermissions.PersonInfo_EditPersonInfo)]
+  //      public async Task<PartialViewResult> CreateOrEditPersonInfoModal(int? id)
+  //      {
+		//var input=new NullableIdDto<int>{Id=id};
 	 
-                 var output=    await _personInfoAppService.GetPersonInfoForEditAsync(input);
+  //               var output=    await _personInfoAppService.GetPersonInfoForEditAsync(input);
 
-				 var viewModel=new CreateOrEditPersonInfoModalViewModel(output);
+		//		 var viewModel=new CreateOrEditPersonInfoModalViewModel(output);
 
 
-            return PartialView("_CreateOrEditPersonInfoModal",viewModel);
-        }
+  //          return PartialView("_CreateOrEditPersonInfoModal",viewModel);
+  //      }
 	 
        
     }

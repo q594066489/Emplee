@@ -1,5 +1,6 @@
 ﻿using Abp.Application.Navigation;
 using Abp.Localization;
+using Emploee.Emploee.PersonInfos.Authorization;
 
 namespace Emploee.Web.Navigation
 {
@@ -16,6 +17,15 @@ namespace Emploee.Web.Navigation
         {
             var frontEndMenu = new MenuDefinition(MenuName, new FixedLocalizableString("Frontend menu"));
             context.Manager.Menus[MenuName] = frontEndMenu;
+            var personInfo = new MenuItemDefinition(
+                PersonInfoAppPermissions.PersonInfo,
+                L("PersonInfo"),
+                url: "PersonInfoManage",
+                icon: "icon-grid",
+                                  requiredPermissionName: PersonInfoAppPermissions.PersonInfo
+                                     );
+
+
 
             frontEndMenu
 
@@ -33,11 +43,7 @@ namespace Emploee.Web.Navigation
                     L("AboutUs"),
                     url: "About"
                     ))
-                .AddItem(new MenuItemDefinition(
-                    PageNames.Frontend.About,
-                    L("AboutUs"),
-                    url: "About"
-                    )
+                .AddItem(personInfo);
                     
 
                 //MULTI-LEVEL MENU (JUST FOR EXAMPLE)
@@ -75,7 +81,7 @@ namespace Emploee.Web.Navigation
                 //            )
                 //        )
                 //    )
-                );
+                 
         }
 
         private static ILocalizableString L(string name)

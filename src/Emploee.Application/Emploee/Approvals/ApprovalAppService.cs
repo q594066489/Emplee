@@ -259,9 +259,9 @@ namespace Emploee.Approvals
                 var sss = input;
                 string datas = input.Trim(new char[] { '[', ']' });
                 List<string> changids = datas.Split(',').ToList();
-                _approvalRepository.GetAll()
+                await _approvalRepository.GetAll()
                     .Where(t => changids.Contains(t.Id.ToString()))
-                    .Update(x => new Approval() { IsShow = isShow });
+                    .UpdateAsync(x => new Approval() { IsShow = isShow });
             }
             catch(Exception ex)
             {

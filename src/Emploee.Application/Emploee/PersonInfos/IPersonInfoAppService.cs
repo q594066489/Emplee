@@ -37,7 +37,7 @@ namespace Emploee.Emploee.PersonInfos
         /// <summary>
         /// 通过Id获取个人中心信息进行编辑或修改 
         /// </summary>
-        Task<GetPersonInfoForEditOutput> GetPersonInfoForEditAsync(NullableIdDto<int> input);
+        Task<GetPersonInfoForEditOutput> GetPersonInfoForEditAsync(NullableIdDto<long> input);
 
 		  /// <summary>
         /// 通过指定id获取个人中心ListDto信息

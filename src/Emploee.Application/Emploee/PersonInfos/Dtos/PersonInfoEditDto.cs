@@ -113,7 +113,7 @@ namespace Emploee.Emploee.PersonInfos.Dtos
         /// 工作年限
         /// </summary>
         [DisplayName("工作年限")]
-        public int JobYear { get; set; }
+        public string JobYear { get; set; }
 
     }
 }

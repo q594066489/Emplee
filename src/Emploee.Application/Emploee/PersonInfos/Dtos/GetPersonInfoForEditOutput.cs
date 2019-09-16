@@ -1,5 +1,6 @@
 ﻿                            
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
@@ -28,11 +29,30 @@ namespace Emploee.Emploee.PersonInfos.Dtos
     {
  
 
-	      /// <summary>
-         /// PersonInfo编辑状态的DTO
+	    /// <summary>
+        /// PersonInfo编辑状态的DTO
         /// </summary>
-    public PersonInfoEditDto PersonInfo{get;set;}
+        public PersonInfoEditDto PersonInfo{get;set;}
+
+         
+        /// <summary>
+        /// 期望行业
+        /// </summary>
+        public List<ComboboxItemDto> ExpectTrades { get; set; }
+
+        public List<ComboboxItemDto> JobYears { get; set; }
+
+        public List<ComboboxItemDto> States { get; set; }
 
 
+        public GetPersonInfoForEditOutput()
+        {
+             
+            ExpectTrades = new List<ComboboxItemDto>();
+
+            JobYears = new List<ComboboxItemDto>();
+
+            States = new List<ComboboxItemDto>();
+        }
     }
 }

@@ -3803,6 +3803,8 @@
     <Content Include="Views\Account\Login.js" />
     <Content Include="Views\Account\_Layout-rtl.css" />
     <Content Include="Views\Error\_Layout.css" />
+    <Content Include="Views\PersonInfoManage\Index.js" />
+    <Content Include="Views\PersonInfoManage\_CreateOrEditPersonInfoModal.js" />
     <Content Include="Views\TenantRegistration\Index.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -3823,6 +3825,7 @@
   <ItemGroup>
     <Compile Include="Areas\Mpa\Models\CompanyManage\ImportCompanyManages.cs" />
     <Compile Include="Areas\Mpa\Models\CompanyManage\ShowPictureModal.cs" />
+    <Compile Include="Controllers\PersonInfoManageController.cs" />
     <Compile Include="Models\Layout\TenantCustomCssViewModel.cs" />
     <Compile Include="Areas\Mpa\Startup\UserMenuItemExtensions.cs" />
     <Compile Include="App_Start\Bundling\CssRewriteUrlWithVirtualDirectoryTransform.cs" />
@@ -3907,6 +3910,7 @@
     <Compile Include="Models\Account\SwitchToLinkedAccountModel.cs" />
     <Compile Include="Models\Account\TenantSelectionViewModel.cs" />
     <Compile Include="Models\Account\VerifySecurityCodeViewModel.cs" />
+    <Compile Include="Models\PersonInfoManage\CreateOrEditPersonInfoModalViewModel.cs" />
     <Compile Include="Models\TenantRegistration\TenantRegisterResultViewModel.cs" />
     <Compile Include="Models\TenantRegistration\TenantRegistrationViewModel.cs" />
     <Compile Include="MultiTenancy\ITenancyNameFinder.cs" />
@@ -4149,6 +4153,8 @@
     <Content Include="UploadFiles\bc7673f350a04f0eb0bd24fa0bac8c4d.xlsx" />
     <Content Include="UploadFiles\Template\Vocs计算导入.xlsx" />
     <Content Include="UploadFiles\Template\年度排放源信息_模板.xlsx" />
+    <Content Include="Views\PersonInfoManage\_CreateOrEditPersonInfoModal.cshtml" />
+    <Content Include="Views\PersonInfoManage\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -4180,6 +4186,7 @@
   <ItemGroup>
     <Folder Include="libs\jquery-jtable\dev\" />
     <Folder Include="libs\jquery-jtable\lib\" />
+    <Folder Include="Views\PersonInfo\" />
     <Folder Include="_GeneratedCode\PayLogs\Application\" />
     <Folder Include="_GeneratedCode\PayLogs\Core\" />
     <Folder Include="_GeneratedCode\PayLogs\EntityFramework\EntityMapper\" />

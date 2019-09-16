@@ -13,7 +13,7 @@
         this.init = function (modalManager) {
             _modalManager = modalManager;
 			            _$personInfoInformationForm = _modalManager.getModal().find("form[name=personInfoInformationsForm]");
-                
+
 						
         }
         

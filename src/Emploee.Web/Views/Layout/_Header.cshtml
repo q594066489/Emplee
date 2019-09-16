@@ -34,15 +34,15 @@
 <div class="pre-header">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-sm-6 additional-shop-info">
+            <div class="col-md-4 col-sm-4 col-xs-4 additional-shop-info">
                 <ul class="list-unstyled list-inline">
                     <li><i class="fa fa-phone"></i><span>+1 456 6717</span></li>
-                    <li><i class="fa fa-envelope-o"></i><span>info@mydomain.com</span></li>
+                    @*<li><i class="fa fa-envelope-o"></i><span>info@mydomain.com</span></li>*@
                 </ul>
             </div>
-            <div class="col-md-6 col-sm-6 additional-nav">
-                <ul class="list-unstyled list-inline pull-right">
-                    @if (Model.Languages.Count > 1)
+            <div class="col-md-8 col-sm-8 col-xs-8 additional-nav">
+                <ul class="col-md-12 col-sm-12 col-xs-12 list-unstyled list-inline pull-right">
+                    @*@if (Model.Languages.Count > 1)
                     {
                         <li>
                             <div id="LanguageDropDown" class="btn-group dropdown">
@@ -62,23 +62,31 @@
                                 </ul>
                             </div>
                         </li>
-                    }
-                    @if (Model.LoginInformations == null && Model.IsMultiTenancyEnabled && Model.TenantRegistrationEnabled)
+                    }*@
+                    @*@if (Model.LoginInformations == null && Model.IsMultiTenancyEnabled && Model.TenantRegistrationEnabled)
                     {
                         <li>
                             <a href="@Url.Action("Index", "TenantRegistration")">@L("NewTenant")</a>
                         </li>
-                    }
-                    <li>
-                        @if (Model.LoginInformations != null)
-                        {
-                            <a href="@Url.Action("Index", "Application")">@Model.GetShownLoginName() (@L("GoToApplication"))</a>
-                        }
-                        else
-                        {
-                            <a href="@Url.Action("Login", "Account")">@L("LogIn")</a>
-                        }
-                    </li>
+                    }*@
+                        <li style="float:right !important">
+                            @*@if (Model.LoginInformations != null)
+                            {
+                                <a href="@Url.Action("Index", "Application")">@Model.GetShownLoginName() (@L("GoToApplication"))</a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("Login", "Account")">@L("LogIn")</a>
+                            }*@
+                            @if (Model.LoginInformations != null)
+                            {
+                                <span >@Model.GetShownLoginName() </span>
+                            }
+                            else
+                            {
+                                <span  >@L("LogIn")</span>
+                            }
+                        </li>
                 </ul>
             </div>
         </div>

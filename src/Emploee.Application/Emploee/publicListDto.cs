@@ -24,11 +24,27 @@ namespace Emploee
                   "大专",
                   "本科",
                   "硕士",
-                  "博士"
+                  "博士",
+                  "其他"
              };
             return Educationslist;
         }
-
+        public List<string> GetEducationForperson()
+        {
+            List<string> Educationslist = new List<string>
+             {
+                   
+                  "初中及以下",
+                  "中专/中技",
+                  "高中",
+                  "大专",
+                  "本科",
+                  "硕士",
+                  "博士",
+                  "其他"
+             };
+            return Educationslist;
+        }
         public List<string> GetExperiences()
         {
             List<string> Experienceslist = new List<string>
@@ -42,7 +58,19 @@ namespace Emploee
              };
             return Experienceslist;
         }
-
+        public List<string> GetExperiencesforperson()
+        {
+            List<string> Experienceslist = new List<string>
+             {
+                   
+                  "1年以内",
+                  "1-3年",
+                  "3-5年",
+                  "5-10年",
+                  "10年以上"
+             };
+            return Experienceslist;
+        }
         public List<string> GetFinanicings()
         {
             List<string> Finanicinglist = new List<string>
@@ -73,6 +101,24 @@ namespace Emploee
              };
             return CompanyScaleslist;
         }
+        /// <summary>
+        /// 期望行业(在职、离职、考虑中……)
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GetState()
+        {
+            List<string> CompanyScaleslist = new List<string>
+             {
+                  "在职",
+                  "离职",
+                  "考虑中"
+             };
+            return CompanyScaleslist;
+        }
+        /// <summary>
+        /// 行业
+        /// </summary>
+        /// <returns></returns>
         public List<string> GetClassigys()
         {
             List<string> ClassigysList = new List<string>
