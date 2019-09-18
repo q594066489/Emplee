@@ -546,6 +546,10 @@
     <Compile Include="Migrations\201909030849487_addpaylog.Designer.cs">
       <DependentUpon>201909030849487_addpaylog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909180241059_updatePersonInfoJOBYEAR.cs" />
+    <Compile Include="Migrations\201909180241059_updatePersonInfoJOBYEAR.Designer.cs">
+      <DependentUpon>201909180241059_updatePersonInfoJOBYEAR.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="EmploeeDataModule.cs" />
     <Compile Include="Migrations\Seed\Host\DefaultEditionCreator.cs" />
@@ -798,6 +802,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909030849487_addpaylog.resx">
       <DependentUpon>201909030849487_addpaylog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909180241059_updatePersonInfoJOBYEAR.resx">
+      <DependentUpon>201909180241059_updatePersonInfoJOBYEAR.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

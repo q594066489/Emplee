@@ -39,10 +39,19 @@ namespace Emploee.Emploee.PersonInfos.Dtos
         /// 期望行业
         /// </summary>
         public List<ComboboxItemDto> ExpectTrades { get; set; }
-
+        /// <summary>
+        /// 工作年限
+        /// </summary>
         public List<ComboboxItemDto> JobYears { get; set; }
-
+        /// <summary>
+        /// 状态
+        /// </summary>
         public List<ComboboxItemDto> States { get; set; }
+        /// <summary>
+        /// 学历
+        /// </summary>
+        public List<ComboboxItemDto> Educations { get; set; }
+         
 
 
         public GetPersonInfoForEditOutput()
@@ -53,6 +62,8 @@ namespace Emploee.Emploee.PersonInfos.Dtos
             JobYears = new List<ComboboxItemDto>();
 
             States = new List<ComboboxItemDto>();
+
+            Educations = new List<ComboboxItemDto>();
         }
     }
 }

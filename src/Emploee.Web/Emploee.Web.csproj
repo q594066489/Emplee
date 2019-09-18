@@ -1336,6 +1336,7 @@
     <Content Include="libs\echarts\map\js\province\yunnan.js" />
     <Content Include="libs\echarts\map\js\province\zhejiang.js" />
     <Content Include="libs\echarts\map\js\world.js" />
+    <Content Include="libs\EmploeeCss\EmploeeCss.css" />
     <Content Include="libs\excanvas\excanvas.min.js" />
     <Content Include="libs\fancybox\.gitattributes" />
     <Content Include="libs\fancybox\CHANGELOG.txt" />
@@ -3944,8 +3945,6 @@
     <Compile Include="Areas\Mpa\Models\JobPostManage\CreateOrEditJobPostModalViewModel.cs" />
     <Compile Include="Areas\Mpa\Controllers\JobUrgentManageController.cs" />
     <Compile Include="Areas\Mpa\Models\JobUrgentManage\CreateOrEditJobUrgentModalViewModel.cs" />
-    <Compile Include="Areas\Mpa\Controllers\PersonInfoManageController.cs" />
-    <Compile Include="Areas\Mpa\Models\PersonInfoManage\CreateOrEditPersonInfoModalViewModel.cs" />
     <Compile Include="Areas\Mpa\Controllers\ApprovalManageController.cs" />
     <Compile Include="Areas\Mpa\Models\ApprovalManage\CreateOrEditApprovalModalViewModel.cs" />
   </ItemGroup>
@@ -4186,7 +4185,6 @@
   <ItemGroup>
     <Folder Include="libs\jquery-jtable\dev\" />
     <Folder Include="libs\jquery-jtable\lib\" />
-    <Folder Include="Views\PersonInfo\" />
     <Folder Include="_GeneratedCode\PayLogs\Application\" />
     <Folder Include="_GeneratedCode\PayLogs\Core\" />
     <Folder Include="_GeneratedCode\PayLogs\EntityFramework\EntityMapper\" />

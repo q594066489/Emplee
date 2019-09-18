@@ -2,7 +2,7 @@
 @using Abp.Extensions
 @using Abp.Application.Services.Dto
 @using Emploee.Web.Areas.Mpa.Models.Common.Modals
-@using Emploee.Web.Areas.Mpa.Models.PersonInfoManage
+@using Emploee.Web.Models.PersonInfoManage
 
 @model CreateOrEditPersonInfoModalViewModel
 
@@ -105,7 +105,7 @@
                         <label class="col-sm-3 colspan-xs-3 control-label">@L("Resume")</label>
                         <div class="col-sm-8 colspan-xs-8 clearfix">
                    
-         <textarea class="form-control input-xxlarge" rows="4" id="Resume" name="Resume">@Model.PersonInfo.Resume</textarea>
+                        <textarea class="form-control input-xxlarge" rows="4" id="Resume" name="Resume">@Model.PersonInfo.Resume</textarea>
                         </div>
                     </div>
                 </div>

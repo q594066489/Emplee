@@ -13,7 +13,7 @@ using Abp.Web.Mvc.Authorization;
 using Emploee.Emploee.PersonInfos;
 using Emploee.Emploee.PersonInfos.Authorization;
 using Emploee.Emploee.PersonInfos.Dtos;
-using Emploee.Web.Areas.Mpa.Models.PersonInfoManage;
+using Emploee.Web.Models.PersonInfoManage;
 using Emploee.Web.Controllers;
 using System;
 using System.Threading.Tasks;
@@ -37,16 +37,24 @@ namespace Emploee.Web.Controllers
 
         public async Task<ActionResult> Index()
         {
-             
-            var input = new NullableIdDto<long> { Id =   _IAbpSession.UserId };
 
-            var output = await _personInfoAppService.GetPersonInfoForEditAsync(input);
-
-            var viewModel = new CreateOrEditPersonInfoModalViewModel(output);
+            try
+            {
 
 
-            return  View("index", viewModel);
+                var input = new NullableIdDto<long> { Id = _IAbpSession.UserId };
 
+                var output = await _personInfoAppService.GetPersonInfoForEditAsync(input);
+
+                var viewModel = new CreateOrEditPersonInfoModalViewModel(output);
+
+
+                return View("index", viewModel);
+            }
+            catch 
+            {
+                return RedirectToAction("Index", "Home");
+            }
 
         }
 

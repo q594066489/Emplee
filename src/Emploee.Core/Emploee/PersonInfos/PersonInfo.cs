@@ -74,7 +74,8 @@ namespace Emploee.Emploee.PersonInfos
         /// <summary>
         /// 工作年限
         /// </summary>
-        public int JobYear { get; set; }
+        [MaxLength(200)]
+        public string JobYear { get; set; }
         public long? CreatorUserId { get; set; }
 
         public DateTime CreationTime { get; set; }

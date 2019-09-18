@@ -120,12 +120,14 @@ namespace Emploee.Emploee.PersonInfos
             {
                 personInfoEditDto = new PersonInfoEditDto();
             }
+            if (personInfoEditDto.Sex == null)
+                personInfoEditDto.Sex = "男";
             output.PersonInfo = personInfoEditDto;
             List<string> ExpectTradeslist = pdto.GetClassigys();
             List<string> JobYearslist = pdto.GetExperiencesforperson();
 
             List<string> Stateslist = pdto.GetState();
-
+            List<string> Educationslist = pdto.GetEducationForperson();
             output.ExpectTrades = ExpectTradeslist.Select(c => new ComboboxItemDto(c, c)
             {
                 IsSelected = output.PersonInfo.ExpectTrade == c
@@ -138,7 +140,10 @@ namespace Emploee.Emploee.PersonInfos
             {
                 IsSelected = output.PersonInfo.State == c
             }).ToList();
-
+            output.Educations = Educationslist.Select(c => new ComboboxItemDto(c, c)
+            {
+                IsSelected = output.PersonInfo.Education == c
+            }).ToList();
             return output;
         }
 
