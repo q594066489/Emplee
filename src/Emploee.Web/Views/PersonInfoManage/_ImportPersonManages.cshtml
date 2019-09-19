@@ -1,0 +1,29 @@
+﻿
+
+
+@using Emploee.Web.Areas.Mpa.Models.Common.Modals
+
+
+@* 初始化头部 *@
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel("上传简历"))
+<!--html代码区域-->
+<div enctype="multipart/form-data">
+    <form name="WorkCenterInformationsForm" role="form" novalidate class="form-validation">
+
+        <div style="text-align:right;padding:10px">
+            @*<a href="~/UploadFiles/Template/人员入住.xlsx" onclick="javascript:Preview();">
+
+                <i class="fa fa-file-excel-o"></i>
+                <span style="font-size:larger;color:red">员工入住.xlsx</span>
+            </a>*@
+        </div>
+        <div class="form-group " style="padding:10px">
+            <input type="hidden" id="AttachGUID" name="AttachGUID" />
+            <input type="file" class="file" id="test-upload" multiple>
+            <div id="errorBlock" class="help-block"></div>
+        </div>
+    </form>
+</div>
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+
+

@@ -1,6 +1,7 @@
 ﻿@using System.Web.Optimization
 @using Abp.Web.Mvc.Extensions
 @using Emploee.Localization
+@using Abp.Timing
 @{
     SetAntiForgeryCookie();
 }
@@ -55,7 +56,7 @@
 
     @Html.Action("Header", "Layout", new { currentPageName = ViewBag.CurrentPageName })
 
-    <div class="main"   >
+    <div class="main">
         <div class="container">
             @RenderBody()
         </div>
@@ -74,7 +75,10 @@
     </script>
 
     <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
-    <script src="~/AbpScripts/GetScripts" type="text/javascript"></script>
+     
+    <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
+    <script src="~/api/AbpServiceProxies/GetAll"></script>
+    <script src="~/AbpScripts/GetScripts?v=@(Clock.Now.Ticks)" type="text/javascript"></script>
 
     @Scripts.Render("~/Bundles/Frontend/metronic/js")
 

@@ -4,22 +4,10 @@
 (function () {
     $(function () {
 
-        
-        var _personInfoService = abp.services ;
-        console.log(_personInfoService);
-         
- 
 
-
-
+        var _personInfoService = abp.services.app.personInfo;
          
          
-
-        
-
- 
-   
-
-
+         
     });
 })();

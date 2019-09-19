@@ -18,6 +18,9 @@ using Emploee.Web.Controllers;
 using System;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using Abp.Web.Security.AntiForgery;
+using System.Web;
+using Vocs.Npoi;
 
 namespace Emploee.Web.Controllers
 {
@@ -57,27 +60,30 @@ namespace Emploee.Web.Controllers
             }
 
         }
+        public ActionResult ImportPersonManages(int? id)
+        {
+            return PartialView("_ImportPersonManages");
+        }
+        /// <summary>
+        /// 上传附件到服务器上
+        /// </summary>
+        /// <param name="fileData">附件信息</param>
+        /// <param name="guid">附件组GUID</param>
+        /// <param name="folder">指定的上传目录</param>
+        /// <returns></returns>
+        [DisableAbpAntiForgeryTokenValidation]
+        public ActionResult UpLoadfileinput(string guid, string folder)
+        {
+
+            string strjson = string.Empty;
+            HttpFileCollectionBase files = HttpContext.Request.Files;
+            //获取返回文件信息
+            UpLoadFile file = new UpLoadFile();
+            var result = file.UpLoad(files);
+            return Json(result);
 
 
-
-        ///// <summary>
-        ///// 根据id获取进行编辑或者添加的用户信息
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <returns></returns>
-        //[AbpMvcAuthorize(PersonInfoAppPermissions.PersonInfo_CreatePersonInfo, PersonInfoAppPermissions.PersonInfo_EditPersonInfo)]
-        //public async Task<PartialViewResult> CreateOrEditPersonInfoModal(int? id)
-        //{
-            
-
-        //    var output = await _personInfoAppService.GetPersonInfoForEditAsync(input);
-
-        //    var viewModel = new CreateOrEditPersonInfoModalViewModel(output);
-
-
-        //    return PartialView("_CreateOrEditPersonInfoModal", viewModel);
-        //}
-
+        }
 
     }
 }

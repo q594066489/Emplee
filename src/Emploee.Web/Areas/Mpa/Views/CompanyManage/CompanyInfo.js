@@ -60,11 +60,7 @@
         $("#CompanyPhone").bind("paste", function () {
             amoutPasteFun(this);
         });
-    
-        $('#uploadBtn1').click(function () {
-            _import.open();
-
-        });
+ 
         $('#uploadBtn').click(function () {
             _import.open();
 

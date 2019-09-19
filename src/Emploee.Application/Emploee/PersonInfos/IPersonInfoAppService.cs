@@ -87,11 +87,11 @@ namespace Emploee.Emploee.PersonInfos
         /// <returns></returns>
         Task<FileDto> GetPersonInfoToExcel();
 
-#endregion
+        #endregion
 
 
 
-
+        Task<bool> ImportData(string fileName);
 
     }
 }

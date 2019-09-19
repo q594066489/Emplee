@@ -26,13 +26,13 @@ namespace Emploee.Caching
                                             Name = cache.Name
                                         })
                                         .ToList();
-
             return new ListResultDto<CacheDto>(caches);
         }
 
         public async Task ClearCache(EntityDto<string> input)
         {
             var cache = _cacheManager.GetCache(input.Id);
+           
             await cache.ClearAsync();
         }
 

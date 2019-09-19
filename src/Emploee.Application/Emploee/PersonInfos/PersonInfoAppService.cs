@@ -19,6 +19,7 @@ using Abp.Configuration;
 using Abp.Domain.Repositories;
 using Abp.Extensions;
 using Abp.Linq.Extensions;
+using Abp.Runtime.Session;
 using Emploee.Dto;
 using Emploee.Emploee.PersonInfos.Authorization;
 using Emploee.Emploee.PersonInfos.Dtos;
@@ -51,7 +52,7 @@ namespace Emploee.Emploee.PersonInfos
         private readonly IRepository<PersonInfo, int> _personInfoRepository;
         private readonly IPersonInfoListExcelExporter _personInfoListExcelExporter;
         private publicListDto pdto = new publicListDto();
-
+        private readonly IAbpSession _IAbpSession;
         private readonly PersonInfoManage _personInfoManage;
         /// <summary>
         /// 构造方法
@@ -60,11 +61,13 @@ namespace Emploee.Emploee.PersonInfos
             IRepository<PersonInfo, int> personInfoRepository
             , PersonInfoManage personInfoManage
             , IPersonInfoListExcelExporter personInfoListExcelExporter
+            , IAbpSession IAbpSession
         )
         {
             _personInfoRepository = personInfoRepository;
             _personInfoManage = personInfoManage;
             _personInfoListExcelExporter = personInfoListExcelExporter;
+            _IAbpSession = IAbpSession;
         }
 
 
@@ -249,7 +252,29 @@ namespace Emploee.Emploee.PersonInfos
 
 
 
+        /// <summary>
+        /// 导入excel
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <returns></returns>
+        public async Task<bool> ImportData(string fileName)
+        {
+            if (!fileName.IsNullOrEmpty())
+            {
+                var PersonID = (long)_IAbpSession.UserId;
 
+                var Person = await _personInfoRepository.FirstOrDefaultAsync(t => t.PersonID == PersonID);
+                Person.Resume = fileName;
+                await _personInfoRepository.UpdateAsync(Person);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
+        }
 
 
 

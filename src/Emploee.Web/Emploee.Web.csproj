@@ -3805,7 +3805,9 @@
     <Content Include="Views\Account\_Layout-rtl.css" />
     <Content Include="Views\Error\_Layout.css" />
     <Content Include="Views\PersonInfoManage\Index.js" />
+    <Content Include="Views\PersonInfoManage\uploadResume.js" />
     <Content Include="Views\PersonInfoManage\_CreateOrEditPersonInfoModal.js" />
+    <Content Include="Views\PersonInfoManage\_ImportPersonManages.js" />
     <Content Include="Views\TenantRegistration\Index.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -4154,6 +4156,7 @@
     <Content Include="UploadFiles\Template\年度排放源信息_模板.xlsx" />
     <Content Include="Views\PersonInfoManage\_CreateOrEditPersonInfoModal.cshtml" />
     <Content Include="Views\PersonInfoManage\Index.cshtml" />
+    <Content Include="Views\PersonInfoManage\_ImportPersonManages.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -4185,9 +4188,8 @@
   <ItemGroup>
     <Folder Include="libs\jquery-jtable\dev\" />
     <Folder Include="libs\jquery-jtable\lib\" />
-    <Folder Include="_GeneratedCode\PayLogs\Application\" />
-    <Folder Include="_GeneratedCode\PayLogs\Core\" />
-    <Folder Include="_GeneratedCode\PayLogs\EntityFramework\EntityMapper\" />
+    <Folder Include="UploadFiles\Lisence\" />
+    <Folder Include="UploadFiles\Resume\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Abp\Framework\scripts\abp.d.ts" />

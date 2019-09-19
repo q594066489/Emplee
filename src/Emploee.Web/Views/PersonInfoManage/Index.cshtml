@@ -18,13 +18,17 @@
 @section Styles{
     @Html.IncludeStyle("~/libs/icheck-bootstrap/css/icheck-bootstrap.css")
     <link href="~/libs/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="~/libs/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet" />
     <link href="~/libs/EmploeeCss/EmploeeCss.css" rel="stylesheet" />
+
 }
 
 
 @* 注入所需JS *@
 @section Scripts
 {
+    <script src="~/libs/bootstrap-fileinput/js/fileinput.min.js"></script>
+    <script src="~/libs/bootstrap-fileinput/js/locales/zh.js"></script>
     <script src="~/libs/bootstrap-select/bootstrap-select.min.js"></script>
     <script src="~/libs/bootstrap-select/i18n/defaults-zh_CN.min.js"></script>
     <script src="~/Views/PersonInfoManage/Index.js"></script>
@@ -49,7 +53,7 @@
                     <div class="form-group  Mydiv">
                         <label class="col-sm-3 col-xs-3 control-label">姓名</label>
                         <div class="col-sm-7 col-xs-7 form-inline">
-                            <input class="form-control MyInput inline      " type="text" id="Name" name="Name" maxlength="200" value="@Model.PersonInfo.Name"  />
+                            <input class="form-control MyInput inline      " type="text" id="Name" name="Name" maxlength="200" value="@Model.PersonInfo.Name" />
                             <span style="color:red">*</span>
                             <span class="help-inline"></span>
                         </div>
@@ -70,21 +74,21 @@
                 </div>
                 <div class="col-sm-6 col-xs-12">
                     <div class="form-group Mydiv form-inline">
-                         
-                            <label class="col-sm-3 col-xs-3 control-label">@L("Sex")</label>
 
-                            <div class="icheck-amethyst icheck-inline col-sm-3 col-xs-3 col-sm-offset-1 col-xs-offset-1 " >
-                                <input type="radio" id="SexMan" name="Sex" value="@Model.PersonInfo.Sex"  @(Model.PersonInfo.Sex=="男" ? "checked" : "")/>
-                                <label for="SexMan">男</label>
-                            </div>
-                            <div class="icheck-amethyst icheck-inline col-sm-3 col-xs-3 col-sm-offset-1 col-xs-offset-1">
-                                <input type="radio" id="SexWoman" name="Sex" value="@Model.PersonInfo.Sex" @(Model.PersonInfo.Sex=="女" ? "checked" : "")/>
-                                <label for="SexWoman">女</label>
-                            </div>
+                        <label class="col-sm-3 col-xs-3 control-label">@L("Sex")</label>
 
-                        
-                        
-                         
+                        <div class="icheck-amethyst icheck-inline col-sm-3 col-xs-3 col-sm-offset-1 col-xs-offset-1 ">
+                            <input type="radio" id="SexMan" name="Sex" value="@Model.PersonInfo.Sex" @(Model.PersonInfo.Sex == "男" ? "checked" : "") />
+                            <label for="SexMan">男</label>
+                        </div>
+                        <div class="icheck-amethyst icheck-inline col-sm-3 col-xs-3 col-sm-offset-1 col-xs-offset-1">
+                            <input type="radio" id="SexWoman" name="Sex" value="@Model.PersonInfo.Sex" @(Model.PersonInfo.Sex == "女" ? "checked" : "") />
+                            <label for="SexWoman">女</label>
+                        </div>
+
+
+
+
                     </div>
                 </div>
                 @*<div class="col-sm-6 col-xs-12">
@@ -111,7 +115,7 @@
                            data_live_search = "true",
                            id = "EducationEdit",
 
-                            style = "text-align: center"
+                            style = "text-align: center; width:90%"
                        })
                         </div>
                     </div>
@@ -160,22 +164,22 @@
                            data_live_search = "true",
                            id = "ExpectTradesEdit",
 
-                            style = "text-align: center"
+                            style = "text-align: center; width:90%"
                        })
                         </div>
                     </div>
                 </div>
 
                 @*<div class="col-sm-6 col-xs-12">
-                    <div class="form-group Mydiv">
-                        <label class="col-sm-3 col-xs-3 control-label">@L("isOnJob")</label>
-                        <div class="col-sm-7 col-xs-7">
-                            <label style="line-height:25px;"><input class="ace" type="checkbox" id="isOnJob" name="isOnJob" value="true" @(Model.PersonInfo.isOnJob ? "checked" : "") /><span class="lbl">是</span></label>
-                            <span class="help-inline"></span>
+                        <div class="form-group Mydiv">
+                            <label class="col-sm-3 col-xs-3 control-label">@L("isOnJob")</label>
+                            <div class="col-sm-7 col-xs-7">
+                                <label style="line-height:25px;"><input class="ace" type="checkbox" id="isOnJob" namei="isOnJob" value="true" @(Model.PersonInfo.isOnJob ? "checked" : "") /><span class="lbl">是</span></label>
+                                <span class="help-inline"></span>
+                            </div>
                         </div>
-                    </div>
-                     
-                </div>*@
+
+                    </div>*@
 
             </div>
             <div class="row">
@@ -189,7 +193,7 @@
                            data_live_search = "true",
                            id = "StateEdit",
 
-                            style = "text-align: center"
+                            style = "text-align: center; width:90%"
                        })
                         </div>
                     </div>
@@ -205,7 +209,7 @@
                            data_live_search = "true",
                            id = "JobYearEdit",
 
-                            style = "text-align: center"
+                            style = "text-align: center; width:90%"
                        })
                         </div>
                     </div>
@@ -215,20 +219,48 @@
                 <div class="col-sm-12">
                     <div class="form-group Mydiv">
                         <label class="col-sm-3 col-xs-3 colspan-xs-3 control-label">@L("Resume")</label>
-                        <div class="col-sm-7 col-xs-7 colspan-xs-8 clearfix">
 
-                            <textarea class="form-control MyInput input-xxlarge" rows="4" id="Resume" name="Resume">@Model.PersonInfo.Resume</textarea>
-                        </div>
+                        <input class="form-control MyInput inline   maxlength-handler " type="text" id="Resume" name="Resume" maxlength="200" value="@Model.PersonInfo.Resume" />
+
+                        <button type="button" id="uploadBtn" class="btn btn-primary blue" data-toggle="modal" data-target="#myModal"><i class="icon-picture"></i>上传或覆盖</button>
                     </div>
                 </div>
             </div>
 
-
+            
     </form>
+    <button> 保存</button>
 </div>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
 
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">上传简历</h4>
+            </div>
+            <div class="modal-body">
+                 
+                    <div style="text-align:right;padding:10px">
+                        @*<a href="~/UploadFiles/Template/人员入住.xlsx" onclick="javascript:Preview();">
 
-
-
-
-
+                                <i class="fa fa-file-excel-o"></i>
+                                <span style="font-size:larger;color:red">员工入住.xlsx</span>
+                            </a>*@
+                    </div>
+                    <div class="form-group " style="padding:10px">
+                        <input type="hidden" id="AttachGUID" name="AttachGUID" />
+                        <input type="file" class="file" id="test-upload" multiple>
+                        <div id="errorBlock" class="help-block"></div>
+                    </div>
+                 
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="savebtn">提交更改</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
