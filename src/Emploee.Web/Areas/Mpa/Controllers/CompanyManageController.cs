@@ -102,7 +102,7 @@ namespace Emploee.Web.Areas.Mpa.Controllers
             HttpFileCollectionBase files = HttpContext.Request.Files;
             //获取返回文件信息
             UpLoadFile file = new UpLoadFile();
-            var result = file.UpLoad(files);
+            var result = file.UpLoad(files,1);
             return Json(result);
 
 

@@ -79,7 +79,7 @@ namespace Emploee.Web.Controllers
             HttpFileCollectionBase files = HttpContext.Request.Files;
             //获取返回文件信息
             UpLoadFile file = new UpLoadFile();
-            var result = file.UpLoad(files);
+            var result = file.UpLoad(files,2);
             return Json(result);
 
 

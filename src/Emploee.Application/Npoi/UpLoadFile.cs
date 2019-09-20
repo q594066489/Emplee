@@ -63,8 +63,13 @@ namespace Vocs.Npoi
          
             return list;
         }
-
-        public CommonResult UpLoad(HttpFileCollectionBase files)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="files">文件</param>
+        /// <param name="type">图片or简历，1图片，2简历</param>
+        /// <returns></returns>
+        public CommonResult UpLoad(HttpFileCollectionBase files,int type)
         {
             CommonResult result = new CommonResult();
             if (files != null)
@@ -81,8 +86,11 @@ namespace Vocs.Npoi
                             string ex = Path.GetExtension(fileData.FileName);
                             filePathName = Guid.NewGuid().ToString("N") + ex;
                             // 文件上传后的保存路径
-
-                            string VirtualPath = ConfigurationManager.AppSettings["Emploee_TemplatePath"].ToString();
+                            string VirtualPath = "";
+                            if(type==1)
+                                VirtualPath = ConfigurationManager.AppSettings["Emploee_TemplatePath"].ToString();
+                            else
+                                VirtualPath = ConfigurationManager.AppSettings["Emploee_ResumePath"].ToString();
                             //物理路径
                             string filePath = HttpContext.Current.Server.MapPath(VirtualPath);
 
@@ -95,7 +103,7 @@ namespace Vocs.Npoi
                             string newname = filePath + "/" + filePathName;
                             //  result.AttmentPath = newname;
 
-                            result.AttmentPath = VirtualPath + filePathName;
+                            result.AttmentPath = VirtualPath + "/" + filePathName;
                             result.FileName = fileData.FileName;
                             result.TotalSize = fileData.ContentLength / 1024;
                         }
