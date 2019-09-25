@@ -34,7 +34,7 @@ namespace Emploee.Emploee.JobPosts.Dtos
 	    /// 模糊查询参数
 		/// </summary>
 		public string FilterText { get; set; }
-
+        public int page { get; set; }
 		/// <summary>
 	    /// 用于排序的默认值
 		/// </summary>

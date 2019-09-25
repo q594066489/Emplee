@@ -30,10 +30,19 @@ namespace Emploee.Web.Navigation
             frontEndMenu
 
                 //HOME
+                //.AddItem(new MenuItemDefinition(
+                //    PageNames.Frontend.Home,
+                //    L("HomePage"),
+                //    url: ""
+                //    )
+
+                ////ABOUT
+                //)
                 .AddItem(new MenuItemDefinition(
                     PageNames.Frontend.Home,
                     L("HomePage"),
-                    url: ""
+                    url: "PersonHome",
+                    requiredPermissionName: PersonInfoAppPermissions.PersonInfo
                     )
 
                 //ABOUT

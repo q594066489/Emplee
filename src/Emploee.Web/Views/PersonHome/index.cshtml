@@ -1,0 +1,219 @@
+﻿@using Emploee.Localization
+@using Emploee.Web.Navigation
+@{
+    ViewBag.CurrentPageName = PageNames.Frontend.Home;
+}
+@section Styles
+{
+    <link href="~/libs/fancybox/source/jquery.fancybox.css" rel="stylesheet">
+    <link href="~/libs/carousel-owl-carousel/owl-carousel/owl.carousel@(CultureHelper.IsRtl ? "-rtl" : "").css" rel="stylesheet">
+    <link href="~/libs/layui/css/layui.css" rel="stylesheet" />
+    <link href="~/libs/swiper-Swiper4/dist/css/swiper.min.css" rel="stylesheet" />
+    <link href="~/Views/PersonHome/index.css" rel="stylesheet" />
+}
+@section Scripts
+{
+
+    <script src="~/libs/layui/layui.js"></script>
+    <script src="~/Views/PersonHome/index.js"></script>
+}
+<!-- BEGIN SERVICE BOX -->
+@*<div class="swiper-container swiper-width "  >
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <a href="#" style="display:block">
+                    <img src="~/libs/swiper-Swiper4/demos/images/nature-1.jpg" class="img-responsive img-rounded" />
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="#" style="display:block">
+                    <img src="~/libs/swiper-Swiper4/demos/images/nature-2.jpg" class="img-responsive img-rounded" />
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="#" style="display:block">
+                    <img src="~/libs/swiper-Swiper4/demos/images/nature-3.jpg" class="img-responsive img-rounded" />
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="#" style="display:block">
+                    <img src="~/libs/swiper-Swiper4/demos/images/nature-4.jpg" class="img-responsive img-rounded" />
+                </a>
+            </div>
+
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+
+        <!-- 如果需要导航按钮 -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+    </div>*@
+<button class="layui-btn" id="reloadbtn">reload</button>
+<div id="layInfo">
+    <div class="margin-bottom-40" id="flowContain">
+        <div>
+            <div class="top mytop">
+                <div class="myleft">
+                    <p class="job">
+                        Web前段
+                        <span class="label label-danger weigh">急</span>
+                    </p>
+                </div>
+                <div class="myright">
+                    北京侏罗纪开发有限公司
+
+                </div>
+            </div>
+            <div class="bottom mybottom">
+                <div class="bottomleft">
+                    <ul>
+                        <li>10-15</li>
+                        <li>经验</li>
+                        <li>本科</li>
+                        <li>股份制</li>
+                        <li>500人</li>
+                    </ul>
+                </div>
+                <div class="bottomright">
+
+                    <button type="button" class="layui-btn layui-btn-normal layui-btn-radius layui-btn-sm clickBtn" onclick="alert(1)">
+                        <span class="glyphicon glyphicon-link"></span>
+                        详情
+                    </button>
+                </div>
+
+            </div>
+
+            <hr class="hr0" />
+        </div>
+        <div>
+            <div class="top mytop">
+                <div class="myleft">
+                    <p class="job">
+                        Web前段
+                        <span class="label label-danger weigh">急</span>
+                    </p>
+                </div>
+                <div class="myright">
+                    北京侏罗纪开发有限公司
+
+                </div>
+            </div>
+            <div class="bottom mybottom">
+                <div class="bottomleft">
+                    <ul>
+                        <li>10-15</li>
+                        <li>经验</li>
+                        <li>本科</li>
+                        <li>股份制</li>
+                        <li>500人</li>
+                    </ul>
+                </div>
+                <div class="bottomright">
+
+                    <button type="button" class="layui-btn layui-btn-normal layui-btn-radius layui-btn-sm clickBtn" onclick="alert(1)">
+                        <span class="glyphicon glyphicon-link"></span>
+                        详情
+                    </button>
+                </div>
+
+            </div>
+
+            <hr class="hr0" />
+        </div>
+
+        <div>
+            <div class="top mytop">
+                <div class="myleft">
+                    <p class="job">
+                        Web前段
+                        <span class="label label-danger weigh">急</span>
+                    </p>
+                </div>
+                <div class="myright">
+                    北京侏罗纪开发有限公司
+
+                </div>
+            </div>
+            <div class="bottom mybottom">
+                <div class="bottomleft">
+                    <ul>
+                        <li>10-15</li>
+                        <li>经验</li>
+                        <li>本科</li>
+                        <li>股份制</li>
+                        <li>500人</li>
+                    </ul>
+                </div>
+                <div class="bottomright">
+
+                    <button type="button" class="layui-btn layui-btn-normal layui-btn-radius layui-btn-sm clickBtn " onclick="alert(1)">
+                        <span class="glyphicon glyphicon-link"></span>
+                        详情
+                    </button>
+                </div>
+
+            </div>
+
+            <hr class="hr0" />
+        </div>
+    </div>
+</div>
+
+<div class="swiper-container swiper-width ">
+    <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+            <a href="#" style="display:block">
+                <img src="~/libs/swiper-Swiper4/demos/images/nature-1.jpg" class="img-responsive img-rounded" />
+            </a>
+        </div>
+        <div class="swiper-slide">
+            <a href="#" style="display:block">
+                <img src="~/libs/swiper-Swiper4/demos/images/nature-2.jpg" class="img-responsive img-rounded" />
+            </a>
+        </div>
+        <div class="swiper-slide">
+            <a href="#" style="display:block">
+                <img src="~/libs/swiper-Swiper4/demos/images/nature-3.jpg" class="img-responsive img-rounded" />
+            </a>
+        </div>
+        <div class="swiper-slide">
+            <a href="#" style="display:block">
+                <img src="~/libs/swiper-Swiper4/demos/images/nature-4.jpg" class="img-responsive img-rounded" />
+            </a>
+        </div>
+
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+
+    <!-- 如果需要导航按钮 -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+</div>
+<!-- END CLIENTS -->
+<script src="~/libs/swiper-Swiper4/dist/js/swiper.min.js"></script>
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+
+        loop: true, // 循环模式选项
+        //设置宽度为全屏
+        centeredSlides: true,
+
+        autoplay: {
+            delay: 3000
+        }, //可选选项，自动滑动
+        effect: 'fade',
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+
+    })
+</script>

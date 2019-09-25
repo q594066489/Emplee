@@ -109,7 +109,7 @@ namespace Emploee.Approvals
             var approvalCount = await query.CountAsync();
              
             var approvals = await query
-            .OrderByDescending(t=>t.approval.RegisterDate).Skip(input.SkipCount).Take(input.MaxResultCount).ToListAsync();
+            .OrderByDescending(t=>t.approval.RegisterDate).Skip(input.SkipCount* input.MaxResultCount).Take(input.MaxResultCount).ToListAsync();
              
             return new PagedResultDto<ApprovalListDto>(
             approvalCount,

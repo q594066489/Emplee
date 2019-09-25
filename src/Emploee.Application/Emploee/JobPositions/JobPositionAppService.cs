@@ -214,13 +214,7 @@ JobPositionManage jobPositionManage
             var jobPositionListDtos = jobPositions.MapTo<List<JobPositionListDto>>();
             return jobPositionListDtos;
         }
-
-
-
-
-
-
-
+        
 
     }
 }

@@ -90,5 +90,17 @@ namespace Emploee.Emploee.JobPosts.Dtos
         /// </summary>
         [DisplayName("是否有效")]
         public      bool isDelete { get; set; }
+        /// <summary>
+        /// 企业名称
+        /// </summary>
+        [DisplayName("企业名称")]
+        public string CompanyName { get; set; }
+        [DisplayName("公司规模")]
+        public string CompanyScale { get; set; }
+        /// <summary>
+        /// 融资阶段
+        /// </summary>
+        [DisplayName("融资阶段")]
+        public string Finanicing { get; set; }
     }
 }

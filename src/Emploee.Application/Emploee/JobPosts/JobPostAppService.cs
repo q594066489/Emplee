@@ -250,7 +250,30 @@ namespace Emploee.Emploee.JobPosts
         #endregion
 
 
+        [AbpAllowAnonymous]
+        public async Task<PagedResultDto<JobPostListDto>> GetPositionForHome(GetJobPostInput input)
+        {
+            var query = _jobPostRepository.GetAll();
+            //TODO:根据传入的参数添加过滤条件
 
+
+
+            var jobPositionCount = await query.CountAsync() ;
+
+            var jobPositions = await query.OrderBy(input.Sorting).Skip((input.page-1)* 10).Take(10).ToListAsync();
+            //.OrderBy(input.Sorting)
+            //.PageBy(input)
+            //.ToListAsync();
+
+
+            var jobPositionListDtos = jobPositions.MapTo<List<JobPostListDto>>();
+            return new PagedResultDto<JobPostListDto>(
+            jobPositionCount / 10+1,
+            jobPositionListDtos
+            );
+
+
+        }
 
 
 

@@ -87,10 +87,10 @@ namespace Emploee.Emploee.JobPosts
         /// <returns></returns>
         Task<FileDto> GetJobPostToExcel();
 
-#endregion
+        #endregion
 
 
-
+        Task<PagedResultDto<JobPostListDto>> GetPositionForHome(GetJobPostInput input);
 
 
     }

@@ -1,0 +1,233 @@
+﻿
+.hr0 {
+    clear: both;
+    height: 1px;
+    border: none;
+    border-top: 1px dashed #B8B8B8;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+a {
+    display: block;
+    cursor: pointer;
+}
+
+.clickBtn {
+    background-color: #009688 !important;
+    border-radius: 10px !important;
+}
+
+.demobtn {
+    float: right;
+}
+
+@media (max-width: 768px) {
+    .swiper-width {
+        width: 100%;
+        height: 100px;
+        margin-top:40px;
+    }
+
+    .swiper-slide a {
+        width: 100%;
+        height: 100px;
+    }
+
+        .swiper-slide a img {
+            width: 100%;
+            height: 100%;
+        }
+
+    .mytop {
+        /* border: 1px solid red ; */
+        min-height: 40px;
+    }
+
+    .mybottom {
+        /* border: 1px solid black ; */
+        min-height: 40px;
+    }
+
+    .myleft {
+        float: left;
+        font-size: 8px;
+        padding-left:  10px;
+        /*min-height: 30px;*/
+    }
+
+    .myright {
+        /* border: 1px solid black ; */
+        float: right;
+        min-height: 30px;
+        font-size: 8px;
+        padding-right:  5px;
+        margin-top:20px;
+    }
+
+    .bottomleft {
+        float: left;
+        font-size: 8px;
+        padding-left: 5px;
+        padding-top: 10px;
+        /* height:20px;   */
+        margin-left: 0px;
+        clear: both;
+    }
+
+    .bottomright {
+        float: right;
+        font-size: 8px;
+        padding: 5px 20px 0px 0px;
+    }
+
+    .job {
+        padding-top: 0px;
+    }
+
+    .company {
+        padding-top: 10px;
+    }
+
+    .weight {
+        border-radius: 5px;
+    }
+
+    .bottomleft ul {
+        float: left;
+        /* line-height: 60px; */
+        padding: 0px 3px;
+    }
+
+        .bottomleft ul li {
+            float: left;
+            font: 8px;
+            list-style: none;
+        }
+
+            .bottomleft ul li + li:before {
+                padding-left: 3px;
+                padding-right: 3px;
+                content: "|";
+            }
+
+    .bottomright ul {
+        /* float: right; */
+        /* line-height: 60px; */
+        padding: 0px 5px;
+    }
+
+        .bottomright ul li {
+            float: right;
+            font: 8px;
+            list-style: none;
+        }
+
+            .bottomright ul li + li::after {
+                padding-left: 3px;
+                padding-right: 3px;
+                content: "|";
+            }
+}
+
+@media (min-width: 768px) {
+    .swiper-width {
+        width: 60%;
+        height: 200px;
+    }
+
+    .swiper-slide a {
+        width: 100%;
+        height: 200px;
+    }
+
+        .swiper-slide a img {
+            width: 100%;
+            height: 100%;
+        }
+
+    .mytop {
+        /* border: 1px solid red ; */
+        min-height: 40px;
+    }
+
+    .mybottom {
+        /* border: 1px solid black ; */
+        min-height: 40px;
+    }
+
+    .myleft {
+        float: left;
+        font-size: 14px;
+        padding: 0px 5px;
+        min-height: 30px;
+    }
+
+    .myright {
+        /* border: 1px solid black ; */
+        float: right;
+        min-height: 30px;
+        font-size: 14px;
+        padding: 30px 5px 0px 0px;
+         
+    }
+
+    .bottomleft {
+        float: left;
+        font-size: 14px;
+        padding-left: 5px;
+        padding-top: 10px;
+        /* height:20px;   */
+        margin-left: 0px;
+        clear: both;
+    }
+
+    .bottomright {
+        float: right;
+        font-size: 14px;
+        padding: 0px 30px 0px 5px;
+        /* padding-top:  10px; */
+    }
+
+
+
+    .weight {
+        border-radius: 5px;
+    }
+
+    .bottomleft ul {
+        float: left;
+        /* line-height: 60px; */
+        padding: 0px 3px;
+    }
+
+        .bottomleft ul li {
+            float: left;
+            font: 14px;
+            list-style: none;
+        }
+
+            .bottomleft ul li + li:before {
+                padding-left: 3px;
+                padding-right: 3px;
+                content: "|";
+            }
+
+    .bottomright ul {
+        /* float: right; */
+        /* line-height: 60px; */
+        padding: 0px 5px;
+    }
+
+        .bottomright ul li {
+            float: right;
+            font: 14px;
+            list-style: none;
+        }
+
+            .bottomright ul li + li::after {
+                padding-left: 3px;
+                padding-right: 3px;
+                content: "|";
+            }
+}
