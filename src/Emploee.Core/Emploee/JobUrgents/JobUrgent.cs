@@ -44,7 +44,10 @@ namespace Emploee.Emploee.JobUrgents
         /// 是否有效
         /// </summary>
         public bool isDelete { get; set; }
-
+        /// <summary>
+        /// 状态 1待审批    2 已通过 管理员手动通过
+        /// </summary>
+        public int State { get; set; }
 
         public long? CreatorUserId { get; set; }
 

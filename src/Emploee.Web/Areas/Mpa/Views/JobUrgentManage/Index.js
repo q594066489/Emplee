@@ -17,7 +17,7 @@
 
       var _createOrEditModal = new app.ModalManager({
             viewUrl: abp.appPath + 'Mpa/JobUrgentManage/CreateOrEditJobUrgentModal',
-            scriptUrl: abp.appPath + 'Areas/Mpa/Views/JobUrgentManage/_CreateOrEditJobUrgentModal.es5.min.js',
+            scriptUrl: abp.appPath + 'Areas/Mpa/Views/JobUrgentManage/_CreateOrEditJobUrgentModal.js',
             modalClass: 'CreateOrEditJobUrgentModal'
         });
 

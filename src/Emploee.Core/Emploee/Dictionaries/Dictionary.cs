@@ -30,7 +30,11 @@ namespace Emploee.Emploee.Dictionaries
         [Required]
         [MaxLength(MaxNameLength)]
         public string Name { get; set; }
-
+        /// <summary>
+        /// 值
+        /// </summary>
+        [MaxLength(MaxNameLength)]
+        public string value { get; set; }
         /// <summary>
         /// 排序
         /// </summary>

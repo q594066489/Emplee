@@ -77,7 +77,11 @@
         scriptUrl: abp.appPath + 'Areas/Mpa/Views/JobPostManage/_CreateOrEditJobPostModal.js',
         modalClass: 'CreateOrEditJobPostModal'
     });
-
+    var _createOrEditUrgentModal = new app.ModalManager({
+        viewUrl: abp.appPath + 'Mpa/JobUrgentManage/CreateOrEditJobUrgentModal',
+        scriptUrl: abp.appPath + 'Areas/Mpa/Views/JobUrgentManage/_CreateOrEditJobUrgentModal.js',
+        modalClass: 'CreateOrEditJobUrgentModal'
+    });
 
 
 
@@ -207,11 +211,15 @@
                     width: '10%',
                     formatter: function (value, row, index) {
                         var actions = '';
-                        actions += ' <a class="edit" href="javascript:void(0)" title="' + app.localize('Edit') + '" style="margin-left: 10px;"><i class="fa fa-edit"></i></a>';
-                        actions += ' <a class="remove" href="javascript:void(0)" title="' + app.localize('Delete') + '" style="margin-left: 10px;"><i class="fa fa-remove"></i></a>';
+                        actions += ' <a class="add" href="javascript:void(0)" title="' + app.localize('Edit') + '" style="margin-left: 10px;"><i class="fa fa-edit">加急</i></a>';
+                        actions += ' <a class="edit" href="javascript:void(0)" title="' + app.localize('Edit') + '" style="margin-left: 10px;"><i class="fa fa-edit">编辑</i></a>';
+                        actions += ' <a class="remove" href="javascript:void(0)" title="' + app.localize('Delete') + '" style="margin-left: 10px;"><i class="fa fa-remove">删除</i></a>';
                         return actions;
                     },
                     events: {
+                        'click .add': function (e, value, row, index) {
+                            _createOrEditUrgentModal.open({ size: '1800'  });
+                        },
                         'click .edit': function (e, value, row, index) {
                             _createOrEditModal.open({ size: '1800', id: row.id });
                         },

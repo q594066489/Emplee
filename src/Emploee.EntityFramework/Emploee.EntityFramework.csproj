@@ -550,10 +550,19 @@
     <Compile Include="Migrations\201909180241059_updatePersonInfoJOBYEAR.Designer.cs">
       <DependentUpon>201909180241059_updatePersonInfoJOBYEAR.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909260335414_updateDictionary.cs" />
+    <Compile Include="Migrations\201909260335414_updateDictionary.Designer.cs">
+      <DependentUpon>201909260335414_updateDictionary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909260855371_updateJobUrgent-addstate.cs" />
+    <Compile Include="Migrations\201909260855371_updateJobUrgent-addstate.Designer.cs">
+      <DependentUpon>201909260855371_updateJobUrgent-addstate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="EmploeeDataModule.cs" />
     <Compile Include="Migrations\Seed\Host\DefaultEditionCreator.cs" />
     <Compile Include="Migrations\Seed\Host\DefaultLanguagesCreator.cs" />
+    <Compile Include="Migrations\Seed\Host\DefaultDictionariesCreator.cs" />
     <Compile Include="Migrations\Seed\Host\DefaultSettingsCreator.cs" />
     <Compile Include="Migrations\Seed\Tenants\TenantRoleAndUserBuilder.cs" />
     <Compile Include="Migrations\Seed\Tenants\DefaultTenantBuilder.cs" />
@@ -805,6 +814,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909180241059_updatePersonInfoJOBYEAR.resx">
       <DependentUpon>201909180241059_updatePersonInfoJOBYEAR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909260335414_updateDictionary.resx">
+      <DependentUpon>201909260335414_updateDictionary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909260855371_updateJobUrgent-addstate.resx">
+      <DependentUpon>201909260855371_updateJobUrgent-addstate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

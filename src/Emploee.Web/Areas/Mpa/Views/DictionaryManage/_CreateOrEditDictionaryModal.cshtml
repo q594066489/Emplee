@@ -1,0 +1,105 @@
+﻿
+@using Abp.Extensions
+@using Abp.Application.Services.Dto
+@using Emploee.Web.Areas.Mpa.Models.Common.Modals
+@using Emploee.Web.Areas.Mpa.Models.DictionaryManage
+
+@model CreateOrEditDictionaryModalViewModel
+
+@* 初始化头部 *@
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? ("编辑" + ": " + Model.Dictionary.Name) : "新增"))
+
+
+<!--html代码区域-->
+<div class="modal-body">
+    <form name="DictionaryInformationsForm"   role="form" novalidate class="form-validation">
+ <input type="hidden" name="Id" value="@Model.Dictionary.Id" />
+ <div class="row">
+
+
+     <div hidden="hidden">
+         @if (Model.IsEditMode)
+         {
+             <input type="hidden" name="Id" value="@Model.Dictionary.Id" />
+         }
+     </div>
+     <div class="col-sm-12 ">
+         <div class="form-group">
+             <label class="col-sm-4 control-label">父编码</label>
+             <div class="col-sm-8">
+                 <input class="form-control inline w300  maxlength-handler   " type="text" value="@Model.Dictionary.ParentCode" disabled />
+                 <span class="help-inline"></span>
+             </div>
+         </div>
+     </div>
+     <div class="col-sm-12 ">
+         <div class="form-group">
+             <label class="col-sm-4 control-label">@L("Code")</label>
+             <div class="col-sm-8">
+                 <input class="form-control inline w300  maxlength-handler   " type="text" value="@Model.Dictionary.Code"   />
+                 <span class="help-inline"></span>
+             </div>
+         </div>
+     </div>
+     <div class="col-sm-12 ">
+         <div class="form-group">
+             <label class="col-sm-4 control-label">@L("Name")</label>
+             <div class="col-sm-8">
+                 <input class="form-control inline w300  maxlength-handler   " type="text" value="@Model.Dictionary.Name"   />
+                 <span class="help-inline"></span>
+             </div>
+         </div>
+     </div>
+     <div class="col-sm-12 ">
+         <div class="form-group">
+             <label class="col-sm-4 control-label">值</label>
+             <div class="col-sm-8">
+                 <input class="form-control inline w300  maxlength-handler   " type="text" value="@Model.Dictionary.Value"   />
+                 <span class="help-inline"></span>
+             </div>
+         </div>
+     </div>
+     <div class="col-sm-12 ">
+         <div class="form-group">
+             <label class="col-sm-4 control-label">操作</label>
+             <div class="col-sm-8">
+                 <input class="form-control inline w300  maxlength-handler   " type="text" value="@Model.Dictionary.OrderIndex"   />
+                 <span class="help-inline"></span>
+             </div>
+         </div>
+     </div>
+     @*<div class="form-group form-md-line-input form-md-floating-label no-hint">
+            <textarea name="ParentCode" auto-focus class="form-control @(Model.Dictionary.ParentCode.IsNullOrEmpty() ? "" : "edited")" 	  rows="4">@Model.Dictionary.ParentCode</textarea>
+            <label> @L("ParentCode") </label>
+        </div> 
+
+
+
+      <div class="form-group form-md-line-input form-md-floating-label no-hint">
+         <textarea name="Code" auto-focus class="form-control @(Model.Dictionary.Code.IsNullOrEmpty() ? "" : "edited")" required rows="4">@Model.Dictionary.Code</textarea>
+         <label> @L("Code")   <span class="required"> * </span>	 	</label>
+     </div>
+
+
+
+     <div class="form-group form-md-line-input form-md-floating-label no-hint">
+         <textarea name="Name" auto-focus class="form-control @(Model.Dictionary.Name.IsNullOrEmpty() ? "" : "edited")" required rows="4">@Model.Dictionary.Name</textarea>
+         <label> @L("Name")   <span class="required"> * </span>	 	</label>
+     </div>
+
+     <div class="form-group form-md-line-input form-md-floating-label no-hint">
+         <textarea name="Value" auto-focus class="form-control  " rows="4">@Model.Dictionary.Value</textarea>
+         <label> 值    	</label>
+     </div>
+
+     <div class="form-group form-md-line-input form-md-floating-label  ">
+         <input class="maxlength-handler form-control" type="text" name="OrderIndex" value="@Model.Dictionary.OrderIndex" required />
+         <label>@L("OrderIndex")   <span class="required"> * </span>	 	</label>
+     </div>*@
+
+
+ </div>
+    </form>
+</div>
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+ 

@@ -50,7 +50,7 @@ namespace Emploee.Emploee.Dictionaries.Dtos
         [DisplayName("名称")]
         [Required]
         public   string  Name { get; set; }
-
+        public string Value { get; set; }
         /// <summary>
         /// 排序
         /// </summary>

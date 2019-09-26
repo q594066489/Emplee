@@ -55,6 +55,7 @@ namespace Emploee.Emploee.JobUrgents.Dtos
         /// </summary>
         [DisplayName("是否有效")]
         public      bool isDelete { get; set; }
+        public int State { get; set; }
         /// <summary>
         /// 创建时间
         /// </summary>

@@ -29,11 +29,11 @@ namespace Emploee.Emploee.JobUrgents.Dtos
     public class JobUrgentEditDto 
     {
 
-	/// <summary>
-    ///   主键Id
-    /// </summary>
-    [DisplayName("主键Id")]
-	public int? Id{get;set;}
+	    /// <summary>
+        ///   主键Id
+        /// </summary>
+        [DisplayName("主键Id")]
+	    public int? Id{get;set;}
 
         /// <summary>
         /// 职位编号
@@ -49,7 +49,7 @@ namespace Emploee.Emploee.JobUrgents.Dtos
         public   int  Weight { get; set; }
 
         /// <summary>
-        /// 加急类型
+        /// 加急类型 一般紧急<非常紧急
         /// </summary>
         [DisplayName("加急类型")]
         [MaxLength(200)]
@@ -66,12 +66,16 @@ namespace Emploee.Emploee.JobUrgents.Dtos
         /// </summary>
         [DisplayName("持续时长")]
         public   int  UrgentLength { get; set; }
-
+        /// <summary>
+        /// 状态 1待审批    2 已通过
+        /// </summary>
+        public int State { get; set; }
         /// <summary>
         /// 是否有效
         /// </summary>
         [DisplayName("是否有效")]
         public   bool  isDelete { get; set; }
 
+        //public int CompanyId { get; set; }
     }
 }

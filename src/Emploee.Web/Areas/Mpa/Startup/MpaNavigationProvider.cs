@@ -2,6 +2,7 @@
 using Abp.Localization;
 using Emploee.Approvals.Authorization;
 using Emploee.Authorization;
+using Emploee.Emploee.Dictionaries.Authorization;
 using Emploee.Emploee.JobPosts.Authorization;
 using Emploee.Emploee.PersonInfos.Authorization;
 using Emploee.Emploees.Companies.Authorization;
@@ -46,7 +47,13 @@ namespace Emploee.Web.Areas.Mpa.Startup
         url: "Mpa/ApprovalManage",
                          requiredPermissionName: ApprovalAppPermissions.Approval);
 
-             
+            var dictionary = new MenuItemDefinition(
+               DictionaryAppPermissions.Dictionary,
+               L("Dictionary"),
+               url: "Mpa/DictionaryManage",
+               icon: "icon-grid",
+                                 requiredPermissionName: DictionaryAppPermissions.Dictionary
+                                    );
             //……………………………………………………………………………………………………………………
 
 
@@ -85,6 +92,7 @@ namespace Emploee.Web.Areas.Mpa.Startup
                                      ))
                 .AddItem(jobPost)
                 .AddItem(personInfo)
+                .AddItem(dictionary)
                 .AddItem(new MenuItemDefinition(
                     PageNames.App.Common.Administration,
                     L("Administration"),

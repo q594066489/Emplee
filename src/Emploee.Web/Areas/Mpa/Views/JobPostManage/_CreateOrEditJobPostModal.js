@@ -88,8 +88,8 @@
             $(".remocebtn").click(function () {
 
                 cas.reload({
-                    data: reloadData,
-                    value: []
+                    data: datas,
+                    value: [""]
                 })
 
             });
@@ -127,12 +127,4 @@
 
 
 
-
-//(function () {
-//    $(function () {
-
-         
-
-
-//    });
-//})();
+ 

@@ -78,6 +78,9 @@ namespace Emploee.Emploee.Dictionaries
 
 
 
+        Task<ListResultDto<DictionaryListDto>> GetDictionaryLists(string ParentCode);
+
+        List<DictionaryListDto> GetParentList(string parentCode);
 
     }
 }

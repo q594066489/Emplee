@@ -633,6 +633,8 @@
     <Content Include="Areas\Mpa\Views\CompanyManage\_ShowPicture.js" />
     <Content Include="Areas\Mpa\Views\Dashboard\IndexBak.js" />
     <Content Include="Areas\Mpa\Views\JobPostManage\index.css" />
+    <Content Include="Areas\Mpa\Views\DictionaryManage\Index.js" />
+    <Content Include="Areas\Mpa\Views\DictionaryManage\_CreateOrEditDictionaryModal.js" />
     <Content Include="Common\Images\app-logo-small.png" />
     <Content Include="Common\Images\logo.png" />
     <Content Include="Common\Scripts\jquery-validation-custom.js" />
@@ -3812,7 +3814,6 @@
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
     <Content Include="Areas\Mpa\Views\CompanyManage\Index2.js" />
     <Content Include="Areas\Mpa\Views\JobPostManage\Index.js" />
-    <Content Include="Areas\Mpa\Views\JobPostManage\_CreateOrEditJobPostModal2.js" />
     <Content Include="Areas\Mpa\Views\JobUrgentManage\Index.js" />
     <Content Include="Areas\Mpa\Views\JobUrgentManage\_CreateOrEditJobUrgentModal.js" />
     <Content Include="Areas\Mpa\Views\PersonInfoManage\Index.js" />
@@ -3950,6 +3951,8 @@
     <Content Include="libs\swiper-Swiper4\src\scss\functions.scss" />
     <Content Include="libs\swiper-Swiper4\src\swiper.less" />
     <Content Include="libs\swiper-Swiper4\src\swiper.scss" />
+    <Content Include="Areas\Mpa\Views\DictionaryManage\Index.cshtml" />
+    <Content Include="Areas\Mpa\Views\DictionaryManage\_CreateOrEditDictionaryModal.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -4025,7 +4028,6 @@
     <Content Include="Areas\Mpa\Views\CompanyManage\Index2.cshtml" />
     <Content Include="Areas\Mpa\Views\CompanyManage\_CreateOrEditCompanyModal.cshtml" />
     <Content Include="Areas\Mpa\Views\JobPostManage\Index.cshtml" />
-    <Content Include="Areas\Mpa\Views\JobPostManage\_CreateOrEditJobPostModal2.cshtml" />
     <Content Include="Areas\Mpa\Views\JobUrgentManage\Index.cshtml" />
     <Content Include="Areas\Mpa\Views\JobUrgentManage\_CreateOrEditJobUrgentModal.cshtml" />
     <Content Include="Areas\Mpa\Views\PersonInfoManage\Index.cshtml" />
@@ -4035,8 +4037,11 @@
     <Content Include="Areas\Mpa\Views\ApprovalManage\_CreateOrEditApprovalModal.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Mpa\Controllers\DictionaryManageController.cs" />
     <Compile Include="Areas\Mpa\Models\CompanyManage\ImportCompanyManages.cs" />
     <Compile Include="Areas\Mpa\Models\CompanyManage\ShowPictureModal.cs" />
+    <Compile Include="Areas\Mpa\Models\DictionaryManage\CreateOrEditDictionaryModalViewModel.cs" />
+    <Compile Include="Areas\Mpa\Models\DictionaryManage\DictionaryViewModel.cs" />
     <Compile Include="Controllers\PersonHomeController.cs" />
     <Compile Include="Controllers\PersonInfoManageController.cs" />
     <Compile Include="Models\Layout\TenantCustomCssViewModel.cs" />
