@@ -203,7 +203,61 @@
                        
                     }
                 },
+                {
+                    field: 'jobId',
+                    title: 'Jobid',
+                    halign: 'center',
+                    align: 'center',
+                    width: '8%',
+                    visible: false
+                     
+                },
+                {
+                    field: 'weight',
+                    title: '加急',
+                    halign: 'center',
+                    align: 'center',
+                    width: '8%',
+                    formatter: function (value, row, index) {
+                        switch (value) {
+                            case 1:
+                                return "<span class=\"label label-info\"> 一级</span>";
+                                break;
+                            case 2:
+                                return "<span class=\"label label-success\"> 二级</span>";
+                                break;
+                            default:
+                                return '';
+                                break;
+                        }
 
+                    }
+
+                },
+                {
+                    field: 'state',
+                    title: '审批状态',
+                    halign: 'center',
+                    align: 'center',
+                    width: '8%',
+                    formatter: function (value, row, index) {
+                        switch (value) {
+                            case 1:
+                                return "<span class=\"label label-info\"> 待审批</span>";
+                                break;
+                            case 2:
+                                return "<span class=\"label label-success\">已完成</span>";
+                                break;
+                            default:
+                                return '';
+                                break;
+                        }
+                         
+
+                    }
+
+                },
+                 
                 {
                     field: 'actions',
                     title: '操作',
@@ -218,7 +272,7 @@
                     },
                     events: {
                         'click .add': function (e, value, row, index) {
-                            _createOrEditUrgentModal.open({ size: '1800'  });
+                            _createOrEditUrgentModal.open({ size: '1800', id: row.id, jobid: row.jobid, jobname: row.jobName });
                         },
                         'click .edit': function (e, value, row, index) {
                             _createOrEditModal.open({ size: '1800', id: row.id });

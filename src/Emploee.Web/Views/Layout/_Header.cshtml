@@ -70,22 +70,22 @@
                         </li>
                     }*@
                         <li style="float:right !important">
-                            @*@if (Model.LoginInformations != null)
+                            @if (Model.LoginInformations != null)
                             {
                                 <a href="@Url.Action("Index", "Application")">@Model.GetShownLoginName() (@L("GoToApplication"))</a>
                             }
                             else
                             {
                                 <a href="@Url.Action("Login", "Account")">@L("LogIn")</a>
-                            }*@
-                            @if (Model.LoginInformations != null)
+                            } 
+                            @*@if (Model.LoginInformations != null)
                             {
                                 <span >@Model.GetShownLoginName() </span>
                             }
                             else
                             {
                                 <a href="@Url.Action("Login", "Account")">@L("LogIn")</a>
-                            }
+                            }*@
                         </li>
                 </ul>
             </div>

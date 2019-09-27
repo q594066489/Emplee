@@ -37,7 +37,7 @@ namespace Emploee.Emploee.JobUrgents
         /// <summary>
         /// 通过Id获取职位加急信息进行编辑或修改 
         /// </summary>
-        Task<GetJobUrgentForEditOutput> GetJobUrgentForEditAsync(NullableIdDto<int> input);
+        Task<GetJobUrgentForEditOutput> GetJobUrgentForEditAsync(int? jobid,string JobName);
 
 		  /// <summary>
         /// 通过指定id获取职位加急ListDto信息

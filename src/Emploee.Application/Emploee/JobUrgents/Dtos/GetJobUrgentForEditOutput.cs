@@ -1,5 +1,6 @@
 ﻿                            
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
@@ -31,8 +32,12 @@ namespace Emploee.Emploee.JobUrgents.Dtos
 	      /// <summary>
          /// JobUrgent编辑状态的DTO
         /// </summary>
-    public JobUrgentEditDto JobUrgent{get;set;}
+        public JobUrgentEditDto JobUrgent{get;set;}
+        public List<ComboboxItemDto> UrgentTypes { get; set; }
 
-
+        public GetJobUrgentForEditOutput()
+        {
+            UrgentTypes = new List<ComboboxItemDto>();
+        }
     }
 }

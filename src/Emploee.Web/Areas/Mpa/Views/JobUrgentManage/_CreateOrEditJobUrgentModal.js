@@ -28,7 +28,7 @@
 
             _modalManager.setBusy(true);
 
-            _jobUrgentService.createOrUpdateJobUrgentAsync({
+            _jobUrgentService.createOrUpdateJobUrgent({
                 jobUrgentEditDto: jobUrgent
             }).done(function () {
                 //提示信息

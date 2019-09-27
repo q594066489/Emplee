@@ -20,10 +20,12 @@ using Abp.Domain.Repositories;
 using Abp.Extensions;
 using Abp.Linq.Extensions;
 using Abp.Runtime.Session;
+using Castle.Core.Logging;
 using Emploee.Dto;
 using Emploee.Emploee.Job_Positions;
 using Emploee.Emploee.JobPosts.Authorization;
 using Emploee.Emploee.JobPosts.Dtos;
+using Emploee.Emploee.JobUrgents;
 
 #region 代码生成器相关信息_ABP Code Generator Info
 //你好，我是ABP代码生成器的作者,欢迎您使用该工具，目前接受付费定制该工具，有需要的可以联系我
@@ -56,6 +58,9 @@ namespace Emploee.Emploee.JobPosts
         private readonly IRepository<JobPosition, int> _jobPositionRepository;
         private readonly JobPostManage _jobPostManage;
         private publicListDto _pdto=new publicListDto();
+        private readonly IRepository<JobUrgent, int> _jobUrgentRepository;
+        
+        public ILogger Logger { get; set; }
         /// <summary>
         /// 构造方法
         /// </summary>
@@ -64,8 +69,9 @@ namespace Emploee.Emploee.JobPosts
             JobPostManage jobPostManage, 
             IJobPostListExcelExporter jobPostListExcelExporter,
             IAbpSession IAbpSession,
-            IRepository<JobPosition, int> jobPositionRepository
-            
+            IRepository<JobPosition, int> jobPositionRepository,
+            IRepository<JobUrgent, int> jobUrgentRepository
+
         )
         {
             _jobPostRepository = jobPostRepository;
@@ -73,7 +79,9 @@ namespace Emploee.Emploee.JobPosts
             _jobPostListExcelExporter = jobPostListExcelExporter;
             _IAbpSession = IAbpSession;
             _jobPositionRepository = jobPositionRepository;
-             
+            _jobUrgentRepository = jobUrgentRepository;
+            Logger = NullLogger.Instance;
+
         }
 
 
@@ -91,22 +99,71 @@ namespace Emploee.Emploee.JobPosts
         /// </summary>
         public async Task<PagedResultDto<JobPostListDto>> GetPagedJobPosts(GetJobPostInput input)
         {
-            var _companyid = Convert.ToInt32(_IAbpSession.UserId);
-            var query = _jobPostRepositoryAsNoTrack.Where(t=>t.CompanyId==_companyid);
-            //TODO:根据传入的参数添加过滤条件
+            try
+            {
 
-            var jobPostCount = await query.CountAsync();
 
-            var jobPosts = await query
-            .OrderBy(input.Sorting)
-            .PageBy(input)
-            .ToListAsync();
+                var _companyid = Convert.ToInt32(_IAbpSession.UserId);
+                //var query = _jobPostRepositoryAsNoTrack.Where(t=>t.CompanyId==_companyid);
 
-            var jobPostListDtos = jobPosts.MapTo<List<JobPostListDto>>();
-            return new PagedResultDto<JobPostListDto>(
-            jobPostCount,
-            jobPostListDtos
-            );
+                var query = from post in _jobPostRepositoryAsNoTrack.Where(t => t.CompanyId == _companyid)
+                            join urgent in _jobUrgentRepository.GetAll().Where(a => a.isDelete == false)
+                            on post.Id equals urgent.JobId into PostUrgent
+                            from urgent in PostUrgent.DefaultIfEmpty()
+                            select new
+                            {
+                                Post = post,
+                                //Urgent = urgent
+                                JobId = urgent!=null ? urgent.Id :0 ,
+                                Weight = urgent != null ? urgent.Weight : 0,
+                                State = urgent != null ? urgent.State : 0,
+                                 
+                            };
+
+
+                var jobPostCount = await query.CountAsync();
+
+                var jobPosts = await query
+                .OrderByDescending(t => t.Weight).Skip(input.SkipCount).Take(input.MaxResultCount).ToListAsync();
+
+
+                //.OrderByDescending(t => t.approval.RegisterDate).Skip(input.SkipCount * input.MaxResultCount).Take(input.MaxResultCount).ToListAsync();
+
+                //var jobPostListDtos = jobPosts.MapTo<List<JobPostListDto>>();
+                return new PagedResultDto<JobPostListDto>(
+                jobPostCount,
+                //jobPostListDtos
+                jobPosts.Select(
+                    item =>
+                    {
+                        var dto = new JobPostListDto();
+                        dto.Id = item.Post.Id;
+                        dto.CompanyId = item.Post.CompanyId;
+                        dto.JobName = item.Post.JobName;
+                        dto.SalaryMin = item.Post.SalaryMin;
+                        dto.SalaryMax = item.Post.SalaryMax;
+                        dto.Education = item.Post.Education;
+                        dto.Experience = item.Post.Experience;
+                        dto.JobAddress = item.Post.JobAddress;
+                        dto.SkillRequire = item.Post.SkillRequire;
+                        dto.JobType = item.Post.JobType;
+                        dto.PublishDate = item.Post.PublishDate;
+                        dto.isDelete = item.Post.isDelete;
+                        dto.JobId = item.JobId;
+                        dto.Weight = item.Weight;
+                        dto.state = item.State;
+
+                        return dto;
+
+                    }).ToList()
+                );
+            }
+            catch (Exception ex)
+            {
+                 
+                Logger.Warn(ex.ToString(), ex);
+                return null;
+            }
         }
 
         /// <summary>

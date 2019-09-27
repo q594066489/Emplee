@@ -76,6 +76,6 @@ namespace Emploee.Emploee.JobUrgents.Dtos
         [DisplayName("是否有效")]
         public   bool  isDelete { get; set; }
 
-        //public int CompanyId { get; set; }
+         public string JobName { get; set; }
     }
 }

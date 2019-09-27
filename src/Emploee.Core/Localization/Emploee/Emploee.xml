@@ -7,7 +7,7 @@
     <text name="Roles" value="Roles" />
     <text name="Users" value="Users" />
     <text name="InvalidFormMessage" value="Your form is invalid. Please check and correct it." />
-    <text name="InvalidUserNameOrPassword" value="Invalid user name or password" />
+    <text name="InvalidUserNameOrPassword" value="用户名或密码无效" />
     <text name="ThereIsNoTenantDefinedWithName{0}" value="There is no tenant defined with name {0}" />
     <text name="TenantIsNotActive" value="Tenant {0} is not active." />
     <text name="UserIsNotActiveAndCanNotLogin" value="User {0} is not active and can not log in." />
@@ -113,7 +113,7 @@
     <text name="InvalidPasswordResetCode_Detail" value="Please be sure you entered this page by clicking the link sent to your email. If this not solves the problem, you can re-try to request a new password reset link." />
     <text name="PleaseEnterYourNewPassword" value="Please enter your new password." />
     <text name="UserEmailIsNotConfirmedAndCanNotLogin" value="Your email address is not confirmed. Please check your email and click the email confirmation link to activate your account. If you did not receive activation email, click the 'email confirmation' to request a new email." />
-    <text name="LoginFailed" value="Login failed!" />
+    <text name="LoginFailed" value="登录失败" />
     <text name="InvalidEmailConfirmationCode" value="Invalid email confirmation code" />
     <text name="InvalidEmailConfirmationCode_Detail" value="Please be sure you entered this page by clicking the link sent to your email. If this not solves the problem, you can re-try to request a new confirmation code." />
     <text name="YourEmailIsConfirmedMessage" value="Your email address is successfully confirmed." />

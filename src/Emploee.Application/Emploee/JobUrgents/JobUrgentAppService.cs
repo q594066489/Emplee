@@ -20,6 +20,7 @@ using Abp.Domain.Repositories;
 using Abp.Extensions;
 using Abp.Linq.Extensions;
 using Emploee.Dto;
+using Emploee.Emploee.Dictionaries;
 using Emploee.Emploee.JobUrgents.Authorization;
 using Emploee.Emploee.JobUrgents.Dtos;
 
@@ -50,20 +51,23 @@ namespace Emploee.Emploee.JobUrgents
     {
         private readonly IRepository<JobUrgent, int> _jobUrgentRepository;
         private readonly IJobUrgentListExcelExporter _jobUrgentListExcelExporter;
-
+        private readonly IRepository<Dictionary, int> _dictionaryRepository;
 
         private readonly JobUrgentManage _jobUrgentManage;
         /// <summary>
         /// 构造方法
         /// </summary>
-        public JobUrgentAppService(IRepository<JobUrgent, int> jobUrgentRepository,
-JobUrgentManage jobUrgentManage
-      , IJobUrgentListExcelExporter jobUrgentListExcelExporter
+        public JobUrgentAppService(
+            IRepository<JobUrgent, int> jobUrgentRepository
+            , JobUrgentManage jobUrgentManage
+            , IJobUrgentListExcelExporter jobUrgentListExcelExporter
+            , IRepository<Dictionary, int> dictionaryRepository
   )
         {
             _jobUrgentRepository = jobUrgentRepository;
             _jobUrgentManage = jobUrgentManage;
             _jobUrgentListExcelExporter = jobUrgentListExcelExporter;
+            _dictionaryRepository = dictionaryRepository;
         }
 
 
@@ -102,23 +106,29 @@ JobUrgentManage jobUrgentManage
         /// <summary>
         /// 通过Id获取职位加急信息进行编辑或修改 
         /// </summary>
-        public async Task<GetJobUrgentForEditOutput> GetJobUrgentForEditAsync(NullableIdDto<int> input)
+        public async Task<GetJobUrgentForEditOutput> GetJobUrgentForEditAsync(int? jobid, string JobName)
         {
             var output = new GetJobUrgentForEditOutput();
 
             JobUrgentEditDto jobUrgentEditDto;
-
-            if (input.Id.HasValue)
+            
+            if (jobid.HasValue )
             {
-                var entity = await _jobUrgentRepository.GetAsync(input.Id.Value);
+                //var entity = await _jobUrgentRepository.GetAsync(input.Id.Value);
+                var entity = await _jobUrgentRepository.FirstOrDefaultAsync(t => t.JobId == jobid);
                 jobUrgentEditDto = entity.MapTo<JobUrgentEditDto>();
             }
             else
             {
                 jobUrgentEditDto = new JobUrgentEditDto();
             }
-
+            jobUrgentEditDto.JobName = JobName;
             output.JobUrgent = jobUrgentEditDto;
+            var UrgentTypeList= _dictionaryRepository.GetAll().Where(t => t.ParentCode == "003").ToList();
+            output.UrgentTypes = UrgentTypeList.Select(c => new ComboboxItemDto(c.value, c.Name)
+            {
+                IsSelected = output.JobUrgent.UrgentType == c.value
+            }).ToList();
             return output;
         }
 
