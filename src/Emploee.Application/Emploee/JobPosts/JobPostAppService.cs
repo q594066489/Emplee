@@ -114,7 +114,7 @@ namespace Emploee.Emploee.JobPosts
                             {
                                 Post = post,
                                 //Urgent = urgent
-                                JobId = urgent!=null ? urgent.Id :0 ,
+                                JobId = urgent!=null ? urgent.JobId :0 ,
                                 Weight = urgent != null ? urgent.Weight : 0,
                                 State = urgent != null ? urgent.State : 0,
                                  

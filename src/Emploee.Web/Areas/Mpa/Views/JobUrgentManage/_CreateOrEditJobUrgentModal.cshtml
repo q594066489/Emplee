@@ -7,79 +7,96 @@
 @model CreateOrEditJobUrgentModalViewModel
 
 @* 初始化头部 *@
-@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditJobUrgent") + ": " + Model.JobUrgent.JobId) : L("CreateJobUrgent")))
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? ("关闭或编辑" + ": " + Model.JobUrgent.JobName) : "加急："+Model.JobUrgent.JobName))
 
 
 <!--html代码区域-->
 <div class="modal-body">
     <form name="jobUrgentInformationsForm"   role="form" novalidate class="form-validation">
  <input type="hidden" name="Id" value="@Model.JobUrgent.Id" />
- <div class="row>
-            
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">@L("Id")</label>
-                        <div class="col-sm-8">
-                            <input class="form-control inline w300  maxlength-handler " type="text" id="Id" name="Id" value="@Model.JobUrgent.Id" />
-                            <span class="help-inline"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">@L("JobId")</label>
-                        <div class="col-sm-8">
-                            <input class="form-control inline w300  maxlength-handler  required" type="text" id="JobId" name="JobId" value="@Model.JobUrgent.JobId" />
-                            <span class="help-inline"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">@L("Weight")</label>
-                        <div class="col-sm-8">
-                            <input class="form-control inline w300  maxlength-handler " type="text" id="Weight" name="Weight" value="@Model.JobUrgent.Weight" />
-                            <span class="help-inline"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">@L("UrgentType")</label>
-                        <div class="col-sm-8">
-                            <input class="form-control inline w300  maxlength-handler " type="text" id="UrgentType" name="UrgentType" maxlength="200" value="@Model.JobUrgent.UrgentType" />
-                            <span class="help-inline"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">@L("UrgentDate")</label>
-                        <div class="col-sm-8">
-                            <input class="form-control date-picker inline w300 date-picker" type="text" id="UrgentDate" name="UrgentDate"   />
-                            <span class="help-inline"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">@L("UrgentLength")</label>
-                        <div class="col-sm-8">
-                            <input class="form-control inline w300  maxlength-handler " type="text" id="UrgentLength" name="UrgentLength" value="@Model.JobUrgent.UrgentLength" />
-                            <span class="help-inline"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">@L("isDelete")</label>
-                        <div class="col-sm-8">
-                            <label style="line-height:25px;"><input class="ace" type="checkbox" id="isDelete" name="isDelete"  value="true" @(Model.JobUrgent.isDelete ? "checked" : "") /><span class="lbl">是</span></label>
-                            <span class="help-inline"></span>
-                        </div>
-                    </div> 
-                </div>
-            </div>
+ <div class="row">
+
+     <div class="col-sm-6">
+         <div class="form-group">
+             <label class="col-sm-3 control-label">@L("Id")</label>
+             <div class="col-sm-8">
+                 <input class="form-control inline w300  maxlength-handler " type="text" id="Id" name="Id" value="@Model.JobUrgent.Id" />
+                 <span class="help-inline"></span>
+             </div>
+         </div>
+     </div>
+     <div class="col-sm-6">
+         <div class="form-group">
+             <label class="col-sm-3 control-label">@L("JobId")</label>
+             <div class="col-sm-8">
+                 <input class="form-control inline w300  maxlength-handler  required" type="text" id="JobId" name="JobId" value="@Model.JobUrgent.JobId" />
+                 <span class="help-inline"></span>
+             </div>
+         </div>
+     </div>
+     <div class="col-sm-6">
+         <div class="form-group">
+             <label class="col-sm-3 control-label">@L("Weight")</label>
+             <div class="col-sm-8">
+                 <input class="form-control inline w300  maxlength-handler " type="text" id="Weight" name="Weight" value="@Model.JobUrgent.Weight" />
+                 <span class="help-inline"></span>
+             </div>
+         </div>
+     </div>
+      
+     <div class="col-sm-6">
+         <div class="form-group">
+
+             <label for="UrgentTypeEdit" class="col-sm-3 control-label">@L("UrgentType")</label>
+             <div class="col-sm-8" style="min-height:53px">
+                 @Html.DropDownList("UrgentType", Model.UrgentTypes.Select(a => a.ToSelectListItem()), new
+            {
+                @class = "form-control selectpicker  ",
+                data_live_search = "true",
+                id = "UrgentTypeEdit",
+
+                 style = "text-align: center"
+            })
+             </div>
+         </div>
+     </div>
+     <div class="col-sm-6">
+         <div class="form-group">
+             <label class="col-sm-3 control-label">@L("UrgentDate")</label>
+             <div class="col-sm-8">
+                 <input class="form-control date-picker inline w300 date-picker" type="text" id="UrgentDate" name="UrgentDate" value="@Model.JobUrgent.UrgentDate.Value.ToString("yyyy-MM-dd")" disabled/>
+                 <span class="help-inline"></span>
+             </div>
+         </div>
+     </div>
+     <div class="col-sm-6">
+         <div class="form-group">
+             <label class="col-sm-3 control-label">@L("UrgentLength")</label>
+             <div class="col-sm-8">
+                 <input class="form-control inline w300  maxlength-handler " type="text" id="UrgentLength" name="UrgentLength" value="@Model.JobUrgent.UrgentLength"  disabled/>
+                 <span class="help-inline"></span>
+             </div>
+         </div>
+     </div>
+     <div class="col-sm-6">
+         <div class="form-group">
+             <label class="col-sm-3 control-label">@L("isDelete")</label>
+             <div class="col-sm-8">
+                 <label style="line-height:25px;"><input class="ace" type="checkbox" id="isDelete" name="isDelete" value="true" @(Model.JobUrgent.isDelete ? "checked" : "") /><span class="lbl">是</span></label>
+                 <span class="help-inline"></span>
+             </div>
+         </div>
+     </div>
+     <div class="col-sm-6"  >
+         <div class="form-group">
+             <label class="col-sm-3 control-label">状态</label>
+             <div class="col-sm-8">
+                 <input class="form-control inline w300  maxlength-handler " type="text" id="State" name="State" value="@Model.JobUrgent.State" />
+                 <span class="help-inline"></span>
+             </div>
+         </div>
+     </div>
+ </div>
     </form>
 </div>
 @Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

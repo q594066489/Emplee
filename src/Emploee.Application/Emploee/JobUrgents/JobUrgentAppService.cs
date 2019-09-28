@@ -106,13 +106,13 @@ namespace Emploee.Emploee.JobUrgents
         /// <summary>
         /// 通过Id获取职位加急信息进行编辑或修改 
         /// </summary>
-        public async Task<GetJobUrgentForEditOutput> GetJobUrgentForEditAsync(int? jobid, string JobName)
+        public async Task<GetJobUrgentForEditOutput> GetJobUrgentForEditAsync(int jobid, string JobName)
         {
             var output = new GetJobUrgentForEditOutput();
 
             JobUrgentEditDto jobUrgentEditDto;
             
-            if (jobid.HasValue )
+            if (jobid!=0 )
             {
                 //var entity = await _jobUrgentRepository.GetAsync(input.Id.Value);
                 var entity = await _jobUrgentRepository.FirstOrDefaultAsync(t => t.JobId == jobid);
@@ -121,6 +121,11 @@ namespace Emploee.Emploee.JobUrgents
             else
             {
                 jobUrgentEditDto = new JobUrgentEditDto();
+                jobUrgentEditDto.UrgentDate = DateTime.Now;
+                jobUrgentEditDto.UrgentLength = 30;
+                
+                jobUrgentEditDto.State = 1;
+                jobUrgentEditDto.isDelete = false;
             }
             jobUrgentEditDto.JobName = JobName;
             output.JobUrgent = jobUrgentEditDto;
@@ -173,7 +178,12 @@ namespace Emploee.Emploee.JobUrgents
             //TODO:新增前的逻辑判断，是否允许新增
 
             var entity = input.MapTo<JobUrgent>();
+            //entity.UrgentDate = DateTime.Now;
+            //entity.UrgentLength = 30;
 
+            //entity.State = 1;
+            //entity.isDelete = false;
+            entity.Weight = Convert.ToInt32(entity.UrgentType);
             entity = await _jobUrgentRepository.InsertAsync(entity);
             return entity.MapTo<JobUrgentEditDto>();
         }

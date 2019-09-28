@@ -49,12 +49,12 @@ namespace Emploee.Web.Areas.Mpa.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [AbpMvcAuthorize(JobUrgentAppPermissions.JobUrgent_CreateJobUrgent, JobUrgentAppPermissions.JobUrgent_EditJobUrgent)]
-        public async Task<PartialViewResult> CreateOrEditJobUrgentModal(int id, int? JobId,string JobName)
+        public async Task<PartialViewResult> CreateOrEditJobUrgentModal(int id,int JobId,string JobName)
         {
 
 
             var output = await _jobUrgentAppService.GetJobUrgentForEditAsync(JobId,JobName);
-            if(!JobId.HasValue)
+            if(JobId==0)
                 output.JobUrgent.JobId = id;
             var viewModel = new CreateOrEditJobUrgentModalViewModel(output);
 

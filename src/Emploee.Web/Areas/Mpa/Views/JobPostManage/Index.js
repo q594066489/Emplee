@@ -13,9 +13,9 @@
             dataType: "Json",
             success: function (data) {
 
-                console.log(data);
+                 
                 datas = getJsonTree(data, 0);
-                console.log(datas);
+                 
             }
         })
     }
@@ -272,7 +272,8 @@
                     },
                     events: {
                         'click .add': function (e, value, row, index) {
-                            _createOrEditUrgentModal.open({ size: '1800', id: row.id, jobid: row.jobid, jobname: row.jobName });
+                            console.log(row);
+                            _createOrEditUrgentModal.open({ id: row.id, JobId: row.jobId, JobName: row.jobName, size: '1800' });
                         },
                         'click .edit': function (e, value, row, index) {
                             _createOrEditModal.open({ size: '1800', id: row.id });
