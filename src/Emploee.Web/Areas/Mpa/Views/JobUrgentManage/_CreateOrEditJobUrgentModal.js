@@ -12,8 +12,10 @@
 
         this.init = function (modalManager) {
             _modalManager = modalManager;
-			            _$jobUrgentInformationForm = _modalManager.getModal().find("form[name=jobUrgentInformationsForm]");
- 
+            _$jobUrgentInformationForm = _modalManager.getModal().find("form[name=jobUrgentInformationsForm]");
+            if ($('#Id').val() != null && $('#State').val()==2) {
+                $('#UrgentTypeEdit').attr('disabled', 'disabled');
+            }
 			 
         }
         
@@ -36,7 +38,7 @@
                 //关闭窗体
                 _modalManager.close();
                 //信息保存成功后调用事件，刷新列表
-                abp.event.trigger('app.createOrEditJobUrgentModalSaved');
+                abp.event.trigger('app.createOrEditJobPostModalSaved');
             }).always(function () {
                 _modalManager.setBusy(false);
             });

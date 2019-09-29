@@ -16,25 +16,34 @@
  <input type="hidden" name="Id" value="@Model.JobUrgent.Id" />
  <div class="row">
 
-     <div class="col-sm-6">
+     <div class="col-sm-6 hidden">
          <div class="form-group">
              <label class="col-sm-3 control-label">@L("Id")</label>
              <div class="col-sm-8">
-                 <input class="form-control inline w300  maxlength-handler " type="text" id="Id" name="Id" value="@Model.JobUrgent.Id" />
+                 <input class="form-control inline w300  maxlength-handler " type="text" id="Id" name="Id" value="@Model.JobUrgent.Id" @(Model.JobUrgent.Id != null ? "disabled" : "") />
                  <span class="help-inline"></span>
              </div>
          </div>
      </div>
-     <div class="col-sm-6">
+     <div class="col-sm-6 hidden">
          <div class="form-group">
              <label class="col-sm-3 control-label">@L("JobId")</label>
              <div class="col-sm-8">
                  <input class="form-control inline w300  maxlength-handler  required" type="text" id="JobId" name="JobId" value="@Model.JobUrgent.JobId" />
-                 <span class="help-inline"></span>
+
              </div>
          </div>
      </div>
-     <div class="col-sm-6">
+     <div class="col-sm-6  ">
+         <div class="form-group">
+             <label class="col-sm-3 control-label">职位</label>
+             <div class="col-sm-8">
+                 <input class="form-control inline w300  maxlength-handler   " type="text" id="JobId" name="JobId" value="@Model.JobUrgent.JobName" disabled />
+
+             </div>
+         </div>
+     </div>
+     <div class="col-sm-6 hidden">
          <div class="form-group">
              <label class="col-sm-3 control-label">@L("Weight")</label>
              <div class="col-sm-8">
@@ -43,7 +52,7 @@
              </div>
          </div>
      </div>
-      
+
      <div class="col-sm-6">
          <div class="form-group">
 
@@ -55,44 +64,71 @@
                 data_live_search = "true",
                 id = "UrgentTypeEdit",
 
-                 style = "text-align: center"
+                 style = "text-align: center "
+
+
             })
              </div>
          </div>
      </div>
-     <div class="col-sm-6">
+     <div class="col-sm-6 hidden">
          <div class="form-group">
              <label class="col-sm-3 control-label">@L("UrgentDate")</label>
              <div class="col-sm-8">
-                 <input class="form-control date-picker inline w300 date-picker" type="text" id="UrgentDate" name="UrgentDate" value="@Model.JobUrgent.UrgentDate.Value.ToString("yyyy-MM-dd")" disabled/>
+                 <input class="form-control date-picker inline w300 date-picker" type="text" id="UrgentDate" name="UrgentDate" value="@Model.JobUrgent.UrgentDate.Value.ToString("yyyy-MM-dd")" disabled />
                  <span class="help-inline"></span>
              </div>
          </div>
      </div>
-     <div class="col-sm-6">
+     <div class="col-sm-6 hidden">
          <div class="form-group">
              <label class="col-sm-3 control-label">@L("UrgentLength")</label>
              <div class="col-sm-8">
-                 <input class="form-control inline w300  maxlength-handler " type="text" id="UrgentLength" name="UrgentLength" value="@Model.JobUrgent.UrgentLength"  disabled/>
+                 <input class="form-control inline w300  maxlength-handler " type="text" id="UrgentLength" name="UrgentLength" value="@Model.JobUrgent.UrgentLength" disabled />
                  <span class="help-inline"></span>
              </div>
          </div>
      </div>
-     <div class="col-sm-6">
-         <div class="form-group">
-             <label class="col-sm-3 control-label">@L("isDelete")</label>
+     <div class="col-sm-12">
+         <div class="form-group" style="min-height:35px">
+             <label class="col-sm-3 control-label">加急：</label>
              <div class="col-sm-8">
-                 <label style="line-height:25px;"><input class="ace" type="checkbox" id="isDelete" name="isDelete" value="true" @(Model.JobUrgent.isDelete ? "checked" : "") /><span class="lbl">是</span></label>
-                 <span class="help-inline"></span>
+
+                 <div class="radio icheck-belizehole radio-inline">
+                     <input type="radio" id="belizehole3" value="1" name="isDelete" @(!Model.JobUrgent.isDelete ? "checked" : "") @( Model.JobUrgent.State == 1 ? "disabled" : "") />
+                     <label for="belizehole3">开启</label>
+                 </div>
+                 <div class="radio icheck-belizehole radio-inline">
+                     <input type="radio" id="belizehole4" value="2" name="isDelete" @(Model.JobUrgent.isDelete ? "checked" : "") @( Model.JobUrgent.State == 1 ? "disabled" : "") />
+                     <label for="belizehole4">关闭</label>
+                 </div>
              </div>
          </div>
      </div>
-     <div class="col-sm-6"  >
-         <div class="form-group">
-             <label class="col-sm-3 control-label">状态</label>
+     <div class="col-sm-12" @( Model.JobUrgent.Id == null ? "hidden" : "")>
+         <div class="form-group" style="min-height:35px">
+             <label class="col-sm-3 control-label">职位状态：</label>
              <div class="col-sm-8">
-                 <input class="form-control inline w300  maxlength-handler " type="text" id="State" name="State" value="@Model.JobUrgent.State" />
-                 <span class="help-inline"></span>
+
+                 <div class="radio icheck-belizehole radio-inline">
+                     <input type="radio" id="belizehole1" value="1" name="State" @(Model.JobUrgent.State == 1 ? "checked" : "") disabled />
+                     <label for="belizehole1">待审批</label>
+                 </div>
+                 <div class="radio icheck-belizehole radio-inline">
+                     <input type="radio" id="belizehole2" value="2" name="State" @(Model.JobUrgent.State == 2 ? "checked" : "") disabled />
+                     <label for="belizehole2">已完成</label>
+                 </div>
+             </div>
+
+         </div>
+     </div>
+     <div class="col-sm-12">
+         <div class="panel panel-default">
+             <div class="panel-heading">
+                 <h3 class="panel-title">Panel title</h3>
+             </div>
+             <div class="panel-body">
+                 Panel content
              </div>
          </div>
      </div>

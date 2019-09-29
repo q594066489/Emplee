@@ -63,15 +63,7 @@
 
     var _$jobPostsTable = $('#JobPostsTable');
     var _jobPostService = abp.services.app.jobPost;
-
-    var _permissions = {
-        create: abp.auth.hasPermission("Pages.JobPost.CreateJobPost"),
-        edit: abp.auth.hasPermission("Pages.JobPost.EditJobPost"),
-        'delete': abp.auth.hasPermission("Pages.JobPost.DeleteJobPost")
-
-    };
-
-
+    
     var _createOrEditModal = new app.ModalManager({
         viewUrl: abp.appPath + 'Mpa/JobPostManage/CreateOrEditJobPostModal',
         scriptUrl: abp.appPath + 'Areas/Mpa/Views/JobPostManage/_CreateOrEditJobPostModal.js',
@@ -286,13 +278,6 @@
             ]
 
     });
-
-    //打开添加窗口SPA
-    $('#CreateNewJobPostButton').click(function () {
-        //可选生成的对话框大小{size:'lg'}or{size:'sm'}
-        //需要到_createContainer方法中添加,_args.size
-        _createOrEditModal.open({ size: '1800' });
-    });
     //刷新表格信息
     $("#ButtonReload").click(function () {
         getJobPosts();
@@ -324,17 +309,6 @@
             }
         );
     }
-
-
-
-    //导出为excel文档
-    $('#ExportJobPostsToExcelButton').click(function () {
-        _jobPostService
-            .getJobPostsToExcel({})
-            .done(function (result) {
-                app.downloadTempFile(result);
-            });
-    });
     //搜索
     $('#GetJobPostsButton').click(function (e) {
         e.preventDefault();

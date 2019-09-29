@@ -127,16 +127,7 @@
                 <div class="form-group">
                     <label class="col-sm-4 control-label">职位状态</label>
                     <div class="col-sm-8">
-                        @*<label style="line-height:25px;"><input class="ace" type="checkbox" id="isDelete" name="isDelete" value="true" @(Model.JobPost.isDelete ? "checked" : "") /><span class="lbl">是</span></label>
-        <span class="help-inline"></span>*@
-                        @*<div class="radio radio-info radio-inline">
-                            <input type="radio" id="inlineRadio1" value="true" name="isDelete" @(Model.JobPost.isDelete ? "checked" : "")>
-                            <label for="inlineRadio1"> 招聘中 </label>
-                        </div>
-                        <div class="radio radio-inline">
-                            <input type="radio" id="inlineRadio2" value="false" name="isDelete" @(Model.JobPost.isDelete ? "checked" : "")>
-                            <label for="inlineRadio2"> 停止招聘 </label>
-                        </div>*@
+                        
                         <div class="radio icheck-belizehole radio-inline">
                             <input type="radio" id="belizehole1" value="false" name="isDelete" @(!Model.JobPost.isDelete ? "checked" : "")/>
                             <label for="belizehole1">招聘</label>
