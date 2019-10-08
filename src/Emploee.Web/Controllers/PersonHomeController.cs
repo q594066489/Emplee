@@ -35,12 +35,12 @@ namespace Emploee.Web.Controllers
 
 
             var viewModel = new CreateOrEditJobPostModalViewModel(output);
-            if(viewModel.JobPost.SkillRequire!=null)
-                viewModel.JobPost.SkillRequire= viewModel.JobPost.SkillRequire.Replace("\r\n", "\"<br />\"");
-            if (viewModel.JobPost.JobDetail != null)
-                viewModel.JobPost.JobDetail=viewModel.JobPost.JobDetail.Replace("\r\n", "\"<br />\"");
-            if (viewModel.JobPost.Memo != null)
-                viewModel.JobPost.Memo=viewModel.JobPost.Memo.Replace("\r\n", "<br />");
+            //if(viewModel.JobPost.SkillRequire!=null)
+            //    viewModel.JobPost.SkillRequire= viewModel.JobPost.SkillRequire.Replace("\r\n", "<br />");
+            //if (viewModel.JobPost.JobDetail != null)
+            //    viewModel.JobPost.JobDetail=viewModel.JobPost.JobDetail.Replace("\r\n", "<br />");
+            //if (viewModel.JobPost.Memo != null)
+            //    viewModel.JobPost.Memo=viewModel.JobPost.Memo.Replace("\r\n", "<br />");
             return View("Introduce", viewModel);
 
 
