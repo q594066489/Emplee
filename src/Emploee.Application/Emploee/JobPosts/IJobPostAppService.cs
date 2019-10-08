@@ -91,7 +91,7 @@ namespace Emploee.Emploee.JobPosts
 
 
         Task<PagedResultDto<JobPostListDto>> GetPositionForHome(GetJobPostInput input);
-
+        Task<GetJobPostForEditOutput> GetJobIntroduce(int input);
 
     }
 }

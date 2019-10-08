@@ -1,0 +1,37 @@
+{
+  "id": "1446907",
+  "name": "no name",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1353480",
+      "name": "地址",
+      "font_class": "dizhi",
+      "unicode": "e7ab",
+      "unicode_decimal": 59307
+    },
+    {
+      "icon_id": "1953444",
+      "name": "商城-地址",
+      "font_class": "scdizhi",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "1968169",
+      "name": "41工作年限-01",
+      "font_class": "gongzuonianxian-",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "2883443",
+      "name": "学历",
+      "font_class": "xueli",
+      "unicode": "e735",
+      "unicode_decimal": 59189
+    }
+  ]
+}

@@ -66,13 +66,13 @@ namespace Emploee.Emploee.JobPosts
         /// 技能要求
         /// </summary>
         /// 
-         
+        [MaxLength(4000)]
         public string SkillRequire { get; set; }
         /// <summary>
         /// 职位详情
         /// </summary>
         /// 
-
+        [MaxLength(4000)]
         public string JobDetail { get; set; }
         /// <summary>
         /// 行业选择
@@ -96,6 +96,11 @@ namespace Emploee.Emploee.JobPosts
         /// </summary>
         public bool isDelete { get; set; }
 
+        /// <summary>
+        /// 待遇说明
+        /// </summary>
+        [MaxLength(4000)]
+        public string Memo { get; set; }
 
         public long? CreatorUserId { get; set; }
 

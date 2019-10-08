@@ -1,0 +1,75 @@
+﻿
+@using Emploee.Web.Navigation
+
+@using Abp.Extensions
+ 
+@using Emploee.Web.Areas.Mpa.Models.JobPostManage
+
+@model CreateOrEditJobPostModalViewModel
+@{
+    ViewBag.CurrentPageName = PageNames.Frontend.Home;
+}
+@section Styles
+{
+
+    <link href="~/libs/aliIcon/iconfont.css" rel="stylesheet" />
+    <link href="~/Views/PersonHome/Introduce.css" rel="stylesheet" />
+
+}
+@section Scripts
+{
+
+
+    <script src="~/Views/PersonHome/Introduce.js"></script>
+}
+
+<div>
+
+
+
+</div>
+<div>
+    <div class="margin-bottom-40 min-hight500">
+        <div>
+            <div class="top mytop">
+                <div class="myleft">
+                    <p class="job">
+                        @Model.JobPost.JobName
+
+                    </p>
+                </div>
+                <div class="myright">
+                    <i class="iconfont icon-xxx"></i>@Model.JobPost.SalaryMin- @Model.JobPost.SalaryMax K
+
+                </div>
+                <div>
+                    <span class="iconfont  icon-dizhi"></span>@Model.JobPost.JobAddress
+                    <span class="iconfont  icon-gongzuonianxian-"></span>@Model.JobPost.Experience
+                    <span class="iconfont  icon-xueli"></span>@Model.JobPost.Education
+                </div>
+            </div>
+            <hr class="hr0" />
+            <div class="bottom mybottom">
+                
+                <div>
+                    <div>
+                        职位详情
+                    </div>
+                    <div>
+                        
+                        技能要求（岗位职责）:
+                        @Model.JobPost.SkillRequire
+                    </div>
+                    <div>
+                        职位详情（岗位要求）:
+                        @Model.JobPost.JobDetail
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>

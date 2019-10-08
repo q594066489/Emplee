@@ -76,10 +76,10 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     @*<label class="col-sm-4 control-label">@L("Experience")</label>
-                    <div class="col-sm-8">
-                        <input class="form-control inline w300  maxlength-handler " type="text" id="Experience" name="Experience" maxlength="200" value="@Model.JobPost.Experience" />
-                        <span class="help-inline"></span>
-                    </div>*@
+                <div class="col-sm-8">
+                    <input class="form-control inline w300  maxlength-handler " type="text" id="Experience" name="Experience" maxlength="200" value="@Model.JobPost.Experience" />
+                    <span class="help-inline"></span>
+                </div>*@
                     <label for="ExperienceEdit" class="col-sm-4 control-label">@L("Experience")</label>
                     <div class="col-sm-8" style="min-height:53px">
                         @Html.DropDownList("Experience", Model.Experiences.Select(a => a.ToSelectListItem()), new
@@ -102,7 +102,7 @@
                     </div>
                 </div>
             </div>
-             
+
             <div class="col-sm-6">
                 <div class="form-group">
                     <label class="col-sm-4 control-label">@L("JobType")</label>
@@ -127,35 +127,35 @@
                 <div class="form-group">
                     <label class="col-sm-4 control-label">职位状态</label>
                     <div class="col-sm-8">
-                        
+
                         <div class="radio icheck-belizehole radio-inline">
-                            <input type="radio" id="belizehole1" value="false" name="isDelete" @(!Model.JobPost.isDelete ? "checked" : "")/>
+                            <input type="radio" id="belizehole1" value="false" name="isDelete" @(Model.JobPost.isDelete ? "" : "checked") />
                             <label for="belizehole1">招聘</label>
                         </div>
                         <div class="radio icheck-belizehole radio-inline">
-                            <input type="radio" checked id="belizehole2" value="true" name="isDelete" @(Model.JobPost.isDelete ? "checked" : "")/>
+                            <input type="radio" checked id="belizehole2" value="true" name="isDelete" @(Model.JobPost.isDelete ? "" : "checked") />
                             <label for="belizehole2">停招</label>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
-            
-             
-                <div class="col-sm-6 hidden">
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">@L("PublishDate")</label>
-                        <div class="col-sm-8">
-                            <input class="form-control date-picker inline w300 date-picker" type="text" id="PublishDate" name="PublishDate" value="@Model.JobPost.PublishDate.ToString("yyyy-MM-dd") " />
-                            <span class="help-inline"></span>
-                        </div>
+
+
+            <div class="col-sm-6 hidden">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">@L("PublishDate")</label>
+                    <div class="col-sm-8">
+                        <input class="form-control date-picker inline w300 date-picker" type="text" id="PublishDate" name="PublishDate" value="@Model.JobPost.PublishDate.ToString("yyyy-MM-dd") " />
+                        <span class="help-inline"></span>
                     </div>
                 </div>
-             
+            </div>
+
             <div class="col-sm-12">
                 <div class="form-group">
                     <label class="col-sm-2 colspan-xs-2 control-label">@L("SkillRequire")</label>
-                    <div class="col-sm-10 colspan-xs-10 clearfix"  style="padding-left: 10px;"> 
+                    <div class="col-sm-10 colspan-xs-10 clearfix" style="padding-left: 10px;">
 
                         <textarea class="form-control input-xxlarge " maxlength="500" rows="4" id="SkillRequire" name="SkillRequire">@Model.JobPost.SkillRequire</textarea>
                     </div>
@@ -165,9 +165,18 @@
             <div class="col-sm-12" style="margin-top:15px">
                 <div class="form-group">
                     <label class="col-sm-2 colspan-xs-2 control-label">@L("JobDetail")</label>
-                    <div class="col-sm-10 colspan-xs-10 clearfix"  style="padding-left: 10px;">
+                    <div class="col-sm-10 colspan-xs-10 clearfix" style="padding-left: 10px;">
 
-                        <textarea class="form-control input-xxlarge"  maxlength="500" rows="4" id="JobDetail" name="JobDetail">@Model.JobPost.JobDetail</textarea>
+                        <textarea class="form-control input-xxlarge" maxlength="500" rows="4" id="JobDetail" name="JobDetail">@Model.JobPost.JobDetail</textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12" style="margin-top:15px">
+                <div class="form-group">
+                    <label class="col-sm-2 colspan-xs-2 control-label">待遇</label>
+                    <div class="col-sm-10 colspan-xs-10 clearfix" style="padding-left: 10px;">
+
+                        <textarea class="form-control input-xxlarge" maxlength="500" rows="4" id="Memo" name="Memo">@Model.JobPost.Memo</textarea>
                     </div>
                 </div>
             </div>

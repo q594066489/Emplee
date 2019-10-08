@@ -121,5 +121,7 @@ namespace Emploee.Emploee.JobPosts.Dtos
         [DisplayName("是否有效")]
         public   bool  isDelete { get; set; }
 
+        public string Memo { get; set; }
+
     }
 }

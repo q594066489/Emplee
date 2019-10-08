@@ -262,7 +262,7 @@ namespace Emploee.Emploee.JobPosts
 
             var entity = await _jobPostRepository.GetAsync(input.Id.Value);
             input.MapTo(entity);
-
+            
             await _jobPostRepository.UpdateAsync(entity);
         }
 
@@ -331,7 +331,28 @@ namespace Emploee.Emploee.JobPosts
 
 
         }
+        /// <summary>
+        /// 通过Id获取职位发布信息进行编辑或修改 
+        /// </summary>
+        /// 
+        [AbpAllowAnonymous]
+        public async Task<GetJobPostForEditOutput> GetJobIntroduce(int input)
+        {
+            var output = new GetJobPostForEditOutput();
 
+            JobPostEditDto jobPostEditDto;
+
+             
+                var entity = await _jobPostRepository.GetAsync(input);
+                jobPostEditDto = entity.MapTo<JobPostEditDto>();
+
+             
+             
+
+            output.JobPost = jobPostEditDto;
+             
+            return output;
+        }
 
 
 

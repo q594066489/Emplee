@@ -558,6 +558,10 @@
     <Compile Include="Migrations\201909260855371_updateJobUrgent-addstate.Designer.cs">
       <DependentUpon>201909260855371_updateJobUrgent-addstate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910080615277_update_Memo.cs" />
+    <Compile Include="Migrations\201910080615277_update_Memo.Designer.cs">
+      <DependentUpon>201910080615277_update_Memo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="EmploeeDataModule.cs" />
     <Compile Include="Migrations\Seed\Host\DefaultEditionCreator.cs" />
@@ -820,6 +824,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909260855371_updateJobUrgent-addstate.resx">
       <DependentUpon>201909260855371_updateJobUrgent-addstate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910080615277_update_Memo.resx">
+      <DependentUpon>201910080615277_update_Memo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

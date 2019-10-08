@@ -108,5 +108,6 @@ namespace Emploee.Emploee.JobPosts.Dtos
         public int Weight { get; set; }
         public int state { get; set; }
         public string urgentType { get; set; }
+        public string Memo { get; set; }
     }
 }

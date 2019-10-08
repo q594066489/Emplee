@@ -850,6 +850,10 @@
     <Content Include="Content\fonts-sourcesans-pro.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="libs\aliIcon\demo.css" />
+    <Content Include="libs\aliIcon\demo_index.html" />
+    <Content Include="libs\aliIcon\iconfont.css" />
+    <Content Include="libs\aliIcon\iconfont.js" />
     <Content Include="libs\angular-bootstrap-switch\angular-bootstrap-switch.js" />
     <Content Include="libs\angular-bootstrap-switch\angular-bootstrap-switch.min.js" />
     <Content Include="libs\angular-daterangepicker\angular-daterangepicker.js" />
@@ -3953,6 +3957,12 @@
     <Content Include="libs\swiper-Swiper4\src\swiper.scss" />
     <Content Include="Areas\Mpa\Views\DictionaryManage\Index.cshtml" />
     <Content Include="Areas\Mpa\Views\DictionaryManage\_CreateOrEditDictionaryModal.cshtml" />
+    <Content Include="libs\aliIcon\iconfont.eot" />
+    <Content Include="libs\aliIcon\iconfont.json" />
+    <Content Include="libs\aliIcon\iconfont.svg" />
+    <Content Include="libs\aliIcon\iconfont.ttf" />
+    <Content Include="libs\aliIcon\iconfont.woff" />
+    <Content Include="libs\aliIcon\iconfont.woff2" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -4015,6 +4025,8 @@
     <Content Include="Views\Account\Login.js" />
     <Content Include="Views\Account\_Layout-rtl.css" />
     <Content Include="Views\Error\_Layout.css" />
+    <Content Include="Views\PersonHome\Introduce.css" />
+    <Content Include="Views\PersonHome\Introduce.js" />
     <Content Include="Views\PersonHome\index.css" />
     <Content Include="Views\PersonHome\index.js" />
     <Content Include="Views\PersonInfoManage\Index.js" />
@@ -4373,6 +4385,7 @@
     <Content Include="Views\PersonInfoManage\Index.cshtml" />
     <Content Include="Views\PersonInfoManage\_ImportPersonManages.cshtml" />
     <Content Include="Views\PersonHome\index.cshtml" />
+    <Content Include="Views\PersonHome\Introduce.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
