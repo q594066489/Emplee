@@ -33,10 +33,11 @@ namespace Emploee.Emploee.JobPersons.Dtos
 	    /// 模糊查询参数
 		/// </summary>
 		public string FilterText { get; set; }
-
-		/// <summary>
-	    /// 用于排序的默认值
-		/// </summary>
+        public int? CompanyId { get; set; }
+        public int? JobId { get; set; }
+        /// <summary>
+        /// 用于排序的默认值
+        /// </summary>
         public void Normalize()
         {
             if (string.IsNullOrEmpty(Sorting))

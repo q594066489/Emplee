@@ -2,7 +2,7 @@
 @using Emploee.Web.Navigation
 
 @using Abp.Extensions
- 
+
 @using Emploee.Web.Areas.Mpa.Models.JobPostManage
 
 @model CreateOrEditJobPostModalViewModel
@@ -11,7 +11,7 @@
 }
 @section Styles
 {
-
+    <link href="~/libs/layui/css/layui.css" rel="stylesheet" />
     <link href="~/libs/aliIcon/iconfont.css" rel="stylesheet" />
     <link href="~/Views/PersonHome/Introduce.css" rel="stylesheet" />
 
@@ -19,59 +19,106 @@
 @section Scripts
 {
 
-
-    <script src="~/Views/PersonHome/Introduce.js"></script>
+    <script src="~/libs/layui/layui.js"></script>
+    <script src="~/Views/PersonHome/index.js"></script>
+    @*<script src="~/Views/PersonHome/Introduce.js"></script>*@
 }
 
+
 <div>
+    <div class="margin-bottom-40 JobHigh">
+        <div class=" row col-md-12 col-lg-12 col-sm-12 col-xs-12 returnBtn">
 
+            
+            <a href="javascript:history.back(-1)" class="  col-xs-4  " id="returnPage"><i class="glyphicon glyphicon-chevron-left"></i>返回</a>
+        </div>
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+            <div class="row form-group">
 
+                <div class="col-sm-4 JobName col-xs-4">
+                    <strong>@Model.JobPost.JobName</strong>
 
-</div>
-<div>
-    <div class="margin-bottom-40 min-hight500">
-        <div>
-            <div class="top mytop">
-                <div class="myleft">
-                    <p class="job">
-                        @Model.JobPost.JobName
-
-                    </p>
                 </div>
-                <div class="myright">
+                <div class="col-sm-2 col-sm-offset-6 Salary  col-xs-4  col-xs-offset-4">
                     <i class="iconfont icon-xxx"></i>@Model.JobPost.SalaryMin- @Model.JobPost.SalaryMax K
-
-                </div>
-                <div>
-                    <span class="iconfont  icon-dizhi"></span>@Model.JobPost.JobAddress
-                    <span class="iconfont  icon-gongzuonianxian-"></span>@Model.JobPost.Experience
-                    <span class="iconfont  icon-xueli"></span>@Model.JobPost.Education
                 </div>
             </div>
-            <hr class="hr0" />
-            <div class="bottom mybottom">
-                
-                <div>
-                    <div>
-                        职位详情
-                    </div>
-                    <div  >
-                        技能要求（岗位职责）:
-                        <div style="white-space:pre">@Model.JobPost.SkillRequire </div>
-                        
-                    </div>
-                    <div>
-                        职位详情（岗位要求）:
-                        <div style="white-space:pre">@Model.JobPost.JobDetail </div>
 
-                         
-                    </div>
-                     
+
+            <div class="row form-group">
+
+                <div class="col-sm-6 col-xs-12">
+                    <span class="iconfont  icon-dizhi "></span>@Model.JobPost.JobAddress
+                    <span class="iconfont  icon-gongzuonianxian-  "></span>@Model.JobPost.Experience
+                    <span class="iconfont  icon-xueli  "></span>@Model.JobPost.Education
                 </div>
+            </div>
+            <div class="row form-group">
 
+                <hr class="hr0" />
+                <div class="col-sm-4 JobName col-xs-4"> <strong>职位详情</strong></div>
+                <div class="col-sm-1 JobName col-xs-2 pull-right">
+                    <button class="btn " id="factory">感兴趣</button>
+                </div>
             </div>
 
+            <div class="row form-group col-md-12 col-lg-12 col-sm-12 col-xs-12">
 
+                <div class="title JobTitle">
+                    <strong> 技能要求（岗位职责）:</strong>
+                </div>
+                <div class="JobMemo">@Model.JobPost.SkillRequire </div>
+
+
+            </div>
+            <div class="row form-group col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <div class="title JobTitle">
+                    <strong> 职位详情（岗位要求）:</strong>
+                </div>
+                <div class="JobMemo">@Model.JobPost.JobDetail </div>
+
+            </div>
+            <div class="row form-group col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <div class="title JobTitle">
+                    <strong> 待遇:</strong>
+                </div>
+                <div class="JobMemo"> @Model.JobPost.Memo </div>
+
+            </div>
+            <div class="row form-group hidden  ">
+
+                <input id="CompanyId" value="@Model.JobPost.CompanyId" />
+                <input id="JobId" value="@Model.JobPost.Id" />
+
+            </div>
+            <div class="row ">
+                @*公司内容*@
+                <div class="layui-collapse  col-md-12 col-lg-12 col-sm-12 col-xs-12" lay-accordion>
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">公司介绍——@Model.Company.CompanyName </h2>
+                        <div class="layui-colla-content  ">
+                            <div>
+                                <strong>行业类型：</strong> @Model.Company.Classify
+                            </div>
+                            <div>
+                                <strong>公司规模：</strong> @Model.Company.CompanyScale
+                            </div>
+                            <div>
+                                <strong>融资阶段：</strong> @Model.Company.Finanicing
+                            </div>
+                            <div>
+                                <strong>公司地址：</strong> @Model.Company.CompanyAddress
+                            </div>
+                            <div>
+                                <strong>公司介绍：</strong> @Model.Company.CompanyIntroduce
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
         </div>
 
     </div>

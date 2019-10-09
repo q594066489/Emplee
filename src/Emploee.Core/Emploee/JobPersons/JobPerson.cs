@@ -27,7 +27,7 @@ namespace Emploee.Emploee.JobPersons
         /// <summary>
         /// 投递时间
         /// </summary>
-        public int PostDate { get; set; }
+        public DateTime PostDate { get; set; }
 
     }
 }

@@ -3,6 +3,7 @@ layui.use(['jquery', 'flow'], function () {  //如果只加载一个模块，可
     var $ = layui.$ //重点处
     var flow = layui.flow;
     var _jobPostService = abp.services.app.jobPost;  
+    var _jobPersonService = abp.services.app.jobPerson;
     var thispage = 1;
     flow.load({
         elem: '#flowContain' //指定列表容器
@@ -58,7 +59,23 @@ layui.use(['jquery', 'flow'], function () {  //如果只加载一个模块，可
         });
         //thispage = 1;
     })
+    $('#factory').click(function () {
 
+        _jobPersonService.createFactory({
+            companyId: $('#CompanyId').val(),
+            jobId: $('#JobId').val()
+
+
+        }).done(function (res) {
+            if (res == 0) {
+                abp.message.warn('您已经提交过简历', '重复提交');
+            }
+            else {
+                abp.notify.success("投递成功");
+            }
+            console.log(res);
+        });
+    })
 });
 
 

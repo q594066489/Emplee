@@ -562,6 +562,10 @@
     <Compile Include="Migrations\201910080615277_update_Memo.Designer.cs">
       <DependentUpon>201910080615277_update_Memo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910090909026_Update_PostDate.cs" />
+    <Compile Include="Migrations\201910090909026_Update_PostDate.Designer.cs">
+      <DependentUpon>201910090909026_Update_PostDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="EmploeeDataModule.cs" />
     <Compile Include="Migrations\Seed\Host\DefaultEditionCreator.cs" />
@@ -827,6 +831,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910080615277_update_Memo.resx">
       <DependentUpon>201910080615277_update_Memo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910090909026_Update_PostDate.resx">
+      <DependentUpon>201910090909026_Update_PostDate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

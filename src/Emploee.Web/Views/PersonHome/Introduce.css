@@ -3,8 +3,8 @@
     clear: both;
     height: 1px;
     border: none;
-    border-top: 1px dashed #B8B8B8;
-    margin-top: 20px;
+    border-top: 1px solid #B8B8B8;
+    margin-top: 10px;
     margin-bottom: 0px;
 }
 
@@ -21,213 +21,76 @@ a {
 .demobtn {
     float: right;
 }
-
+.returnBtn a {
+    color: #808080;
+}
+#factory {
+    background-color: #90ddff;
+    border-radius: 4px !important;
+    -webkit-border-radius: 4px !important;
+}
+ 
 @media (max-width: 768px) {
-    .swiper-width {
-        width: 100%;
-        height: 100px;
-        margin-top:40px;
+    .JobHigh {
+        min-height: 500px;
+        padding-left:0px;
     }
 
-    .swiper-slide a {
-        width: 100%;
-        height: 100px;
+    .JobName {
+        font-size: 16px;
     }
 
-        .swiper-slide a img {
-            width: 100%;
-            height: 100%;
-        }
-
-    .mytop {
-        /* border: 1px solid red ; */
-        min-height: 40px;
+    .Salary {
+        font-size: 16px;
+        color: green;
     }
 
-    .mybottom {
-        /* border: 1px solid black ; */
-        min-height: 40px;
+    .JobTitle {
+        font-size: 18px;
+        /*color:#2e62de;*/
+        color:#808080;
     }
 
-    .myleft {
-        float: left;
-        font-size: 8px;
-        padding-left:  10px;
-        /*min-height: 30px;*/
+    .JobMemo {
+        /*white-space: pre;*/
+        line-height: 25px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 16px;
+         
+        width: inherit;
+        display: block;
+        white-space: pre-wrap;
     }
-
-    .myright {
-        /* border: 1px solid black ; */
-        float: right;
-        min-height: 30px;
-        font-size: 8px;
-        padding-right:  5px;
-        margin-top:20px;
-    }
-
-    .bottomleft {
-        float: left;
-        font-size: 8px;
-        padding-left: 5px;
-        padding-top: 10px;
-        /* height:20px;   */
-        margin-left: 0px;
-        clear: both;
-    }
-
-    .bottomright {
-        float: right;
-        font-size: 8px;
-        padding: 5px 20px 0px 0px;
-    }
-
-    .job {
-        padding-top: 0px;
-    }
-
-    .company {
-        padding-top: 10px;
-    }
-
-    .weight {
-        border-radius: 5px;
-    }
-
-    .bottomleft ul {
-        float: left;
-        /* line-height: 60px; */
-        padding: 0px 3px;
-    }
-
-        .bottomleft ul li {
-            float: left;
-            font: 8px;
-            list-style: none;
-        }
-
-            .bottomleft ul li + li:before {
-                padding-left: 3px;
-                padding-right: 3px;
-                content: "|";
-            }
-
-    .bottomright ul {
-        /* float: right; */
-        /* line-height: 60px; */
-        padding: 0px 5px;
-    }
-
-        .bottomright ul li {
-            float: right;
-            font: 8px;
-            list-style: none;
-        }
-
-            .bottomright ul li + li::after {
-                padding-left: 3px;
-                padding-right: 3px;
-                content: "|";
-            }
 }
 
 @media (min-width: 768px) {
-    .swiper-width {
-        width: 60%;
-        height: 200px;
+    .returnBtn {
+        font-size: 20px;
+        display:none;
     }
-
-    .swiper-slide a {
-        width: 100%;
-        height: 200px;
+    .JobHigh {
+        min-height: 730px;
+        margin-bottom: 10px;
     }
-
-        .swiper-slide a img {
-            width: 100%;
-            height: 100%;
-        }
-
-    .mytop {
-        /* border: 1px solid red ; */
-        min-height: 40px;
-    }
-
-    .mybottom {
-        /* border: 1px solid black ; */
-        min-height: 40px;
-    }
-
-    .myleft {
-        float: left;
-        font-size: 14px;
-        padding: 0px 5px;
-        min-height: 30px;
-    }
-
-    .myright {
-        /* border: 1px solid black ; */
-        float: right;
-        min-height: 30px;
-        font-size: 14px;
-        padding: 30px 5px 0px 0px;
+    .JobName {
+        font-size: x-large;
          
     }
-
-    .bottomleft {
-        float: left;
-        font-size: 14px;
-        padding-left: 5px;
-        padding-top: 10px;
-        /* height:20px;   */
-        margin-left: 0px;
-        clear: both;
+    .Salary {
+        font-size: x-large;
+        color:green;
     }
-
-    .bottomright {
-        float: right;
-        font-size: 14px;
-        padding: 0px 30px 0px 5px;
-        /* padding-top:  10px; */
+    .JobTitle{
+        font-size:18px;
     }
-
-
-
-    .weight {
-        border-radius: 5px;
+    .JobMemo {
+        white-space: pre-wrap;
+        line-height: 25px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 16px;
+        width: inherit;
+        display: block;
     }
-
-    .bottomleft ul {
-        float: left;
-        /* line-height: 60px; */
-        padding: 0px 3px;
-    }
-
-        .bottomleft ul li {
-            float: left;
-            font: 14px;
-            list-style: none;
-        }
-
-            .bottomleft ul li + li:before {
-                padding-left: 3px;
-                padding-right: 3px;
-                content: "|";
-            }
-
-    .bottomright ul {
-        /* float: right; */
-        /* line-height: 60px; */
-        padding: 0px 5px;
-    }
-
-        .bottomright ul li {
-            float: right;
-            font: 14px;
-            list-style: none;
-        }
-
-            .bottomright ul li + li::after {
-                padding-left: 3px;
-                padding-right: 3px;
-                content: "|";
-            }
 }

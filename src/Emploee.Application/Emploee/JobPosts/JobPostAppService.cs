@@ -26,6 +26,8 @@ using Emploee.Emploee.Job_Positions;
 using Emploee.Emploee.JobPosts.Authorization;
 using Emploee.Emploee.JobPosts.Dtos;
 using Emploee.Emploee.JobUrgents;
+using Emploee.Emploees.Companies;
+using Emploee.Emploees.Companies.Dtos;
 
 #region 代码生成器相关信息_ABP Code Generator Info
 //你好，我是ABP代码生成器的作者,欢迎您使用该工具，目前接受付费定制该工具，有需要的可以联系我
@@ -59,7 +61,9 @@ namespace Emploee.Emploee.JobPosts
         private readonly JobPostManage _jobPostManage;
         private publicListDto _pdto=new publicListDto();
         private readonly IRepository<JobUrgent, int> _jobUrgentRepository;
-        
+        private readonly IRepository<Company, int> _CompanyRepository;
+
+
         public ILogger Logger { get; set; }
         /// <summary>
         /// 构造方法
@@ -70,7 +74,8 @@ namespace Emploee.Emploee.JobPosts
             IJobPostListExcelExporter jobPostListExcelExporter,
             IAbpSession IAbpSession,
             IRepository<JobPosition, int> jobPositionRepository,
-            IRepository<JobUrgent, int> jobUrgentRepository
+            IRepository<JobUrgent, int> jobUrgentRepository,
+            IRepository<Company, int> CompanyRepository
 
         )
         {
@@ -81,6 +86,7 @@ namespace Emploee.Emploee.JobPosts
             _jobPositionRepository = jobPositionRepository;
             _jobUrgentRepository = jobUrgentRepository;
             Logger = NullLogger.Instance;
+            _CompanyRepository = CompanyRepository;
 
         }
 
@@ -342,15 +348,21 @@ namespace Emploee.Emploee.JobPosts
 
             JobPostEditDto jobPostEditDto;
 
-             
-                var entity = await _jobPostRepository.GetAsync(input);
+            CompanyEditDto companyDto =new CompanyEditDto();
+               var entity = await _jobPostRepository.GetAsync(input);
                 jobPostEditDto = entity.MapTo<JobPostEditDto>();
 
              
              
 
             output.JobPost = jobPostEditDto;
-             
+
+            if (entity.CompanyId != null)
+            {
+                var company= _CompanyRepository.FirstOrDefault(t => t.CompanyID == entity.CompanyId);
+                companyDto = company.MapTo<CompanyEditDto>();
+            }
+            output.Company = companyDto;
             return output;
         }
 

@@ -77,7 +77,7 @@ namespace Emploee.Emploee.JobPersons
         #endregion
 
 
-
+        Task<int> CreateFactoryAsync(GetJobPersonInput input);
 
     }
 }
