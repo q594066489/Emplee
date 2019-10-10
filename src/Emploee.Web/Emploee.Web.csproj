@@ -2017,6 +2017,11 @@
     <Content Include="libs\radioCss\readme.html" />
     <Content Include="libs\radioCss\related\1.jpg" />
     <Content Include="libs\radioCss\related\2.jpg" />
+    <Content Include="libs\slide-alert\index.html" />
+    <Content Include="libs\slide-alert\slideAlert.css" />
+    <Content Include="libs\slide-alert\slideAlert.js" />
+    <Content Include="libs\slide-alert\www.jq22.com.txt" />
+    <Content Include="libs\slide-alert\zepto.min.js" />
     <Content Include="libs\slider-revolution-slider\css\extralayers.css" />
     <Content Include="libs\slider-revolution-slider\css\navstylechange.css" />
     <Content Include="libs\slider-revolution-slider\css\noneed.css" />
@@ -3963,6 +3968,9 @@
     <Content Include="libs\aliIcon\iconfont.ttf" />
     <Content Include="libs\aliIcon\iconfont.woff" />
     <Content Include="libs\aliIcon\iconfont.woff2" />
+    <Content Include="libs\slide-alert\common.less" />
+    <Content Include="libs\slide-alert\jquery插件库.url" />
+    <Content Include="libs\slide-alert\slideAlert.less" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

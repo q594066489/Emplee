@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta content="slideAlert" name="description">
+    <meta content="slideAlert" name="keywords">
+    <meta content="lero" name="author">
+    <title>slide alert</title>
+    <link rel="stylesheet" href="slideAlert.css">
+    <style>
+        p{
+            margin: 0;
+        }
+        .bottom_buttons{
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            z-index: 10;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border: 1px solid #eee;
+            justify-content: space-between;
+        }
+        .bottom_buttons a{
+            display: block;
+            width: 50%;
+            text-align: center;
+        }
+        .sd-demo-content{
+            -webkit-overflow-scrolling: touch;
+            overflow: hidden;
+            overflow-y: auto;
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            padding-bottom: 50px;
+        }
+        #J-sd-demo>button{
+            width: 100px;
+            display: inline-block;
+        }
+        #haha{
+            position: absolute;
+            top: 100px;
+            right: 0;
+            left: 0;
+            width: 100px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <!--页面内容-->
+    <div style="width: 100%;height: 80px;position: fixed;top:0;background-color: #fff;text-align: center;">fixed header</div>
+    <div style="margin: 80px 0;">
+        <div id="J-sd-demo" style="min-height: 1000px;background-color:#cccccc;">
+            <p style="height: 200px">内容区域</p>
+            <button class="J-ac-btn" data-type="top">上</button>
+            <button class="J-ac-btn" data-type="bottom">下</button>
+            <button class="J-ac-btn" data-type="left">左</button>
+            <button class="J-ac-btn" data-type="right">右</button>
+            <button class="J-ac-btn" data-type="alert">弹出</button>
+            <button class="J-ac-btn" data-type="tips" data-time="1500">提示</button>
+            <button class="J-ac-btn" data-type="tips" data-time="0">一直提示</button>
+            <button id="J-close-tips" >关闭提示</button>
+        </div>
+    </div>
+    <div style="width: 100%;height: 80px;position: fixed;bottom:0;background-color: #fff;text-align: center;" id="fixedBotton">fixed bottom</div>
+    <!--模态框内容-->
+    <script id="J-top" type="text/html">
+        <p style="height: 1000px;">我是从上面滑出的模态框</p>
+    </script>
+    <script id="J-bottom" type="text/html">
+        <p style="height: 1000px;">我是从下面滑出的模态框</p>
+    </script>
+    <script id="J-left" type="text/html">
+        <div class="sd-demo-content">
+            <p style="height: 1000px;">我是从左面滑出的模态框</p>
+        </div>
+
+        <div class="bottom_buttons" id="J-btns">
+            <a href="javascript:void(0);">取消</a>
+            <a href="javascript:void(0);">确认</a>
+        </div>
+    </script>
+    <script id="J-right" type="text/html">
+        <p style="height: 1000px;">我是从右面滑出的模态框</p>
+
+    </script>
+    <script id="J-alert" type="text/html">
+        <p style="height: 1000px;">我是模态框</p>
+        <button id="haha">tips</button>
+    </script>
+    <script id="J-tips" type="text/html">
+        我是提示框
+    </script>
+
+
+    <script type="text/javascript" src="zepto.min.js"></script>
+    <script type="text/javascript" src="slideAlert.js?_=1223"></script>
+    <!--your code here-->
+    <script type="text/javascript">
+        var instance = null;
+        $('#J-sd-demo').delegate('.J-ac-btn', 'click',  function (e) {
+           var type = $(this).attr('data-type');
+           instance = $(this).slideAlert({
+               type: type,
+               content: $('#J-' + type).html(),
+               beforeOpen: function () {
+                   console.log('before open callback');
+               },
+               afterClose: function () {
+                   console.log('after close callback');
+               },
+               afterOpen: function () {
+                   // 点击模态框出提示
+                    $('#haha').on('click', function () {
+                        $(this).slideAlert({
+                            type: 'tips',
+                            content: "tips",
+                            time:0
+                        });
+                    });
+                    // 点击 确认/取消按钮
+                   $('#J-btns').on('click', 'a', function () {
+                       instance.close();
+                   });
+
+               },
+               shadeClose: true,
+               time: $(this).attr('data-time')
+           });
+        });
+        $('#J-close-tips').on('click', function (e) {
+            instance.closeTips()
+        })
+
+    </script>
+</body>
+</html>
