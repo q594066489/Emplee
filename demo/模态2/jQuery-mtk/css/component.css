@@ -86,7 +86,7 @@ perspective effects (not including the modals and the overlay).
 	color: #212121;
 }
 .md-content .md-close {
-	font-size: 13px;
+	font-size: 20px;
 }
 
 .md-content h3 {
@@ -188,4 +188,49 @@ perspective effects (not including the modals and the overlay).
 	overflow: auto;
 	 
 }
- 
+ .modeltop{
+	 position: absolute;
+	 left:5%;
+	 top:50%;
+	 display:block;
+ }
+ .closetop{
+	font-size: 40px;
+ }
+ .modelbtn{
+	 border: none;
+	 box-shadow:none;
+ }
+ .shaixuantop{
+	position: absolute;
+	left:50%;
+	top:55%;
+	 font-size: 18px;
+ }
+.tipBtn{
+  width: 100%;
+}
+.pbtn p {
+	font-size: 18px;
+}
+.divbtn {
+	width: 25%;
+	margin: 5px 10px;
+	padding: 0;
+	min-height: 50px;
+	height: auto;
+	 border: none ;  
+	cursor: pointer;
+	 
+}
+ /* :focus {
+	border-color: #438158;
+} */
+
+.divclick{
+	background-color: #fff;
+	border: 1px solid ;  
+	border-color: #438158;
+}
+:focus {outline:none;} /*for IE*/
+::-moz-focus-inner {border-color: transparent;} /*for mozilla*/

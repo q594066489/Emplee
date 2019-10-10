@@ -8,6 +8,10 @@
 <title>模态框多种弹出效果</title>
 <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
 <link href="css/component.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="js/index.js"></script>
+
+
 </head>
 
 <body>
@@ -32,10 +36,29 @@
   <div class="md-modal md-effect-2" id="modal-2">
     <div class="md-content">
       <div class="header">
-          <a href="#" class="md-close btn-sm btn-primary"><i class="glyphicon glyphicon-remove"></i></a>
+           
+          <button type="button" class="md-close   modeltop btn btn-default btn-lg modelbtn">
+              <span class="glyphicon glyphicon-remove"></span>  
+            </button>
+            <span class="shaixuantop">
+              <strong >筛 选</strong></span>
       </div>
       <div class="homeContent">
+      <div class="tipBtn">
+        <p class="pbtn">学历</p>
+        <div>
+          <button  class="divbtn">全部</button>
+          <button  class="divbtn">初中及以下</button>
+          <button  class="divbtn">中专</button>
+          <button  class="divbtn">高中</button>
+          <button  class="divbtn">大专</button>
+          <button  class="divbtn">本科</button>
+          <button  class="divbtn">硕士</button>
+          <button  class="divbtn">博士</button>
+           
+        </div>
 
+      </div>
       
       <h3>Modal Dialog</h3>
       <div>
@@ -72,4 +95,5 @@
 </body>
 <script src="js/classie.js"></script>
 <script src="js/modalEffects.js"></script>
+
 </html>
