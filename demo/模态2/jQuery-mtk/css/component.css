@@ -223,10 +223,18 @@ perspective effects (not including the modals and the overlay).
 	cursor: pointer;
 	 
 }
+
  /* :focus {
 	border-color: #438158;
 } */
-
+.btnMemoMore,.btnMemo{
+	height: 180px;
+	overflow: hidden;
+}
+.btnMemoShow{
+	/* overflow: none; */
+	height: auto;
+}
 .divclick{
 	background-color: #fff;
 	border: 1px solid ;  
