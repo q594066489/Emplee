@@ -26,11 +26,8 @@ perspective effects (not including the modals and the overlay).
 	position: fixed;
 	top: 0px;
 	right: 0px ;
-	 
-
-	 
-	width: 70%;
-	height: 100%;
+	width: 100vw;
+	height: 100vh;
 	z-index: 9999998;
 	visibility: hidden;
 	-webkit-transform: translateX(0) translateY(0);
@@ -67,16 +64,21 @@ perspective effects (not including the modals and the overlay).
 .md-content {
 	color: #5b5b5b;
 	background: #fff;
+	 
 	position: relative;
 	border-radius: 0px;
 	margin: 0 auto;
-	min-height: 100%;
+	min-height: 100vh;
+	 
+
 }
 .md-content .md-close-btn {
 	position: absolute;
 	top: 10px;
 	right: 5px;
 	z-index: 999999;
+	background: none;
+	border:none;
 }
 .md-content .md-close-btn a{
 	color: #909090;
@@ -101,7 +103,7 @@ perspective effects (not including the modals and the overlay).
 }
 
 .md-content > div {
-	padding: 15px 40px 30px;
+	padding: 15px 0px 30px 0px;
 	margin: 0;
 	font-weight: 300;
 	font-size: 14px;
@@ -112,14 +114,7 @@ perspective effects (not including the modals and the overlay).
 	padding: 10px 0;
 }
 
-.md-content > div ul {
-	margin: 0;
-	padding: 0 0 30px 20px;
-}
-
-.md-content > div ul li {
-	padding: 5px 0;
-}
+ 
 
 
 /* Individual modal styles with animations/transitions */
@@ -186,6 +181,7 @@ perspective effects (not including the modals and the overlay).
     right: 0;
     bottom: 15%;
 	overflow: auto;
+	background: #b2bec7a8;
 	 
 }
  .modeltop{
@@ -200,6 +196,8 @@ perspective effects (not including the modals and the overlay).
  .modelbtn{
 	 border: none;
 	 box-shadow:none;
+	 background: none;
+		 
  }
  .shaixuantop{
 	position: absolute;
@@ -208,17 +206,18 @@ perspective effects (not including the modals and the overlay).
 	 font-size: 18px;
  }
 .tipBtn{
-  width: 100%;
+  width: 95vw;
+  margin:0 auto;
 }
 .pbtn p {
 	font-size: 18px;
 }
 .divbtn {
-	width: 25%;
-	margin: 5px 10px;
-	padding: 0;
-	min-height: 50px;
-	height: auto;
+	width: 26vw;
+	margin: 5px 5px;
+	padding-left: 0  ;
+	height: 50px;  
+	/* height: auto; */
 	 border: none ;  
 	cursor: pointer;
 	 
@@ -229,7 +228,7 @@ perspective effects (not including the modals and the overlay).
 } */
 .btnMemoMore,.btnMemo{
 	height: 180px;
-	overflow: hidden;
+	overflow-y: hidden;
 }
 .btnMemoShow{
 	/* overflow: none; */

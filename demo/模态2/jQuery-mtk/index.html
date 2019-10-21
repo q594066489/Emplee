@@ -15,7 +15,8 @@
 </head>
 
 <body>
-<div style="width:1000px; height:500px; padding-left:450px;">
+<!-- <div style="width:1000px; height:500px; padding-left:450px;"> -->
+  <div style="width: 100vw;">
   <table class="table" style=" background-color:#FC9">
     <thead>
       <tr>
@@ -47,14 +48,14 @@
       <div class="tipBtn">
         <p class="pbtn">学历</p>
         <div class="btnMemo">
-          <button  class="divbtn" data-class="education" data-value="全部">全部</button>
-          <button  class="divbtn" data-class="education" data-value="初中及以下">初中及以下</button>
-          <button  class="divbtn" data-class="education" data-value="中专">中专</button>
-          <button  class="divbtn" data-class="education" data-value="高中">高中</button>
-          <button  class="divbtn" data-class="education" data-value="大专">大专</button>
-          <button  class="divbtn" data-class="education" data-value="本科">本科</button>
-          <button  class="divbtn" data-class="education" data-value="硕士">硕士</button>
-          <button  class="divbtn" data-class="education" data-value="博士">博士</button>
+          <button  class=" divbtn" data-class="education" data-value="全部">全部</button>
+          <button  class=" divbtn" data-class="education" data-value="初中及以下">初中及以下</button>
+          <button  class=" divbtn" data-class="education" data-value="中专">中专</button>
+          <button  class=" divbtn" data-class="education" data-value="高中">高中</button>
+          <button  class=" divbtn" data-class="education" data-value="大专">大专</button>
+          <button  class=" divbtn" data-class="education" data-value="本科">本科</button>
+          <button  class=" divbtn" data-class="education" data-value="硕士">硕士</button>
+          <button  class=" divbtn" data-class="education" data-value="博士">博士</button>
            
         </div>
 
@@ -62,13 +63,13 @@
       <div class="tipBtn">
         <p class="pbtn">薪资待遇</p>
         <div class="btnMemo">
-          <button  class="divbtn">全部</button>
-          <button  class="divbtn">3K以下</button>
-          <button  class="divbtn">3-5K</button>
-          <button  class="divbtn">5-10K</button>
-          <button  class="divbtn">10-20K</button>
-          <button  class="divbtn">20-50K</button>
-          <button  class="divbtn">50K以上</button>
+          <button  class="divbtn" data-class="salary" data-value="全部">全部</button>
+          <button  class="divbtn" data-class="salary" data-value="3K以下">3K以下</button>
+          <button  class="divbtn" data-class="salary" data-value="3-5K">3-5K</button>
+          <button  class="divbtn" data-class="salary" data-value="5-10K">5-10K</button>
+          <button  class="divbtn" data-class="salary" data-value="10-20K">10-20K</button>
+          <button  class="divbtn" data-class="salary" data-value="20-50K">20-50K</button>
+          <button  class="divbtn" data-class="salary" data-value="50K以上">50K以上</button>
            
            
         </div>
@@ -77,12 +78,12 @@
       <div class="tipBtn">
         <p class="pbtn">经验要求</p>
         <div class="btnMemo">
-          <button  class="divbtn">全部</button>
-          <button  class="divbtn">1年以内</button>
-          <button  class="divbtn">1-3年</button>
-          <button  class="divbtn">3-5年</button>
-          <button  class="divbtn">5-10年</button>
-          <button  class="divbtn">10年以上</button>
+          <button  class="divbtn" data-class="experience" data-value="全部">经验不限</button>
+          <button  class="divbtn" data-class="experience" data-value="1年以内">1年以内</button>
+          <button  class="divbtn" data-class="experience" data-value="1-3年">1-3年</button>
+          <button  class="divbtn" data-class="experience" data-value="3-5年">3-5年</button>
+          <button  class="divbtn" data-class="experience" data-value="5-10年">5-10年</button>
+          <button  class="divbtn" data-class="experience" data-value="10年以上">10年以上</button>
           
         </div>
 
@@ -90,44 +91,52 @@
       <div class="tipBtn">
         <p class="pbtn">公司规模</p>
         <div class="btnMemo">
-          <button  class="divbtn">全部</button>
-          <button  class="divbtn">0-20人</button>
-          <button  class="divbtn">20-99人</button>
-          <button  class="divbtn">100-499人</button>
-          <button  class="divbtn">500-999人</button>
-          <button  class="divbtn">1000-9999人</button>
-          <button  class="divbtn">10000人以上</button>
+          <button  class="divbtn" data-class="scale" data-value="全部">全部</button>
+          <button  class="divbtn" data-class="scale" data-value="0-20人">0-20人</button>
+          <button  class="divbtn" data-class="scale" data-value="20-99人">20-99人</button>
+          <button  class="divbtn" data-class="scale" data-value="100-499人">100-499人</button>
+          <button  class="divbtn" data-class="scale" data-value="500-999人">500-999人</button>
+          <button  class="divbtn" data-class="scale" data-value="1000-9999人">1000-9999人</button>
+          <button  class="divbtn" data-class="scale" data-value="10000人以上">10000人以上</button>
            
            
         </div>
+        
 
       </div>
       <div class="tipBtn">
-        <p class="pbtn">融资阶段</p>
+        <p class="pbtn">融资阶段
+          <span class="showord efault pull-right">展开</span>
+        </p> 
+        
         <div class="btnMemoMore">
-          <button  class="divbtn">全部</button>
-          <button  class="divbtn">未融资</button>
-          <button  class="divbtn">天使轮</button>
-          <button  class="divbtn">A轮</button>
-          <button  class="divbtn">B轮</button>
-          <button  class="divbtn">C轮</button>
-          <button  class="divbtn">D轮</button>
-          <button  class="divbtn">已上市</button>
-          <button  class="divbtn">不需要融资</button>
-          <button  class="divbtn">已上市</button>
-          <button  class="divbtn">不需要融资</button> 
-         
+          <button  class="divbtn"  data-class="finance" data-value="全部">全部</button>
+          <button  class="divbtn"  data-class="finance" data-value="未融资">未融资</button>
+          <button  class="divbtn"  data-class="finance" data-value="天使轮">天使轮</button>
+          <button  class="divbtn"  data-class="finance" data-value="A轮">A轮</button>
+          <button  class="divbtn"  data-class="finance" data-value="B轮">B轮</button>
+          <button  class="divbtn"  data-class="finance" data-value="C轮">C轮</button>
+          <button  class="divbtn"  data-class="finance" data-value="D轮">D轮</button>
+          <button  class="divbtn"  data-class="finance" data-value="已上市1">已上市1</button>
+          <button  class="divbtn"  data-class="finance" data-value="不需要融资2">不需要融资2</button>
+          <button  class="divbtn"  data-class="finance" data-value="已上市3">已上市3</button>
+          <button  class="divbtn"  data-class="finance" data-value="不需要融资4">不需要融资4</button> 
+          <button  class="divbtn"  data-class="finance" data-value="已上市5">已上市5</button>
+          <button  class="divbtn"  data-class="finance" data-value="不需要融资6">不需要融资6</button>
+          <button  class="divbtn"  data-class="finance" data-value="已上市7">已上市7</button>
+          <button  class="divbtn"  data-class="finance" data-value="不需要融资8">不需要融资8</button> 
          
         </div>
 
       </div>
-    </div>
-    </div>
-      <div class="footer">
-          <!-- <button class="md-close btn-sm btn-primary">Close me!</button> -->
-            
-         </div>  
       </div>
+      <div class="footer">
+      <!-- <button class="md-close btn-sm btn-primary">Close me!</button> -->
+        
+     </div>  
+  </div>
+    </div>
+      
     </div>
   </div>
    
